@@ -1,0 +1,117 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.card-body > .card-title {
+  font-family: "Comfortaa", cursive;
+}
+
+.card-title {
+  font-weight: 1000;
+  font-size: 1.25rem;
+}
+
+.card-detail-title {
+  writing-mode: vertical-rl;
+    /* transform: rotate(-90deg); */
+    position: absolute;
+    margin-left: 110%;
+    font-size: larger;
+}
+
+.card-image {
+  min-height:7.5rem;
+  width: auto;
+}
+
+h2 {
+  color: #3046c5;
+}
+
+.card-img-overlay .card-title {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.row-content {
+  padding: 50px 0;
+  border-bottom: 1px ridge;
+  min-height: 200px;
+}
+
+.site-footer {
+  padding: 20px 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  opacity: 0.85;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #f90497, transparent),
+    radial-gradient(ellipse at bottom, #d1c3b2, transparent);
+  margin-right: -11rem;
+  color: white;
+  font-size: larger;
+  width: 100%;
+}
+
+.navbar-brand {
+  max-width: 4rem;
+  margin-right: 2rem;
+}
+
+.navbar-brand img {
+  width: 100%;
+  height: 100%;
+  margin-right: 2rem;
+  max-width: 4rem;
+}
+
+.navbar-dark {
+  background-color: #901cad;
+  min-height: 4rem;
+  text-indent: 7em;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background: url("https://image.shutterstock.com/image-vector/traditional-indian-paisley-pattern-on-600w-1726867504.jpg")
+      no-repeat,
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent);
+}
+
+.page-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: 300ms ease-out;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: 300ms ease-in;
+}
+
+#heart {
+  transition: 0.1s;
+  border: none;
+  cursor: pointer;
+  filter: grayscale(1);
+}
+
+#heart:hover {
+  font-size: 2rem;
+  transform: scale(1.23);
+  filter: grayscale(0);
+}
