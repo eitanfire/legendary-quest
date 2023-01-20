@@ -31,22 +31,22 @@ const Header = () => {
         <Nav className="ms-auto" navbar>
           <NavItem>
             <NavLink className="nav-link" to="/">
-              <i className="fa fa-home fa-lg" /> Home
+              <i className="fa fa-terminal fa-lg " /> Home
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink className="nav-link" to="/directory">
-              <i className="fa fa-list fa-lg" /> Directory
+              <i className="fa fa-archive fa-lg" aria-hidden="true" /> Directory
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink className="nav-link" to="/about">
-              <i className="fa fa-info fa-lg" /> About
+              <i className="fa fa-lightbulb-o fa-lg" /> About
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink className="nav-link" to="/contact">
-              <i className="fa fa-address-card fa-lg" /> Contact
+              <i className="fa fa-comments fa-lg" /> Contact
             </NavLink>
           </NavItem>
         </Nav>
