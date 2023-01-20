@@ -75,12 +75,13 @@ h2 {
   min-height: 4rem;
   text-indent: 7em;
   border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  background: url("https://image.shutterstock.com/image-vector/traditional-indian-paisley-pattern-on-600w-1726867504.jpg")
-      no-repeat,
+  border-bottom: 1px solid rgb(0, 0, 0);
+  background: url("https://cdn.xxl.thumbs.canstockphoto.com/abstract-davids-bust-with-neon-gloving-light-on-grid-background-banner-design-retrowave-stock-photograph_csp69193594.jpg")
+     no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
+    background-position: 0% 50%;
 }
 
 .page-enter {
