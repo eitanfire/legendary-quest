@@ -11,3 +11,7 @@ export const selectAllCourses = () => {
 export const selectCourseById = (id) => {
   return COURSES.find((course) => course.id === id);
 };
+
+export const selectFeaturedCourse = () => {
+    return COURSES.find((course) => course.featured);
+};

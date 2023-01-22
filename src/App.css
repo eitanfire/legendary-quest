@@ -89,6 +89,12 @@ h2 {
   transform: translateX(-100%);
 }
 
+.nav-link {
+  font-weight: bold;
+  font-family: "Comfortaa";
+  
+}
+
 .page-enter-active {
   opacity: 1;
   transform: translateX(0%);
