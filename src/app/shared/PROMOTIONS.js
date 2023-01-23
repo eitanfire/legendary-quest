@@ -1,41 +1,38 @@
-import breadCrumbImg from '../assets/img/breadcrumb-trail.jpg';
-//Photo by Jonny Caspari on Unsplash
-import weedsImg from '../assets/img/weeds.jpg';
-// Photo by LoboStudio Hamburg on Unsplash
-import bootsImg from '../assets/img/boots.jpg';
-// Photo by Jonathan Gallegos on Unsplash
-import asyncImg from '../assets/img/mount-promise.jpg';
+import rantinghomer from '../assets/img/rantinghomer.gif';
+import urges from "../assets/img/urges.jpeg";
+import greeks from "../assets/img/greek-philosophers.webp";
+import HotTake from "../assets/img/HotTake.jpeg";
 
 export const PROMOTIONS = [
-    {
-        id: 0,
-        name: 'Mountain Adventure',
-        image: breadCrumbImg,
-        featured: true,
-        description:
-            'Book a 5-day mountain trek with a seasoned outdoor guide! Fly fishing equipment and lessons provided.'
-    },
-    {
-        id: 1,
-        name: 'Into The Weeds',
-        image: weedsImg,
-        featured: false,
-        description:
-            '5 days deep in the Redux National Monument, far from the beaten path, with only a reducer in your backpack. Guide provided.'
-    },
-    {
-        id: 2,
-        name: 'Bootstrap Teardown',
-        image: bootsImg,
-        featured: false,
-        description: `In this weekend workshop, we'll rebuild your bootstraps from scratch, so you're ready for next-level excursions.`
-    },
-    {
-        id: 3,
-        name: 'Asynchronous Rendezvous',
-        image: asyncImg,
-        featured: false,
-        description:
-            'Meet up with your guide at the top of Promise Mountain. Or, try to. Good luck!'
-    }
+  {
+    id: 0,
+    name: "Mountain Adventure",
+    image: rantinghomer,
+    featured: true,
+    description:
+      "Book a 5-day mountain trek with a seasoned outdoor guide! Fly fishing equipment and lessons provided.",
+  },
+  {
+    id: 1,
+    name: "Into The Weeds",
+    image: urges,
+    featured: false,
+    description:
+      "5 days deep in the Redux National Monument, far from the beaten path, with only a reducer in your backpack. Guide provided.",
+  },
+  {
+    id: 2,
+    name: "Bootstrap Teardown",
+    image: HotTake,
+    featured: false,
+    description: `In this weekend workshop, we'll rebuild your bootstraps from scratch, so you're ready for next-level excursions.`,
+  },
+  {
+    id: 3,
+    name: "Asynchronous Rendezvous",
+    image: greeks,
+    featured: false,
+    description:
+      "Meet up with your guide at the top of Promise Mountain. Or, try to. Good luck!",
+  },
 ];

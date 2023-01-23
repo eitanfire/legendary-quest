@@ -1,16 +1,23 @@
-import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
+import { Col, Row, Container } from "reactstrap";
+import DisplayCard from "./DisplayCard";
+import { selectFeaturedCourse } from "../courses/coursesSlice";
+import { selectFeaturedPromotion } from "../promotions/promotionsSlice";
 
-const DisplayCard = ({ item }) => {
-    const { image, name, description } = item;
-    return (
-      <Card>
-        <CardImg src={image} alt={name} />
-        <CardBody>
-          <CardTitle>{name}</CardTitle>
-          <CardText>{description}</CardText>
-        </CardBody>
-      </Card>
-    );
+const DisplayList = () => {
+  const items = [selectFeaturedCourse(), selectFeaturedPromotion()];
+
+  return (
+    <Row>
+      {items.map((item, idx) => {
+        return (
+          <Col md className="m-1" key={idx}>
+            <DisplayCard item={item} />
+          </Col>
+        );
+      })}
+    </Row>
+  );
 };
 
-export default DisplayCard;
+
+export default DisplayList;
