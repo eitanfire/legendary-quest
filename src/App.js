@@ -2,6 +2,7 @@ import CoursesDirectoryPage from "./pages/CoursesDirectoryPage";
 import { Routes, Route } from "react-router-dom";
 import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
+import CourseDetailPage from "./pages/CourseDetailPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
 import './App.css';
@@ -14,7 +15,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
-      </Routes>{" "}
+        <Route path="directory/:courseId" element={<CourseDetailPage />} />
+      </Routes>
       <Footer />
     </div>
   );

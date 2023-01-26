@@ -9,7 +9,7 @@ export const selectAllCourses = () => {
 // };
 
 export const selectCourseById = (id) => {
-  return COURSES.find((course) => course.id === id);
+  return COURSES.find((course) => course.id === parseInt(id));
 };
 
 export const selectFeaturedCourse = () => {
