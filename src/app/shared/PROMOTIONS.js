@@ -8,7 +8,7 @@ export const PROMOTIONS = [
     id: 0,
     name: "Mountain Adventure",
     image: rantinghomer,
-    featured: true,
+    featured: false,
     description:
       "Book a 5-day mountain trek with a seasoned outdoor guide! Fly fishing equipment and lessons provided.",
   },
@@ -16,7 +16,7 @@ export const PROMOTIONS = [
     id: 1,
     name: "Into The Weeds",
     image: urges,
-    featured: false,
+    featured: true,
     description:
       "5 days deep in the Redux National Monument, far from the beaten path, with only a reducer in your backpack. Guide provided.",
   },
