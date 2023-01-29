@@ -1,8 +1,10 @@
 import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
+import SubHeader from '../components/Header';
 
 const AboutPage = () => {
     return (
       <Container>
+        <SubHeader current={'About Us'}></SubHeader>
         <Row className="row-content">
           <Col sm="6">
             <h3>Our Mission</h3>
@@ -39,11 +41,13 @@ const AboutPage = () => {
           <Col>
             <Card className="bg-light mt-3">
               <CardBody>
+                <br />
                 <blockquote className="blockquote">
                   <p>
                     I will not follow where the path may lead, but I will go
                     where there is no path, and I will leave a trail.
                   </p>
+                  <br />
                   <footer className="blockquote-footer">
                     {" "}
                     Muriel Strode,{" "}
