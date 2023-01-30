@@ -55,7 +55,7 @@ h2 {
   margin-right: -11rem;
   color: white;
   font-size: larger;
-  width: 100%;
+  width:100%;
 }
 
 .navbar-brand {
@@ -71,9 +71,9 @@ h2 {
 }
 
 .navbar-dark {
-  background-color: #901cad;
+   background-color: #901cad;
   min-height: 4rem;
-  text-indent: 7em;
+  min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
   background: url("https://cdn.xxl.thumbs.canstockphoto.com/abstract-davids-bust-with-neon-gloving-light-on-grid-background-banner-design-retrowave-stock-photograph_csp69193594.jpg")
@@ -82,6 +82,9 @@ h2 {
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
     background-position: 0% 50%;
+    width:auto;
+  margin-bottom: 2rem;
+  min-height: 6rem;
 }
 
 .page-enter {

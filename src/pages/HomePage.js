@@ -3,9 +3,9 @@ import DisplayList from "../features/display/DisplayList";
 
 const HomePage = () => {
   return (
-  <Container>
-    <DisplayList />
-  </Container>
+    <Container>
+      <DisplayList className="displayList" />
+    </Container>
   );
 };
 
