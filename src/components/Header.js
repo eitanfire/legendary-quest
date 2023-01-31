@@ -21,7 +21,7 @@ const Header = () => {
           alt="Teach League Logo"
           className="float-start"
         />
-        <h1 className="mt-1" style={{ color: "rgb(44, 214, 230)" }}>
+        <h1 className="title">
           Teach League
         </h1>
       </NavbarBrand>

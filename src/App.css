@@ -108,6 +108,11 @@ h2 {
   opacity: 1;
 }
 
+.title {
+color: rgb(44, 214, 230);
+text-indent: 7.75rem;
+}
+
 .page-exit-active {
   opacity: 0;
   transition: 300ms ease-in;
