@@ -1,15 +1,16 @@
 import { Col, Row, Container } from "reactstrap";
 import DisplayCard from "./DisplayCard";
-import { selectFeaturedCourse } from "../courses/coursesSlice";
+// import { selectFeaturedCourse } from "../courses/coursesSlice";
 import { selectFeaturedPromotion } from "../promotions/promotionsSlice";
 import { selectFeaturedPartner } from "../partners/partnersSlice";
-
+import { selectRandomCourse } from "../courses/coursesSlice";
 
 const DisplayList = () => {
   const items = [
-    selectFeaturedCourse(),
+    // selectFeaturedCourse(),
     selectFeaturedPromotion(),
     selectFeaturedPartner(),
+    selectRandomCourse(),
   ];
 
   return (
