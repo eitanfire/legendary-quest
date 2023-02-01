@@ -14,7 +14,7 @@ function Theme() {
   }, [theme]);
   return (
     <div className={`App ${theme}`}>
-     <button onClick={toggleTheme}>Toggle Theme</button>
+      <button onClick={toggleTheme}>{(theme === "light") ? "Vapor Wave" : "Light Mode"}</button>
     </div>
   );
 }
