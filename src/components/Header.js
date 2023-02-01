@@ -9,6 +9,7 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
+import Theme from './ChangeTheme';
 
 const Header = () => {
       const [menuOpen, setMenuOpen] = useState(false);
@@ -21,9 +22,7 @@ const Header = () => {
           alt="Teach League Logo"
           className="float-start"
         />
-        <h1 className="title">
-          Teach League
-        </h1>
+        <h1 className="title">Teach League</h1>
       </NavbarBrand>
       <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
 
@@ -49,6 +48,7 @@ const Header = () => {
               <i className="fa fa-comments fa-lg" /> Contact
             </NavLink>
           </NavItem>
+          <Theme />
         </Nav>
       </Collapse>
     </Navbar>
