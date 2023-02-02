@@ -9,7 +9,6 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
-import Theme from './ChangeTheme';
 
 const Header = () => {
       const [menuOpen, setMenuOpen] = useState(false);
@@ -40,7 +39,7 @@ const Header = () => {
           </NavItem>
           <NavItem>
             <NavLink className="nav-link" to="/about">
-              <i className="fa fa-lightbulb-o fa-lg" /> About
+              <i className="fa fa-solid fa-question" /> About
             </NavLink>
           </NavItem>
           <NavItem>
@@ -48,7 +47,6 @@ const Header = () => {
               <i className="fa fa-comments fa-lg" /> Contact
             </NavLink>
           </NavItem>
-          <Theme />
         </Nav>
       </Collapse>
     </Navbar>

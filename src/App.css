@@ -137,4 +137,6 @@ color: rgb(44, 214, 230);
 
 .button {
   border-radius: 12px;
+   position: relative;
+  left:4%;
 }
