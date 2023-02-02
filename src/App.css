@@ -130,3 +130,11 @@ text-indent: 7.75rem;
   transform: scale(1.23);
   filter: grayscale(0);
 }
+
+ .darkBulb {
+color: rgb(44, 214, 230);
+    }
+
+.button {
+  border-radius: 12px;
+}
