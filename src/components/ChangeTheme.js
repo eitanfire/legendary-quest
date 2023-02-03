@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Header from './Header';
 import "../../src/vaporWaveMode.css";
 
 function Theme() {
@@ -15,7 +16,7 @@ function Theme() {
   }, [theme]);
   return (
     <span className={`App ${theme}`}>
-      <button className='button' onClick={toggleTheme}>
+      <button id="button" className="card-body" onClick={toggleTheme}>
         {theme === "light" ? (
           <i className="fa fa-lightbulb-o fa-lg" />
         ) : (

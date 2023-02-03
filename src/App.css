@@ -71,7 +71,7 @@ h2 {
 }
 
 .navbar-dark {
-   background-color: #901cad;
+  background-color: #901cad;
   min-height: 4rem;
   min-width: none;
   border-top: 1px solid #000;
@@ -135,8 +135,9 @@ text-indent: 7.75rem;
 color: rgb(44, 214, 230);
     }
 
-.button {
+#button {
   border-radius: 12px;
-   position: relative;
+  position: relative;
   left:4%;
+  background-clip:text;
 }
