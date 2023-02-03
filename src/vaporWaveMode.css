@@ -3,7 +3,7 @@
   color:darkviolet;
 }
 
-.light {
-  background-color: #fff;
-  color: #333;
+.vaporWave .card-body {
+  background-color: darkgray;
+color: purple;
 }

@@ -4,7 +4,7 @@ import "../../src/vaporWaveMode.css";
 
 function Theme() {
   const [theme, setTheme] = useState("light");
-  const toggleTheme = () => {
+  const toggleTheme = (Header) => {
     if (theme === "light") {
       setTheme("vaporWave");
     } else {
