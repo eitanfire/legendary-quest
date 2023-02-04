@@ -21,7 +21,7 @@ const AboutPage = () => {
           </Col>
           <Col sm="6">
             <Card>
-              <CardHeader className="bg-primary text-white">
+              <CardHeader className="card-header">
                 <h3>Facts at a Glance</h3>
               </CardHeader>
               <CardBody>

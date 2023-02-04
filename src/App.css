@@ -42,24 +42,33 @@ h2 {
   min-height: 200px;
 }
 
+#BottomText {
+  position:relative;
+  /* right: 0rem; */
+  bottom: 4rem;
+  /* left: 6rem; */
+    margin-left: auto;
+  margin-right: -16rem;
+}
 #BottomText, .site-footer {
-  padding: 20px 0;
+  padding: 15px 0;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: -5rem;
   opacity: 0.85;
-  margin-right: -11rem;
   color: white;
   font-size: larger;
   width:100%;
 }
 
-#BottomText {
-  position: absolute;
-  right: 0px;
-  bottom: -4%;
-  left: 0px;
-}
-  .site-footer {
+
+
+/* @media all and (max-width: 1260px) {
+  #BottomText {
+    text-indent: 50;
+  }
+} */
+
+  .vaporWave .site-footer {
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
@@ -67,7 +76,15 @@ h2 {
     radial-gradient(ellipse at bottom, #d1c3b2, transparent);
   }
 
-.navbar-brand {
+   .light .site-footer {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background:  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, blue, transparent),
+    radial-gradient(ellipse at bottom, red, transparent);
+  }
+
+ .navbar-brand {
   max-width: 4rem;
   margin-right: 2rem;
 }
@@ -79,7 +96,7 @@ h2 {
   max-width: 4rem;
 }
 
-.navbar-dark {
+.vaporWave .navbar-dark {
   background-color: #901cad;
   min-height: 4rem;
   min-width: none;
@@ -93,7 +110,25 @@ h2 {
     background-position: 0% 50%;
     width:auto;
   margin-bottom: 2rem;
-  min-height: 6rem;
+  min-height: 2rem;
+}
+
+.light .navbar-dark {
+ background-color: #901cad;
+  min-height: 4rem;
+  min-width: none;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  /* background: url("https://img.favpng.com/24/11/11/student-course-credit-college-education-png-favpng-bRiYYiqBA0qUmELiwk5n29hD0_t.jpg") */
+  background: url("https://cdn.pixabay.com/photo/2016/10/18/20/33/bookshelves-1751334_1280.png")
+     no-repeat,
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, blue, transparent),
+    radial-gradient(ellipse at bottom, red, transparent);
+    background-position: -00% 55%;
+    width:auto;
+  margin-bottom: 2rem;
+  min-height: 2rem;
 }
 
 .page-enter {
@@ -145,8 +180,8 @@ color: rgb(44, 214, 230);
     }
 
 #button {
-  border-radius: 12px;
-  position: relative;
+    position: fixed;
+  border-radius:12px;
   left:4%;
   background-clip:text;
 }

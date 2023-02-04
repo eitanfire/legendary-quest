@@ -50,7 +50,6 @@ const Footer = () => {
             >
               <i className="fa fa-youtube" />
             </a>
-            <BottomText />
           </Col>
           <Col sm="4" className="text-center">
             <a role="button" className="btn btn-link" href="tel:+12065551234">
@@ -65,6 +64,12 @@ const Footer = () => {
               <i className="fa fa-envelope-o" /> campsites@nucamp.co
             </a>
           </Col>
+        </Row>
+        <Row>
+          <Col>
+            <BottomText />
+          </Col>
+  
         </Row>
       </Container>
     </footer>
