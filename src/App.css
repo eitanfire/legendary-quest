@@ -42,21 +42,30 @@ h2 {
   min-height: 200px;
 }
 
-.site-footer {
+#BottomText, .site-footer {
   padding: 20px 0;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
   opacity: 0.85;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-    radial-gradient(ellipse at top, #f90497, transparent),
-    radial-gradient(ellipse at bottom, #d1c3b2, transparent);
   margin-right: -11rem;
   color: white;
   font-size: larger;
   width:100%;
 }
+
+#BottomText {
+  position: absolute;
+  right: 0px;
+  bottom: -4%;
+  left: 0px;
+}
+  .site-footer {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #f90497, transparent),
+    radial-gradient(ellipse at bottom, #d1c3b2, transparent);
+  }
 
 .navbar-brand {
   max-width: 4rem;

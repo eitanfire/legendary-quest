@@ -1,5 +1,6 @@
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
+import BottomText from './BottomText';
 
 const Footer = () => {
   return (
@@ -49,6 +50,7 @@ const Footer = () => {
             >
               <i className="fa fa-youtube" />
             </a>
+            <BottomText />
           </Col>
           <Col sm="4" className="text-center">
             <a role="button" className="btn btn-link" href="tel:+12065551234">

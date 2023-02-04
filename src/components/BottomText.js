@@ -2,7 +2,7 @@ const BottomText = () => {
   const d = new Date();
   let year = d.getFullYear();
   return (
-    <p className="App" id="Footer">
+    <p  Id="BottomText">
       © Teach League <span style={{ color: "orange" }}>{year}</span> ⎸{" "}
       <span style={{ fontStyle: "italic" }}>We</span><span id="heart"> ❤️ </span>
       <span style={{ fontStyle: "italic" }}>Teachers!</span>
