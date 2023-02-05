@@ -59,9 +59,9 @@ const Footer = () => {
             <a
               role="button"
               className="btn btn-link"
-              href="mailto:notreal@notreal.co"
+              href="mailto:support@teachleague.com"
             >
-              <i className="fa fa-envelope-o" /> campsites@nucamp.co
+              <i className="fa fa-envelope-o" /> support@teachleague
             </a>
           </Col>
         </Row>
@@ -69,7 +69,6 @@ const Footer = () => {
           <Col>
             <BottomText />
           </Col>
-  
         </Row>
       </Container>
     </footer>
