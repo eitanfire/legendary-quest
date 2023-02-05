@@ -13,7 +13,7 @@ export const COURSES = [
     name: "📜 Philosophy",
     image: Philosophy,
     semester: 2,
-    featured: true,
+    featured: false,
     description:
       "The study of the fundamental nature of knowledge, reality, and existence.",
   },
@@ -67,7 +67,7 @@ export const COURSES = [
     name: "⚔ Epics",
     image: Epics,
     semester: 2,
-    featured: false,
+    featured: true,
     description:
       "From the Mahabharata to the Odyssey epic poems are mysterious stories with ancient origins that contain a wealth of insight regarding what it means to be human and the journey we all go on in life. This class will examine relevant historical connections to these stories and study these poems themselves through excerpts, reinterpretations through graphic novels, roleplay, and art.",
   },

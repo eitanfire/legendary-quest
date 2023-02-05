@@ -1,26 +1,27 @@
 import { Col, Row, Container } from "reactstrap";
-import DisplayCard from "./DisplayCard";
+import AnimatedDisplayCard from "./AnimatedDisplayCard";
 // import { selectFeaturedCourse } from "../courses/coursesSlice";
 import { selectFeaturedPromotion } from "../promotions/promotionsSlice";
 import { selectFeaturedPartner } from "../partners/partnersSlice";
-import { selectRandomCourse } from "../courses/coursesSlice";
+import { selectFeaturedCourse } from "../courses/coursesSlice";
 
 const DisplayList = () => {
   const items = [
     // selectFeaturedCourse(),
     selectFeaturedPromotion(),
     selectFeaturedPartner(),
-    selectRandomCourse(),
+    selectFeaturedCourse(),
   ];
 
   return (
     <Row>
       {items.map((item, idx) => {
         return (
+           item && (
           <Col md className="m-1" key={idx}>
-            <DisplayCard item={item} />
+            <AnimatedDisplayCard item={item} />
           </Col>
-        );
+        ));
       })}
     </Row>
   );
