@@ -8,33 +8,59 @@ const AboutPage = () => {
         {/* <SubHeader current={'About Us'}></SubHeader> */}
         <Row className="row-content">
           <Col sm="6">
-            <h3>Our Mission</h3>
+            <h3 className="title">Our Mission</h3>
             <p>
-              We present a curated database of the best campsites in the vast
-              woods and backcountry of the World Wide Web Wilderness. We
-              increase access to adventure for the public while promoting safe
-              and respectful use of resources. The expert wilderness trekkers on
-              our staff personally verify each campsite to make sure that they
-              are up to our standards. We also present a platform for campers to
-              share reviews on campsites they have visited with each other.
+              We know how hard an educator’s job is. Teachers are entrusted by
+              society to prepare the next generation. They have numerous duties
+              and responsibilities they must meet with scarce resources.
+              <a
+                href="https://www.edutopia.org/article/what-can-we-do-about-teacher-turnover"
+                target="_blank"
+              >
+                Inadequate compensation is a major reason cited for teachers
+                leaving the profession.{" "}
+              </a>{" "}
+              Lack of credit for their work is especially unjust considering the
+              fact that{" "}
+              <a
+                href="https://www.weareteachers.com/teachers-undervalued-women/"
+                target="_blank"
+              >
+                most teachers are women
+              </a>
+              who are already doing more than their share of duties such as
+              child care, cooking, and cleaning without monetary compensation.
+              Expecting a constant stream of new teachers to be pedagogical
+              wizards is unrealistic. On the other hand, simply giving them a
+              textbook to follow can be soul-deadening. This website will offer
+              teaching resources that teachers can use right away and
+              personalize for their own needs.
             </p>
           </Col>
           <Col sm="6">
             <Card>
               <CardHeader className="card-header">
-                <h3>Facts at a Glance</h3>
+                <h3>Did You Know?</h3>
               </CardHeader>
               <CardBody>
-                {" "}
                 <dl className="row">
-                  <dt className="col-6">Founded</dt>
-                  <dd className="col-6">February 3, 2016</dd>
-                  <dt className="col-6">No. of Campsites in 2019</dt>
-                  <dd className="col-6">563</dd>
-                  <dt className="col-6">No. of Reviews in 2019</dt>
-                  <dd className="col-6">4388</dd>
-                  <dt className="col-6">Employees</dt>
-                  <dd className="col-6">42</dd>
+                  {/* <dt> Things to Know About Today’s Teaching Force</dt>
+                  <dd>What Can We Do About Teacher Turnover?</dd>
+                  <dt>
+                    TOPIC: Professional Development, School Culture & Colleagues
+                    Career Advice “Teachers Are Underpaid Because America Does
+                    Not Value Women’s Work”
+                  </dt> */}
+                  {/* <dt>Did You Know?</dt> */}
+                  <dd>
+                    <a
+                      href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
+                      target="_blank"
+                    >
+                      On average 44% of teachers only stay in the classroom for
+                      5 years.
+                    </a>
+                  </dd>
                 </dl>
               </CardBody>
             </Card>
@@ -45,17 +71,22 @@ const AboutPage = () => {
                 <br />
                 <blockquote className="blockquote">
                   <p>
-                    I will not follow where the path may lead, but I will go
-                    where there is no path, and I will leave a trail.
+                    <h2>
+                      Know that dream where you show up for the final and
+                      realize you forgot to go to class?
+                      <br></br>
+                      <br></br>Yeah, we have that too but were supposed to be
+                      teaching it!
+                    </h2>
                   </p>
                   <br />
-                  <footer className="blockquote-footer">
+                  {/* <footer className="blockquote-footer">
                     {" "}
                     Muriel Strode,{" "}
                     <cite title="Source Title">
                       "Wind-Wafted Wild Flowers" - The Open Court, 1903
                     </cite>
-                  </footer>
+                  </footer> */}
                 </blockquote>
               </CardBody>
             </Card>

@@ -1,13 +1,11 @@
 import { Col, Row, Container } from "reactstrap";
 import AnimatedDisplayCard from "./AnimatedDisplayCard";
-// import { selectFeaturedCourse } from "../courses/coursesSlice";
 import { selectFeaturedPromotion } from "../promotions/promotionsSlice";
 import { selectFeaturedPartner } from "../partners/partnersSlice";
 import { selectFeaturedCourse } from "../courses/coursesSlice";
 
 const DisplayList = () => {
   const items = [
-    // selectFeaturedCourse(),
     selectFeaturedPromotion(),
     selectFeaturedPartner(),
     selectFeaturedCourse(),
