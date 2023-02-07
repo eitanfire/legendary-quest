@@ -8,18 +8,20 @@ import {
   NavItem,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
+import { setTheme } from './ChangeTheme';
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
+import logo from "../app/assets/img/logo.png";
 
 const Header = () => {
       const [menuOpen, setMenuOpen] = useState(false);
-
+      
   return (
     <Navbar dark color="primary" sticky="top" expand="md">
       <NavbarBrand className="ms-5" href="/">
         <img
           src={vaporwaveTrees}
           alt="Teach League Logo"
-          className="float-start"
+          className="vaporwaveTrees float-start"
         />
         <h1 className="title">Teach League</h1>
       </NavbarBrand>
@@ -44,7 +46,7 @@ const Header = () => {
           </NavItem>
           <NavItem>
             <NavLink className="nav-link" to="/contact">
-              <i className="fa fa-solid fa-bullhorn" /> Contact
+              <i className="fa far fa-comments" /> Contact
             </NavLink>
           </NavItem>
         </Nav>
