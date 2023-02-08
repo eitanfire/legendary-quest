@@ -9,10 +9,11 @@ const AboutPage = () => {
         <Row className="row-content">
           <Col sm="6">
             <h3 className="title">Our Mission</h3>
+            <p>We know how hard an educator’s job is. </p>
             <p>
-              We know how hard an educator’s job is. Teachers are entrusted by
-              society to prepare the next generation. They have numerous duties
-              and responsibilities they must meet with scarce resources.
+              Teachers are entrusted by society to prepare the next generation.
+              They have numerous duties and responsibilities they must meet with
+              scarce resources.
               <a
                 href="https://www.edutopia.org/article/what-can-we-do-about-teacher-turnover"
                 target="_blank"
@@ -31,7 +32,9 @@ const AboutPage = () => {
               who are already doing more than their share of duties such as
               child care, cooking, and cleaning without monetary compensation.
               Expecting a constant stream of new teachers to be pedagogical
-              wizards is unrealistic. On the other hand, simply giving them a
+              wizards is unrealistic.</p>
+              <p>
+               On the other hand, simply giving them a
               textbook to follow can be soul-deadening. This website will offer
               teaching resources that teachers can use right away and
               personalize for their own needs.
@@ -43,7 +46,7 @@ const AboutPage = () => {
                 <h3>Did You Know?</h3>
               </CardHeader>
               <CardBody>
-                <dl className="row">
+                <Row className="row">
                   {/* <dt> Things to Know About Today’s Teaching Force</dt>
                   <dd>What Can We Do About Teacher Turnover?</dd>
                   <dt>
@@ -52,7 +55,7 @@ const AboutPage = () => {
                     Not Value Women’s Work”
                   </dt> */}
                   {/* <dt>Did You Know?</dt> */}
-                  <dd>
+                 
                     <a
                       href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
                       target="_blank"
@@ -60,8 +63,7 @@ const AboutPage = () => {
                       On average 44% of teachers only stay in the classroom for
                       5 years.
                     </a>
-                  </dd>
-                </dl>
+                 </Row>
               </CardBody>
             </Card>
           </Col>
@@ -75,8 +77,9 @@ const AboutPage = () => {
                       Know that dream where you show up for the final and
                       realize you forgot to go to class?
                       <br></br>
-                      <br></br>Yeah, we have that too but were supposed to be
-                      teaching it!
+                      <br></br>
+                      Yeah, we have that too but were supposed to be teaching
+                      it!
                     </h2>
                   </p>
                   <br />
