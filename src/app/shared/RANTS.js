@@ -30,10 +30,16 @@ export const RANTS = [
   },
   {
     id: 3,
-    name: "Node Outdoor Apparel",
+    name: "The Rant",
     image: rantinghomer,
     featured: true,
-    description:
-      "From polar fleeces to swimsuits, hiking boots to waders, a visit to Node will be sure to get you covered.",
+    description: (
+      <span>
+        Get Up on That Soapbox in
+        <a href="https://www.reddit.com/r/Teachers/" target="_blank">
+          {` `}r/Teachers
+        </a>
+      </span>
+    ),
   },
 ];
