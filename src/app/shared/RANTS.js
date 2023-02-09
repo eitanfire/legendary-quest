@@ -3,7 +3,7 @@ import secretteacher from "../assets/img/The-Secret-Teacher.webp";
 import Nerds from "../assets/img/Nerds.jpeg";
 import rantinghomer from "../assets/img/rantinghomer.gif";
 
-export const PARTNERS = [
+export const RANTS = [
   {
     id: 0,
     name: "Bootstrap Outfitters",
