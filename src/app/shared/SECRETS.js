@@ -3,7 +3,7 @@ import urges from "../assets/img/urges.jpeg";
 import greeks from "../assets/img/greek-philosophers.webp";
 import HotTake from "../assets/img/HotTake.jpeg";
 
-export const PROMOTIONS = [
+export const SECRETS = [
   {
     id: 0,
     name: "Mountain Adventure",
