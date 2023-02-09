@@ -3,6 +3,8 @@ import AnimatedDisplayCard from "./AnimatedDisplayCard";
 import { selectFeaturedTake } from "../takes/takesSlice";
 import { selectFeaturedRant } from "../rants/rantsSlice";
 import { selectFeaturedCourse } from "../courses/coursesSlice";
+import { shortSelectFeaturedCourse } from "../courses/coursesSlice";
+
 
 const DisplayList = () => {
   const items = [

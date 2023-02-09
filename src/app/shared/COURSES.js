@@ -10,7 +10,8 @@ import Survival from "../assets/img/survive-the-world-banner.png";
 export const COURSES = [
   {
     id: 0,
-    name: "📜 Philosophy",
+    icon: "📜",
+    name: "Philosophy",
     image: Philosophy,
     semester: 2,
     featured: false,
@@ -19,7 +20,8 @@ export const COURSES = [
   },
   {
     id: 1,
-    name: "🪖 World Wars",
+    icon: "🪖",
+    name: "World Wars",
     image: WorldWars,
     semester: 2,
     featured: false,
@@ -28,7 +30,8 @@ export const COURSES = [
   },
   {
     id: 2,
-    name: "💰 Personal Finance",
+    icon: "💰",
+    name: "Personal Finance",
     image: Finance,
     semester: 2,
     featured: false,
@@ -37,7 +40,8 @@ export const COURSES = [
   },
   {
     id: 3,
-    name: "🚔 Policing in America",
+    icon: "🚔",
+    name: "Policing in America",
     image: Policing,
     semester: 2,
     featured: false,
@@ -46,7 +50,8 @@ export const COURSES = [
   },
   {
     id: 4,
-    name: "📽 Film",
+    icon: "📽",
+    name: "Film",
     image: Film,
     semester: 2,
     featured: false,
@@ -55,7 +60,8 @@ export const COURSES = [
   },
   {
     id: 5,
-    name: "👩🏿‍💻 Programming",
+    icon: "👩🏿‍💻",
+    name: "Programming",
     image: Programming,
     semester: 1,
     featured: false,
@@ -64,7 +70,8 @@ export const COURSES = [
   },
   {
     id: 6,
-    name: "⚔ Epics",
+    icon: "⚔",
+    name: "Epics",
     image: Epics,
     semester: 2,
     featured: true,
@@ -73,7 +80,8 @@ export const COURSES = [
   },
   {
     id: 7,
-    name: "🧭 Survive the World!",
+    icon: "🧭",
+    name: "Survive the World!",
     image: Survival,
     semester: 2,
     featured: false,

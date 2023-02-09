@@ -15,3 +15,7 @@ export const selectCourseById = (id) => {
 export const selectFeaturedCourse = () => {
     return COURSES.find((course) => course.featured);
 };
+
+export const shortSelectFeaturedCourse = () => {
+  return selectFeaturedCourse.slice(0,20);
+};

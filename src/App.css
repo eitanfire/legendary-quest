@@ -18,8 +18,8 @@ h3,
   writing-mode: vertical-rl;
     /* transform: rotate(-90deg); */
     position: absolute;
-    margin-left: 110%;
-    font-size: larger;
+    margin-left: 101%;
+    font-size:xx-large;
 }
 
 /* .card-image {
@@ -182,4 +182,12 @@ color: rgb(44, 214, 230);
   border-radius:12px;
   left:4%;
   background-clip:text;
+}
+
+#icon {
+  font-size: 200%;
+}
+
+ .vaporWave #icon {
+  text-emphasis-color: ;
 }

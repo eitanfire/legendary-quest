@@ -1,14 +1,25 @@
-import { Card, CardImg, CardText, CardBody, CardTitle, Col } from "reactstrap";
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  Col,
+  CardImgOverlay,
+} from "reactstrap";
 
 const CourseDetail = ( { course } ) => {
-        const { image, name, description } = course;
-
+        const { image, icon, name, description } = course;
+  
     return (
-      <Col md="12" className="m-4">
+      <Col md="11" className="m-4" >
         <Card>
-          <CardTitle className="card-detail-title">{name}</CardTitle>
+          <CardTitle className="card-detail-title">
+            {icon} {name}
+          </CardTitle>
           <CardImg top src={image} alt={name} />
           <CardBody>
+            {/* <CardImgOverlay id="icon"><span>{name}</span>{icon}</CardImgOverlay> */}
             <CardText>{description}</CardText>
           </CardBody>
         </Card>
