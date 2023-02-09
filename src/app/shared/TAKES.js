@@ -22,10 +22,10 @@ export const TAKES = [
   },
   {
     id: 2,
-    name: "Bootstrap Teardown",
+    name: "The Hot Take",
     image: HotTake,
     featured: true,
-    description: `In this weekend workshop, we'll rebuild your bootstraps from scratch, so you're ready for next-level excursions.`,
+    description: `Infuse your teaching with insights from the cutting edge`,
   },
   {
     id: 3,

@@ -1,6 +1,6 @@
 import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
 import SubHeader from '../components/Header';
-import PartnersList from "../features/rants/RantsList";
+import TakesList from "../features/takes/TakesList";
 
 const AboutPage = () => {
     return (
@@ -32,12 +32,12 @@ const AboutPage = () => {
               who are already doing more than their share of duties such as
               child care, cooking, and cleaning without monetary compensation.
               Expecting a constant stream of new teachers to be pedagogical
-              wizards is unrealistic.</p>
-              <p>
-               On the other hand, simply giving them a
-              textbook to follow can be soul-deadening. This website will offer
-              teaching resources that teachers can use right away and
-              personalize for their own needs.
+              wizards is unrealistic.
+            </p>
+            <p>
+              On the other hand, simply giving them a textbook to follow can be
+              soul-deadening. This website will offer teaching resources that
+              teachers can use right away and personalize for their own needs.
             </p>
           </Col>
           <Col sm="6">
@@ -55,15 +55,15 @@ const AboutPage = () => {
                     Not Value Women’s Work”
                   </dt> */}
                   {/* <dt>Did You Know?</dt> */}
-                 
-                    <a
-                      href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
-                      target="_blank"
-                    >
-                      On average 44% of teachers only stay in the classroom for
-                      5 years.
-                    </a>
-                 </Row>
+
+                  <a
+                    href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
+                    target="_blank"
+                  >
+                    On average 44% of teachers only stay in the classroom for 5
+                    years.
+                  </a>
+                </Row>
               </CardBody>
             </Card>
           </Col>
@@ -99,7 +99,7 @@ const AboutPage = () => {
           <Col xs="12">
             <h3>Community Partners</h3>
           </Col>
-          <PartnersList />
+          <TakesList />
         </Row>
       </Container>
     );

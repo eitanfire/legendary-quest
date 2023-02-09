@@ -1,6 +1,6 @@
-const Rant = ({ rant }) => {
-  if (rant) {
-    const { image, name, description } = rant;
+const Take = ({ take }) => {
+  if (take) {
+    const { image, name, description } = take;
          return (
    <>
       <img src={image} alt={name} style={{ width: "150px" }}>
@@ -14,4 +14,4 @@ const Rant = ({ rant }) => {
     return null;
   };
 };
-export default Rant;
+export default Take;
