@@ -4,7 +4,7 @@ import Take from './Take';
 import { selectAllTakes } from './takesSlice';
 
 const TakesList = () => {
-  const partners = selectAllTakes();
+  const takes = selectAllTakes();
   return (
     <Col className="mt-4">
       {TAKES.map((take) => {

@@ -4,7 +4,7 @@ import CourseCard from "./CourseCard";
 import { selectAllCourses } from "./coursesSlice";
 
 const CoursesList = () => {
-  const campsites = selectAllCourses();
+  const courses = selectAllCourses();
   return (
     <Row className="ms-auto">
       {COURSES.map((course) => {
