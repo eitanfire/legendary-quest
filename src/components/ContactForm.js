@@ -72,14 +72,15 @@ const ContactForm = () => {
           </Col>
         </FormGroup>
         <FormGroup row>
-          <Label check md={{ size: 4, offset: 2 }}>
-            <Field name="agree" type="checkbox" className="form-check-input" />{" "}
-            May we contact you?
+          <Label check md={{ size: 5, offset: 2 }}>
+            <Field name="agree" type="checkbox" className="form-check-input" />
+            {"  "}
+            Receive a monthly update
           </Label>
-          <Col md="4">
+          <Col md="5">
             <Field name="contactType" as="select" className="form-control">
-              <option>By Phone</option>
               <option>By Email</option>
+              <option>By Text</option>
             </Field>
           </Col>
         </FormGroup>
@@ -99,7 +100,7 @@ const ContactForm = () => {
         <FormGroup row>
           <Col md={{ size: 10, offset: 2 }}>
             <Button type="submit" color="primary">
-              Send Feedback
+             Register
             </Button>
           </Col>
         </FormGroup>
