@@ -22,11 +22,10 @@ h3,
     font-size:xx-large;
 }
 
-/* .card-image {
+.card-image {
   min-height:7.5rem;
   max-height: 0rem;
-  width: auto;
-} */
+}
 
 h2 {
   color: #3046c5;

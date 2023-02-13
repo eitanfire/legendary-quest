@@ -35,6 +35,10 @@ export const RANTS = [
     featured: true,
     description: (
       <span>
+        What the teachers are saying. Teachers pushing back against the
+        infantilization of the profession.
+        <br></br>
+        <br></br>
         Get Up on That Soapbox in
         <a href="https://www.reddit.com/r/Teachers/" target="_blank">
           {` `}r/Teachers
