@@ -1,6 +1,6 @@
 import CoursesDirectoryPage from "./pages/CoursesDirectoryPage";
 import { Routes, Route } from "react-router-dom";
-import ContactPage from "./pages/ContactPage";
+import ConnectionPage from "./pages/ConnectionPage";
 import TheTeachersLounge from "./pages/TheTeachersLounge";
 import AboutPage from "./pages/AboutPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<TheTeachersLounge />} />
         <Route path="about" element={<AboutPage />} />
-        <Route path="contact" element={<ContactPage />} />
+        <Route path="connect" element={<ConnectionPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
       </Routes>

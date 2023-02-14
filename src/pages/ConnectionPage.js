@@ -1,15 +1,15 @@
 import { Container, Col, Row, Card, CardBody } from "reactstrap";
-import ContactForm from "../components/ContactForm";
+import SignUpForm from "../components/SignUpForm";
 // import SubHeader from "../components/SubHeader";
 
-const ContactPage = () => {
+const ConnectionPage = () => {
   return (
     <Container>
       {/* <SubHeader current="Contact Us" /> */}
       <Card>
         <CardBody>
           <Row className="row-content align-items-center">
-          <h1>Send Feedback</h1>
+            <h1>Send Feedback</h1>
             <Col sm="4">
               <h5>Our Address</h5>
               <address>
@@ -43,11 +43,11 @@ const ContactPage = () => {
           <hr />
         </Col>
         <Col md="10">
-          <ContactForm />
+          <SignUpForm />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default ContactPage;
+export default ConnectionPage;

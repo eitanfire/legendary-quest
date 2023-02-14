@@ -1,7 +1,7 @@
 import { Button, Label, Col, FormGroup } from "reactstrap";
 import { Formik, Field, Form } from "formik";
 
-const ContactForm = () => {
+const SignUpForm = () => {
   const handleSubmit = (values, { resetForm }) => {
     console.log("form values:", values);
     console.log("in JSON format:", JSON.stringify(values));
@@ -100,7 +100,7 @@ const ContactForm = () => {
         <FormGroup row>
           <Col md={{ size: 10, offset: 2 }}>
             <Button type="submit" color="primary">
-             Register
+              Register
             </Button>
           </Col>
         </FormGroup>
@@ -109,4 +109,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default SignUpForm;

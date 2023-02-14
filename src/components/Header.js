@@ -45,8 +45,8 @@ const Header = () => {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="nav-link" to="/contact">
-              <i className="fa far fa-comments" /> Contact
+            <NavLink className="nav-link" to="/connect">
+              <i className="fa far fa-comments" /> Connect
             </NavLink>
           </NavItem>
         </Nav>
