@@ -5,6 +5,7 @@ import TheTeachersLounge from "./pages/TheTeachersLounge";
 import AboutPage from "./pages/AboutPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
 import Header from "./components/Header";
+import BottomText from "./components/BottomText";
 import Footer from "./components/Footer.js";
 import Theme from "./components/ChangeTheme";
 import './App.css';
@@ -21,7 +22,7 @@ function App() {
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
       </Routes>
-      <Footer />
+      <BottomText />
     </div>
   );
 }

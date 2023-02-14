@@ -7,7 +7,12 @@ const SignUpForm = () => {
     console.log("in JSON format:", JSON.stringify(values));
     resetForm();
   };
-
+  // function GetPhoneNum() {
+  //   const [phoneNum, getPhoneNum] = useState("textMe");
+  //   const needPhoneNum = () => {
+  //   if (phoneNum === "textMe") {
+  // };
+  // };
   return (
     <Formik
       initialValues={{
@@ -47,18 +52,6 @@ const SignUpForm = () => {
           </Col>
         </FormGroup>
         <FormGroup row>
-          <Label htmlFor="phoneNum" md="2">
-            Phone
-          </Label>
-          <Col md="10">
-            <Field
-              name="phoneNum"
-              placeholder="Phone"
-              className="form-control"
-            />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
           <Label htmlFor="email" md="2">
             Email
           </Label>
@@ -83,6 +76,18 @@ const SignUpForm = () => {
               <option>By Text</option>
             </Field>
           </Col>
+          <FormGroup row>
+            <Label htmlFor="phoneNum" md="2">
+              Phone Number
+            </Label>
+            <Col md="10">
+              <Field
+                name="phoneNum"
+                placeholder="Text me!"
+                className="form-control"
+              />
+            </Col>
+          </FormGroup>
         </FormGroup>
         <FormGroup row>
           <Label htmlFor="feedback" md="2">
