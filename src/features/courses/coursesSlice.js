@@ -16,6 +16,10 @@ export const selectFeaturedCourse = () => {
     return COURSES.find((course) => course.featured);
 };
 
+export const selectFreeCourse = () => {
+  return COURSES.find((course) => course.free);
+};
+
 export const shortSelectFeaturedCourse = () => {
   return selectFeaturedCourse.slice(0,20);
 };

@@ -1,20 +1,20 @@
 import { Container, Col, Row, Card, CardBody } from "reactstrap";
 import SignUpForm from "../components/SignUpForm";
-import { Link } from "react-router-dom";
-// import SubHeader from "../components/SubHeader";
+import FreeCourse from "../components/FreeCourse";
 
 const ConnectionPage = () => {
   return (
     <Container>
-      <h1>Build Community</h1>
-      {/* <SubHeader current="Contact Us" /> */}
-      <Card>
+      <Card Id="social-bar">
         <CardBody>
           <Row className="row-content align-items-center">
             <Col>
+              <h1 className="title">Build Community</h1>
+            </Col>
+            <Col>
               {" "}
-              <Col xs="6" sm="3" className="text-center">
-                <h5>Social</h5>
+              <Col className="text-center">
+                <h2>Social</h2>
                 <a
                   className="btn btn-social-icon btn-instagram"
                   href="http://instagram.com/"
@@ -41,16 +41,6 @@ const ConnectionPage = () => {
                 </a>
               </Col>
             </Col>
-            <Col sm="4">
-              <h5>Our Address</h5>
-              <address>
-                218 Lincoln ST
-                <br />
-                Longmont, CO 80501
-                <br />
-                U.S.A.
-              </address>
-            </Col>
             <Col>
               <a role="button" className="btn btn-link" href="tel:+12065551234">
                 <i className="fa fa-phone" /> 1-206-555-1234
@@ -65,15 +55,17 @@ const ConnectionPage = () => {
               </a>
             </Col>
           </Row>
+          {/* <Row className="row-content"> */}
         </CardBody>
       </Card>
-      <Row className="row-content">
-        <Col xs="12">
-          <h1>Easier than signing a yearbook</h1>
+      <Row>
+        <h1 className="text-center">Easier than signing a yearbook</h1>
+        <Col xs="6">
+          <FreeCourse Id="free-course" />
+        </Col>
+        <Col xs="6">
           <h2>Sign up for a free account</h2>
           <hr />
-        </Col>
-        <Col md="10">
           <SignUpForm />
         </Col>
       </Row>

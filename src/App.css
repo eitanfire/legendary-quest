@@ -36,11 +36,12 @@ h2 {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.row-content {
-  padding: 50px 0;
+/* .row-content {
+  padding: 20px 0;
   border-bottom: 1px ridge;
-  min-height: 200px;
-}
+  min-height: 10px;
+
+} */
 
 #BottomText {
   position:relative;
@@ -188,5 +189,49 @@ color: rgb(44, 214, 230);
 }
 
  .vaporWave #icon {
-  text-emphasis-color: ;
+  color: initial;
 }
+
+#free-course{
+  position: relative;
+  /* width: 900%; */
+  margin-right: 200rem;
+}
+
+#social-bar {
+
+  background-size: 2100px;
+  background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
+  background-position: 90% 18%;
+}
+
+/* .vaporWave #social-bar {
+
+  background-size: 2005px;
+  background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
+  background-position: 95% 20%;
+} */
+
+/* #social-bar:before {
+  content: "";
+  background: radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+}
+
+.vaporWave #social-bar:before {
+  content: "";
+  background: radial-gradient(circle, Magenta 25%, rgb(255, 255, 255) 100%);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0;
+} */

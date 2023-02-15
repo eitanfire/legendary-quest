@@ -24,7 +24,7 @@ export const COURSES = [
     name: "World Wars",
     image: WorldWars,
     semester: 2,
-    featured: false,
+    featured: true,
     description:
       "This class will focus on the first and second world wars. We will start by examining the roots of the wars. We will learn about this topic in many different ways including through reading, writing, discussion, film, and role-playing. This is an opportunity to increase your understanding of the World Wars whether you bring just a little knowledge or whether you consider yourself already highly informed on this topic. We will try to meet outside when the weather permits.",
   },
@@ -47,6 +47,8 @@ export const COURSES = [
     featured: false,
     description:
       "This class will focus on the history of policing in the United States of America. The modalities for learning about this topic include reading, writing, discussion, film, and simulations. We will aim to ground our learning beyond the classroom through a field trip to the Justice Center as well as hearing from a public defender among other learning activities. We will aim to meet outside when the weather permits.",
+    freeContentDescription: "Teach about what matters",
+    free: true,
   },
   {
     id: 4,
@@ -57,6 +59,7 @@ export const COURSES = [
     featured: false,
     description:
       "We will learn to unpack and understand film the same way a literature class studies text or an art class examines art. Students will become proficient in their understanding of film techniques. Learners in this class will have an opportunity to do their own research on film directors. Students will express their own original ideas through the process of drafting storyboards as well as screenplays to make their own stop motion animations as well as live-action movies.",
+    free: false,
   },
   {
     id: 5,

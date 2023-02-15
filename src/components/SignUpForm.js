@@ -89,7 +89,7 @@ const SignUpForm = () => {
             </Col>
           </FormGroup>
         </FormGroup>
-        <FormGroup row>
+        {/* <FormGroup row>
           <Label htmlFor="feedback" md="2">
             Your Feedback
           </Label>
@@ -101,7 +101,7 @@ const SignUpForm = () => {
               className="form-control"
             />
           </Col>
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup row>
           <Col md={{ size: 10, offset: 2 }}>
             <Button type="submit" color="primary">
