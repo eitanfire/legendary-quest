@@ -47,7 +47,7 @@ export const COURSES = [
     featured: false,
     description:
       "This class will focus on the history of policing in the United States of America. The modalities for learning about this topic include reading, writing, discussion, film, and simulations. We will aim to ground our learning beyond the classroom through a field trip to the Justice Center as well as hearing from a public defender among other learning activities. We will aim to meet outside when the weather permits.",
-    freeContentDescription: "Teach about what matters",
+    freeContentDescription: "Speak up. Teach about what matters.",
     free: true,
   },
   {

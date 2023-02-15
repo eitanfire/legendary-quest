@@ -14,13 +14,13 @@ const FreeCourseCard = ({ course }) => {
   return (
     <Col>
       <Card>
-        <CardTitle>
+        <CardTitle className="text-center">
           {icon} {name}
         </CardTitle>
         <CardImg Id="free-course" top src={image} alt={name} />
         <CardBody>
           {/* <CardImgOverlay id="icon"><span>{name}</span>{icon}</CardImgOverlay> */}
-          <CardText>{freeContentDescription}</CardText>
+          <CardText className="text-center">{freeContentDescription}</CardText>
         </CardBody>
       </Card>
     </Col>

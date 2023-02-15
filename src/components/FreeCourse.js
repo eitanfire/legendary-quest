@@ -9,14 +9,15 @@ const FreeCourse = () => {
   const FreeCourse = selectFreeCourse();
   return (
     <Container>
-      <h2>Receive access to this course content for free when you sign up</h2>
+      <h2>
+        Receive access to this course content for <b>free</b> when you
+        sign up
+      </h2>
       <Row className="ms-auto">
         {COURSES.map((course) => {
           return (
             <Col key={course.id}>
-              {course.free && (
-                <FreeCourseCard course={course} />
-              )}
+              {course.free && <FreeCourseCard course={course} />}
             </Col>
           );
         })}

@@ -5,7 +5,7 @@ import FreeCourse from "../components/FreeCourse";
 const ConnectionPage = () => {
   return (
     <Container>
-      <Card Id="social-bar">
+      <Card Id="social-bar" className="m-4">
         <CardBody>
           <Row className="row-content align-items-center">
             <Col>
@@ -59,7 +59,7 @@ const ConnectionPage = () => {
         </CardBody>
       </Card>
       <Row>
-        <h1 className="text-center">Easier than signing a yearbook</h1>
+        <h1 className="text-center mb-4">Easier than signing a yearbook</h1>
         <Col xs="6">
           <FreeCourse Id="free-course" />
         </Col>
