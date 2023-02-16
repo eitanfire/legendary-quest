@@ -4,6 +4,7 @@ import ConnectionPage from "./pages/ConnectionPage";
 import TheTeachersLounge from "./pages/TheTeachersLounge";
 import AboutPage from "./pages/AboutPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
+// import FreeCourseCard from "./features/courses/FreeCourseCard";
 import Header from "./components/Header";
 import BottomText from "./components/BottomText";
 import Footer from "./components/Footer.js";
@@ -21,6 +22,7 @@ function App() {
         <Route path="connect" element={<ConnectionPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
+        {/* <Route path="connect/:courseId" element={<FreeCourseCard />} /> */}
       </Routes>
       <BottomText />
     </div>

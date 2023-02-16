@@ -222,9 +222,9 @@ color: rgb(44, 214, 230);
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-}
+}*/
 
-.vaporWave #social-bar:before {
+/* .vaporWave #social-bar:before {
   content: "";
   background: radial-gradient(circle, Magenta 25%, rgb(255, 255, 255) 100%);
   background-size: cover;

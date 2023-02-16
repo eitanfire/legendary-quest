@@ -43,7 +43,7 @@ const AboutPage = () => {
           <Col sm="6">
             <Card>
               <CardHeader className="card-header">
-                <h3>Did You Know?</h3>
+                <h3 className="text-center">Did You Know?</h3>
               </CardHeader>
               <CardBody>
                 <Row className="row">
@@ -68,9 +68,8 @@ const AboutPage = () => {
             </Card>
           </Col>
           <Col>
-            <Card className="bg-light mt-3">
+            <Card className="bg-light mt-3 mb-4">
               <CardBody>
-                <br />
                 <blockquote className="blockquote">
                   <p>
                     <h2>
@@ -82,7 +81,6 @@ const AboutPage = () => {
                       it!
                     </h2>
                   </p>
-                  <br />
                   {/* <footer className="blockquote-footer">
                     {" "}
                     Muriel Strode,{" "}

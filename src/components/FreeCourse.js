@@ -3,10 +3,14 @@ import CourseCard from "../features/courses/CourseCard";
 import FreeCourseCard from "../features/courses/FreeCourseCard";
 import { selectFreeCourse } from "../features/courses/coursesSlice";
 import { Container, Col, Row, Card, CardBody } from "reactstrap";
-
+import { useParams } from "react-router-dom";
+import { selectCourseById } from "../features/courses/coursesSlice";
 
 const FreeCourse = () => {
   const FreeCourse = selectFreeCourse();
+      const { courseId } = useParams();
+      const course = selectCourseById(courseId);
+      
   return (
     <Container>
       <h2>
