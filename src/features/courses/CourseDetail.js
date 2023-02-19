@@ -7,12 +7,14 @@ import {
   Col,
   CardImgOverlay,
 } from "reactstrap";
+import SubHeader from "../../components/SubHeader";
 
 const CourseDetail = ( { course } ) => {
         const { image, icon, name, description } = course;
   
     return (
-      <Col md="11" className="m-4" >
+      <Col md="11" className="m-4">
+        <SubHeader current={course.name} detail={true} />
         <Card>
           <CardTitle className="card-detail-title">
             {icon} {name}

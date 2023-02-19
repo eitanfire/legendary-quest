@@ -1,21 +1,23 @@
-import CommentForm from './CommentForm';
 import { Col } from "reactstrap";
-import { COMMENTS } from "../../app/shared/COMMENTS";
 import Comment from "./Comment";
-import { selectAllComments } from "./commentsSlice";
+import { selectCommentsByCourseId } from "./commentsSlice";
 
-const CommentsList = () => {
-  const comments = selectAllComments();
+const CommentsList = ({ courseId }) => {
+  const comments = selectCommentsByCourseId(courseId);
+
+  if (comments && comments.length > 0) {
+    return (
+      <Col md="5" className="m-1">
+        <h4>Comments</h4>
+        {comments.map((comment) => {
+          return <Comment key={comment.id} comment={comment} />;
+        })}
+      </Col>
+    );
+  }
   return (
-    <Col className="mt-4">
-      {COMMENTS.map((take) => {
-        return (
-          <div className="d-flex mb-5" key={take.id}>
-            <Comment comment={comment} />
-          </div>
-        );
-      })}
-      <CommentForm courseId={courseId} />
+    <Col md="5" className="m-1">
+      There are no comments for this course yet.
     </Col>
   );
 };

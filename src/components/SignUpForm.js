@@ -3,6 +3,8 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateSignUpForm } from "../utils/validateSignUpForm";
 
 const SignUpForm = () => {
+  const contactType = (Field, "contactType");
+
   const handleSubmit = (values, { resetForm }) => {
     console.log("form values:", values);
     console.log("in JSON format:", JSON.stringify(values));
@@ -17,7 +19,7 @@ const SignUpForm = () => {
         phoneNum: "",
         email: "",
         agree: true,
-        contactType: "By Phone",
+        contactType: "By Email",
         feedback: "",
       }}
       onSubmit={handleSubmit}
@@ -82,23 +84,25 @@ const SignUpForm = () => {
               <option>By Text</option>
             </Field>
           </Col>
-          
-          <FormGroup row>
-            <Label htmlFor="phoneNum" md="2">
-              Phone Number
-            </Label>
-            <Col md="10">
-              <Field
-                name="phoneNum"
-                placeholder="Text me!"
-                className="form-control"
-              />
-              <ErrorMessage name="phoneNum">
-                {(msg) => <p className="text-danger">{msg}</p>}
-              </ErrorMessage>
-            </Col>
-          </FormGroup>
+          {contactType === "By Text" && (
+            <FormGroup row>
+              <Label htmlFor="phoneNum" md="2">
+                Phone Number
+              </Label>
+              <Col md="10">
+                <Field
+                  name="phoneNum"
+                  placeholder="Text me!"
+                  className="form-control"
+                />
+                <ErrorMessage name="phoneNum">
+                  {(msg) => <p className="text-danger">{msg}</p>}
+                </ErrorMessage>
+              </Col>
+            </FormGroup>
+          )}
         </FormGroup>
+
         <FormGroup row>
           <Col md={{ size: 10, offset: 2 }}>
             <Button type="submit" color="primary">

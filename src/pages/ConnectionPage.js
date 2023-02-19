@@ -1,10 +1,12 @@
 import { Container, Col, Row, Card, CardBody } from "reactstrap";
 import SignUpForm from "../components/SignUpForm";
 import FreeCourse from "../components/FreeCourse";
+import SubHeader from "../components/SubHeader";
 
 const ConnectionPage = () => {
   return (
     <Container>
+      <SubHeader current="Connect" />
       <Card Id="social-bar" className="m-4">
         <CardBody>
           <Row className="row-content align-items-center">

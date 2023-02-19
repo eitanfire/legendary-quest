@@ -5,7 +5,7 @@ import TakesList from "../features/takes/TakesList";
 const AboutPage = () => {
     return (
       <Container>
-        {/* <SubHeader current={'About Us'}></SubHeader> */}
+{/* {        <SubHeader current="About Us"></SubHeader> */}
         <Row className="row-content">
           <Col sm="6">
             <h3 className="title">Our Mission</h3>
@@ -47,15 +47,6 @@ const AboutPage = () => {
               </CardHeader>
               <CardBody>
                 <Row className="row">
-                  {/* <dt> Things to Know About Today’s Teaching Force</dt>
-                  <dd>What Can We Do About Teacher Turnover?</dd>
-                  <dt>
-                    TOPIC: Professional Development, School Culture & Colleagues
-                    Career Advice “Teachers Are Underpaid Because America Does
-                    Not Value Women’s Work”
-                  </dt> */}
-                  {/* <dt>Did You Know?</dt> */}
-
                   <a
                     href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
                     target="_blank"
@@ -67,6 +58,25 @@ const AboutPage = () => {
               </CardBody>
             </Card>
           </Col>
+          <Col sm="6">
+            <Card>
+              <CardHeader className="card-header">
+                <h3 className="text-center">Did You Know?</h3>
+              </CardHeader>
+              <CardBody>
+                <Row className="row">
+                  <a
+                    href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
+                    target="_blank"
+                  >
+                    On average 44% of teachers only stay in the classroom for 5
+                    years.
+                  </a>
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+          </Row><Row>
           <Col>
             <Card className="bg-light mt-3 mb-4">
               <CardBody>
