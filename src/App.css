@@ -177,16 +177,28 @@ text-indent: 7.75rem;
 color: rgb(44, 214, 230);
     }
 
-#button {
-    position: fixed;
+ #button {
+  position: fixed;
   border-radius:12px;
   left:4%;
   background-clip:text;
 }
 
+#BreadCrumb {
+   position: fixed;
+  border-radius:12px;
+  left:86%;
+  background-clip:text;
+}
+
 #icon {
   font-size: 200%;
+  margin-top: -10%;
 }
+
+/* .vaporWave #icon {
+""
+} */
 
  .vaporWave #icon {
   color: initial;

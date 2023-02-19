@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const SubHeader = ({ current, detail }) => {
   return (
-    <Row>
+    <Row Id="BreadCrumb">
       <Col>
         <Breadcrumb>
-          <BreadcrumbItem Id="Icon">
+          <BreadcrumbItem Id="icon">
             <Link to="/">☕️</Link>
           </BreadcrumbItem>
           {detail && (
