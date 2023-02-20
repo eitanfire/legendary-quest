@@ -185,9 +185,9 @@ color: rgb(44, 214, 230);
 }
 
 #BreadCrumb {
-   position: fixed;
+   position: absolute;
   border-radius:12px;
-  left:86%;
+  left:87%;
   background-clip:text;
 }
 

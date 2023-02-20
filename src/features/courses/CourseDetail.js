@@ -14,7 +14,9 @@ const CourseDetail = ( { course } ) => {
   
     return (
       <Col md="11" className="m-4">
-        <SubHeader current={course.name} detail={true} />
+        {/* <SubHeader 
+        current={course.icon} 
+        detail={true} /> */}
         <Card>
           <CardTitle className="card-detail-title">
             {icon} {name}
