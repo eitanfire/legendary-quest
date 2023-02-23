@@ -84,7 +84,7 @@ const SignUpForm = () => {
               <option>By Text</option>
             </Field>
           </Col>
-          {contactType === "By Text" && (
+          {contactType === "By Text" && 
             <FormGroup row>
               <Label htmlFor="phoneNum" md="2">
                 Phone Number
@@ -100,7 +100,7 @@ const SignUpForm = () => {
                 </ErrorMessage>
               </Col>
             </FormGroup>
-          )}
+          }
         </FormGroup>
 
         <FormGroup row>
