@@ -184,16 +184,16 @@ color: rgb(44, 214, 230);
   background-clip:text;
 }
 
-#BreadCrumb {
+/* #BreadCrumb {
    position: absolute;
   border-radius:12px;
   left:87%;
   background-clip:text;
-}
+} */
 
 #icon {
-  font-size: 200%;
-  margin-top: -10%;
+  font-size: 170%;
+  margin-top: -1.5%;
 }
 
 /* .vaporWave #icon {
