@@ -3,15 +3,27 @@
   color:darkviolet;
 }
 
-.vaporWave .card-body {
+/* .vaporWave .card-body {
   background-color: darkgray;
 color: purple;
+} */
+
+.vaporWave .card-body {
+ background-size: 1000px;
+  background-image: url("https://get.wallhere.com/photo/vaporwave-trees-palm-trees-1451949.jpg");
+  background-position: 95% 80%;
 }
 
 .vaporWave .card-header {
   background-color: black;
   color: white;
 }
+
+ /* .vaporWave #social-bar {
+    background-size: 2005px;
+  background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
+  background-position: 95% 20%;
+}  */
 
 .light .card-header {
  background-color: #3046c5; 

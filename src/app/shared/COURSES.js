@@ -14,7 +14,11 @@ export const COURSES = [
     icon: "📜",
     name: "Philosophy",
     image: Philosophy,
-    // theme: philosophyColor,
+    theme: (
+        <>
+        <div className="col-12" id="philosophyColor"></div>
+        </>
+    ),
     semester: 2,
     featured: false,
     description:

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import "../../src/vaporWaveMode.css";
+import '../../src/courseTheme.css'
 
 function Theme() {
   const [theme, setTheme] = useState("light");

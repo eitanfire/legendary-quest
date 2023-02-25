@@ -224,7 +224,7 @@ color: rgb(44, 214, 230);
   background-position: 95% 20%;
 } */
 
-/* #social-bar:before {
+/* .vaporWave #social-bar::before {
   content: "";
   background: radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%);
   background-size: cover;
@@ -234,4 +234,4 @@ color: rgb(44, 214, 230);
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-}*/
+} */
