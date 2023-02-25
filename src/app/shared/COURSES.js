@@ -6,6 +6,7 @@ import Film from "../assets/img/film-banner.png";
 import Epics from "../assets/img/epics-banner.png";
 import Programming from "../assets/img/programming-banner.png";
 import Survival from "../assets/img/survive-the-world-banner.png";
+import "../../courseTheme.css";
 
 export const COURSES = [
   {
@@ -13,6 +14,7 @@ export const COURSES = [
     icon: "📜",
     name: "Philosophy",
     image: Philosophy,
+    // theme: philosophyColor,
     semester: 2,
     featured: false,
     description:
