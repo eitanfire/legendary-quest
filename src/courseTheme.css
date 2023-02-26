@@ -1,112 +1,82 @@
 #filmColor {
-  width: 100%;
-  background-color: #39b9d2;
-  background: radial-gradient(circle, Magenta 25%, rgb(255, 255, 255) 100%);
-  position: absolute, center;
-  background-size: 150px;
-  background-image: url("https://thumbs.dreamstime.com/z/cinema-seamless-pattern-icons-movie-background-tv-show-television-online-entertainment-concept-film-elements-repeating-251720735.jpg");
-  z-index: 15;
-}
-
-#filmColor::before {
   content: "";
-  background: radial-gradient(circle, Magenta 25%, rgb(255, 255, 255) 100%);
-  background-size: cover;
+  background: 
+    url("https://thumbs.dreamstime.com/z/cinema-seamless-pattern-icons-movie-background-tv-show-television-online-entertainment-concept-film-elements-repeating-251720735.jpg"),
+  radial-gradient(circle, Magenta 25%, rgb(255, 255, 255) 100%);
+  background-size: 500px;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index: -10;
 }
 
 #programmingColor {
-  background: radial-gradient(circle, #af7fdd 25%, rgb(255, 255, 255) 100%);
-  background-size: 200px;
-  background-image: url("https://as1.ftcdn.net/v2/jpg/02/38/22/66/1000_F_238226669_2e3HdJV5zB9LKE2RWaWoDN692MLSnv4g.jpg");
-  z-index: 15;
-}
-
-#programmingColor:before {
   content: "";
-  background: radial-gradient(circle, #af7fdd 25%, rgb(255, 255, 255) 100%);
-  background-size: cover;
+  background: 
+  radial-gradient(circle, #af7fdd 25%, rgb(255, 255, 255) 100%),
+  url("https://as1.ftcdn.net/v2/jpg/02/38/22/66/1000_F_238226669_2e3HdJV5zB9LKE2RWaWoDN692MLSnv4g.jpg");
+  background-size: 500px;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index: -10;
 }
 
 #epicsColor {
-  background: radial-gradient(circle, Yellow 25%, rgb(255, 255, 255) 100%);
-
-  background-size: 200px;
-  background-image: url("https://c8.alamy.com/comp/2GNBWB5/ancient-greece-mythology-history-vector-seamless-pattern-2GNBWB5.jpg");
-  z-index: 15;
-}
-
-#epicsColor:before {
   content: "";
-  background: radial-gradient(circle, Yellow 25%, rgb(255, 255, 255) 100%);
-  background-size: cover;
+  background: 
+  radial-gradient(circle, Yellow 25%, rgb(255, 255, 255) 100%),
+  url("https://c8.alamy.com/comp/2GNBWB5/ancient-greece-mythology-history-vector-seamless-pattern-2GNBWB5.jpg");
+  background-size: 200px;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index: -10;
 }
 
 #stwColor {
-  background: radial-gradient(ellipse at top, #ec008c, transparent),
-    radial-gradient(ellipse at bottom, #fc6767, transparent);
-
-  background-size: 200px;
-  background-image: url("https://image.shutterstock.com/image-vector/seamless-pattern-survival-people-surviving-600w-500423134.jpg");
-}
-
-#stwColor::before {
   content: "";
-  background: radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%);
-  background-size: cover;
+  background: 
+  radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%),
+  url("https://image.shutterstock.com/image-vector/seamless-pattern-survival-people-surviving-600w-500423134.jpg");
+  background-size: 200px;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index: -10;
 }
 
 #wwColor {
-  background: radial-gradient(ellipse at top, red, transparent),
-    radial-gradient(ellipse at bottom, #fc6767, transparent);
-
-  background-size: 170px;
-  background-image: url("https://thumbs.dreamstime.com/z/military-aircraft-pattern-seamless-black-military-aircraft-pattern-repeat-seamless-black-color-any-design-vector-geometric-102903104.jpg");
-}
-
-#wwColor::before {
   content: "";
-  background: radial-gradient(circle, #f10202d1 25%, rgb(255, 255, 255) 100%);
-  background-size: cover;
+  background: 
+  radial-gradient(circle, #f10202d1 25%, rgb(255, 255, 255) 100%),
+  url("https://thumbs.dreamstime.com/z/military-aircraft-pattern-seamless-black-military-aircraft-pattern-repeat-seamless-black-color-any-design-vector-geometric-102903104.jpg");background-size: 200px;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index:-10;
+
 }
 
 #philosophyColor {
-  background-size: 370px;
-  background-image: url("https://www.shutterstock.com/image-vector/lamp-light-bulb-hand-drawn-600w-520326277.jpg");
-}
-
-#philosophyColor::before {
   content: "";
-  background: radial-gradient(circle, #02b5f1d1 25%, rgb(255, 255, 255) 100%);
+  background: radial-gradient(circle, #02b5f1d1 25%, rgb(255, 255, 255) 100%),
+  url("https://www.shutterstock.com/image-vector/lamp-light-bulb-hand-drawn-600w-520326277.jpg");
   background-size: cover;
   position: absolute;
   top: 0px;
@@ -114,38 +84,33 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index:-10;
 }
 
 #policingColor {
-  background-size: 170px;
-  background-image: url("https://www.shutterstock.com/image-vector/police-related-icon-set-outline-600w-1042818226.jpg");
-}
-
-#policingColor::before {
   content: "";
-  background: radial-gradient(circle, #ff7b00d1 25%, rgb(255, 255, 255) 100%);
-  background-size: cover;
+  background: radial-gradient(circle, #ff7b00d1 25%, rgb(255, 255, 255) 100%),
+  url("https://www.shutterstock.com/image-vector/police-related-icon-set-outline-600w-1042818226.jpg");
+  background-size: 500px;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index:-10;
 }
 
 #financeColor {
-  background-size: 170px;
-  background-image: url("https://www.shutterstock.com/image-illustration/leather-purse-pattern-repeat-seamless-600w-1106709062.jpg");
-}
-
-#financeColor::before {
   content: "";
-  background: radial-gradient(circle, #2efa05d1 25%, rgb(255, 255, 255) 100%);
-  background-size: cover;
+  background: radial-gradient(circle, #2efa05d1 25%, rgb(255, 255, 255) 100%),
+  url("https://www.shutterstock.com/image-illustration/leather-purse-pattern-repeat-seamless-600w-1106709062.jpg");
+  background-size: 170px;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
+  z-index:-10;
 }

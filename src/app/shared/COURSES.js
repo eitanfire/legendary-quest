@@ -15,9 +15,9 @@ export const COURSES = [
     name: "Philosophy",
     image: Philosophy,
     theme: (
-        <>
-        <div className="col-12" id="philosophyColor"></div>
-        </>
+      <>
+        <div id="philosophyColor"></div>
+      </>
     ),
     semester: 2,
     featured: false,
@@ -29,6 +29,11 @@ export const COURSES = [
     icon: "🪖",
     name: "World Wars",
     image: WorldWars,
+    theme: (
+      <>
+        <div id="wwColor"></div>
+      </>
+    ),
     semester: 2,
     featured: true,
     description:
@@ -39,6 +44,11 @@ export const COURSES = [
     icon: "💰",
     name: "Personal Finance",
     image: Finance,
+    theme: (
+      <>
+        <div id="financeColor"></div>
+      </>
+    ),
     semester: 2,
     featured: false,
     description:
@@ -49,6 +59,11 @@ export const COURSES = [
     icon: "🚔",
     name: "Policing in America",
     image: Policing,
+    theme: (
+      <>
+        <div id="policingColor"></div>
+      </>
+    ),
     semester: 2,
     featured: false,
     description:
@@ -61,6 +76,11 @@ export const COURSES = [
     icon: "📽",
     name: "Film",
     image: Film,
+    theme: (
+      <>
+        <div id="filmColor"></div>
+      </>
+    ),
     semester: 2,
     featured: false,
     description:
@@ -72,6 +92,11 @@ export const COURSES = [
     icon: "👩🏿‍💻",
     name: "Programming",
     image: Programming,
+    theme: (
+      <>
+        <span id="programmingColor"></span>
+      </>
+    ),
     semester: 1,
     featured: false,
     description:
@@ -82,6 +107,11 @@ export const COURSES = [
     icon: "⚔",
     name: "Epics",
     image: Epics,
+    theme: (
+      <>
+        <span id="epicsColor"></span>
+      </>
+    ),
     semester: 2,
     featured: true,
     description:
@@ -90,8 +120,13 @@ export const COURSES = [
   {
     id: 7,
     icon: "🧭",
-    name: "Survive the World!",
+    name: <span>"Survive the World!"</span>,
     image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
     semester: 2,
     featured: false,
     description:
