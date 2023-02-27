@@ -45,10 +45,33 @@
 
 #stwColor {
   content: "";
-  background: 
-  radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%),
+  background-image: 
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
   url("https://image.shutterstock.com/image-vector/seamless-pattern-survival-people-surviving-600w-500423134.jpg");
   background-size: 200px;
+  position: absolute;
+  top: 0px;
+
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  background: radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%);
+  z-index: -10;
+}
+
+/* #stwColor::before {
+  background: radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent);
+
+  background-size: 200px;
+  background-image: url("https://image.shutterstock.com/image-vector/seamless-pattern-survival-people-surviving-600w-500423134.jpg");
+}
+
+#stwColor::before {
+  content: "";
+  background: radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%);
+  background-size: cover;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -70,7 +93,6 @@
   left: 0px;
   opacity: 0.75;
   z-index:-10;
-
 }
 
 #philosophyColor {
@@ -113,4 +135,4 @@
   left: 0px;
   opacity: 0.75;
   z-index:-10;
-}
+} */
