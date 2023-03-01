@@ -31,3 +31,63 @@ color: purple;
  background-color: #3046c5; 
 color: white;
 }
+
+ .vaporWave .site-footer {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #f90497, transparent),
+    radial-gradient(ellipse at bottom, #d1c3b2, transparent);
+  }
+
+   .light .site-footer {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background:  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, blue, transparent),
+    radial-gradient(ellipse at bottom, red, transparent);
+  }
+
+  .vaporwaveTrees {
+
+}
+
+.vaporWave .navbar-dark {
+  background-color: #901cad;
+  min-height: 4rem;
+  min-width: none;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  background: url("https://cdn.xxl.thumbs.canstockphoto.com/abstract-davids-bust-with-neon-gloving-light-on-grid-background-banner-design-retrowave-stock-photograph_csp69193594.jpg")
+     no-repeat,
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent);
+    background-position: 0% 50%;
+    width:auto;
+  margin-bottom: 2rem;
+  min-height: 2rem;
+}
+
+.light .navbar-dark {
+ background-color: #901cad;
+  min-height: 4rem;
+  min-width: none;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  /* background: url("https://img.favpng.com/24/11/11/student-course-credit-college-education-png-favpng-bRiYYiqBA0qUmELiwk5n29hD0_t.jpg") */
+  background: url("https://cdn.pixabay.com/photo/2016/10/18/20/33/bookshelves-1751334_1280.png")
+     no-repeat,
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient( ellipse at 25%, blue, transparent),
+        radial-gradient(ellipse at 75% bottom, red, transparent),
+    radial-gradient(ellipse at 33% bottom, red, transparent);
+    background-position: -00% 55%;
+    width:auto;
+  margin-bottom: 2rem;
+  min-height: 2rem;
+}
+
+ .vaporWave #icon {
+  color: initial;
+}

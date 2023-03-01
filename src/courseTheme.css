@@ -51,7 +51,6 @@
   background-size: 200px;
   position: absolute;
   top: 0px;
-
   right: 0px;
   bottom: 0px;
   left: 0px;
@@ -60,7 +59,7 @@
   z-index: -10;
 }
 
-/* #stwColor::before {
+#stwColor::before {
   background: radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
 
@@ -135,4 +134,4 @@
   left: 0px;
   opacity: 0.75;
   z-index:-10;
-} */
+}
