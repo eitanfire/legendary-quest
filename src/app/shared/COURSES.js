@@ -120,7 +120,127 @@ export const COURSES = [
   {
     id: 7,
     icon: "🧭",
-    name: <span>"Survive the World!"</span>,
+    name: <span>Survive the World!</span>,
+    image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 8,
+    icon: "🧭",
+    name: <span>The History of Piracy</span>,
+    image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 9,
+    icon: "🧭",
+    name: <span>US History of the 1800s</span>,
+    image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 10,
+    icon: "🧭",
+    name: <span>Government</span>,
+    image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 11,
+    icon: "🧭",
+    name: <span>Migration</span>,
+    image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 12,
+    icon: "🧭",
+    name: <span>The Holy Land</span>,
+    image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 13,
+    icon: "🧭",
+    name: <span>The History of Disease</span>,
+    image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 14,
+    icon: "🧭",
+    name: <span>The Cold War</span>,
+    image: Survival,
+    theme: (
+      <>
+        <span id="stwColor"></span>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 15,
+    icon: "🧭",
+    name: <span>Ancient History</span>,
     image: Survival,
     theme: (
       <>
