@@ -9,7 +9,7 @@ const AboutPage = (props) => {
         <Row className="row-content">
           <Col sm="6">
             <h3 className="title">Our Mission</h3>
-            <p>We know how hard an educator’s job is. </p>
+            <h3>It's Hard for Educators</h3>
             <p>
               Teachers are entrusted by society to prepare the next generation.
               They have numerous duties and responsibilities they must meet with
@@ -31,8 +31,6 @@ const AboutPage = (props) => {
               </a>
               who are already doing more than their share of duties such as
               child care, cooking, and cleaning without monetary compensation.
-              Expecting a constant stream of new teachers to be pedagogical
-              wizards is unrealistic.
             </p>
             <p>
               On the other hand, simply giving them a textbook to follow can be
@@ -46,37 +44,40 @@ const AboutPage = (props) => {
                 <h3 className="text-center">Did You Know?</h3>
               </CardHeader>
               <CardBody>
-                <Row className="row">
-                  <a
-                    href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
-                    target="_blank"
-                  >
-                    On average 44% of teachers only stay in the classroom for 5
-                    years.
-                  </a>
-                </Row>
+                <a
+                  href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
+                  target="_blank"
+                >
+                  On average 44% of teachers only stay in the classroom for 5
+                  years.
+                </a>
               </CardBody>
             </Card>
-          </Col>
-          <Col sm="6">
-            <Card>
+            <Card className="mt-5">
+              <h2 className="text-center">
+                <p>Enough.</p>
+              </h2>
+              <h3>
+                <p>Our Students are Counting on Us.</p>
+              </h3>{" "}
+              <h3> Flick the Lights on Oppression.</h3>
+            </Card>
+            <Card className="mt-5">
               <CardHeader className="card-header">
-                <h3 className="text-center">Did You Know?</h3>
+                <h3 className="text-center">Free Speech.</h3>
               </CardHeader>
               <CardBody>
-                <Row className="row">
-                  <a
+                {/* <a
                     href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
                     target="_blank"
-                  >
-                    On average 44% of teachers only stay in the classroom for 5
-                    years.
-                  </a>
-                </Row>
+                  > */}
+                <h3 className="text-center">Not Free Work.</h3>
+                {/* </a> */}
               </CardBody>
             </Card>
           </Col>
-          </Row><Row>
+        </Row>
+        <Row>
           <Col>
             <Card className="bg-light mt-3 mb-4">
               <CardBody>
@@ -105,7 +106,7 @@ const AboutPage = (props) => {
         </Row>
         <Row className="row-content">
           <Col xs="12">
-            <h3>Community Partners</h3>
+            <h2 className="text-center">Hot Takes</h2>
           </Col>
           <TakesList />
         </Row>
