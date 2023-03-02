@@ -28,7 +28,7 @@ const AboutPage = (props) => {
                 target="_blank"
               >
                 most teachers are women
-              </a>
+              </a>{" "}
               who are already doing more than their share of duties such as
               child care, cooking, and cleaning without monetary compensation.
             </p>

@@ -6,6 +6,14 @@ import Film from "../assets/img/film-banner.png";
 import Epics from "../assets/img/epics-banner.png";
 import Programming from "../assets/img/programming-banner.png";
 import Survival from "../assets/img/survive-the-world-banner.png";
+import Pirates from "../assets/img/pirates.png"
+import Disease from "../assets/img/diseases-image.jpg";
+import Migration from "../assets/img/migration.jpg";
+import HolyLand from "../assets/img/Bunting-Map-of-the-World-around-Jerusalem-site-Keilo-Jack.jpg";
+import Government from "../assets/img/Government.jpeg";
+import ColdWar from "../assets/img/ColdWar.jpg";
+import Ancient from "../assets/img/AncientHistory.webp";
+import USHistory from "../assets/img/Fugitives.jpg";
 import "../../courseTheme.css";
 
 export const COURSES = [
@@ -136,7 +144,7 @@ export const COURSES = [
     id: 8,
     icon: "🧭",
     name: <span>The History of Piracy</span>,
-    image: Survival,
+    image: Pirates,
     theme: (
       <>
         <span id="stwColor"></span>
@@ -151,7 +159,7 @@ export const COURSES = [
     id: 9,
     icon: "🧭",
     name: <span>US History of the 1800s</span>,
-    image: Survival,
+    image: USHistory,
     theme: (
       <>
         <span id="stwColor"></span>
@@ -166,7 +174,7 @@ export const COURSES = [
     id: 10,
     icon: "🧭",
     name: <span>Government</span>,
-    image: Survival,
+    image: Government,
     theme: (
       <>
         <span id="stwColor"></span>
@@ -181,7 +189,7 @@ export const COURSES = [
     id: 11,
     icon: "🧭",
     name: <span>Migration</span>,
-    image: Survival,
+    image: Migration,
     theme: (
       <>
         <span id="stwColor"></span>
@@ -196,7 +204,7 @@ export const COURSES = [
     id: 12,
     icon: "🧭",
     name: <span>The Holy Land</span>,
-    image: Survival,
+    image: HolyLand,
     theme: (
       <>
         <span id="stwColor"></span>
@@ -211,7 +219,7 @@ export const COURSES = [
     id: 13,
     icon: "🧭",
     name: <span>The History of Disease</span>,
-    image: Survival,
+    image: Disease,
     theme: (
       <>
         <span id="stwColor"></span>
@@ -226,7 +234,7 @@ export const COURSES = [
     id: 14,
     icon: "🧭",
     name: <span>The Cold War</span>,
-    image: Survival,
+    image: ColdWar,
     theme: (
       <>
         <span id="stwColor"></span>
@@ -241,7 +249,7 @@ export const COURSES = [
     id: 15,
     icon: "🧭",
     name: <span>Ancient History</span>,
-    image: Survival,
+    image: Ancient,
     theme: (
       <>
         <span id="stwColor"></span>
