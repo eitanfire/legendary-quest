@@ -142,7 +142,7 @@ export const COURSES = [
   },
   {
     id: 8,
-    icon: "🧭",
+    icon: "🏴‍☠️",
     name: <span>The History of Piracy</span>,
     image: Pirates,
     theme: (
@@ -157,7 +157,7 @@ export const COURSES = [
   },
   {
     id: 9,
-    icon: "🧭",
+    icon: "🇺🇲",
     name: <span>US History of the 1800s</span>,
     image: USHistory,
     theme: (
@@ -172,7 +172,7 @@ export const COURSES = [
   },
   {
     id: 10,
-    icon: "🧭",
+    icon: "🗽",
     name: <span>Government</span>,
     image: Government,
     theme: (
@@ -187,7 +187,7 @@ export const COURSES = [
   },
   {
     id: 11,
-    icon: "🧭",
+    icon: "🧳",
     name: <span>Migration</span>,
     image: Migration,
     theme: (
@@ -202,7 +202,7 @@ export const COURSES = [
   },
   {
     id: 12,
-    icon: "🧭",
+    icon: "🪬",
     name: <span>The Holy Land</span>,
     image: HolyLand,
     theme: (
@@ -217,7 +217,7 @@ export const COURSES = [
   },
   {
     id: 13,
-    icon: "🧭",
+    icon: "🦠",
     name: <span>The History of Disease</span>,
     image: Disease,
     theme: (
@@ -232,7 +232,7 @@ export const COURSES = [
   },
   {
     id: 14,
-    icon: "🧭",
+    icon: "☭",
     name: <span>The Cold War</span>,
     image: ColdWar,
     theme: (
@@ -247,7 +247,7 @@ export const COURSES = [
   },
   {
     id: 15,
-    icon: "🧭",
+    icon: "𓀮",
     name: <span>Ancient History</span>,
     image: Ancient,
     theme: (
