@@ -153,7 +153,7 @@ export const COURSES = [
     semester: 2,
     featured: false,
     description:
-      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+      "Pirates continue to excite and fascinate us. What has led to the appearance of these outlaws throughout time? What is the truth behind the myths that we know about pirates? This course explores world history, US history, geography, and physical education through the lens of pirates.",
   },
   {
     id: 9,
@@ -168,7 +168,7 @@ export const COURSES = [
     semester: 2,
     featured: false,
     description:
-      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+      "The history of the United States in the 1800s has been described as “flyover country” by some historians. While often neglected, the events of this time are crucial to understanding some of the most critical issues of our day. Studying this period of time is both recognizably modern and bizarre and alien at times. This class aims to enlighten students about a period of time that precious few understand.",
   },
   {
     id: 10,
@@ -183,7 +183,7 @@ export const COURSES = [
     semester: 2,
     featured: false,
     description:
-      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+      "Students will study the purposes, principles, and practices of the American government as established by the Constitution. Students are expected to understand their rights and responsibilities as citizens and how to exercise these rights and responsibilities in local, state, and national government. Students will learn the structure and processes of the government of the state of Colorado and various local governments.",
   },
   {
     id: 11,
@@ -198,7 +198,7 @@ export const COURSES = [
     semester: 2,
     featured: false,
     description:
-      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+      "This class aims to reveal the geographic and historical forces that shape the issues of immigration today. The main units of study of this course will focus on issues of immigration in North America ( such as Mexico and the Northern Triangle), Africa, the Middle East (Such as the Israeli and Palestinian conflict and the Syrian conflict), and Asia (Including India and Pakistan.)",
   },
   {
     id: 12,
@@ -213,7 +213,7 @@ export const COURSES = [
     semester: 2,
     featured: false,
     description:
-      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+      "Never have I witnessed such sincere hospitality and the overwhelming spirit of true brotherhood as is practiced by people of all colours and races here in this ancient Holy Land, the home of Abraham, Muhammad, and all the other prophets of the Holy Scriptures. For the past week, I have been utterly speechless and spellbound by the graciousness I see displayed all around me by people of all colours.~ Malcolm X,The Holy Land... What an experience ~ Justin Timberlake",
   },
   {
     id: 13,
@@ -228,7 +228,7 @@ export const COURSES = [
     semester: 2,
     featured: false,
     description:
-      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+      "This course will explore an array of diseases and how they have altered the course of history. Embedded in this curriculum is the history of science, intellectual history, as well as themes of social justice. ",
   },
   {
     id: 14,
@@ -243,7 +243,7 @@ export const COURSES = [
     semester: 2,
     featured: false,
     description:
-      "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+      "This class examines the epic military and ideological clash that occurred between the US and the USSR during the 20th century.",
   },
   {
     id: 15,

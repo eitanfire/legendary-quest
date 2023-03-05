@@ -1,7 +1,9 @@
 import CoursesList from "../../src/features/courses/CoursesList";
+import React, { useState, useEffect } from "react";
+import { Button } from "reactstrap";
 
-const coursesPerRow = 4;
-export const loadMoreCourses = ({ loadMoreCourses }) => {
+const coursePerRow = 4;
+export const CourseGallery = ({ CourseGallery }) => {
   const [next, setNext] = useState(coursePerRow);
   const handleMoreCourse = () => {
     setNext(next + coursePerRow);
@@ -9,15 +11,15 @@ export const loadMoreCourses = ({ loadMoreCourses }) => {
   return (
     <>
       <div className="gap-y-4 flex flex-wrap justify-center">
-        {loadMoreCourses?.slice(0, next)?.map((course, index) => {
+        {CourseGallery?.slice(0, next)?.map((image, index) => {
           return (
             <div key={index} className="px-2.5 md:px-0">
-              <img className="cursor-pointer" src={course?.url} />
+              <img className="cursor-pointer" src={image?.url} />
             </div>
           );
         })}
-        {next < coursePerRow?.length && (
-          <Button className="mt-4" onClick={handleMoreImage}>
+        {next < CourseGallery?.length && (
+          <Button className="mt-4" onClick={handleMoreCourse}>
             Load more
           </Button>
         )}
