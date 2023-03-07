@@ -14,6 +14,9 @@ import Government from "../assets/img/Government.jpeg";
 import ColdWar from "../assets/img/ColdWar.jpg";
 import Ancient from "../assets/img/AncientHistory.webp";
 import USHistory from "../assets/img/Fugitives.jpg";
+import Debate from "../assets/img/group_discussions.png";
+import CRT from "../assets/img/mind-control-swirl1.webp";
+
 import "../../courseTheme.css";
 
 export const COURSES = [
@@ -259,5 +262,34 @@ export const COURSES = [
     featured: false,
     description:
       "Geography is the study of the physical features of the earth and its atmosphere, and of human activity, as it affects and is affected by these, including the distribution of populations and resources, land use, and industries. We will examine this subject through the lens of survival considering how we can deal with our often harsh world. We will participate in the RISE Challenge, a competition to make our community more resilient to natural disasters depending upon students’ interests.",
+  },
+  {
+    id: 16,
+    icon: "🗣️",
+    name: "Speech and Debate",
+    image: Debate,
+    theme: (
+      <>
+        <div id="philosophyColor"></div>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description:
+      "This course will develop and improve public speaking and critical thinking skills. Students will prepare and deliver speeches and participate in debates and forums on a variety of  topics.",
+  },
+  {
+    id: 17,
+    icon: "📢",
+    name: "Critical Race Theory",
+    image: CRT,
+    theme: (
+      <>
+        <div id="philosophyColor"></div>
+      </>
+    ),
+    semester: 2,
+    featured: false,
+    description: "Coming Soon: As soon as we figure out what that means.",
   },
 ];
