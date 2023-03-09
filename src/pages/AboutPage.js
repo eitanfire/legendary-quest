@@ -8,8 +8,8 @@ const AboutPage = (props) => {
         <SubHeader current="About Us" />
         <Row className="row-content">
           <Col sm="6">
-            <h3 className="title">Our Mission</h3>
-            <h3>It's Hard for Educators</h3>
+            <h3 className="title text-center">Our Mission</h3>
+            <h3 className="m-2">It's Hard for Educators</h3>
             <p>
               Teachers are entrusted by society to prepare the next generation.
               They have numerous duties and responsibilities they must meet with
@@ -17,6 +17,7 @@ const AboutPage = (props) => {
               <a
                 href="https://www.edutopia.org/article/what-can-we-do-about-teacher-turnover"
                 target="_blank"
+                rel="noreferrer"
               >
                 Inadequate compensation is a major reason cited for teachers
                 leaving the profession.{" "}
@@ -26,6 +27,7 @@ const AboutPage = (props) => {
               <a
                 href="https://www.weareteachers.com/teachers-undervalued-women/"
                 target="_blank"
+                rel="noreferrer"
               >
                 most teachers are women
               </a>{" "}
@@ -47,6 +49,7 @@ const AboutPage = (props) => {
                 <a
                   href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   On average 44% of teachers only stay in the classroom for 5
                   years.
@@ -92,13 +95,6 @@ const AboutPage = (props) => {
                       it!
                     </h2>
                   </p>
-                  {/* <footer className="blockquote-footer">
-                    {" "}
-                    Muriel Strode,{" "}
-                    <cite title="Source Title">
-                      "Wind-Wafted Wild Flowers" - The Open Court, 1903
-                    </cite>
-                  </footer> */}
                 </blockquote>
               </CardBody>
             </Card>

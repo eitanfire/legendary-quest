@@ -45,21 +45,19 @@
 
 #stwColor {
   content: "";
-  background-image: 
-  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
+  background: radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%),
   url("https://image.shutterstock.com/image-vector/seamless-pattern-survival-people-surviving-600w-500423134.jpg");
-  background-size: 200px;
+  background-size: cover;
   position: absolute;
   top: 0px;
   right: 0px;
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  background: radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%);
   z-index: -10;
 }
 
-#stwColor::before {
+/* #stwColor::before {
   background: radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
 
@@ -78,7 +76,7 @@
   left: 0px;
   opacity: 0.75;
   z-index: -10;
-}
+} */
 
 #wwColor {
   content: "";
