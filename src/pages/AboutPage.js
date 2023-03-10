@@ -70,10 +70,6 @@ const AboutPage = (props) => {
                 <h3 className="text-center">Free Speech.</h3>
               </CardHeader>
               <CardBody>
-                {/* <a
-                    href="https://www.edweek.org/leadership/5-things-to-know-about-todays-teaching-force/2018/10"
-                    target="_blank"
-                  > */}
                 <h3 className="text-center">Not Free Work.</h3>
                 {/* </a> */}
               </CardBody>

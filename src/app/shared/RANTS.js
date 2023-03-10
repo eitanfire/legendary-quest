@@ -40,7 +40,11 @@ export const RANTS = [
         <br></br>
         <br></br>
         Get Up on That Soapbox in
-        <a href="https://www.reddit.com/r/Teachers/" target="_blank">
+        <a
+          href="https://www.reddit.com/r/Teachers/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {` `}r/Teachers
         </a>
       </span>
