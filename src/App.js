@@ -14,7 +14,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <Theme />
       <Routes>
         <Route path="/" element={<TheTeachersLounge />} />

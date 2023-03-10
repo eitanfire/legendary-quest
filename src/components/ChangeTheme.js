@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
+import VaporWaveHeader from './VaporWaveHeader';
 import "../../src/vaporWaveMode.css";
-import '../../src/courseTheme.css'
+import { Row, Col } from 'reactstrap';
+// import "../../src/courseTheme.css";
 
 function Theme() {
   const [theme, setTheme] = useState("light");
@@ -16,15 +18,33 @@ function Theme() {
     document.body.className = theme;
   }, [theme]);
   return (
-    <span className={`App ${theme}`}>
-      <button id="button" className="card-body" onClick={toggleTheme}>
+    <Row>
+      <Col Id="bulbBanner" className={`App ${theme}`} onClick={toggleTheme}>
+        <div>
+          {theme === "light" ? (
+            <>
+              <button id="button">
+                <i className="fa fa-lightbulb-o fa-lg" />
+              </button>
+            </>
+          ) : (
+            <button id="button">
+              <i className="darkBulb fa fa-lightbulb-o fa-lg" />
+            </button>
+          )}
+        </div>
+      </Col>
+      <span className={`App ${theme}`}>
+        {theme === "light" ? <Header /> : <VaporWaveHeader />}
+      </span>
+      <span className={`App ${theme}`}>
         {theme === "light" ? (
-          <i className="fa fa-lightbulb-o fa-lg" />
+          <span className="title">Flick the lights on oppression</span>
         ) : (
-          <i className="darkBulb fa fa-lightbulb-o fa-lg" />
+          ""
         )}
-      </button>
-    </span>
+      </span>
+    </Row>
   );
 }
 export default Theme;
