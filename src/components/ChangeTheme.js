@@ -3,7 +3,6 @@ import Header from './Header';
 import VaporWaveHeader from './VaporWaveHeader';
 import "../../src/vaporWaveMode.css";
 import { Row, Col } from 'reactstrap';
-// import "../../src/courseTheme.css";
 
 function Theme() {
   const [theme, setTheme] = useState("light");
@@ -39,7 +38,10 @@ function Theme() {
       </span>
       <span className={`App ${theme}`}>
         {theme === "light" ? (
-          <span className="title">Flick the lights on oppression</span>
+          <>
+            <br></br>
+            <span className="title">Flick the lights on oppression</span>
+          </>
         ) : (
           ""
         )}
