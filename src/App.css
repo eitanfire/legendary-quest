@@ -1,6 +1,10 @@
-/* body {
+body {
   font-family: "Open Sans", sans-serif;
-} */
+   position: relative;
+  min-height: 100vh;
+    padding-bottom: 2.5rem;    /* Footer height */
+
+}
 
 /* :root {
 -- main-font: font-family: "comic Sans", sans-serif, red;
@@ -62,7 +66,10 @@ h2 {
   opacity: 0.85;
   color: white;
   font-size: larger;
-  width:100%;
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* height: 3.5rem; */
 }
  
  /* .navbar-brand {
