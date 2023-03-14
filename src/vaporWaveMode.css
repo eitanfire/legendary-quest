@@ -1,9 +1,12 @@
 .vaporWave .card-body {
  background-size: cover;
-  background-image: url("https://static.vecteezy.com/system/resources/previews/003/363/668/original/beautiful-palm-tree-leaf-silhouette-seamless-pattern-background-free-vector.jpg");
+  /* background-image: url("https://static.vecteezy.com/system/resources/previews/003/363/668/original/beautiful-palm-tree-leaf-silhouette-seamless-pattern-background-free-vector.jpg"); */
   background-position: 95% 80%;
   background-clip:content-box;
-  opacity:inherit;
+  opacity:.75;
+  background: -moz-linear-gradient(to bottom, #FFFFFF, #0099ff);
+  background: linear-gradient(to bottom, #FFFFFF, #0099ff);
+
 }
 
 .vaporWave {
