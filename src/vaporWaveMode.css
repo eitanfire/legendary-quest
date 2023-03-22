@@ -70,14 +70,14 @@ color: white;
     radial-gradient(ellipse at bottom, #fc6767, transparent); */
     /* background-position: cover; */
     /* width:auto; */
-    position: relative;
+    position: absolute;
     left: 9rem;
     top: 7rem;
   }
 
 .vaporWave .navbar-dark {
   background-color: #901cad;
-  min-height: 4rem;
+  height: 5rem;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
@@ -88,13 +88,13 @@ color: white;
     radial-gradient(ellipse at bottom, #fc6767, transparent);
     background-position: 0% 50%;
     width:auto;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   min-height: 2rem;
 }
 
 .light .navbar-dark {
  background-color: #901cad;
-  min-height: 4rem;
+  height: 5rem;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
@@ -107,7 +107,7 @@ color: white;
     radial-gradient(ellipse at 33% bottom, red, transparent);
     background-position: -00% 55%;
     width:auto;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   min-height: 2rem;
 }
 

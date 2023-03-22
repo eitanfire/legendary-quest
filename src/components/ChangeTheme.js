@@ -38,12 +38,11 @@ function Theme() {
       </span>
       <span className={`App ${theme}`}>
         {theme === "light" ? (
+          <></>
+        ) : (
           <>
-            <br></br>
             <span className="title">Flick the lights on oppression</span>
           </>
-        ) : (
-          ""
         )}
       </span>
     </Row>

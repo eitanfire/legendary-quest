@@ -18,6 +18,7 @@ import Debate from "../assets/img/group_discussions.png";
 import CRT from "../assets/img/mind-control-swirl1.webp";
 
 import "../../courseTheme.css";
+import "../../courseTheme2.css";
 
 export const COURSES = [
   {
@@ -145,12 +146,12 @@ export const COURSES = [
   },
   {
     id: 8,
-    icon: "🏴‍☠️",
+    icon: "☠️",
     name: <span>The History of Piracy</span>,
     image: Pirates,
     theme: (
       <>
-        <span id="stwColor"></span>
+        <span id="wwColor"></span>
       </>
     ),
     semester: 2,

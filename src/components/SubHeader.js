@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 const SubHeader = ({ current, detail }) => {
 
   return (
-    <Row Id="BreadCrumb">
-      <Col>
+      <Col id="BreadCrumb">
         <Breadcrumb>
           <BreadcrumbItem Id="icon">
             <Link theme to="/">
@@ -22,7 +21,6 @@ const SubHeader = ({ current, detail }) => {
         <h2>{current}</h2>
         <hr />
       </Col>
-    </Row>
   );
 };
 
