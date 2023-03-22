@@ -8,8 +8,8 @@ import {
   NavItem,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import { setTheme } from './ChangeTheme';
-import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
+// import { setTheme } from './ChangeTheme';
+// import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
 import logo from "../app/assets/img/tlLogo.jpeg";
 
 const Header = () => {
@@ -49,6 +49,7 @@ const Header = () => {
           </Nav>
         </Collapse>
       </Navbar>
+      <br></br>
     </>
   );
 };

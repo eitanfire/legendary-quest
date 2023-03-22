@@ -8,9 +8,9 @@ import {
   NavItem,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import { setTheme } from "./ChangeTheme";
+// import { setTheme } from "./ChangeTheme";
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
-import logo from "../app/assets/img/logo.png";
+// import logo from "../app/assets/img/logo.png";
 
 const VaporWaveHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
