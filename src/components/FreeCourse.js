@@ -26,13 +26,6 @@ const FreeCourse = () => {
           );
         })}
       </Row>
-
-      {/* <Col>
-          {icon}
-          <h2>{name}</h2>
-          {image}
-          <h2>{freeContentDescription}</h2>
-        </Col> */}
     </Container>
   );
 };
