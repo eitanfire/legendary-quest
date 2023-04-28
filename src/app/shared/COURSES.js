@@ -56,6 +56,7 @@ export const COURSES = [
     icon: "💰",
     name: "Personal Finance",
     image: Finance,
+    // credit: [Elective],
     theme: (
       <>
         <div id="financeColor"></div>
