@@ -23,9 +23,9 @@
 }
 
  .vaporWave #social-bar {
-    background-size: 2005px;
+    /* background-size: 2005px; */
   background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
-  background-position: 95% 20%;
+  /* background-position: 95% 20%; */
 } 
 
 .light .card-header {
