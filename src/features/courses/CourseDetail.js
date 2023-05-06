@@ -6,11 +6,16 @@ import {
   CardTitle,
   Col,
   CardImgOverlay,
-} from "reactstrap";
+} 
+
+from "reactstrap";
+
+import Credit from '../../features/courses/creditType/Credit';
+
 // import SubHeader from "../../components/SubHeader";
 
 const CourseDetail = ( { course } ) => {
-        const { image, icon, name, description, theme } = course;
+        const { image, icon, name, credit, description, theme } = course;
   
     return (
       <Col md="11" className="m-4">
@@ -20,12 +25,15 @@ const CourseDetail = ( { course } ) => {
         detail={true} /> */}
         <Card>
           <CardTitle className="card-detail-title">
-            {icon} {name}
+            {icon} {name} <span className="credit">{credit}</span>
           </CardTitle>
           <CardImg top src={image} alt={name} />
           <CardBody>
             {/* <CardImgOverlay id="icon"><span>{name}</span>{icon}</CardImgOverlay> */}
-            <CardText>{description}</CardText>
+            <CardText>
+              {credit}
+              {description}
+            </CardText>
           </CardBody>
         </Card>
       </Col>
