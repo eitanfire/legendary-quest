@@ -1,4 +1,10 @@
-.credit {
-    border:1rem, aqua;
-    background-color: blueviolet;
+h2
+/* .credit */
+{
+    position: relative;
+border: thick double #32a1ce; 
+/* padding: 5%;   */
+/* margin: 5%;  */
+background-color: blueviolet;
+/* font-size: small; */
 }

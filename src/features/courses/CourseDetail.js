@@ -7,10 +7,10 @@ import {
   Col,
   CardImgOverlay,
 } 
-
 from "reactstrap";
+import "../../Credit.css";
 
-import Credit from '../../features/courses/creditType/Credit';
+// import Credit from '../../features/courses/creditType/Credit';
 
 // import SubHeader from "../../components/SubHeader";
 
@@ -20,20 +20,17 @@ const CourseDetail = ( { course } ) => {
     return (
       <Col md="11" className="m-4">
         {theme}
+        <h2 className="credit">{credit}</h2>
         {/* <SubHeader 
         current={course.icon} 
         detail={true} /> */}
         <Card>
           <CardTitle className="card-detail-title">
-            {icon} {name} <span className="credit">{credit}</span>
+            {icon} {name}
           </CardTitle>
           <CardImg top src={image} alt={name} />
           <CardBody>
-            {/* <CardImgOverlay id="icon"><span>{name}</span>{icon}</CardImgOverlay> */}
-            <CardText>
-              {credit}
-              {description}
-            </CardText>
+            <CardText>{description}</CardText>
           </CardBody>
         </Card>
       </Col>
