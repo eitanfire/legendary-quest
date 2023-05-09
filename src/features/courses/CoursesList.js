@@ -2,6 +2,7 @@ import { COURSES } from "../../app/shared/COURSES";
 import { Col, Row } from "reactstrap";
 import CourseCard from "./CourseCard";
 import { selectAllCourses } from "./coursesSlice";
+import Credit from "../../features/courses/creditType/Credit"
 
 const CoursesList = () => {
   const courses = selectAllCourses();
