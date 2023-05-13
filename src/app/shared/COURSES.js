@@ -26,7 +26,7 @@ export const COURSES = [
     icon: "📜",
     name: "Philosophy",
     image: Philosophy,
-    credit: ['World History'],
+    credit: [<span className="worldHistoryCredit">'World History'</span>],
     theme: (
       <>
         <div id="philosophyColor"></div>

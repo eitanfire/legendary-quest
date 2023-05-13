@@ -16,7 +16,7 @@ const CourseDetail = ( { course } ) => {
     return (
       <Col md="11" className="m-4">
         {theme}
-        <h2 className="credit">{credit}</h2>
+        <h2>{credit}</h2>
         <Card>
           <CardTitle className="card-detail-title">
             {icon} {name}
