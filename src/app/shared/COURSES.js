@@ -26,7 +26,7 @@ export const COURSES = [
     icon: "📜",
     name: "Philosophy",
     image: Philosophy,
-    credit: [<span className="worldHistoryCredit">'World History'</span>],
+    credit: [<span className="worldHistoryCredit">World History</span>],
     theme: (
       <>
         <div id="philosophyColor"></div>
@@ -165,7 +165,7 @@ export const COURSES = [
     name: <span>The History of Piracy</span>,
     image: Pirates,
     credit: [
-      <span className="worldHistoryCredit">'World History'</span>,
+      <span className="worldHistoryCredit">World History</span>,
       <span className="geographyCredit">Geography</span>,
     ],
     theme: (

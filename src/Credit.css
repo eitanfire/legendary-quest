@@ -38,9 +38,10 @@
 .geographyCredit,
 .governmentCredit,
 .electiveCredit,
-.mandatoryredit,
+.mandatoryCredit,
 .lACredit,
 .credit {
+  font-size: 1.5rem;
     position: relative;
   border: thick double;
   margin-right: 1%;
