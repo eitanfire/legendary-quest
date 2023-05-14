@@ -1,6 +1,47 @@
-.worldHistoryCredit 
+.worldHistoryCredit
 {
-  position: relative;
-  border: thick double #32a1ce;
-  background-color: blueviolet;
+  color: blue;
+}
+
+.uSHistoryCredit
+{
+  color: red;
+}
+
+.geographyCredit
+{
+  color: green;
+}
+
+.governmentCredit
+{
+  color: purple;
+}
+
+.electiveCredit
+{
+  color:violet;
+}
+
+.mandatoryCredit
+{
+  color: black;
+}
+
+.lACredit
+{
+  color: orange;
+}
+
+.worldHistoryCredit,
+.uSHistoryCredit,
+.geographyCredit,
+.governmentCredit,
+.electiveCredit,
+.mandatoryredit,
+.lACredit,
+.credit {
+    position: relative;
+  border: thick double;
+  margin-right: 1%;
 }

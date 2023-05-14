@@ -42,7 +42,10 @@ export const COURSES = [
     icon: "🪖",
     name: "World Wars",
     image: WorldWars,
-    credit: ["US History", "World History"],
+    credit: [
+      <span className="uSHistoryCredit">US History</span>,
+      <span className="worldHistoryCredit">World History</span>,
+    ],
     theme: (
       <>
         <div id="wwColor"></div>
@@ -58,7 +61,7 @@ export const COURSES = [
     icon: "💰",
     name: "Personal Finance",
     image: Finance,
-    credit: ["Elective"],
+    credit: [<span className="electiveCredit">Elective</span>],
     theme: (
       <>
         <div id="financeColor"></div>
@@ -74,7 +77,7 @@ export const COURSES = [
     icon: "🚔",
     name: "Policing in America",
     image: Policing,
-    credit: ["US History"],
+    credit: [<span className="uSHistoryCredit">US History</span>],
     theme: (
       <>
         <div id="policingColor"></div>
@@ -92,7 +95,7 @@ export const COURSES = [
     icon: "📽",
     name: "Film",
     image: Film,
-    credit: ["Elective"],
+    credit: [<span className="electiveCredit">Elective</span>],
     theme: (
       <>
         <div id="filmColor"></div>
@@ -109,7 +112,7 @@ export const COURSES = [
     icon: "👩🏿‍💻",
     name: "Programming",
     image: Programming,
-    credit: ["Elective"],
+    credit: [<span className="electiveCredit">Elective</span>],
     theme: (
       <>
         <span id="programmingColor"></span>
@@ -125,7 +128,10 @@ export const COURSES = [
     icon: "⚔",
     name: "Epics",
     image: Epics,
-    credit: ["Language Arts"],
+    credit: [
+      <span className="lACredit">Language Arts</span>,
+      <span className="worldHistoryCredit">World History</span>,
+    ],
     theme: (
       <>
         <span id="epicsColor"></span>
@@ -141,7 +147,7 @@ export const COURSES = [
     icon: "🧭",
     name: <span>Survive the World!</span>,
     image: Survival,
-    credit: ["Geography"],
+    credit: [<span className="geographyCredit">Geography</span>],
 
     theme: (
       <>
@@ -158,7 +164,10 @@ export const COURSES = [
     icon: "☠️",
     name: <span>The History of Piracy</span>,
     image: Pirates,
-    credit: ["World History", "Geography"],
+    credit: [
+      <span className="worldHistoryCredit">'World History'</span>,
+      <span className="geographyCredit">Geography</span>,
+    ],
     theme: (
       <>
         <span id="wwColor"></span>
@@ -174,7 +183,7 @@ export const COURSES = [
     icon: "🇺🇲",
     name: <span>US History of the 1800s</span>,
     image: USHistory,
-    credit: ["US History"],
+    credit: [<span className="uSHistoryCredit">US History</span>],
     theme: (
       <>
         <span id="stwColor"></span>
@@ -190,7 +199,7 @@ export const COURSES = [
     icon: "🗽",
     name: <span>Government</span>,
     image: Government,
-    credit: ["Government"],
+    credit: [<span className="governmentCredit">Government</span>],
     theme: (
       <>
         <span id="stwColor"></span>
@@ -206,7 +215,11 @@ export const COURSES = [
     icon: "🧳",
     name: <span>Migration</span>,
     image: Migration,
-    credit: ["World History", "Geography", "Government"],
+    credit: [
+      <span className="worldHistoryCredit">'World History'</span>,
+      <span className="geographyCredit">Geography</span>,
+      <span className="governmentCredit">Government</span>,
+    ],
     theme: (
       <>
         <span id="stwColor"></span>
@@ -222,7 +235,10 @@ export const COURSES = [
     icon: "🪬",
     name: <span>The Holy Land</span>,
     image: HolyLand,
-    credit: ["World History", "Geography"],
+    credit: [
+      <span className="worldHistoryCredit">'World History'</span>,
+      <span className="geographyCredit">Geography</span>,
+    ],
     theme: (
       <>
         <span id="stwColor"></span>
@@ -238,7 +254,10 @@ export const COURSES = [
     icon: "🦠",
     name: <span>The History of Disease</span>,
     image: Disease,
-    credit: ["World History", "Geography"],
+    credit: [
+      <span className="worldHistoryCredit">'World History'</span>,
+      <span className="geographyCredit">Geography</span>,
+    ],
     theme: (
       <>
         <span id="stwColor"></span>
@@ -254,7 +273,10 @@ export const COURSES = [
     icon: "☭",
     name: <span>The Cold War</span>,
     image: ColdWar,
-    credit: ["World History", "US History"],
+    credit: [
+      <span className="worldHistoryCredit">'World History'</span>,
+      <span className="uSHistoryCredit">US History</span>,
+    ],
     theme: (
       <>
         <span id="stwColor"></span>
@@ -270,7 +292,10 @@ export const COURSES = [
     icon: "𓀮",
     name: <span>Ancient History</span>,
     image: Ancient,
-    credit: ["World History", "Geography"],
+    credit: [
+      <span className="worldHistoryCredit">World History</span>,
+      <span className="geographyCredit">Geography</span>,
+    ],
     theme: (
       <>
         <span id="stwColor"></span>
@@ -286,7 +311,7 @@ export const COURSES = [
     icon: "🗣️",
     name: "Speech and Debate",
     image: Debate,
-    credit: ["Elective"],
+    credit: [<span className="electiveCredit">Elective</span>],
     theme: (
       <>
         <div id="philosophyColor"></div>
@@ -302,7 +327,7 @@ export const COURSES = [
     icon: "📢",
     name: "Critical Race Theory",
     image: CRT,
-    credit: ["Mandatory"],
+    credit: [<span className="mandatoryCredit">Mandatory</span>],
     theme: (
       <>
         <div id="philosophyColor"></div>
