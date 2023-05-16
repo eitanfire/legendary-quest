@@ -170,7 +170,7 @@ export const COURSES = [
     ],
     theme: (
       <>
-        <span id="wwColor"></span>
+        <span id="pirateColor"></span>
       </>
     ),
     semester: 2,
