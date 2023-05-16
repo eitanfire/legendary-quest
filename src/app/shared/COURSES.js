@@ -255,7 +255,7 @@ export const COURSES = [
     name: <span>The History of Disease</span>,
     image: Disease,
     credit: [
-      <span className="worldHistoryCredit">'World History'</span>,
+      <span className="worldHistoryCredit">World History</span>,
       <span className="geographyCredit">Geography</span>,
     ],
     theme: (
