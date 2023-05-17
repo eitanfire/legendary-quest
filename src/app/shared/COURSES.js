@@ -202,7 +202,7 @@ export const COURSES = [
     credit: [<span className="governmentCredit">Government</span>],
     theme: (
       <>
-        <span id="stwColor"></span>
+        <span id="governmentColor"></span>
       </>
     ),
     semester: 2,
@@ -222,7 +222,7 @@ export const COURSES = [
     ],
     theme: (
       <>
-        <span id="stwColor"></span>
+        <span id="migrationColor"></span>
       </>
     ),
     semester: 2,

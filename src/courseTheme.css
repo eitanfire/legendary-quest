@@ -35,7 +35,7 @@
   background: 
   /* radial-gradient(circle, Yellow 25%, rgb(255, 255, 255) 100%), */
   url("https://c8.alamy.com/comp/2GNBWB5/ancient-greece-mythology-history-vector-seamless-pattern-2GNBWB5.jpg");
-  background-size: 200px;
+  background-size: 600px;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -63,11 +63,43 @@
 
 #pirateColor {
   content: "";
-    box-shadow: inset 0 0 0 1000px rgba(0, 255, 81, 0.2);
+    box-shadow: inset 0 0 0 1000px black, .75;
   background: 
   /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
-  url("https://cdn.vectorstock.com/i/1000x1000/98/89/background-pattern-with-pirates-icons-vector-22769889.webp");
+  url("http://historyhub.ie/assets/Ortelius-Maris-Pacifici_960b.jpg");
   background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index: -10;
+}
+
+#governmentColor {
+  content: "";
+    box-shadow: inset 0 0 0 1000px rgb(23, 120, 42), .75;
+  background: 
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
+  url("https://en.pimg.jp/043/069/837/1/43069837.jpg");
+  background-size: 80rem;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index: -10;
+}
+
+#migrationColor {
+  content: "";
+    box-shadow: inset 0 0 0 1000px rgb(23, 120, 42), .75;
+  background: 
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
+  url("https://www.voicesofyouth.org/sites/voy/files/styles/full_width_image/public/images/2020-01/world_passports_2019_0_0.jpg?itok=oQC2AJnK");
+  background-size: 80rem;
   position: absolute;
   top: 0px;
   right: 0px;
