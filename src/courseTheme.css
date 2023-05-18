@@ -109,6 +109,22 @@
   z-index: -10;
 }
 
+#uSHistColor {
+  content: "";
+    box-shadow: inset 0 0 0 1000px rgb(194, 20, 20), .75;
+  background: 
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
+  url("https://www.fractalcamo.com/uploads/5/9/0/2/5902948/s189772745713394276_p2806_i100_w1000.jpeg");
+  background-size: 80rem;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index: -10;
+}
+
 /* #stwColor::before {
   background: radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
@@ -178,6 +194,102 @@
   background: radial-gradient(circle, #2efa05d1 25%, rgb(255, 255, 255) 100%),
   url("https://www.shutterstock.com/image-illustration/leather-purse-pattern-repeat-seamless-600w-1106709062.jpg");
   background-size: 170px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index:-10;
+}
+
+#holyLandColor {
+  content: "";
+  box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541);
+  background: 
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
+  url("https://img.freepik.com/premium-vector/seamless-geometric-pattern-authentic-arabian-style-vector-illustration_151170-1465.jpg?w=740");
+  background-size: 170px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index:-10;
+}
+
+#diseaseColor {
+  content: "";
+  box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541);
+  background: 
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
+  url("https://st2.depositphotos.com/4170955/11531/v/950/depositphotos_115319956-stock-illustration-pink-blue-bacteria-in-repeat.jpg");
+  background-size: 170px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index:-10;
+}
+
+#coldWarColor {
+  content: "";
+  /* box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541); */
+  background: 
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
+  url("https://d1sxy7l4fhu207.cloudfront.net/uploads/392/conversions/Banner_2_Red_1579264170-1255x780.jpg");
+  background-size: 2000px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index:-10;
+}
+
+#ancientHistoryColor {
+  content: "";
+  /* box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541); */
+  background: 
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
+  url("https://previews.123rf.com/images/paseven/paseven2003/paseven200300111/142997248-vector-seamless-pattern-on-the-ancient-egypt-theme-with-unreadable-notes-hieroglyphs-and-sketches.jpg");
+  background-size: small;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index:-10;
+}
+
+#speechandDebateColor {
+  content: "";
+  box-shadow: inset 0 0 0 1000px rgba(190, 17, 28, 0.541);
+  background: 
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
+  url("https://img.freepik.com/premium-vector/comic-speech-bubble-set-with-halftone-shadow_6997-2059.jpg?w=360");
+  background-size: small;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+  z-index:-10;
+}
+
+#cRTColor {
+  content: "";
+  box-shadow: inset 0 0 0 1000px rgba(190, 17, 28, 0.541);
+  background: 
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
+  url("https://i.pinimg.com/originals/a7/ea/f1/a7eaf16988a163f6efb3efd0ba35b690.gif");
+  background-size: 2000px;
   position: absolute;
   top: 0px;
   right: 0px;

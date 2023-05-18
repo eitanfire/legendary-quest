@@ -11,11 +11,11 @@ import Disease from "../assets/img/diseases-image.jpg";
 import Migration from "../assets/img/migration.jpg";
 import HolyLand from "../assets/img/Bunting-Map-of-the-World-around-Jerusalem-site-Keilo-Jack.jpg";
 import Government from "../assets/img/Government.jpeg";
-import ColdWar from "../assets/img/ColdWar.jpg";
+import ColdWar from "../assets/img/berlinWall.jpg";
 import Ancient from "../assets/img/AncientHistory.webp";
 import USHistory from "../assets/img/Fugitives.jpg";
 import Debate from "../assets/img/group_discussions.png";
-import CRT from "../assets/img/mind-control-swirl1.webp";
+import CRT from "../assets/img/hypnotizedArmy.png";
 
 import "../../courseTheme.css";
 import "../../courseTheme2.css";
@@ -186,7 +186,7 @@ export const COURSES = [
     credit: [<span className="uSHistoryCredit">US History</span>],
     theme: (
       <>
-        <span id="stwColor"></span>
+        <span id="uSHistColor"></span>
       </>
     ),
     semester: 2,
@@ -241,7 +241,7 @@ export const COURSES = [
     ],
     theme: (
       <>
-        <span id="stwColor"></span>
+        <span id="holyLandColor"></span>
       </>
     ),
     semester: 2,
@@ -260,7 +260,7 @@ export const COURSES = [
     ],
     theme: (
       <>
-        <span id="stwColor"></span>
+        <span id="diseaseColor"></span>
       </>
     ),
     semester: 2,
@@ -279,7 +279,7 @@ export const COURSES = [
     ],
     theme: (
       <>
-        <span id="stwColor"></span>
+        <span id="coldWarColor"></span>
       </>
     ),
     semester: 2,
@@ -298,7 +298,7 @@ export const COURSES = [
     ],
     theme: (
       <>
-        <span id="stwColor"></span>
+        <span id="ancientHistoryColor"></span>
       </>
     ),
     semester: 2,
@@ -314,7 +314,7 @@ export const COURSES = [
     credit: [<span className="electiveCredit">Elective</span>],
     theme: (
       <>
-        <div id="philosophyColor"></div>
+        <div id="speechandDebateColor"></div>
       </>
     ),
     semester: 2,
@@ -330,7 +330,7 @@ export const COURSES = [
     credit: [<span className="mandatoryCredit">Mandatory</span>],
     theme: (
       <>
-        <div id="philosophyColor"></div>
+        <div id="cRTColor"></div>
       </>
     ),
     semester: 2,
