@@ -133,6 +133,8 @@ color: rgb(44, 214, 230);
 }
 
  #button {
+    -webkit-text-stroke: 1px rgb(56, 179, 31);
+  color: black;
   position: fixed;
   border-radius:12px;
   left:4%;
