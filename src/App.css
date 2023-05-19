@@ -1,9 +1,8 @@
 body {
   font-family: "Open Sans", sans-serif;
-   position: relative;
+  position: relative;
   min-height: 100vh;
-    padding-bottom: 2.5rem;    /* Footer height */
-
+  padding-bottom: 2.5rem; /* Footer height */
 }
 
 /* :root {
@@ -24,14 +23,14 @@ h3,
 
 .card-detail-title {
   writing-mode: vertical-rl;
-    /* transform: rotate(-90deg); */
-    position: absolute;
-    margin-left: 101%;
-    font-size:xx-large;
+  /* transform: rotate(-90deg); */
+  position: absolute;
+  margin-left: 101%;
+  font-size: xx-large;
 }
 
 .card-image {
-  min-height:7.5rem;
+  min-height: 7.5rem;
   max-height: 0rem;
 }
 
@@ -52,27 +51,25 @@ h2 {
 } */
 
 #BottomText {
-  position:relative;
-  /* right: 0rem; */
+  position: relative;
   bottom: 4rem;
-  /* left: 6rem; */
-    margin-left: auto;
+  margin-left: auto;
   margin-right: -16rem;
 }
-#BottomText, .site-footer {
+#BottomText,
+.site-footer {
   padding: 15px 0;
   margin-top: 2rem;
   margin-bottom: -5rem;
   opacity: 0.85;
   color: white;
   font-size: larger;
-    position: absolute;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  /* height: 3.5rem; */
 }
- 
- /* .navbar-brand {
+
+/* .navbar-brand {
   max-width: 4rem;
   margin-right: 2rem;
 } */
@@ -92,7 +89,6 @@ h2 {
 .nav-link {
   font-weight: bold;
   font-family: "Comfortaa";
-  
 }
 
 .page-enter-active {
@@ -106,8 +102,8 @@ h2 {
 }
 
 .title {
-color: rgb(44, 214, 230);
-text-indent: 7.75rem;
+  color: rgb(44, 214, 230);
+  text-indent: 7.75rem;
 }
 
 .page-exit-active {
@@ -128,17 +124,17 @@ text-indent: 7.75rem;
   filter: grayscale(0);
 }
 
- .darkBulb {
-color: rgb(44, 214, 230);
+.darkBulb {
+  color: rgb(44, 214, 230);
 }
 
- #button {
-    -webkit-text-stroke: 1px rgb(56, 179, 31);
+#button {
+  -webkit-text-stroke: 1px rgb(56, 179, 31);
   color: black;
   position: fixed;
-  border-radius:12px;
-  left:4%;
-  background-clip:text;
+  border-radius: 12px;
+  left: 4%;
+  background-clip: text;
 }
 
 /* #BreadCrumb {
@@ -153,13 +149,12 @@ color: rgb(44, 214, 230);
   margin-top: -1.5%;
 }
 
-#free-course{
+#free-course {
   position: relative;
   margin-right: 200rem;
 }
 
 #social-bar {
-
   background-size: 2100px;
   background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
   background-position: 90% 18%;
