@@ -159,3 +159,8 @@ h2 {
   background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
   background-position: 90% 18%;
 }
+
+.displayList {
+  /* max-height: .5rem; */
+  color:aquamarine;
+}
