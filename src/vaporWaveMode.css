@@ -1,6 +1,5 @@
 .vaporWave .card-body {
  background-size: cover;
-  /* background-image: url("https://static.vecteezy.com/system/resources/previews/003/363/668/original/beautiful-palm-tree-leaf-silhouette-seamless-pattern-background-free-vector.jpg"); */
   background-position: 95% 80%;
   background-clip:content-box;
   opacity:.75;
@@ -11,7 +10,6 @@
 
 .vaporWave {
   background-color: #333;
-  /* color:darkviolet; */
   opacity: 2;
   color: rgb(113, 22, 153, 1)
 
@@ -23,7 +21,6 @@
 }
 
  .vaporWave #social-bar {
-    /* background-size: 2005px; */
   background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
   /* background-position: 95% 20%; */
 } 
