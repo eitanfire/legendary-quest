@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const coursesSlice = createSlice({
-  name: "campsites",
+  name: "courses",
   initialState,
 });
 
