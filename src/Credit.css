@@ -1,35 +1,28 @@
-.worldHistoryCredit
-{
+.worldHistoryCredit {
   color: blue;
 }
 
-.uSHistoryCredit
-{
+.uSHistoryCredit {
   color: red;
 }
 
-.geographyCredit
-{
+.geographyCredit {
   color: green;
 }
 
-.governmentCredit
-{
+.governmentCredit {
   color: purple;
 }
 
-.electiveCredit
-{
-  color:violet;
+.electiveCredit {
+  color: violet;
 }
 
-.mandatoryCredit
-{
+.mandatoryCredit {
   color: black;
 }
 
-.lACredit
-{
+.lACredit {
   color: orange;
 }
 
@@ -42,9 +35,8 @@
 .lACredit,
 .credit {
   font-size: 1.5rem;
-    position: relative;
+  position: relative;
   border: thick double;
   margin-right: 1%;
-      box-shadow: inset 0 0 0 1000px rgba(24, 27, 25, 0.394);
-
+  box-shadow: inset 0 0 0 1000px rgba(24, 27, 25, 0.394);
 }
