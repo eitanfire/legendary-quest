@@ -1,9 +1,21 @@
+import { createSlice } from "@reduxjs/toolkit";
 import { TAKES } from "../../app/shared/TAKES";
 
-export const selectAllTakes = () => {
-    return TAKES;
+const initialState = {
+  takesArray: TAKES,
 };
 
-export const selectFeaturedTake = () => {
-    return TAKES.find((take) => take.featured);
+const takesSlice = createSlice({
+  name: "takes",
+  initialState,
+});
+
+export const takesReducer = takesSlice.reducer;
+
+export const selectAllTakes = (state) => {
+  return state.takes.takesArray;
+};
+
+export const selectFeaturedTake = (state) => {
+  return state.takes.takesArray.find((take) => take.featured);
 };

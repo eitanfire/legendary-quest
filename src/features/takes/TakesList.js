@@ -1,10 +1,11 @@
+import { useSelector } from "react-redux";
 import { Col } from "reactstrap";
 import { TAKES } from "../../app/shared/TAKES";
-import Take from './Take';
-import { selectAllTakes } from './takesSlice';
+import Take from "./Take";
+import { selectAllTakes } from "./takesSlice";
 
 const TakesList = () => {
-  const takes = selectAllTakes();
+  const takes = useSelector(selectAllTakes);
   return (
     <Col className="mt-4">
       {TAKES.map((take) => {
