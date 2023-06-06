@@ -17,5 +17,5 @@ export const selectAllRants = (state) => {
 };
 
 export const selectFeaturedRant = (state) => {
-  return state.rants.takesArray.find((rant) => rant.featured);
+  return state.rants.rantsArray.find((rant) => rant.featured);
 };

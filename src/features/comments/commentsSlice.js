@@ -5,20 +5,34 @@ const initialState = {
   commentsArray: COMMENTS,
 };
 
-const commentsSlice = createSlice({
+const commentsSlice = createSlice(
+  {
   name: "comments",
-  initialState
+  initialState,
+   reducers: {
+        addComment: (state, action) => {
+         console.log("addComment action.payload", action.payload);
+         console.log("addComment state.commentsArray", state.commentsArray);
+         const newComment = {
+           id: state.commentsArray.length + 1,
+           ...action.payload,
+         };
+                     state.commentsArray.push(newComment);
+        }
+      }
 });
 
 export const commentsReducer = commentsSlice.reducer;
 
-export const selectAllComments = () => {
-  return COMMENTS;
+export const { addComment } = commentsSlice.actions;
+
+export const selectAllComments = (state) => {
+  return state.comments.commentsArray;
 };
 
-// export const selectFeaturedComment = () => {
-//   return COMMENTS.find((comment) => comment.featured);
-// };
+export const selectFeaturedComment = (state) => {
+  return state.comments.commentsArray.find((comment) => comment.featured);
+};
 
 export const selectCommentsByCourseId = (courseId) => (state) => {
   return state.comments.commentsArray.filter(
