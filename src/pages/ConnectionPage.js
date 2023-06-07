@@ -65,7 +65,7 @@ const ConnectionPage = () => {
       <Row>
         <h1 className="text-center mb-4">Easier than signing a yearbook</h1>
         <Col xs="6">
-          <FreeCourse Id="free-course" />
+          <FreeCourse id="free-course" />
         </Col>
         <Col xs="6">
           <h2>Sign up for a free account</h2>

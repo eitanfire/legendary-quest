@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { selectCourseById } from "../features/courses/coursesSlice";
 
 const FreeCourse = () => {
-  const FreeCourse = selectFreeCourse();
+  // const FreeCourse = selectFreeCourse();
       const { courseId } = useParams();
       const course = selectCourseById(courseId);
       

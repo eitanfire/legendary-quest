@@ -25,6 +25,10 @@ h3,
   font-size: xx-large;
 }
 
+/* .card-detail-image {
+margin-top: 1%;
+} */
+
 .card-image {
   min-height: 7.5rem;
   max-height: 0rem;
@@ -136,7 +140,7 @@ h2 {
 }
 
 #button {
-  -webkit-text-stroke: 1px rgb(56, 179, 31);
+  -webkit-text-stroke: 1px rgb(218, 236, 17);
   color: black;
   position: fixed;
   border-radius: 12px;
@@ -167,6 +171,10 @@ h2 {
   background-position: 90% 18%;
 }
 
-.displayList {
+/* .displayList {
   color:aquamarine;
 }
+
+.theTeachersLounge {
+margin:scroll;
+} */

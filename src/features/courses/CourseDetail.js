@@ -21,7 +21,7 @@ const CourseDetail = ( { course } ) => {
           <CardTitle className="card-detail-title">
             {icon} {name}
           </CardTitle>
-          <CardImg top src={image} alt={name} />
+          <CardImg className="card-detail-image" top src={image} alt={name} />
           <CardBody>
             <CardText>{description}</CardText>
           </CardBody>

@@ -5,7 +5,7 @@ import SubHeader from "../components/SubHeader";
 const TheTeachersLounge = () => {
   return (
     <>
-      <Container>
+      <Container className="theTeachersLounge">
         <SubHeader current="The Teachers Lounge" />
         <DisplayList className="displayList" />
       </Container>

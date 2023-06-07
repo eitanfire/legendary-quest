@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 // import { setTheme } from './ChangeTheme';
 // import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
 import logo from "../app/assets/img/tlLogo.jpeg";
+import UserLoginForm from '../features/user/UserLoginForm';
 
 const Header = () => {
       const [menuOpen, setMenuOpen] = useState(false);
@@ -47,6 +48,7 @@ const Header = () => {
               </NavLink>
             </NavItem>
           </Nav>
+          <UserLoginForm />
         </Collapse>
       </Navbar>
       <br></br>
