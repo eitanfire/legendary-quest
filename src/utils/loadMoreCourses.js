@@ -11,10 +11,10 @@ const coursePerRow = 4;
   return (
     <>
       <div className="gap-y-4 flex flex-wrap justify-center">
-        {LoadMoreCourses?.slice(0, next)?.map((image, index) => {
+        {LoadMoreCourses?.slice(0, next)?.map((course, index) => {
           return (
             <div key={index} className="px-2.5 md:px-0">
-              <img className="cursor-pointer" src={image?.url} />
+              <img className="cursor-pointer" src={course?.id} />
             </div>
           );
         })}

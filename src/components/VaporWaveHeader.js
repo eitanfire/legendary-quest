@@ -9,6 +9,7 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
+import UserLoginForm from "../features/user/UserLoginForm";
 
 const VaporWaveHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -48,6 +49,7 @@ const VaporWaveHeader = () => {
             </NavLink>
           </NavItem>
         </Nav>
+        <UserLoginForm />
       </Collapse>
     </Navbar>
   );
