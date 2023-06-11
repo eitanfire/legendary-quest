@@ -1,34 +1,36 @@
 import { COURSES } from "../../../app/shared/COURSES";
-import { useState, onKeyDown } from "react";
+import React, { useState } from "react";
 
 const Tags = () => {
   const { credit } = COURSES;
   const [input, setInput] = useState("");
   const [tags, setTags] = useState([]);
-  const onChange = (e) => {
-    const { value } = e.target;
-    setInput(value);
-    const onKeyDown = (e) => {
-      const { key } = e;
-      const trimmedInput = input.trim();
 
-      if (key === "," && trimmedInput.length && !tags.includes(trimmedInput)) {
-        e.preventDefault();
+  const onChange = (e) => {
+    setInput(e.target.value);
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      const trimmedInput = input.trim();
+      if (trimmedInput && !tags.includes(trimmedInput)) {
         setTags((prevState) => [...prevState, trimmedInput]);
         setInput("");
       }
-    };
+    }
   };
 
   return (
     <div className="container">
-      {tags.map((credit) => (
-        <div className="tag">{credit}</div>
+      {tags.map((tag, index) => (
+        <div className="tag" key={index}>
+          {tag}
+        </div>
       ))}
       <input
         value={input}
         placeholder="Enter a tag"
-        // onKeyDown={onKeyDown}
+        onKeyDown={onKeyDown}
         onChange={onChange}
       />
     </div>
