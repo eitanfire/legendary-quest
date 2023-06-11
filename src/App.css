@@ -43,16 +43,19 @@ h2 {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.card-img-overlay:hover .card-title{
+.card-img-overlay:hover .card-title {
   color: white;
-    background: 
+  background: 
   /* url("https://image.shutterstock.com/image-vector/traditional-indian-paisley-pattern-on-600w-1726867504.jpg")
-      no-repeat, */
-    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+      no-repeat, */ linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.3)
+    ),
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
-    opacity: .75;
-    background-color: #af7fdd;}
+  opacity: 0.75;
+  background-color: #af7fdd;
+}
 
 /* .row-content {
   padding: 20px 0;

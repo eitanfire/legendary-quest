@@ -84,7 +84,7 @@ color: white;
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
     background-position: 0% 50%;
-    width:auto;
+    /* width:auto; */
   /* margin-bottom: 2rem; */
   min-height: 2rem;
 }
@@ -109,5 +109,5 @@ color: white;
 }
 
  .vaporWave #icon {
-  color: initial;
+  opacity: .5;
 }

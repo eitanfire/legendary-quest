@@ -3,16 +3,19 @@ import CoursesList from "../features/courses/CoursesList";
 import SubHeader from "../components/SubHeader";
 import LoadMoreCourses from "../utils/LoadMoreCourses";
 import Tags from "../features/courses/creditType/Tags";
+import ToggleCreditTags from '../components/ToggleCreditTags';
 
 const CoursesDirectoryPage = () => {
+
   return (
     <Container>
-      <Row>
+    <Row>
         <Col>
           <SubHeader current="Directory" />
         </Col>
         <Col col col-8>
           <Tags />
+          {/* <ToggleCreditTags /> */}
         </Col>
       </Row>
       <CoursesList />

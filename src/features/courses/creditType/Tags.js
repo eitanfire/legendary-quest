@@ -2,7 +2,7 @@ import { COURSES } from "../../../app/shared/COURSES";
 import { useState, onKeyDown } from "react";
 
 const Tags = () => {
-  // const { credit } = COURSES;
+  const { credit } = COURSES;
   const [input, setInput] = useState("");
   const [tags, setTags] = useState([]);
   const onChange = (e) => {

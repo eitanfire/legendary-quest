@@ -9,9 +9,7 @@ const CourseCard = ({ course }) => {
               <CardImg className="card-image" src={image} alt={name} />{" "}
               <CardImgOverlay>
                 <CardTitle>
-                  {icon}
-                  {' '}
-                  {name}
+                  {icon} {name}
                 </CardTitle>
               </CardImgOverlay>
             </Card>
