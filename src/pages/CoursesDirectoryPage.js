@@ -18,7 +18,7 @@ const CoursesDirectoryPage = () => {
           {/* <ToggleCreditTags /> */}
         </Col>
       </Row>
-      <CoursesList />
+      {/* <CoursesList /> */}
       <LoadMoreCourses />
     </Container>
   );

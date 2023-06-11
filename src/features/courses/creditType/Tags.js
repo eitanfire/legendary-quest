@@ -28,7 +28,7 @@ const Tags = () => {
       <input
         value={input}
         placeholder="Enter a tag"
-        onKeyDown={onKeyDown}
+        // onKeyDown={onKeyDown}
         onChange={onChange}
       />
     </div>
