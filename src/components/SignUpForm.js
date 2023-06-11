@@ -1,6 +1,7 @@
 import { Button, Label, Col, FormGroup } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateSignUpForm } from "../utils/validateSignUpForm";
+import NotificationForm from './NotificationForm'
 
 const SignUpForm = () => {
   const contactType = (Field, "contactType");
@@ -56,7 +57,7 @@ const SignUpForm = () => {
             </ErrorMessage>
           </Col>
         </FormGroup>
-        <FormGroup row>
+        {/* <FormGroup row>
           <Label htmlFor="email" md="2">
             Email
           </Label>
@@ -71,21 +72,23 @@ const SignUpForm = () => {
               {(msg) => <p className="text-danger">{msg}</p>}
             </ErrorMessage>
           </Col>
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup row>
-          <Label check md={{ size: 5, offset: 2 }}>
+          {/* <Label check md={{ size: 5, offset: 2 }}>
             <Field name="agree" type="checkbox" className="form-check-input" />
             {"  "}
             Receive a monthly update
-          </Label>
-          <Col md="5">
+          </Label> */}
+          <NotificationForm />
+
+          {/* <Col md="5">
             <Field name="contactType" as="select" className="form-control">
               <option>By Email</option>
               <option>By Text</option>
             </Field>
-          </Col>
-          {contactType === "By Text" && 
-            <FormGroup row>
+          </Col> */}
+          {contactType === "By Text" && (
+            {/* <FormGroup row>
               <Label htmlFor="phoneNum" md="2">
                 Phone Number
               </Label>
@@ -99,10 +102,9 @@ const SignUpForm = () => {
                   {(msg) => <p className="text-danger">{msg}</p>}
                 </ErrorMessage>
               </Col>
-            </FormGroup>
-          }
+            </FormGroup> */}
+          )}
         </FormGroup>
-
         <FormGroup row>
           <Col md={{ size: 10, offset: 2 }}>
             <Button type="submit" color="primary">
