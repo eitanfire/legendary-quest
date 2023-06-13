@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Label, Col, FormGroup } from "reactstrap";
+import { Button, Label, Col, FormGroup, Row } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateSignUpForm } from "../utils/validateSignUpForm";
 
@@ -7,13 +7,14 @@ function NotificationForm() {
   const [notificationMethod, setNotificationMethod] = useState(""); // State variable to hold the user's selected notification method
 
   return (
-    <div>
-      <h3>Stay in Touch</h3>
-      <Label check md={{ size: 5, offset: 2 }}>
-        <Field name="agree" type="checkbox" className="form-check-input" />
-        {"  "}
-        Receive a monthly update
-      </Label>
+    <Row>
+      <Col>
+        <Label check md={{ size: 5, offset: 2 }}>
+          <Field name="agree" type="checkbox" className="form-check-input" />
+          {"  "}
+          Stay in Touch
+        </Label>
+      </Col>
       <div>
         <label>
           <input
@@ -72,7 +73,7 @@ function NotificationForm() {
           </Col>
         </FormGroup>
       )}
-    </div>
+    </Row>
   );
 }
 

@@ -15,11 +15,11 @@ const LoadMoreCourses = () => {
   return (
     <>
       <Row className="ms-auto justify-center">
-          {COURSES?.slice(0, next)?.map((course, id) => (
-            <Col md="5" className="m-4" key={id}>
-              <CourseCard course={course} />
-            </Col>
-          ))}
+        {COURSES?.slice(0, next)?.map((course, id) => (
+          <Col md="5" className="m-4" key={id}>
+            <CourseCard course={course} />
+          </Col>
+        ))}
         {next < COURSES?.length && (
           <Button className="mt-4" onClick={handleMoreCourse}>
             Load more
