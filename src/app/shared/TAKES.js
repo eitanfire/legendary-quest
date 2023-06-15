@@ -36,3 +36,16 @@ export const TAKES = [
       "Meet up with your guide at the top of Promise Mountain. Or, try to. Good luck!",
   },
 ];
+
+export const FEEDBACK = [
+  {
+    id: 0,
+    firstname: "Test",
+    lastname: "Test",
+    phoneNum: "12345",
+    email: "test@test.com",
+    agree: true,
+    contactType: "Email",
+    feedback: "test",
+  },
+];
