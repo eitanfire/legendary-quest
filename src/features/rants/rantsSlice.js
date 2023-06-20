@@ -6,14 +6,14 @@ const initialState = {
 };
 
 const rantsSlice = createSlice({
-  name: "takes",
+  name: "rants",
   initialState,
 });
 
 export const rantsReducer = rantsSlice.reducer;
 
 export const selectAllRants = (state) => {
-  return state.rants.takesArray;
+  return state.rants.rantsArray;
 };
 
 export const selectFeaturedRant = (state) => {

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Button, Col, Row } from "reactstrap";
-import { COURSES } from "../app/shared/COURSES";
+import { useSelector } from "react-redux";
 import CourseCard from "../features/courses/CourseCard";
 
-const coursePerRow = 4;
+const coursePerRow = 2;
 
 const LoadMoreCourses = () => {
   const [next, setNext] = useState(coursePerRow);
+  const courses = useSelector((state) => state.courses.coursesArray); // Accessing the coursesArray state from Redux
 
   const handleMoreCourse = () => {
     setNext(next + coursePerRow);
@@ -15,12 +16,12 @@ const LoadMoreCourses = () => {
   return (
     <>
       <Row className="ms-auto justify-center">
-        {COURSES?.slice(0, next)?.map((course, id) => (
+        {courses?.slice(0, next)?.map((course, id) => (
           <Col md="5" className="m-4" key={id}>
             <CourseCard course={course} />
           </Col>
         ))}
-        {next < COURSES?.length && (
+        {next < courses?.length && (
           <Button className="mt-4" onClick={handleMoreCourse}>
             Load more
           </Button>

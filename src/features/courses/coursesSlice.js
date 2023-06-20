@@ -1,13 +1,44 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { COURSES } from "../../app/shared/COURSES";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+// import { COURSES } from "../../app/shared/COURSES";
+import { baseUrl } from "../../app/shared/baseUrl";
+import { mapImageURL } from "../../utils/mapImageURL";
+
+export const fetchCourses = createAsyncThunk(
+  "courses/fetchCourses",
+  async () => {
+    const response = await fetch(baseUrl + "courses");
+    if (!response.ok) {
+      return Promise.reject("Unable to fetch, status: " + response.status);
+    }
+    const data = await response.json();
+    return data;
+  }
+);
 
 const initialState = {
-  coursesArray: COURSES,
+    coursesArray: [],
+    isLoading: true,
+    errMsg: '',
 };
 
 const coursesSlice = createSlice({
   name: "courses",
   initialState,
+  reducers: {},
+  extraReducers: {
+    [fetchCourses.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchCourses.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.errMsg = "";
+      state.coursesArray = mapImageURL(action.payload);
+    },
+    [fetchCourses.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.errMsg = action.error ? action.error.message : "Fetch failed";
+    },
+  },
 });
 
 export const coursesReducer = coursesSlice.reducer;
@@ -17,7 +48,7 @@ export const selectAllCourses = (state) => {
 };
 
 export const selectRandomCourse = (state) => {
-  return state.courses.coursesArray[Math.floor(COURSES.length * Math.random())];
+  return state.courses.coursesArray[Math.floor(fetchCourses.length * Math.random())];
 };
 
 export const selectCourseById = (id) => (state) => {

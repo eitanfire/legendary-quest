@@ -9,7 +9,7 @@ const FreeCourseCard = ({ course }) => {
         <CardTitle className="text-center">
           {icon} {name}
         </CardTitle>
-        <CardImg Id="free-course" top src={image} alt={name} />
+        <CardImg id="free-course" top src={image} alt={name} />
         <CardBody>
           <CardText className="text-center">{freeContentDescription}</CardText>
         </CardBody>
