@@ -1,11 +1,9 @@
-// import { COURSES } from "../../../app/shared/oldData/COURSES";
 import React, { useState } from "react";
 import Credit from "../../../Credit.css";
 import { fetchCourses } from "../coursesSlice";
 
 const Tags = () => {
-  // const { credit } = COURSES;
-    const { credit } = fetchCourses;
+  const { credit } = fetchCourses;
   const [input, setInput] = useState("");
   const [tags, setTags] = useState([]);
 

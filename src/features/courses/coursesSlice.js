@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import { COURSES } from "../../app/shared/COURSES";
 import { baseUrl } from "../../app/shared/baseUrl";
 import { mapImageURL } from "../../utils/mapImageURL";
 
@@ -16,9 +15,9 @@ export const fetchCourses = createAsyncThunk(
 );
 
 const initialState = {
-    coursesArray: [],
-    isLoading: true,
-    errMsg: '',
+  coursesArray: [],
+  isLoading: true,
+  errMsg: "",
 };
 
 const coursesSlice = createSlice({
@@ -48,7 +47,9 @@ export const selectAllCourses = (state) => {
 };
 
 export const selectRandomCourse = (state) => {
-  return state.courses.coursesArray[Math.floor(fetchCourses.length * Math.random())];
+  return state.courses.coursesArray[
+    Math.floor(fetchCourses.length * Math.random())
+  ];
 };
 
 export const selectCourseById = (id) => (state) => {
