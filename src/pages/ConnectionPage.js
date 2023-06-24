@@ -8,9 +8,7 @@ const ConnectionPage = () => {
   return (
     <Container>
       <SubHeader current="Connect" />
-      <Card id="social-bar" 
-      className="m-4"
-      >
+      <Card id="social-bar" className="m-4">
         <CardBody>
           <Row className="row-content align-items-center">
             <Col>

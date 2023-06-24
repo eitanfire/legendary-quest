@@ -41,8 +41,7 @@ function NotificationForm() {
       {notificationMethod === "email" && (
         <div>
           <FormGroup row>
-            <Label htmlFor="email" md="2">
-            </Label>
+            <Label htmlFor="email" md="2"></Label>
             <Col md="10">
               <Field
                 name="email"

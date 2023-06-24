@@ -16,7 +16,7 @@ const CourseDetailPage = () => {
   const isLoading = useSelector((state) => state.courses.isLoading);
   const errMsg = useSelector((state) => state.courses.errMsg);
   let content = null;
-  
+
   if (isLoading) {
     content = <Loading />;
   } else if (errMsg) {
