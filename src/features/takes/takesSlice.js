@@ -45,5 +45,11 @@ export const selectAllTakes = (state) => {
 };
 
 export const selectFeaturedTake = (state) => {
-  return state.takes.takesArray.find((take) => take.featured);
+  return {
+    featuredItem: state.takes.takesArray.find(
+      (take) => take.featured
+    ),
+    isLoading: state.takes.isLoading,
+    errMsg: state.takes.errMsg,
+  };
 };

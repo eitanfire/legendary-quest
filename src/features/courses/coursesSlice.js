@@ -59,7 +59,13 @@ export const selectCourseById = (id) => (state) => {
 };
 
 export const selectFeaturedCourse = (state) => {
-  return state.courses.coursesArray.find((course) => course.featured);
+  return {
+    featuredItem: state.courses.coursesArray.find(
+      (course) => course.featured
+    ),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
 };
 
 export const shortSelectFeaturedCourse = (state) => {

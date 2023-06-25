@@ -45,5 +45,11 @@ export const selectAllRants = (state) => {
 };
 
 export const selectFeaturedRant = (state) => {
-  return state.rants.rantsArray.find((rant) => rant.featured);
+  return {
+    featuredItem: state.rants.rantsArray.find(
+      (rant) => rant.featured
+    ),
+    isLoading: state.rants.isLoading,
+    errMsg: state.rants.errMsg,
+  };
 };
