@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCourses } from "./features/courses/coursesSlice";
+import { fetchRants } from "./features/rants/rantsSlice";
 import CoursesDirectoryPage from "./pages/CoursesDirectoryPage";
 import { Routes, Route } from "react-router-dom";
 import ConnectionPage from "./pages/ConnectionPage";
@@ -18,6 +19,7 @@ function App() {
   const dispatch = useDispatch();
  useEffect(() => {
         dispatch(fetchCourses());
+        dispatch(fetchRants())
     }, [dispatch]);
  
 

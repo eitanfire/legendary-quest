@@ -18,7 +18,6 @@ const CoursesDirectoryPage = () => {
         </Col>
       </Row>
       {/* <CoursesList /> */}
-      {/* <CoursesList /> */}
       <LoadMoreCourses />
     </Container>
   );
