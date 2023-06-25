@@ -14,12 +14,14 @@ import BottomText from "./components/BottomText";
 import Footer from "./components/Footer.js";
 import Theme from "./components/ChangeTheme";
 import "./App.css";
+import { fetchTakes } from "./features/takes/takesSlice";
 
 function App() {
   const dispatch = useDispatch();
  useEffect(() => {
         dispatch(fetchCourses());
-        dispatch(fetchRants())
+        dispatch(fetchRants());
+        dispatch(fetchTakes());
     }, [dispatch]);
  
 

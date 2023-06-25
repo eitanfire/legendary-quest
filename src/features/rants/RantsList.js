@@ -21,7 +21,7 @@ const RantsList = () => {
         {rants.map((rant) => {
           return (
             <div className="d-flex mb-5" key={rant.id}>
-              <Partner rant={rant} />
+              <Rant rant={rant} />
             </div>
           );
         })}

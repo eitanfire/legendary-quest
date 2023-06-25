@@ -1,20 +1,31 @@
 import { useSelector } from "react-redux";
-import { Col } from "reactstrap";
-import { TAKES } from "../../app/shared/TAKES";
+import { Row, Col } from "reactstrap";
+// import { TAKES } from "../../app/shared/TAKES";
 import Take from "./Take";
 import { selectAllTakes } from "./takesSlice";
+import Error from "../../components/Error";
+import Loading from "../../components/Loading";
 
 const TakesList = () => {
+ const isLoading = useSelector((state) => state.takes.isLoading);
+ const errMsg = useSelector((state) => state.takes.errMsg);
+
   const takes = useSelector(selectAllTakes);
-  return (
+     return isLoading ? (
+    <Loading />
+  ) : errMsg ? (
+    <Error errMsg={errMsg} />
+  ) : (
     <Col className="mt-4">
-      {TAKES.map((take) => {
-        return (
-          <div className="d-flex mb-5" key={take.id}>
-            <Take take={take} />
-          </div>
-        );
-      })}
+      <Row>
+        {takes.map((take) => {
+          return (
+            <div className="d-flex mb-5" key={take.id}>
+              <Take take={take} />
+            </div>
+          );
+        })}
+      </Row>
     </Col>
   );
 };
