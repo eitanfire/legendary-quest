@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addComment } from "../comments/commentsSlice";
 import {
   Button,
   Modal,
@@ -11,23 +9,27 @@ import {
 } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateCommentForm } from "../../utils/validateCommentForm";
+import { useDispatch } from "react-redux";
+import { addComment, postComment } from "./commentsSlice";
 
 const CommentForm = ({ courseId }) => {
   const [modalOpen, setModalOpen] = useState(false);
+
   const dispatch = useDispatch();
+
   const handleSubmit = (values) => {
     const comment = {
       courseId: parseInt(courseId),
       rating: values.rating,
       author: values.author,
       text: values.commentText,
-      date: new Date(Date.now()).toISOString()
+      date: new Date(Date.now()).toISOString(),
     };
-    console.log(comment);
-    dispatch(addComment(comment));
+    console.log("comment", comment);
+    dispatch(postComment(comment));
     setModalOpen(false);
   };
-  
+
   return (
     <>
       <Button outline onClick={() => setModalOpen(true)}>
