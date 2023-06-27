@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Button, Col, Row } from "reactstrap";
 import { useSelector } from "react-redux";
-import CourseCard from "../features/courses/CourseCard";
-import Error from "../components/Error";
-import Loading from "../components/Loading";
+import CourseCard from "./CourseCard";
+import Error from "../../components/Error";
+import Loading from "../../components/Loading";
 
-const coursePerRow = 2;
+const coursePerRow = 4;
 
 const LoadMoreCourses = () => {
   const [next, setNext] = useState(coursePerRow);

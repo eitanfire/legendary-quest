@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "reactstrap";
 import CoursesList from "../features/courses/CoursesList";
 import SubHeader from "../components/SubHeader";
-import LoadMoreCourses from "../utils/LoadMoreCourses";
+import LoadMoreCourses from "../features/courses/LoadMoreCourses";
 import Tags from "../features/courses/creditType/Tags";
 import ToggleCreditTags from "../components/ToggleCreditTags";
 
