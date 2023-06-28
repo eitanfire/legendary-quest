@@ -5,19 +5,20 @@ import {
   CardBody,
   CardTitle,
   Col,
-  CardImgOverlay,
+  CardImgOverlay
 } from "reactstrap";
 import "../../Credit.css";
+import "../../courseTheme.css"
 import { getClassCredit } from "./creditType/getClassCredit";
 
 const CourseDetail = ({ course }) => {
-  const { image, icon, name, credit, description } = course;
+  const { image, icon, name, credit, description, theme } = course;
 
   const creditClasses = getClassCredit(credit);
 
   return (
     <Col md="11" className="m-4">
-      <h2>
+      <h2 id={theme}>
         {credit.map((type, index) => (
           <span key={index} className={creditClasses[index]}>
             {type}

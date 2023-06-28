@@ -14,6 +14,23 @@
   z-index: -10;
 }
 
+#programmingColor {
+  content: "";
+    box-shadow: inset 0 0 0 1000px rgba(60, 8, 232, 0.2);
+
+  background: 
+  url("https://as1.ftcdn.net/v2/jpg/02/38/22/66/1000_F_238226669_2e3HdJV5zB9LKE2RWaWoDN692MLSnv4g.jpg");
+  background-size: 500px;
+  background-size:cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: -70px;
+  opacity: 0.75;
+  z-index: -10;
+}
+
 /* #programmingColor {
   content: "";
   background: 
@@ -45,7 +62,7 @@
   z-index: -10;
 }
 
-#stwColor {
+#sTWColor {
   content: "";
     box-shadow: inset 0 0 0 1000px rgba(0, 255, 81, 0.2);
   background: 
@@ -146,7 +163,7 @@
   z-index: -10;
 } */
 
-#wwColor {
+#wWColor {
   content: "";
   background: 
   radial-gradient(circle, #f10202d1 25%, rgb(255, 255, 255) 100%),
