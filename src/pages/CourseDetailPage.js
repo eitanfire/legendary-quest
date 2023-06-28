@@ -31,7 +31,7 @@ const CourseDetailPage = () => {
   }
   return (
     <Container>
-      {course && <SubHeader current={course.name} detail={true} />},
+      {course && <SubHeader current={course.name} detail={true} />}
       <Row>{content}</Row>
     </Container>
   );

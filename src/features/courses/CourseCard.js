@@ -2,7 +2,7 @@ import { Card, CardImg, CardImgOverlay, CardTitle } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
-  const { id, image, name, icon, credit } = course;
+  const { id, image, name, icon, credit, theme } = course;
   return (
     <Link to={`${id}`}>
       <Card>
