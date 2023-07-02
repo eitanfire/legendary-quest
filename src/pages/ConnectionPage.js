@@ -2,7 +2,6 @@ import { Container, Col, Row, Card, CardBody } from "reactstrap";
 import SignUpForm from "../components/SignUpForm";
 import FreeCourse from "../components/FreeCourse";
 import SubHeader from "../components/SubHeader";
-import NotificationForm from "../components/NotificationForm";
 
 const ConnectionPage = () => {
   return (
