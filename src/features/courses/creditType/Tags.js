@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../../../Credit.css";
 import { fetchCourses } from "../coursesSlice";
 import { getClassCredit } from "./getClassCredit";
-import { Col } from "reactstrap";
 import Credit from "./Credit"; // Update the import statement
 
 const Tags = () => {
@@ -24,11 +23,18 @@ const Tags = () => {
     }
   };
 
+  const removeTag = (tagToRemove) => {
+    setTags((prevState) => prevState.filter((tag) => tag !== tagToRemove));
+  };
+
   return (
     <div className="container">
       {tags.map((tag, index) => (
         <div className={`tag ${getClassCredit(tag)}`} key={index}>
-          <Credit course={tag} /> {/* Pass the tag as the course prop */}
+          <Credit course={tag} />
+          <button className="remove-button" onClick={() => removeTag(tag)}>
+            X
+          </button>
         </div>
       ))}
       <input
