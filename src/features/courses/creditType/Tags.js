@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import Credit from "../../../Credit.css";
+import "../../../Credit.css";
 import { fetchCourses } from "../coursesSlice";
+import { getClassCredit } from "./getClassCredit";
+import { Col } from "reactstrap";
+import Credit from "./Credit"; // Update the import statement
 
 const Tags = () => {
   const { credit } = fetchCourses;
@@ -24,8 +27,8 @@ const Tags = () => {
   return (
     <div className="container">
       {tags.map((tag, index) => (
-        <div className={`tag ${tag}Credit`} key={index}>
-          {tag}
+        <div className={`tag ${getClassCredit(tag)}`} key={index}>
+          <Credit course={tag} /> {/* Pass the tag as the course prop */}
         </div>
       ))}
       <input
@@ -33,7 +36,7 @@ const Tags = () => {
         placeholder="Enter a tag"
         onKeyDown={onKeyDown}
         onChange={onChange}
-        className={`credit ${input}Credit`}
+        className={`credit ${getClassCredit(input)}`}
       />
     </div>
   );
