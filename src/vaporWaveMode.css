@@ -82,7 +82,6 @@
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
-  /* background: url("https://img.favpng.com/24/11/11/student-course-credit-college-education-png-favpng-bRiYYiqBA0qUmELiwk5n29hD0_t.jpg") */
   background: url("https://cdn.pixabay.com/photo/2016/10/18/20/33/bookshelves-1751334_1280.png")
       no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
@@ -91,7 +90,6 @@
     radial-gradient(ellipse at 33% bottom, red, transparent);
   background-position: -00% 55%;
   width: auto;
-  /* margin-bottom: 2rem; */
   min-height: 2rem;
 }
 
