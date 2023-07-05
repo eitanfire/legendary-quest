@@ -57,15 +57,6 @@ const AboutPage = (props) => {
             </CardBody>
           </Card>
           <Card className="mt-5">
-            <h2 className="text-center">
-              <p>Enough.</p>
-            </h2>
-            <h3>
-              <p>Our Students are Counting on Us.</p>
-            </h3>{" "}
-            <h3> Flick the Lights on Oppression.</h3>
-          </Card>
-          <Card className="mt-5">
             <CardHeader className="card-header">
               <h3 className="text-center">Free Speech.</h3>
             </CardHeader>
@@ -76,6 +67,16 @@ const AboutPage = (props) => {
           </Card>
         </Col>
       </Row>
+      <Card className="mt-5">
+        <h2 className="text-center">
+          <p>Enough.</p>
+        </h2>
+        <h3>
+          <p>Our Students are Counting on Us.</p>
+        </h3>{" "}
+        <h3> Flick the Lights on Oppression.</h3>
+      </Card>
+
       <Row>
         <Col>
           <Card className="bg-light mt-3 mb-4">

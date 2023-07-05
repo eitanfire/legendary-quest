@@ -7,6 +7,7 @@ import {
   Col,
   CardImgOverlay,
 } from "reactstrap";
+import React from "react";
 import "../../Credit.css";
 import "../../courseTheme.css";
 import { getClassCredit } from "./creditType/getClassCredit";
@@ -14,18 +15,21 @@ import { getClassCredit } from "./creditType/getClassCredit";
 const CourseDetail = ({ course }) => {
   const { image, icon, name, credit, description, theme } = course;
 
-  const creditClasses = getClassCredit(credit);
+  const creditArray = Array.isArray(credit) ? credit : [credit];
+  const creditClasses = creditArray.map((creditItem) =>
+    getClassCredit(creditItem)
+  );
 
   return (
     <Col md="11" className="m-4">
-    <spam id={theme}></spam>
-      <h2 >
-        {credit.map((type, index) => (
+      <span id={theme}></span>
+      <h2>
+        {creditArray.map((type, index) => (
           <span key={index} className={creditClasses[index]}>
             {type}
           </span>
         ))}
-        {credit.length === 0 && (
+        {creditArray.length === 0 && (
           <span className="electiveCredit">Elective</span>
         )}
       </h2>
