@@ -2,8 +2,7 @@
   content: "";
   box-shadow: inset 0 0 0 1000px rgba(60, 8, 232, 0.2);
 
-  background: 
-    url("https://thumbs.dreamstime.com/z/cinema-seamless-pattern-icons-movie-background-tv-show-television-online-entertainment-concept-film-elements-repeating-251720735.jpg");
+  background: url("https://thumbs.dreamstime.com/z/cinema-seamless-pattern-icons-movie-background-tv-show-television-online-entertainment-concept-film-elements-repeating-251720735.jpg");
   background-size: 500px;
   position: absolute;
   top: 100px;
@@ -16,12 +15,11 @@
 
 #programmingColor {
   content: "";
-    box-shadow: inset 0 0 0 1000px rgba(60, 8, 232, 0.2);
+  box-shadow: inset 0 0 0 1000px rgba(60, 8, 232, 0.2);
 
-  background: 
-  url("https://as1.ftcdn.net/v2/jpg/02/38/22/66/1000_F_238226669_2e3HdJV5zB9LKE2RWaWoDN692MLSnv4g.jpg");
+  background: url("https://as1.ftcdn.net/v2/jpg/02/38/22/66/1000_F_238226669_2e3HdJV5zB9LKE2RWaWoDN692MLSnv4g.jpg");
   background-size: 500px;
-  background-size:cover;
+  background-size: cover;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -48,10 +46,9 @@
 
 #epicsColor {
   content: "";
-    box-shadow: inset 0 0 0 1000px rgba(242, 255, 0, 0.658);
+  box-shadow: inset 0 0 0 1000px rgba(242, 255, 0, 0.658);
   background: 
-  /* radial-gradient(circle, Yellow 25%, rgb(255, 255, 255) 100%), */
-  url("https://c8.alamy.com/comp/2GNBWB5/ancient-greece-mythology-history-vector-seamless-pattern-2GNBWB5.jpg");
+  /* radial-gradient(circle, Yellow 25%, rgb(255, 255, 255) 100%), */ url("https://c8.alamy.com/comp/2GNBWB5/ancient-greece-mythology-history-vector-seamless-pattern-2GNBWB5.jpg");
   background-size: 600px;
   position: absolute;
   top: 0px;
@@ -64,10 +61,9 @@
 
 #sTWColor {
   content: "";
-    box-shadow: inset 0 0 0 1000px rgba(0, 255, 81, 0.2);
+  box-shadow: inset 0 0 0 1000px rgba(0, 255, 81, 0.2);
   background: 
-  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
-  url("https://image.shutterstock.com/image-vector/seamless-pattern-survival-people-surviving-600w-500423134.jpg");
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */ url("https://image.shutterstock.com/image-vector/seamless-pattern-survival-people-surviving-600w-500423134.jpg");
   background-size: cover;
   position: absolute;
   top: 0px;
@@ -80,10 +76,9 @@
 
 #pirateColor {
   content: "";
-    box-shadow: inset 0 0 0 1000px black, .75;
+  box-shadow: inset 0 0 0 1000px black, 0.75;
   background: 
-  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
-  url("http://historyhub.ie/assets/Ortelius-Maris-Pacifici_960b.jpg");
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */ url("http://historyhub.ie/assets/Ortelius-Maris-Pacifici_960b.jpg");
   background-size: cover;
   position: absolute;
   top: 0px;
@@ -96,10 +91,9 @@
 
 #governmentColor {
   content: "";
-    box-shadow: inset 0 0 0 1000px rgb(23, 120, 42), .75;
+  box-shadow: inset 0 0 0 1000px rgb(23, 120, 42), 0.75;
   background: 
-  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
-  url("https://en.pimg.jp/043/069/837/1/43069837.jpg");
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */ url("https://en.pimg.jp/043/069/837/1/43069837.jpg");
   background-size: 80rem;
   position: absolute;
   top: 0px;
@@ -112,10 +106,9 @@
 
 #migrationColor {
   content: "";
-    box-shadow: inset 0 0 0 1000px rgb(23, 120, 42), .75;
+  box-shadow: inset 0 0 0 1000px rgb(23, 120, 42), 0.75;
   background: 
-  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
-  url("https://www.voicesofyouth.org/sites/voy/files/styles/full_width_image/public/images/2020-01/world_passports_2019_0_0.jpg?itok=oQC2AJnK");
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */ url("https://www.voicesofyouth.org/sites/voy/files/styles/full_width_image/public/images/2020-01/world_passports_2019_0_0.jpg?itok=oQC2AJnK");
   background-size: 80rem;
   position: absolute;
   top: 0px;
@@ -128,10 +121,9 @@
 
 #uSHistColor {
   content: "";
-    box-shadow: inset 0 0 0 1000px rgb(194, 20, 20), .75;
+  box-shadow: inset 0 0 0 1000px rgb(194, 20, 20), 0.75;
   background: 
-  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
-  url("https://www.fractalcamo.com/uploads/5/9/0/2/5902948/s189772745713394276_p2806_i100_w1000.jpeg");
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */ url("https://www.fractalcamo.com/uploads/5/9/0/2/5902948/s189772745713394276_p2806_i100_w1000.jpeg");
   background-size: 80rem;
   position: absolute;
   top: 0px;
@@ -165,9 +157,8 @@
 
 #wWColor {
   content: "";
-  background: 
-  radial-gradient(circle, #f10202d1 25%, rgb(255, 255, 255) 100%),
-  url("https://thumbs.dreamstime.com/z/military-aircraft-pattern-seamless-black-military-aircraft-pattern-repeat-seamless-black-color-any-design-vector-geometric-102903104.jpg");
+  background: radial-gradient(circle, #f10202d1 25%, rgb(255, 255, 255) 100%),
+    url("https://thumbs.dreamstime.com/z/military-aircraft-pattern-seamless-black-military-aircraft-pattern-repeat-seamless-black-color-any-design-vector-geometric-102903104.jpg");
   background-size: 200px;
   position: absolute;
   top: 0px;
@@ -175,13 +166,13 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #philosophyColor {
   content: "";
   background: radial-gradient(circle, #02b5f1d1 25%, rgb(255, 255, 255) 100%),
-  url("https://www.shutterstock.com/image-vector/lamp-light-bulb-hand-drawn-600w-520326277.jpg");
+    url("https://www.shutterstock.com/image-vector/lamp-light-bulb-hand-drawn-600w-520326277.jpg");
   background-size: cover;
   position: absolute;
   top: 0px;
@@ -189,13 +180,13 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #policingColor {
   content: "";
   background: radial-gradient(circle, #ff7b00d1 25%, rgb(255, 255, 255) 100%),
-  url("https://www.shutterstock.com/image-vector/police-related-icon-set-outline-600w-1042818226.jpg");
+    url("https://www.shutterstock.com/image-vector/police-related-icon-set-outline-600w-1042818226.jpg");
   background-size: 500px;
   position: absolute;
   top: 0px;
@@ -203,13 +194,13 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #financeColor {
   content: "";
   background: radial-gradient(circle, #2efa05d1 25%, rgb(255, 255, 255) 100%),
-  url("https://www.shutterstock.com/image-illustration/leather-purse-pattern-repeat-seamless-600w-1106709062.jpg");
+    url("https://www.shutterstock.com/image-illustration/leather-purse-pattern-repeat-seamless-600w-1106709062.jpg");
   background-size: 170px;
   position: absolute;
   top: 0px;
@@ -217,15 +208,14 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #holyLandColor {
   content: "";
   box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541);
   background: 
-  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
-  url("https://img.freepik.com/premium-vector/seamless-geometric-pattern-authentic-arabian-style-vector-illustration_151170-1465.jpg?w=740");
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */ url("https://img.freepik.com/premium-vector/seamless-geometric-pattern-authentic-arabian-style-vector-illustration_151170-1465.jpg?w=740");
   background-size: 170px;
   position: absolute;
   top: 0px;
@@ -233,15 +223,14 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #diseaseColor {
   content: "";
   box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541);
   background: 
-  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
-  url("https://st2.depositphotos.com/4170955/11531/v/950/depositphotos_115319956-stock-illustration-pink-blue-bacteria-in-repeat.jpg");
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */ url("https://st2.depositphotos.com/4170955/11531/v/950/depositphotos_115319956-stock-illustration-pink-blue-bacteria-in-repeat.jpg");
   background-size: 170px;
   position: absolute;
   top: 0px;
@@ -249,15 +238,14 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #coldWarColor {
   content: "";
   /* box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541); */
   background: 
-  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
-  url("https://d1sxy7l4fhu207.cloudfront.net/uploads/392/conversions/Banner_2_Red_1579264170-1255x780.jpg");
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */ url("https://d1sxy7l4fhu207.cloudfront.net/uploads/392/conversions/Banner_2_Red_1579264170-1255x780.jpg");
   background-size: 2000px;
   position: absolute;
   top: 0px;
@@ -265,15 +253,14 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #ancientHistoryColor {
   content: "";
   /* box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541); */
   background: 
-  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
-  url("https://previews.123rf.com/images/paseven/paseven2003/paseven200300111/142997248-vector-seamless-pattern-on-the-ancient-egypt-theme-with-unreadable-notes-hieroglyphs-and-sketches.jpg");
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */ url("https://previews.123rf.com/images/paseven/paseven2003/paseven200300111/142997248-vector-seamless-pattern-on-the-ancient-egypt-theme-with-unreadable-notes-hieroglyphs-and-sketches.jpg");
   background-size: small;
   position: absolute;
   top: 0px;
@@ -281,15 +268,14 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #speechandDebateColor {
   content: "";
   box-shadow: inset 0 0 0 1000px rgba(190, 17, 28, 0.541);
   background: 
-  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
-  url("https://img.freepik.com/premium-vector/comic-speech-bubble-set-with-halftone-shadow_6997-2059.jpg?w=360");
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */ url("https://img.freepik.com/premium-vector/comic-speech-bubble-set-with-halftone-shadow_6997-2059.jpg?w=360");
   background-size: small;
   position: absolute;
   top: 0px;
@@ -297,15 +283,14 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
 
 #cRTColor {
   content: "";
   box-shadow: inset 0 0 0 1000px rgba(190, 17, 28, 0.541);
   background: 
-  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */
-  url("https://i.pinimg.com/originals/a7/ea/f1/a7eaf16988a163f6efb3efd0ba35b690.gif");
+  /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */ url("https://i.pinimg.com/originals/a7/ea/f1/a7eaf16988a163f6efb3efd0ba35b690.gif");
   background-size: 2000px;
   position: absolute;
   top: 0px;
@@ -313,5 +298,5 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.75;
-  z-index:-10;
+  z-index: -10;
 }
