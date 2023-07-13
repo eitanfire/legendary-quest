@@ -1,6 +1,7 @@
 import { Container } from "reactstrap";
 import DisplayList from "../features/display/DisplayList";
 import SubHeader from "../components/SubHeader";
+// import PlaylistList from '../components/PlaylistList';
 
 const TheTeachersLounge = () => {
   return (
@@ -8,7 +9,7 @@ const TheTeachersLounge = () => {
       <Container className="theTeachersLounge">
         <SubHeader current="The Teachers Lounge" />
         <DisplayList className="displayList" />
-=      </Container>
+      </Container>
     </>
   );
 };

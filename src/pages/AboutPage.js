@@ -4,7 +4,7 @@ import TakesList from "../features/takes/TakesList";
 
 const AboutPage = (props) => {
   return (
-    <Container>
+    <Container className="wrapper">
       <SubHeader current="About Us" />
       <Row className="row-content">
         <Col sm="6">
@@ -68,39 +68,36 @@ const AboutPage = (props) => {
         </Col>
       </Row>
       <Card className="mt-5">
-        <h2 className="text-center">
-          <p>Enough.</p>
-        </h2>
-        <h3>
-          <p>Our Students are Counting on Us.</p>
-        </h3>{" "}
-        <h3> Flick the Lights on Oppression.</h3>
+        <div className="wrapper">
+          <h2 className="text-center">
+            <p>Enough.</p>
+          </h2>
+          <h3>
+            <p>Our Students are Counting on Us.</p>
+          </h3>{" "}
+          <h3> Flick the Lights on Oppression.</h3>
+        </div>
       </Card>
-
-      <Row>
-        <Col>
-          <Card className="bg-light mt-3 mb-4">
-            <CardBody>
-              <blockquote className="blockquote">
-                <p>
-                  <h2>
-                    Know that dream where you show up for the final and realize
-                    you forgot to go to class?
-                    <br></br>
-                    <br></br>
-                    Yeah, we have that too but were supposed to be teaching it!
-                  </h2>
-                </p>
-              </blockquote>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+      <Col>
+        <Row className="diaganol bg-light mt-5 mb-4">
+          <p>
+            <h2>
+              Know that dream where you show up for the final and realize you
+              forgot to go to class?
+              <br></br>
+              <br></br>
+              Yeah, we have that too but were supposed to be teaching it!
+            </h2>
+          </p>
+        </Row>
+      </Col>
       <Row className="row-content">
-        <Col xs="12">
-          <h2 className="text-center">Hot Takes</h2>
-        </Col>
-        <TakesList />
+        <div className="wrapper">
+          <Col xs="12">
+            <h2 className="text-center">Hot Takes</h2>
+          </Col>
+          <TakesList />
+        </div>
       </Row>
     </Container>
   );
