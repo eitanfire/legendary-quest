@@ -7,11 +7,11 @@ import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 
 const TakesList = () => {
- const isLoading = useSelector((state) => state.takes.isLoading);
- const errMsg = useSelector((state) => state.takes.errMsg);
+  const isLoading = useSelector((state) => state.takes.isLoading);
+  const errMsg = useSelector((state) => state.takes.errMsg);
 
   const takes = useSelector(selectAllTakes);
-     return isLoading ? (
+  return isLoading ? (
     <Loading />
   ) : errMsg ? (
     <Error errMsg={errMsg} />
