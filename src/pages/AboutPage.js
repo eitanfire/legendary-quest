@@ -79,9 +79,11 @@ const AboutPage = (props) => {
         </div>
       </Card>
       <Col>
-        <Row className="diaganol bg-light mt-5 mb-4">
+        <Row
+          className="diaganol bg-transparent mt-5 mb-4"
+        >
           <p>
-            <h2>
+            <h2 id="dream">
               Know that dream where you show up for the final and realize you
               forgot to go to class?
               <br></br>

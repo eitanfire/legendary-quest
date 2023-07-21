@@ -208,21 +208,21 @@ margin:scroll;
 
 .diaganol {
   --diaganol-color:var(--body-bg)
-  padding: 2.5rem;
+  padding: 1rem;
   --skew-angle: -5deg;
   position: relative;
   isolation: isolate;
   margin-top: 5rem;
+  background: transparent;
 }
 
 .diaganol::after {
   content: "";
-  margin-top: 0.01rem;
-  padding-top: 5rem;
-  color: antiquewhite;
+  margin-top: 0.001rem;
+  padding-top: 1rem;
   background: linear-gradient(
-    45deg,
-    teal,
+    25deg,
+    rgb(54, 87, 153),
     rgb(108, 49, 108),
     rgb(129, 39, 39)
   );
@@ -230,4 +230,10 @@ margin:scroll;
   inset: 0;
   transform: skewY(var(--skew-angle));
   z-index: -1;
+}
+
+#dream {
+  color: rgb(47, 209, 87);
+    -webkit-text-stroke: 0.02rem #111ac8;
+
 }
