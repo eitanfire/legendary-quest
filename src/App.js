@@ -19,13 +19,12 @@ import { fetchTakes } from "./features/takes/takesSlice";
 
 function App() {
   const dispatch = useDispatch();
- useEffect(() => {
-        dispatch(fetchCourses());
-        dispatch(fetchRants());
-        dispatch(fetchTakes());
-        dispatch(fetchComments());
-    }, [dispatch]);
- 
+  useEffect(() => {
+    dispatch(fetchCourses());
+    dispatch(fetchRants());
+    dispatch(fetchTakes());
+    dispatch(fetchComments());
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -41,6 +40,6 @@ function App() {
       <BottomText />
     </div>
   );
- };
+}
 
 export default App;

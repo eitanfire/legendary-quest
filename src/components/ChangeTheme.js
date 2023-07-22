@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Header from './Header';
-import VaporWaveHeader from './VaporWaveHeader';
+import React, { useState, useEffect } from "react";
+import Header from "./Header";
+import VaporWaveHeader from "./VaporWaveHeader";
 import "../../src/vaporWaveMode.css";
-import { Row, Col } from 'reactstrap';
+import { Row, Col } from "reactstrap";
 
 function Theme() {
   const [theme, setTheme] = useState("light");
