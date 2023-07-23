@@ -4,6 +4,7 @@ import SubHeader from "../components/SubHeader";
 import LoadMoreCourses from "../features/courses/LoadMoreCourses";
 import Tags from "../features/courses/creditType/Tags";
 import ToggleCreditTags from "../components/ToggleCreditTags";
+// import fakerData from "../utils/fakerData";
 
 const CoursesDirectoryPage = () => {
   return (
@@ -14,6 +15,7 @@ const CoursesDirectoryPage = () => {
         </Col>
         <Col col col-8>
           <Tags />
+          {/* <fakerData /> */}
           {/* <ToggleCreditTags /> */}
         </Col>
       </Row>

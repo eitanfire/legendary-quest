@@ -1,7 +1,7 @@
 import { Button, Label, Col, FormGroup } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateSignUpForm } from "../utils/validateSignUpForm";
-import NotificationForm from './NotificationForm'
+import NotificationForm from "./NotificationForm";
 
 const SignUpForm = () => {
   const contactType = (Field, "contactType");
@@ -88,7 +88,7 @@ const SignUpForm = () => {
             </Field>
           </Col> */}
           {/* {contactType === "By Text" && ( */}
-            {/* <FormGroup row>
+          {/* <FormGroup row>
               <Label htmlFor="phoneNum" md="2">
                 Phone Number
               </Label>
