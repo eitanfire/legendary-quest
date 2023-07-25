@@ -10,7 +10,7 @@ import {
   Button,
 } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import defaultAvatar from "../../app/assets/img/tlLogo.jpeg";
+import defaultAvatar from "../../app/assets/img/Avatar.png";
 import { validateUserLoginForm } from "../../utils/validateUserLoginForm";
 
 const UserLoginForm = () => {
