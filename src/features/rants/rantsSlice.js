@@ -46,9 +46,8 @@ export const selectAllRants = (state) => {
 
 export const selectFeaturedRant = (state) => {
   return {
-    featuredItem: state.rants.rantsArray.find(
-      (rant) => rant.featured
-    ),
+    title: "The Rant",
+    featuredItem: state.rants.rantsArray.find((rant) => rant.featured),
     isLoading: state.rants.isLoading,
     errMsg: state.rants.errMsg,
   };

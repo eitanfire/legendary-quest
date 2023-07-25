@@ -60,6 +60,7 @@ export const selectCourseById = (id) => (state) => {
 
 export const selectFeaturedCourse = (state) => {
   return {
+    title: "Featured Course",
     featuredItem: state.courses.coursesArray.find((course) => course.featured),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,
