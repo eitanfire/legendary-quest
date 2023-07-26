@@ -46,6 +46,7 @@ export const selectAllRants = (state) => {
 
 export const selectFeaturedRant = (state) => {
   return {
+    icon: "📢",
     title: "The Rant",
     featuredItem: state.rants.rantsArray.find((rant) => rant.featured),
     isLoading: state.rants.isLoading,

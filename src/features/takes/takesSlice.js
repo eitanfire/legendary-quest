@@ -46,6 +46,7 @@ export const selectAllTakes = (state) => {
 
 export const selectFeaturedTake = (state) => {
   return {
+    icon: "🔥",
     title: "Hot Take",
     featuredItem: state.takes.takesArray.find((take) => take.featured),
     isLoading: state.takes.isLoading,

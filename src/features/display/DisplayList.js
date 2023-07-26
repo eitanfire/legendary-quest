@@ -20,7 +20,7 @@ const DisplayList = () => {
   return (
     <Row>
       {items.map((item, idx) => {
-        const { title, featuredItem, isLoading, errMsg } = item;
+        const { icon, title, featuredItem, isLoading, errMsg } = item;
         if (isLoading) {
           return <Loading key={idx} />;
         }
@@ -31,7 +31,10 @@ const DisplayList = () => {
           featuredItem && (
             <>
               <Col md className="m-1" key={idx}>
-                <h3>{title}</h3>
+                <h3>
+                  {icon}
+                  {title}
+                </h3>
                 <AnimatedDisplayCard item={featuredItem} title={title} />
               </Col>
             </>
