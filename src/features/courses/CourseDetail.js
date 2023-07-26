@@ -8,7 +8,7 @@ import {
   CardImgOverlay,
 } from "reactstrap";
 import React from "react";
-import "../../Credit.css";
+// import "../../Credit.css";
 import "../../courseTheme.css";
 import { getClassCredit } from "./creditType/getClassCredit";
 

@@ -39,7 +39,7 @@ const Tags = () => {
       ))}
       <input
         value={input}
-        placeholder="Enter a tag"
+        placeholder="Search Courses"
         onKeyDown={onKeyDown}
         onChange={onChange}
         className={`credit ${getClassCredit(input)}`}

@@ -4,7 +4,6 @@ import AnimatedDisplayCard from "./AnimatedDisplayCard";
 import { selectFeaturedTake } from "../takes/takesSlice";
 import { selectFeaturedRant } from "../rants/rantsSlice";
 import { selectFeaturedCourse } from "../courses/coursesSlice";
-import { shortSelectFeaturedCourse } from "../courses/coursesSlice";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 
@@ -17,6 +16,7 @@ const DisplayList = () => {
 
   console.log("display items:", items);
 
+  
   return (
     <Row>
       {items.map((item, idx) => {
@@ -31,10 +31,7 @@ const DisplayList = () => {
           featuredItem && (
             <>
               <Col md className="m-1" key={idx}>
-                <h3>
-                  {icon}
-                  {title}
-                </h3>
+                <h3>{icon}{title}</h3>
                 <AnimatedDisplayCard item={featuredItem} title={title} />
               </Col>
             </>
