@@ -1,13 +1,29 @@
 import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
 import SubHeader from "../components/SubHeader";
-import TakesList from "../features/takes/TakesList";
 import RantsList from "../features/rants/RantsList";
 
-const RantsPage = (props) => {
+const RantPage = (props) => {
   return (
     <Container className="wrapper">
-      <SubHeader current="Rants" />
+      <SubHeader current="Rant" />
       <Row className="row-content">
+        <Col>
+          {" "}
+          <span>
+            What the teachers are saying. Teachers pushing back against the
+            infantilization of the profession.
+            <br></br>
+            <br></br>
+            Get Up on That Soapbox in
+            <a
+              href="https://www.reddit.com/r/Teachers/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {` `}r/Teachers
+            </a>
+          </span>
+        </Col>
         <Col sm="6">
           <h3 className="title text-center">Our Mission</h3>
           <h3 className="m-2">It's Hard for Educators</h3>
@@ -74,7 +90,7 @@ const RantsPage = (props) => {
             <p>Enough.</p>
           </h2>
           <h3>
-            <p>Our Students are Counting on Us.</p>
+            Our Students are Counting on Us.
           </h3>{" "}
           <h3> Flick the Lights on Oppression.</h3>
         </div>
@@ -104,4 +120,4 @@ const RantsPage = (props) => {
   );
 };
 
-export default RantsPage;
+export default RantPage;

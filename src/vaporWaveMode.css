@@ -18,7 +18,7 @@
 }
 
 .vaporWave .card-header {
-  background-color: black;
+  /* background-color: black; */
   color: white;
 }
 
@@ -48,13 +48,14 @@
     radial-gradient(ellipse at bottom, red, transparent);
 }
 
-/* #vaporwaveTrees {
+#vaporwaveTrees {
   position:absolute;
   margin-top: 0rem;
   top: -4rem;
   left:-2rem;
-  z-index:-10%;
-} */
+  z-index:1;
+  opacity: .15;
+}
 
 #bulbBanner {
   color: #000;
@@ -97,9 +98,9 @@
   min-height: 2rem;
 }
 
-.vaporWave #icon {
-  opacity: 0.5;
-}
+/* .vaporWave #icon {
+  opacity: 0.95;
+} */
 
 .vaporWave .diaganol {
   background-color: #000;

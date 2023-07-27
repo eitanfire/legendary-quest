@@ -10,6 +10,8 @@ import {
 import { NavLink } from "react-router-dom";
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
 import UserLoginForm from "../features/user/UserLoginForm";
+import logo from "../app/assets/img/tlLogo.jpeg";
+
 
 const VaporWaveHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +19,7 @@ const VaporWaveHeader = () => {
   return (
     <Navbar dark color="primary" sticky="top" expand="md">
       <NavbarBrand className="ms-5" href="/">
-        <img
+        <img 
           src={vaporwaveTrees}
           alt="Teach League Logo"
           className="vaporwaveTrees float-start"
@@ -39,8 +41,8 @@ const VaporWaveHeader = () => {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="nav-link" to="/rants">
-              <i className="fa fa-solid fa-question" /> Rants
+            <NavLink className="nav-link" to="/rant">
+              <i className="fa fa-solid fa-bullhorn" /> Rant
             </NavLink>
           </NavItem>
           <NavItem>

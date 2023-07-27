@@ -7,7 +7,7 @@ import CoursesDirectoryPage from "./pages/CoursesDirectoryPage";
 import { Routes, Route } from "react-router-dom";
 import ConnectionPage from "./pages/ConnectionPage";
 import TheTeachersLounge from "./pages/TheTeachersLounge";
-import RantPage from "./pages/RantsPage";
+import RantPage from "./pages/RantPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
 // import FreeCourseCard from "./features/courses/FreeCourseCard";
 import Header from "./components/Header";
@@ -31,7 +31,7 @@ function App() {
       <Theme />
       <Routes>
         <Route path="/" element={<TheTeachersLounge />} />
-        <Route path="rants" element={<RantPage />} />
+        <Route path="rant" element={<RantPage />} />
         <Route path="connect" element={<ConnectionPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
