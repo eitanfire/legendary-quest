@@ -6,24 +6,20 @@ const RantPage = (props) => {
   return (
     <Container className="wrapper">
       <SubHeader current="Rant" />
+      <Col>
+        <Row className="diaganol bg-transparent mt-5 mb-4">
+          <p>
+            <h2 id="dream">
+              Know that dream where you show up for the final and realize you
+              forgot to go to class?
+              <br></br>
+              <br></br>
+              Yeah, we have that too but were supposed to be teaching it!
+            </h2>
+          </p>
+        </Row>
+      </Col>
       <Row className="row-content">
-        <Col>
-          {" "}
-          <span>
-            What the teachers are saying. Teachers pushing back against the
-            infantilization of the profession.
-            <br></br>
-            <br></br>
-            Get Up on That Soapbox in
-            <a
-              href="https://www.reddit.com/r/Teachers/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {` `}r/Teachers
-            </a>
-          </span>
-        </Col>
         <Col sm="6">
           <h3 className="title text-center">Our Mission</h3>
           <h3 className="m-2">It's Hard for Educators</h3>
@@ -95,20 +91,7 @@ const RantPage = (props) => {
           <h3> Flick the Lights on Oppression.</h3>
         </div>
       </Card>
-      <Col>
-        <Row className="diaganol bg-transparent mt-5 mb-4">
-          <p>
-            <h2 id="dream">
-              Know that dream where you show up for the final and realize you
-              forgot to go to class?
-              <br></br>
-              <br></br>
-              Yeah, we have that too but were supposed to be teaching it!
-            </h2>
-          </p>
-        </Row>
-      </Col>
-      <Row className="row-content">
+      <Row className="row-content mt-5">
         <div className="wrapper">
           <Col xs="12">
             <h2 className="text-center">Rants</h2>
