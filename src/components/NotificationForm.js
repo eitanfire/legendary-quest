@@ -23,6 +23,7 @@ function NotificationForm() {
             checked={notificationMethod === "email"}
             onChange={() => setNotificationMethod("email")}
           />
+          {" "}
           By Email
         </label>
       </div>
@@ -34,7 +35,7 @@ function NotificationForm() {
             value="text"
             checked={notificationMethod === "text"}
             onChange={() => setNotificationMethod("text")}
-          />
+          />{" "}
           By Text
         </label>
       </div>
