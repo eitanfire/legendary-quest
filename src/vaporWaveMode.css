@@ -3,14 +3,18 @@
   background-position: 95% 80%;
   background-clip: content-box;
   opacity: 0.75;
-  background: -moz-linear-gradient(to bottom, #ffffff, #0099ff);
-  background: linear-gradient(to bottom, #ffffff, #0099ff);
-}
+  /* background: -moz-linear-gradient(to bottom, #ffffff, #060f16); */
+  background: linear-gradient(
+    25deg,
+    rgb(54, 87, 153),
+    rgb(108, 49, 108),
+    rgb(129, 39, 39)
+  );}
 
 .vaporWave {
   background-color: #333;
   opacity: 2;
-  color: rgb(113, 22, 153, 1);
+  color: white;
 }
 
 .vaporWave .card-header {

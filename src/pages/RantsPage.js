@@ -1,11 +1,12 @@
 import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import TakesList from "../features/takes/TakesList";
+import RantsList from "../features/rants/RantsList";
 
-const AboutPage = (props) => {
+const RantsPage = (props) => {
   return (
     <Container className="wrapper">
-      <SubHeader current="About Us" />
+      <SubHeader current="Rants" />
       <Row className="row-content">
         <Col sm="6">
           <h3 className="title text-center">Our Mission</h3>
@@ -79,9 +80,7 @@ const AboutPage = (props) => {
         </div>
       </Card>
       <Col>
-        <Row
-          className="diaganol bg-transparent mt-5 mb-4"
-        >
+        <Row className="diaganol bg-transparent mt-5 mb-4">
           <p>
             <h2 id="dream">
               Know that dream where you show up for the final and realize you
@@ -96,13 +95,13 @@ const AboutPage = (props) => {
       <Row className="row-content">
         <div className="wrapper">
           <Col xs="12">
-            <h2 className="text-center">Hot Takes</h2>
+            <h2 className="text-center">Rants</h2>
           </Col>
-          <TakesList />
+          <RantsList />
         </div>
       </Row>
     </Container>
   );
 };
 
-export default AboutPage;
+export default RantsPage;
