@@ -19,7 +19,7 @@
 
 .vaporWave .card-header {
   /* background-color: black; */
-  color: white;
+  background-color: black;
 }
 
 .vaporWave #social-bar {
@@ -105,4 +105,13 @@
 .vaporWave .diaganol {
   background-color: #000;
   color: #a4b82d;
+}
+
+.vaporWave .freeCourseCardTitle {
+ background: linear-gradient(
+    25deg,
+    rgb(54, 87, 153),
+    rgb(108, 49, 108),
+    rgb(129, 39, 39)
+  );
 }

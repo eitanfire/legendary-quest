@@ -89,7 +89,7 @@ const RantPage = (props) => {
           <h2 className="text-center">
             <p>Enough.</p>
           </h2>
-          <h3>
+          <h3 className="freeCourseCardTitle">
             Our Students are Counting on Us.
           </h3>{" "}
           <h3> Flick the Lights on Oppression.</h3>

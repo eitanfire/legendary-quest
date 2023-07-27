@@ -6,7 +6,7 @@ const FreeCourseCard = ({ course }) => {
   return (
     <Col>
       <Card>
-        <CardTitle className="text-center">
+        <CardTitle className="freeCourseCardTitle text-center">
           {icon} {name}
         </CardTitle>
         <CardImg id="free-course" top src={image} alt={name} />
