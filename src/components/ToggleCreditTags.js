@@ -14,9 +14,7 @@ const ToggleCreditTags = ({ course }) => {
 
   return (
     <div className={`App ${creditTag}`} onClick={toggleTags}>
-      {creditTag === false ? {} : 
-        credit={credit}
-        }
+      {creditTag === false ? {} : (credit = { credit })}
       <button>
         <i className="fa fa-lightbulb-o fa-lg" />
       </button>
