@@ -1,16 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import { TAKES } from "../../app/shared/TAKES";
-import { baseUrl } from "../../app/shared/baseUrl";
+import { db } from '../../app/firebase.config';import { collection, getDocs } from 'firebase/firestore';
 import { mapImageURL } from "../../utils/mapImageURL";
 
-export const fetchTakes = createAsyncThunk("takes/fetchTakes", async () => {
-  const response = await fetch(baseUrl + "takes");
-  if (!response.ok) {
-    return Promise.reject("Unable to fetch, status: " + response.status);
+export const fetchTakes = createAsyncThunk(
+  "takes/fetchTakes",
+  async () => {
+    const querySnapshot = await getDocs(collection(db, 'takes'));
+    const takes = [];
+    querySnapshot.forEach((doc) => {
+      takes.push(doc.data());
+    });
+    
+    return takes;
   }
-  const data = await response.json();
-  return data;
-});
+);
 
 const initialState = {
   takesArray: [],

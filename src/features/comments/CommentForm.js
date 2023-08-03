@@ -26,7 +26,7 @@ const CommentForm = ({ courseId }) => {
       date: new Date(Date.now()).toISOString(),
     };
     console.log("comment", comment);
-    dispatch(postComment(comment));
+    // dispatch(postComment(comment));
     setModalOpen(false);
   };
 
