@@ -91,7 +91,7 @@
 
 #governmentColor {
   content: "";
-  box-shadow: inset 0 0 0 1000px rgb(23, 120, 42), 0.75;
+  box-shadow: inset 0 0 0 1000px rgb(7, 73, 58), 0.75;
   background: 
   /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */ url("https://en.pimg.jp/043/069/837/1/43069837.jpg");
   background-size: 80rem;
@@ -243,7 +243,7 @@
 
 #coldWarColor {
   content: "";
-  /* box-shadow: inset 0 0 0 1000px rgba(57, 17, 190, 0.541); */
+  box-shadow: inset 0 0 0 1000px rgba(239, 42, 3, 0.541);
   background: 
   /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */ url("https://d1sxy7l4fhu207.cloudfront.net/uploads/392/conversions/Banner_2_Red_1579264170-1255x780.jpg");
   background-size: 2000px;

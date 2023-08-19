@@ -1,4 +1,3 @@
-
 export const mapImageURL = (arr) => {
   return arr.map((item) => {
     return {
