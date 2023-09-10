@@ -3,7 +3,6 @@ export const mapImageURL = (arr) => {
     return {
       ...item,
       image: require("../app/assets/img/" + item.image),
-      // image: require("../app/assets/" + item.image),
     };
   });
 };
