@@ -34,11 +34,19 @@
 }
 
 .vaporWave .site-footer {
+  color:#3ed5ad;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+  /* background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, #f90497, transparent),
-    radial-gradient(ellipse at bottom, #d1c3b2, transparent);
+    radial-gradient(ellipse at bottom, #d1c3b2, transparent); */
+  background: url(app/assets/img/wp5004292-vaporwave-aesthetic-1920x1080-wallpapers.jpg)
+      /* url(app/img/Color-Explosion.png) */ no-repeat,
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent);
+  background-position: 70% 25%;
+  background-size: 99%;
 }
 
 .light .site-footer {
