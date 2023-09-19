@@ -6,6 +6,24 @@
 
 :root {
   --body-bg: hsl(0, 0%, 11%);
+  --shadow-color: 310deg 19% 16%;
+  --shadow-elevation-low:
+    1px 0.7px 1.5px hsl(var(--shadow-color) / 0.4),
+    2px 1.4px 3px -0.9px hsl(var(--shadow-color) / 0.48),
+    5px 3.6px 7.5px -1.9px hsl(var(--shadow-color) / 0.56);
+  --shadow-elevation-medium:
+    1px 0.7px 1.5px hsl(var(--shadow-color) / 0.42),
+    4.4px 3.1px 6.5px -0.6px hsl(var(--shadow-color) / 0.48),
+    10.6px 7.6px 15.8px -1.3px hsl(var(--shadow-color) / 0.55),
+    25px 18px 37.4px -1.9px hsl(var(--shadow-color) / 0.61);
+  --shadow-elevation-high:
+    1px 0.7px 1.5px hsl(var(--shadow-color) / 0.44),
+    11.3px 8.1px 16.9px -0.3px hsl(var(--shadow-color) / 0.48),
+    21.9px 15.8px 32.8px -0.6px hsl(var(--shadow-color) / 0.52),
+    36.9px 26.6px 55.3px -0.9px hsl(var(--shadow-color) / 0.56),
+    60.5px 43.6px 90.6px -1.3px hsl(var(--shadow-color) / 0.6),
+    96.8px 69.7px 144.9px -1.6px hsl(var(--shadow-color) / 0.64),
+    150px 107.9px 224.5px -1.9px hsl(var(--shadow-color) / 0.68);
 }
 
 html {
@@ -85,6 +103,30 @@ h2 {
   background-color: #af7fdd;
 }
 
+.card-body,
+/* .card-title, */
+/* .comments, */
+/* #BreadCrumb, */
+.worldHistoryCredit,
+.uSHistoryCredit,
+.geographyCredit,
+.governmentCredit,
+.electiveCredit,
+.mandatoryCredit,
+.lACredit,
+.credit 
+{
+  box-shadow: var(--shadow-elevation-medium);
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+      /* --shadow-color: hsl(220deg 60% 50%);
+
+    box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075) */
+    ;}
 /* .row-content {
   padding: 20px 0;
   border-bottom: 1px ridge;
@@ -204,9 +246,10 @@ h2 {
   background-position: 90% 18%;
 }
 
-.displayList {
-  color: aquamarine;
-}
+/* .displayList {
+  background-color: aquamarine;
+  max-height: .5rem;
+} */
 
 .diaganol {
   --diaganol-color:var(--body-bg)
@@ -239,3 +282,8 @@ h2 {
     -webkit-text-stroke: 0.02rem #111ac8;
 
 }
+
+/* .theTeachersLounge {
+  max-height: .5rem;
+  background-color: #ec008c;
+} */
