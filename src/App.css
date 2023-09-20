@@ -104,6 +104,7 @@ h2 {
 }
 
 .card-body,
+.card-image,
 /* .card-title, */
 /* .comments, */
 /* #BreadCrumb, */
@@ -287,3 +288,9 @@ h2 {
   max-height: .5rem;
   background-color: #ec008c;
 } */
+
+.comments {
+ /* box-shadow: var(--shadow-elevation-medium); */
+    background:
+    linear-gradient(white, rgba(0, 0, 0, 0.3));  padding:1rem;
+}
