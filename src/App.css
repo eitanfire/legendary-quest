@@ -135,6 +135,11 @@ h2 {
 
 } */
 
+/*How come this doesn't work?*/
+.credit {
+      margin-right: 1rem;
+}
+
 #BottomText {
   position: relative;
   bottom: 4rem;
