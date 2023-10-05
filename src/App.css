@@ -103,11 +103,12 @@ h2 {
   background-color: #af7fdd;
 }
 
-.card-body,
-.card-image,
+/* .card-body,
+.card-image, */
 /* .card-title, */
 /* .comments, */
 /* #BreadCrumb, */
+.card,
 .worldHistoryCredit,
 .uSHistoryCredit,
 .geographyCredit,
@@ -121,7 +122,7 @@ h2 {
       -webkit-text-stroke: 0.03rem black;
 
     background: linear-gradient(rgb(252, 252, 252), rgba(0, 0, 0, 0.3));
-          margin-right: 1rem;
+          /* margin-right: 1rem; */
 
       /* --shadow-color: hsl(220deg 60% 50%);
 
@@ -138,6 +139,17 @@ h2 {
   min-height: 10px;
 
 } */
+
+.worldHistoryCredit,
+.uSHistoryCredit,
+.geographyCredit,
+.governmentCredit,
+.electiveCredit,
+.mandatoryCredit,
+.lACredit,
+.credit {
+          margin-right: 1rem;
+}
 
 #BottomText {
   position: relative;
@@ -289,7 +301,7 @@ h2 {
 }
 
 /* .theTeachersLounge {
-  max-height: .5rem;
+  height: .5rem;
   background-color: #ec008c;
 } */
 

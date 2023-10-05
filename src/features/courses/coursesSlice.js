@@ -69,10 +69,19 @@ export const selectFeaturedCourse = (state) => {
   };
 };
 
+export const selectFreeCourse = (state) => {
+  return {
+    // title: "Free Course",
+    freeItem: state.courses.coursesArray.find((course) => course.free),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
+};
+
 export const shortSelectFeaturedCourse = (state) => {
   return selectFeaturedCourse.slice(0, 20);
 };
 
-export const selectFreeCourse = (state) => {
-  return state.courses.coursesArray.find((course) => course.free);
-};
+// export const selectFreeCourse = (state) => {
+//   return state.courses.coursesArray.find((course) => course.free);
+// };

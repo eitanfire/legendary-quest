@@ -17,11 +17,13 @@ const AnimatedDisplayCard = ({ item }) => {
     }, []);
 
   return (
-    <animated.div style={animatedStyle}>
+    <animated.div className="theTeachersLounge" style={animatedStyle}>
       <Card>
         <CardImg src={image} alt={name} />
         <CardBody>
-          <CardTitle><span id="icon">{icon}</span>{" "}{name}</CardTitle>
+          <CardTitle>
+            <span id="icon">{icon}</span> {name}
+          </CardTitle>
           <CardText>{description}</CardText>
         </CardBody>
       </Card>

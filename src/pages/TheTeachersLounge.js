@@ -1,12 +1,14 @@
 import { Container } from "reactstrap";
 import DisplayList from "../features/display/DisplayList";
 import SubHeader from "../components/SubHeader";
-// import PlaylistList from '../components/PlaylistList';
+import InfiniteScrollList from "../features/display/InfiniteScrollList";
 
 const TheTeachersLounge = () => {
   return (
     <>
-      <Container className="theTeachersLounge">
+      <Container
+      // className="theTeachersLounge"
+      >
         <SubHeader current="The Teachers Lounge" />
         <DisplayList className="displayList" />
       </Container>
