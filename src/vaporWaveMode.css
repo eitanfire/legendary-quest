@@ -18,6 +18,12 @@
   color: white;
 }
 
+.vaporWave a:link:not(.title) {
+/* background-color:#3ed5ad; */
+      /* -webkit-text-stroke: 0.3rem #3ed5ad; */
+      color: white;
+}
+
 .vaporWave .card-header {
   /* background-color: black; */
   background-color: black;
