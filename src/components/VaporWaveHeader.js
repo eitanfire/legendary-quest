@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
 import UserLoginForm from "../features/user/UserLoginForm";
 import logo from "../app/assets/img/tlLogo.jpeg";
-
+import vaporwavestatue from "../app/assets/img/vapor-wave-statue.jpg";
 
 const VaporWaveHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,8 +19,9 @@ const VaporWaveHeader = () => {
   return (
     <Navbar dark color="primary" sticky="top" expand="md">
       <NavbarBrand className="ms-5" href="/">
-        <img 
-          src={vaporwaveTrees}
+        <img
+          // src={vaporwaveTrees}
+          src={vaporwavestatue}
           alt="Teach League Logo"
           className="vaporwaveTrees float-start"
         />

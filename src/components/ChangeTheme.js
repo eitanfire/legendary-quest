@@ -5,17 +5,25 @@ import "../../src/vaporWaveMode.css";
 import { Row, Col } from "reactstrap";
 
 function Theme() {
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = (Header) => {
+  // Step 1: Read the theme preference from local storage
+  const storedTheme = localStorage.getItem("theme");
+  const [theme, setTheme] = useState(storedTheme || "light");
+
+  const toggleTheme = () => {
+    // Toggle the theme
     if (theme === "light") {
       setTheme("vaporWave");
     } else {
       setTheme("light");
     }
   };
+
+  // Step 2: Store the theme preference in local storage
   useEffect(() => {
     document.body.className = theme;
+    localStorage.setItem("theme", theme); // Store the theme in local storage
   }, [theme]);
+
   return (
     <Row>
       <Col Id="bulbBanner" className={`App ${theme}`} onClick={toggleTheme}>
@@ -48,4 +56,5 @@ function Theme() {
     </Row>
   );
 }
+
 export default Theme;

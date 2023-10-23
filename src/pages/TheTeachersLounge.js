@@ -10,7 +10,9 @@ const TheTeachersLounge = () => {
       // className="theTeachersLounge"
       >
         <SubHeader current="The Teachers Lounge" />
-        <DisplayList className="displayList" />
+        <span>
+          <DisplayList className="displayList" />
+        </span>
       </Container>
     </>
   );
