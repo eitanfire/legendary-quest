@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <>
-      <Navbar dark color="primary" sticky="top" expand="md">
+      <Navbar dark color="primary header-banner" sticky="top" expand="md">
         <NavbarBrand className="ms-5" href="/">
           <img src={logo} alt="Teach League Logo" className="float-start" />
           <h1 className="title">Teach League</h1>

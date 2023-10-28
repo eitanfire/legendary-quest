@@ -30,7 +30,9 @@ const DisplayList = () => {
           featuredItem && (
             <>
               {/* <span className="col"> */}
-                <Col md className="m-1" key={idx}>
+                <Col  
+                // className="display-boxes m-1" 
+                key={idx}>
                   <h3>
                     {icon}
                     {title}

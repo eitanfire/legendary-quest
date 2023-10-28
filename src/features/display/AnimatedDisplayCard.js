@@ -25,6 +25,14 @@ const AnimatedDisplayCard = ({ item }) => {
             <span id="icon">{icon}</span> {name}
           </CardTitle>
           <CardText>{description}</CardText>
+
+          {/* <CardText>{description.substring(0, 220)}</CardText> */}
+
+          {/* <p className={classes.details}>
+            {item.description.length > 250
+              ? `${item.description.substring(0, 250)}...`
+              : item.description}
+          </p> */}
         </CardBody>
       </Card>
     </animated.div>

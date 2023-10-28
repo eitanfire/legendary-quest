@@ -40,7 +40,10 @@
 }
 
 .vaporWave .site-footer {
-  color:#3ed5ad;
+  /* color:g; */
+    background-blend-mode:hard-light;
+
+  filter: invert(8%);
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   /* background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
@@ -83,17 +86,20 @@
   background-color: #901cad;
   height: 5rem;
   min-width: none;
+  /* width: 50rem; */
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
-  background: url("https://cdn.xxl.thumbs.canstockphoto.com/abstract-davids-bust-with-neon-gloving-light-on-grid-background-banner-design-retrowave-stock-photograph_csp69193594.jpg")
+  background: url("app/assets/img/statue-with-halo.jpg")
       no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
-  background-position: 0% 50%;
+  background-position: -2.5% 45%;
+    background-size: 48%;
+
   /* width:auto; */
   /* margin-bottom: 2rem; */
-  min-height: 2rem;
+  /* min-height: 2rem; */
 }
 
 .light .navbar-dark {
