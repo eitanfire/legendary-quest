@@ -181,6 +181,9 @@ border-color: var(--diaganol-color);
   height: 100%; */
   /* margin-right: 1rem; */
   max-width: 4rem;
+    fill: green;
+    /* url('./app/assets//img/vaporwaveTrees.png'); */
+
 }
 
 .page-enter {
@@ -375,3 +378,8 @@ top: 0;
   bottom: 0;
   transform: rotate(.5turn);
  }
+
+ /* .float-start {
+  background: #af7fdd;
+  color: green;
+ } */

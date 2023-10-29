@@ -66,14 +66,39 @@
     radial-gradient(ellipse at bottom, red, transparent);
 }
 
-#vaporwaveTrees {
-  position: absolute;
-  margin-top: 0rem;
+.vaporwaveTrees {
+   position: absolute;
+
+  /* position: relative;
+  color: white;
+background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent);   */
+    /* margin-top: 0rem;
   top: -4rem;
   left: -2rem;
-  z-index: 1;
-  opacity: 0.15;
+  z-index: 1;*/
+  /* opacity: 0.15;  */
+  /* -webkit-mask-image: url('./app/assets/img/TLLogo.svg'); */
+  mask-image: url('./app/assets/img/TLLogo.svg');
+  /* background: url('./app/assets/img/Color-Explosion.png'); */
+  /* fill: #ec008c; */
+  /* background: #901cad; */
+  /* background-position: 0% 75%; */
+    /* background-size: 15rem; */
+      width: 10%;
+      height: 60%;
+margin-right: 3rem;
 }
+
+/* .vaporwaveTrees::before,
+.vaporwaveTrees::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background: #901cad;
+} */
 
 #bulbBanner {
   color: #000;

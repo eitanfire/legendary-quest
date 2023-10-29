@@ -10,7 +10,8 @@ import {
 import { NavLink } from "react-router-dom";
 // import { setTheme } from './ChangeTheme';
 // import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
-import logo from "../app/assets/img/tlLogo.jpeg";
+// import logo from "../app/assets/img/tlLogo.jpeg";
+import logo from "../app/assets/img/TLLogo.svg";
 import UserLoginForm from "../features/user/UserLoginForm";
 
 const Header = () => {
@@ -20,7 +21,14 @@ const Header = () => {
     <>
       <Navbar dark color="primary header-banner" sticky="top" expand="md">
         <NavbarBrand className="ms-5" href="/">
-          <img src={logo} alt="Teach League Logo" className="float-start" />
+          <object
+            type="image/svg+xml"
+            data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
+            className="vaporwaveTrees"
+          >
+            Logo
+          </object>
+          {/* <img src={logo} alt="Teach League Logo" className="float-start" /> */}
           <h1 className="title">Teach League</h1>
         </NavbarBrand>
         <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />

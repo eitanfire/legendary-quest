@@ -9,22 +9,31 @@ import {
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
+import logo from "../app/assets/img/TLLogo.svg";
 import UserLoginForm from "../features/user/UserLoginForm";
-import logo from "../app/assets/img/tlLogo.jpeg";
-import vaporwavestatue from "../app/assets/img/vapor-wave-statue.jpg";
+import vaporwavestatue from "../app/assets/img/tlLogo.jpeg";
+// import vaporwavestatue from "../app/assets/img/vapor-wave-statue.jpg";
 
 const VaporWaveHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  
   return (
     <Navbar dark color="primary" sticky="top" expand="md">
       <NavbarBrand className="ms-5" href="/">
-        <img
+        <object
+          type="image/svg+xml"
+          data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
+          className="vaporwaveTrees"
+        >
+          Logo
+        </object>
+        {/* <img
           // src={vaporwaveTrees}
-          src={vaporwavestatue}
+          src={logo}
           alt="Teach League Logo"
           className="vaporwaveTrees float-start"
-        />
+        /> */}
         <h1 className="title">Teach League</h1>
       </NavbarBrand>
       <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
