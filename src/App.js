@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      <Theme />
+      <Theme className="spikes"/>
       <Routes>
         <Route path="/" element={<TheTeachersLounge />} />
         <Route path="rant" element={<RantPage />} />

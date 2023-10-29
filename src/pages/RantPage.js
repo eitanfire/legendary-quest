@@ -80,14 +80,24 @@ const RantPage = (props) => {
           </Card>
         </Col>
       </Row>
-      <Card className="mt-5">
+      {/* <div className="spikes">Rants</div> */}
+      <Col>
+        <Row className="spikes bg-transparent mt-5 mb-4">
+          <p>
+              Know that dream where you show up for the final and realize you
+              forgot to go to class?
+              <br></br>
+              <br></br>
+              Yeah, we have that too but were supposed to be teaching it!
+          </p>
+        </Row>
+      </Col>
+      <Card className="spikes mt-5">
         <div className="wrapper">
           <h2 className="text-center">
             <p>Enough.</p>
           </h2>
-          <h3 className="freeCourseCardTitle">
-            Our Students are Counting on Us.
-          </h3>{" "}
+          <h3 className="">Our Students are Counting on Us.</h3>{" "}
           <h3> Flick the Lights on Oppression.</h3>
         </div>
       </Card>
