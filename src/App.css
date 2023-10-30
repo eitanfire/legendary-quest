@@ -220,7 +220,7 @@ border-color: var(--diaganol-color);
 
 .title {
   color: rgb(44, 214, 230);
-  text-indent: 7.75rem;
+  text-indent: 206%;
     font-family: "Comfortaa", cursive;
 
      -webkit-text-stroke: 0.1rem #3ed5ad;;
@@ -244,17 +244,22 @@ border-color: var(--diaganol-color);
   filter: grayscale(0);
 }
 
+#button,
+#bulbBanner,
 .darkBulb {
+  position: fixed;
+  /* left: 1rem; */
   color: rgb(44, 214, 230);
 }
 
 #button {
   -webkit-text-stroke: 1px rgb(218, 236, 17);
-  color: black;
-  position: fixed;
+  /* color: black; */
+  /* position: fixed; */
   border-radius: 12px;
-  left: 4%;
+  /* left: 4%; */
   background-clip: text;
+  color: transparent;
 }
 
 /* #BreadCrumb {
@@ -348,9 +353,9 @@ border-color: var(--diaganol-color);
     linear-gradient(white, rgba(0, 0, 0, 0.3));  padding:1rem;
 }
 
-.header-banner {
+/* .header-banner {
   background-image: url("app/assets/img/statue-with-halo.jpg");;
-}
+} */
 
 .spikes {
   --spike-color: var(--body-bg);

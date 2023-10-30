@@ -89,6 +89,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
       width: 10%;
       height: 60%;
 margin-right: 3rem;
+stroke-width: 5x #af1ad4;
 }
 
 /* .vaporwaveTrees::before,
@@ -102,9 +103,10 @@ margin-right: 3rem;
 
 #bulbBanner {
   color: #000;
-  position: absolute;
-  left: 9rem;
-  top: 7rem;
+  position: fixed;
+  /* left: 9rem; */
+  left: .09rem;
+  top: 6.5rem;
 }
 
 .vaporWave .navbar-dark {
@@ -133,7 +135,7 @@ margin-right: 3rem;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
-  background: url("https://cdn.pixabay.com/photo/2016/10/18/20/33/bookshelves-1751334_1280.png")
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXoQaqB1lYYjRDvsEOKrF40QxUja96-h3p3Q&usqp=CAU")
       no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at 25%, blue, transparent),
@@ -142,6 +144,8 @@ margin-right: 3rem;
   background-position: -00% 55%;
   width: auto;
   min-height: 2rem;
+      background-size: 100%;
+
 }
 
 /* .vaporWave #icon {

@@ -23,7 +23,7 @@ const Header = () => {
         <NavbarBrand className="ms-5" href="/">
           <object
             type="image/svg+xml"
-            data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
+            data="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgNA1x5lrCzkXTpUQ9oS3M6ytyzGqrSyOee2QoMx4ClZ4zhNxZAHVlMxVrc9PXUm4vkjE&usqp=CAU"
             className="vaporwaveTrees"
           >
             Logo
