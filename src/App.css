@@ -153,22 +153,32 @@ border-color: var(--diaganol-color);
 }
 
 #BottomText {
-  position: relative;
-  bottom: 4rem;
-  margin-left: auto;
-  margin-right: -16rem;
+  /* position: relative; */
+  /* bottom: 4rem; */
+  /* margin-left: auto; */
+  /* margin-right: -16rem; */
 }
-#BottomText,
+/* #BottomText, */
 .site-footer {
+  z-index: -10;
   padding: 15px 0;
   margin-top: 2rem;
   margin-bottom: -5rem;
-  opacity: 0.85;
-  color: white;
+  /* opacity: 0.85; */
+ color: invert;
+    -webkit-text-stroke: .75px  rgb(44, 214, 230);
+     /* -webkit-text-stroke: 0.08rem rgb(172, 194, 194); */
   font-size: larger;
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+/* .light #BottomText, */
+.light .site-footer
+
+{
+color: rgb(148, 115, 54);
 }
 
 /* .navbar-brand {
@@ -194,7 +204,7 @@ border-color: var(--diaganol-color);
 .vaporWave .btn,
 .vaporWave .nav-link,
 .flick {
-
+margin-left: 1rem;
   font-weight: bold;
   font-family: "Comfortaa";
   background-clip: text;
@@ -248,6 +258,8 @@ border-color: var(--diaganol-color);
 .vaporwave-title
 {
 color: magenta;
+     -webkit-text-stroke: 0.09rem magenta;
+
 /* background-color: rgb(31, 120, 197); */
 }
 
@@ -410,6 +422,7 @@ height: 100px
 .spikes::after { 
 content: '';
 position: absolute;
+background-attachment:fixed;
 width: 100%;
 height: 50 px;
 background: var(--spike-color);

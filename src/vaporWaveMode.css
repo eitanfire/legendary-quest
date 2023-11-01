@@ -59,11 +59,18 @@
 }
 
 .light .site-footer {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-    radial-gradient(ellipse at top, blue, transparent),
-    radial-gradient(ellipse at bottom, red, transparent);
+  /* border-top: 1px solid #000;
+  border-bottom: 1px solid #000; */
+    border: 1px solid rgb(47, 144, 177);
+    background: url('https://png.pngtree.com/background/20210715/original/pngtree-green-simple-plant-grid-background-picture-image_1282533.jpg')
+no-repeat,
+  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+      radial-gradient(ellipse at center, red, transparent),
+    radial-gradient(ellipse at top, orange, transparent),
+    radial-gradient(ellipse at bottom, yellow, transparent),
+    linear-gradient(red, gold);
+    background-position: 50% 100%;
+    width: 100%;
 }
 
 .vaporwaveTrees-md-xxl {
@@ -174,7 +181,7 @@ background-color: #a4b82d;
     radial-gradient(ellipse at 75% bottom, red, transparent),
     radial-gradient(ellipse at 33% bottom, red, transparent) */
     ;
-  background-position: 100% 3%;
+  background-position: 100% 2.5%;
   width: auto;
   min-height: 2rem;
       background-size: 100%;
