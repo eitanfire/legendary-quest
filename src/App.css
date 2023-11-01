@@ -191,8 +191,9 @@ border-color: var(--diaganol-color);
   transform: translateX(-100%);
 }
 
-.btn,
-.nav-link {
+.vaporWave .btn,
+.vaporWave .nav-link,
+.flick {
 
   font-weight: bold;
   font-family: "Comfortaa";
@@ -200,7 +201,7 @@ border-color: var(--diaganol-color);
   -webkit-background-clip: text;
   color: rgb(44, 214, 230);
     /* -webkit-text-stroke: .75px  rgb(44, 214, 230); */
-     -webkit-text-stroke: 0.1rem rgb(44, 214, 230);
+     -webkit-text-stroke: 0.09rem rgb(44, 214, 230);
   /* background: #111ac8; */
 }
 
@@ -218,12 +219,53 @@ border-color: var(--diaganol-color);
   opacity: 1;
 }
 
-.title {
-  color: rgb(44, 214, 230);
-  text-indent: 206%;
+.title,
+.title-xxl,
+.title-xl,
+.title-md-l,
+.title-xs-sm,
+.btn,
+.nav-link
+  {
+    
+    color: orange;
     font-family: "Comfortaa", cursive;
+          /* -webkit-text-stroke: 0.1rem orangered; */
+            /* font-weight: bold; */
+  font-family: "Comfortaa";
+  background-clip: text;
+  -webkit-background-clip: text;
+     -webkit-text-stroke: 0.09rem orange;
 
-     -webkit-text-stroke: 0.1rem #3ed5ad;;
+}
+
+.btn,
+.nav-link {
+  font-weight: bolder;
+  /* color: orange; */
+   -webkit-text-stroke: .75px darkgreen;
+  }
+.vaporwave-title
+{
+color: magenta;
+/* background-color: rgb(31, 120, 197); */
+}
+
+.title-xxl {
+  text-indent: 215%;
+}
+
+.title-xl {
+  text-indent: 120%;
+}
+
+.title-md-l {
+  text-indent: 110%;
+}
+
+.title-xs-sm {
+  text-indent: 65%;
+     font-size: 2rem;
 }
 
 .page-exit-active {
@@ -388,3 +430,32 @@ top: 0;
   background: #af7fdd;
   color: green;
  } */
+
+.teach-league-logo {
+   position: absolute;
+
+  /* position: relative;
+  color: white;
+background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent);   */
+    /*
+    
+    margin-top: 0rem;
+  top: -4rem;
+  left: -2rem;
+  z-index: 1;*/
+  opacity: 0.85; 
+  -webkit-mask-image: url('./app/assets/img/TLLogo.svg');
+  mask-image: url('./app/assets/img/TLLogo.svg');
+  /* background: url('./app/assets/img/Color-Explosion.png'); */
+  /* fill: #ec008c; */
+  /* background: #901cad; */
+  /* background-position: 0% 75%; */
+    /* background-size: 1000%; */
+      width: 10%;
+      height: 70%;
+/* margin-right: 3rem; */
+  /* background-position: -2.5% 45%; */
+/* stroke-width: 5x #af1ad4; */
+}

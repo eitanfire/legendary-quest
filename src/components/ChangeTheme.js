@@ -49,7 +49,7 @@ function Theme() {
           <></>
         ) : (
           <>
-            <span className="title">Flick the lights on oppression</span>
+            <span className="flick">Flick the lights on oppression</span>
           </>
         )}
       </span>

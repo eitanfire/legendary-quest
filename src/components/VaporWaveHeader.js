@@ -20,11 +20,18 @@ const VaporWaveHeader = () => {
   
   return (
     <Navbar dark color="primary" sticky="top" expand="md">
-      <NavbarBrand className="ms-5" href="/">
+      <NavbarBrand className="ms-4" href="/">
         <object
           type="image/svg+xml"
           data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
-          className="vaporwaveTrees"
+          className="vaporwaveTrees-md-xxl d-none d-md-block"
+        >
+          Logo
+        </object>
+        <object
+          type="image/svg+xml"
+          data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
+          className="vaporwaveTrees-xs-sm d-xs-block d-md-none"
         >
           Logo
         </object>
@@ -34,7 +41,18 @@ const VaporWaveHeader = () => {
           alt="Teach League Logo"
           className="vaporwaveTrees float-start"
         /> */}
-        <h1 className="title">Teach League</h1>
+        <h1 className="vaporwave-title title-xxl d-none d-xxl-block">
+          Teach League
+        </h1>
+        <h1 className="vaporwave-title title-xl d-none d-xl-block d-xxl-none">
+          Teach League
+        </h1>
+        <h1 className="vaporwave-title title-md-l d-none d-md-block d-xl-none">
+          Teach League
+        </h1>
+        <h1 className="vaporwave-title title-xs-sm d-xs-block d-md-none">
+          Teach League
+        </h1>{" "}
       </NavbarBrand>
       <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
 

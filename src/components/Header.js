@@ -20,16 +20,23 @@ const Header = () => {
   return (
     <>
       <Navbar dark color="primary header-banner" sticky="top" expand="md">
-        <NavbarBrand className="ms-5" href="/">
+        <NavbarBrand className="ms-4" href="/">
           <object
             type="image/svg+xml"
-            data="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgNA1x5lrCzkXTpUQ9oS3M6ytyzGqrSyOee2QoMx4ClZ4zhNxZAHVlMxVrc9PXUm4vkjE&usqp=CAU"
-            className="vaporwaveTrees"
+            data="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkJbls8I0IRZB5uK7OrsdgbjJDDrJty7BXLQ&usqp=CAU"
+            className="teach-league-logo"
           >
             Logo
           </object>
           {/* <img src={logo} alt="Teach League Logo" className="float-start" /> */}
-          <h1 className="title">Teach League</h1>
+          <h1 className="title-xxl d-none d-xxl-block">Teach League</h1>
+          <h1 className="title-xl d-none d-xl-block d-xxl-none">
+            Teach League
+          </h1>
+          <h1 className="title-md-l d-none d-md-block d-xl-none">
+            Teach League
+          </h1>
+          <h1 className="title-xs-sm d-xs-block d-md-none">Teach League</h1>
         </NavbarBrand>
         <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
         <Collapse isOpen={menuOpen} navbar>

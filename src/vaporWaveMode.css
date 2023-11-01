@@ -66,7 +66,7 @@
     radial-gradient(ellipse at bottom, red, transparent);
 }
 
-.vaporwaveTrees {
+.vaporwaveTrees-md-xxl {
    position: absolute;
 
   /* position: relative;
@@ -78,7 +78,7 @@ background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
   top: -4rem;
   left: -2rem;
   z-index: 1;*/
-  /* opacity: 0.15;  */
+  /* opacity: 0.85;  */
   /* -webkit-mask-image: url('./app/assets/img/TLLogo.svg'); */
   mask-image: url('./app/assets/img/TLLogo.svg');
   /* background: url('./app/assets/img/Color-Explosion.png'); */
@@ -87,9 +87,36 @@ background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
   /* background-position: 0% 75%; */
     /* background-size: 15rem; */
       width: 10%;
-      height: 60%;
-margin-right: 3rem;
+      height: 70%;
+margin-right: 7rem;
+background-attachment:local;
 stroke-width: 5x #af1ad4;
+}
+
+.vaporwaveTrees-xs-sm {
+   position: absolute;
+
+  /* position: relative;
+  color: white;
+background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent);   */
+    /* margin-top: 0rem;
+  top: -4rem;
+  left: -2rem;
+  z-index: 1;*/
+  /* opacity: 0.85;  */
+  -webkit-mask-image: url('./app/assets/img/TLLogo.svg');
+  mask-image: url('./app/assets/img/TLLogo.svg');
+  /* background: url('./app/assets/img/Color-Explosion.png'); */
+  /* fill: #ec008c; */
+  /* background: #901cad; */
+  /* background-position: 0% 75%; */
+    /* background-size: 15rem; */
+      width: 10%;
+      height: 70%;
+/* margin-right: -1rem; */
+background-color: #a4b82d;
 }
 
 /* .vaporwaveTrees::before,
@@ -135,16 +162,23 @@ stroke-width: 5x #af1ad4;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXoQaqB1lYYjRDvsEOKrF40QxUja96-h3p3Q&usqp=CAU")
-      no-repeat,
-    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+  background: 
+  /* url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXoQaqB1lYYjRDvsEOKrF40QxUja96-h3p3Q&usqp=CAU")
+      no-repeat
+      , */
+      url('https://png.pngtree.com/background/20210715/original/pngtree-green-simple-plant-grid-background-picture-image_1282533.jpg')
+      no-repeat
+      /* , */
+    /* linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at 25%, blue, transparent),
     radial-gradient(ellipse at 75% bottom, red, transparent),
-    radial-gradient(ellipse at 33% bottom, red, transparent);
-  background-position: -00% 55%;
+    radial-gradient(ellipse at 33% bottom, red, transparent) */
+    ;
+  background-position: 100% 3%;
   width: auto;
   min-height: 2rem;
       background-size: 100%;
+     /* background-blend-mode:screen; */
 
 }
 
