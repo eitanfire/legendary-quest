@@ -84,11 +84,11 @@ const RantPage = (props) => {
       <Col>
         <Row className="spikes bg-transparent mt-5 mb-4">
           <p>
-              Know that dream where you show up for the final and realize you
-              forgot to go to class?
-              <br></br>
-              <br></br>
-              Yeah, we have that too but were supposed to be teaching it!
+            Know that dream where you show up for the final and realize you
+            forgot to go to class?
+            <br></br>
+            <br></br>
+            Yeah, we have that too but were supposed to be teaching it!
           </p>
         </Row>
       </Col>

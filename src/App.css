@@ -49,7 +49,6 @@ h1,
 h2,
 h3,
 .card-body > .card-title {
-  /* font-family: "Comfortaa", cursive; */
     color: rgb(44, 214, 230);
 }
 
@@ -68,7 +67,6 @@ h3 {
 
 .card-detail-title {
   writing-mode: vertical-rl;
-  /* transform: rotate(-90deg); */
   position: absolute;
   margin-left: 101%;
   font-size: xx-large;
@@ -104,11 +102,6 @@ border-color: var(--diaganol-color);
   background-color: #af7fdd;
 }
 
-/* .card-body,
-.card-image, */
-/* .card-title, */
-/* .comments, */
-/* #BreadCrumb, */
 .card,
 .worldHistoryCredit,
 .uSHistoryCredit,
@@ -153,21 +146,15 @@ border-color: var(--diaganol-color);
 }
 
 #BottomText {
-  /* position: relative; */
-  /* bottom: 4rem; */
-  /* margin-left: auto; */
-  /* margin-right: -16rem; */
 }
-/* #BottomText, */
+
 .site-footer {
   z-index: -10;
   padding: 15px 0;
   margin-top: 2rem;
   margin-bottom: -5rem;
-  /* opacity: 0.85; */
  color: invert;
     -webkit-text-stroke: .75px  rgb(44, 214, 230);
-     /* -webkit-text-stroke: 0.08rem rgb(172, 194, 194); */
   font-size: larger;
   position: absolute;
   bottom: 0;
@@ -187,13 +174,8 @@ color: rgb(148, 115, 54);
 } */
 
 .navbar-brand img {
-  /* width: 100%;
-  height: 100%; */
-  /* margin-right: 1rem; */
   max-width: 4rem;
     fill: green;
-    /* url('./app/assets//img/vaporwaveTrees.png'); */
-
 }
 
 .page-enter {
@@ -210,9 +192,7 @@ margin-left: 1rem;
   background-clip: text;
   -webkit-background-clip: text;
   color: rgb(44, 214, 230);
-    /* -webkit-text-stroke: .75px  rgb(44, 214, 230); */
      -webkit-text-stroke: 0.09rem rgb(44, 214, 230);
-  /* background: #111ac8; */
 }
 
 .nav-link {
@@ -240,8 +220,6 @@ margin-left: 1rem;
     
     color: orange;
     font-family: "Comfortaa", cursive;
-          /* -webkit-text-stroke: 0.1rem orangered; */
-            /* font-weight: bold; */
   font-family: "Comfortaa";
   background-clip: text;
   -webkit-background-clip: text;
@@ -252,15 +230,12 @@ margin-left: 1rem;
 .btn,
 .nav-link {
   font-weight: bolder;
-  /* color: orange; */
    -webkit-text-stroke: .75px darkgreen;
   }
 .vaporwave-title
 {
 color: magenta;
      -webkit-text-stroke: 0.09rem magenta;
-
-/* background-color: rgb(31, 120, 197); */
 }
 
 .title-xxl {
@@ -308,10 +283,7 @@ color: magenta;
 
 #button {
   -webkit-text-stroke: 1px rgb(218, 236, 17);
-  /* color: black; */
-  /* position: fixed; */
   border-radius: 12px;
-  /* left: 4%; */
   background-clip: text;
   color: transparent;
 }
@@ -344,14 +316,7 @@ color: magenta;
 .displayList {
   display: grid;
       gap: 1rem;
-            grid-template-columns: 1fr 1fr 1fr 1fr; 
-
-  /* background-color: aquamarine; */
-  /* max-height: .5rem; */
-  /* gap: 0%; */
   max-width: auto;
-  /* height: 100%; */
-  /* object-fit:; */
 }
 
 .display-boxes {
@@ -359,9 +324,6 @@ color: magenta;
    border: 4px solid black; 
             background-color: red; 
             height: 30vh;
-/* flex-basis: 50%; */
-/* display: inline-block; */
-/* height: auto; */
 }
 
 .diaganol {
@@ -414,7 +376,6 @@ color: magenta;
 .spikes {
   --spike-color: var(--body-bg);
 position: relative;
-/* background: #af7fdd; */
 height: 100px
 }
 
@@ -446,29 +407,9 @@ top: 0;
 
 .teach-league-logo {
    position: absolute;
-
-  /* position: relative;
-  color: white;
-background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-    radial-gradient(ellipse at top, #ec008c, transparent),
-    radial-gradient(ellipse at bottom, #fc6767, transparent);   */
-    /*
-    
-    margin-top: 0rem;
-  top: -4rem;
-  left: -2rem;
-  z-index: 1;*/
   opacity: 0.85; 
   -webkit-mask-image: url('./app/assets/img/TLLogo.svg');
   mask-image: url('./app/assets/img/TLLogo.svg');
-  /* background: url('./app/assets/img/Color-Explosion.png'); */
-  /* fill: #ec008c; */
-  /* background: #901cad; */
-  /* background-position: 0% 75%; */
-    /* background-size: 1000%; */
       width: 10%;
       height: 70%;
-/* margin-right: 3rem; */
-  /* background-position: -2.5% 45%; */
-/* stroke-width: 5x #af1ad4; */
 }
