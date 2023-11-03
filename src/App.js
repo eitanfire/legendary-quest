@@ -9,6 +9,7 @@ import ConnectionPage from "./pages/ConnectionPage";
 import TheTeachersLounge from "./pages/TheTeachersLounge";
 import RantPage from "./pages/RantPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
+import MovieDayPage from "./pages/MovieDayPage";
 // import FreeCourseCard from "./features/courses/FreeCourseCard";
 import Header from "./components/Header";
 import BottomText from "./components/BottomText";
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<TheTeachersLounge />} />
         <Route path="rant" element={<RantPage />} />
         <Route path="connect" element={<ConnectionPage />} />
+       <Route path="watch" element={<MovieDayPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
         {/* <Route path="connect/:courseId" element={<FreeCourseCard />} /> */}

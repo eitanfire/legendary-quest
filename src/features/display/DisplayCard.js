@@ -10,7 +10,6 @@ const DisplayCard = ({ item }) => {
       <CardBody>
         <CardText>
           {icon}
-          {/* {aDayBDay[0]} */}
           {description[(0, 20)]}
         </CardText>
       </CardBody>

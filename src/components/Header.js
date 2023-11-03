@@ -62,6 +62,11 @@ const Header = () => {
                 <i className="fa far fa-comments" /> Connect
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" to="/watch">
+                <i className="fa far fa-comments" /> Watch
+              </NavLink>
+            </NavItem>
           </Nav>
           <UserLoginForm />
         </Collapse>
