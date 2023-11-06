@@ -47,7 +47,7 @@ const CourseDetail = ({ course }) => {
         </h2>
         <Card>
           <CardTitle className="card-detail-title">
-            {icon} {name}
+            {icon} {name} 
           </CardTitle>
           <CardImg className="card-detail-image" top src={image} alt={name} />
           <CardBody>
