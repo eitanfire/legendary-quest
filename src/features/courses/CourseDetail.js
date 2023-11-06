@@ -7,6 +7,7 @@ import {
   Col,
   CardImgOverlay,
   Container,
+  Row
 } from "reactstrap";
 import React from "react";
 // import "../../Credit.css";
@@ -47,7 +48,7 @@ const CourseDetail = ({ course }) => {
         </h2>
         <Card>
           <CardTitle className="card-detail-title">
-            {icon} {name} 
+            {icon} {name}
           </CardTitle>
           <CardImg className="card-detail-image" top src={image} alt={name} />
           <CardBody>
@@ -55,11 +56,21 @@ const CourseDetail = ({ course }) => {
           </CardBody>
         </Card>
       </Col>
-      <Col>
-        Videos{youtube}
-        {extrayoutube}
-        {extrayoutube1}
-      </Col>
+      <Row>
+        {" "}
+        <Col>
+          <Card className="youtube-playlist">
+            <a href=
+            {youtube}
+            target="_blank"
+              rel="noreferrer">
+             {icon} Playlist for {name}
+            "</a>
+          </Card>
+        </Col>
+      </Row>
+      <Col>{extrayoutube}</Col>
+      <Col>{extrayoutube1}</Col>
     </Container>
   );
 };
