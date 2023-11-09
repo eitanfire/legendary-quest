@@ -95,13 +95,32 @@ const CourseDetail = ({ course }) => {
         <Col>
           <Card className="youtube-playlist">
             <a href={warmups} target="_blank" rel="noreferrer">
-              {icon} Warm-up questions for {name}
+              {icon} Warm-up questions
             </a>
           </Card>
         </Col>
         <Col className="youtube-playlist">
           <a
             href="https://docs.google.com/document/d/1xkXxjwE4FKx9pmOleHYkNFJFl5DK4yxBoJj_PPUwdy0/copy"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Make a Copy
+          </a>
+        </Col>
+      </Row>
+      <br></br>
+      <Row>
+        <Col>
+          <Card className="youtube-playlist">
+            <a href={extra} target="_blank" rel="noreferrer">
+              {icon} Resources for Extra Credit and Honors Work
+            </a>
+          </Card>
+        </Col>
+        <Col className="youtube-playlist">
+          <a
+            href="https://docs.google.com/document/d/1JYHPc44KjabOynCVk2p1XROe4OZuLllRo_kKBwWG-w4/copy"
             target="_blank"
             rel="noreferrer"
           >
