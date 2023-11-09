@@ -98,17 +98,19 @@ const CourseDetail = ({ course }) => {
               {icon} Warm-up questions for {name}
             </a>
           </Card>
-          <Card className="youtube-playlist">
-            <a
-              href="https://docs.google.com/document/d/1xkXxjwE4FKx9pmOleHYkNFJFl5DK4yxBoJj_PPUwdy0/copy"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Make a Copy
-            </a>
-          </Card>
+        </Col>
+        <Col className="youtube-playlist">
+          <a
+            href="https://docs.google.com/document/d/1xkXxjwE4FKx9pmOleHYkNFJFl5DK4yxBoJj_PPUwdy0/copy"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Make a Copy
+          </a>
         </Col>
       </Row>
+      <br></br>
+      <br></br>
     </Container>
   );
 };
