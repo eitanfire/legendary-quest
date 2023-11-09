@@ -25,6 +25,10 @@ const CourseDetail = ({ course }) => {
     youtube,
     extrayoutube,
     extrayoutube1,
+    id,
+    warmups,
+    extra,
+    curriculum,
   } = course;
 
   const creditArray = Array.isArray(credit) ? credit : [credit];
@@ -58,13 +62,15 @@ const CourseDetail = ({ course }) => {
       </Col>
       <Row>
         {" "}
-        {extrayoutube && <Col>
-          <Card className="youtube-playlist">
-            <a href={youtube} target="_blank" rel="noreferrer">
-              {icon} Playlist for {name}
-            </a>
-          </Card>
-        </Col>}
+        {youtube && (
+          <Col>
+            <Card className="youtube-playlist">
+              <a href={youtube} target="_blank" rel="noreferrer">
+                {icon} YouTube playlist for {name}
+              </a>
+            </Card>
+          </Col>
+        )}
         {extrayoutube && (
           <Col>
             <Card className="youtube-playlist">
@@ -85,6 +91,24 @@ const CourseDetail = ({ course }) => {
         )}
       </Row>
       <br></br>
+      <Row>
+        <Col>
+          <Card className="youtube-playlist">
+            <a href={warmups} target="_blank" rel="noreferrer">
+              {icon} Warm-up questions for {name}
+            </a>
+          </Card>
+          <Card className="youtube-playlist">
+            <a
+              href="https://docs.google.com/document/d/1xkXxjwE4FKx9pmOleHYkNFJFl5DK4yxBoJj_PPUwdy0/copy"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Make a Copy
+            </a>
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 };

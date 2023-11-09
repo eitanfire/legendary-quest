@@ -83,11 +83,13 @@ border-color: var(--diaganol-color);
   max-height: 0rem;
 }
 
+/* .youtube-playlist, */
 .card-img-overlay .card-title {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.youtube-playlist:hover,
 .card-img-overlay:hover .card-title {
   color: white;
   background: 
