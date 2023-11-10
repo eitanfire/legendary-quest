@@ -28,6 +28,7 @@ const Header = () => {
           >
             Logo
           </object>
+
           {/* <img src={logo} alt="Teach League Logo" className="float-start" /> */}
           <h1 className="title-xxl d-none d-xxl-block">Teach League</h1>
           <h1 className="title-xl d-none d-xl-block d-xxl-none">
@@ -38,7 +39,9 @@ const Header = () => {
           </h1>
           <h1 className="title-xs-sm d-xs-block d-md-none">Teach League</h1>
         </NavbarBrand>
-        <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
+        <NavbarToggler className="navbar"
+          onClick={() => setMenuOpen(!menuOpen)}
+        />
         <Collapse isOpen={menuOpen} navbar>
           <Nav className="ms-auto mt-4 " navbar>
             <NavItem>

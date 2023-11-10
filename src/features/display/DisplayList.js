@@ -6,6 +6,8 @@ import { selectFeaturedRant } from "../rants/rantsSlice";
 import { selectFeaturedCourse } from "../courses/coursesSlice";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
+import { Link } from "react-router-dom";
+import CourseCard from "../courses/CourseCard";
 
 const DisplayList = () => {
   const items = useSelector((state) => [
@@ -30,15 +32,21 @@ const DisplayList = () => {
           featuredItem && (
             <>
               {/* <span className="col"> */}
-                <Col  
-                // className="display-boxes m-1" 
-                key={idx}>
-                  <h3>
-                    {icon}
-                    {title}
-                  </h3>
-                  <AnimatedDisplayCard item={featuredItem} title={title} />
-                </Col>
+              <Col
+                // className="display-boxes m-1"
+                key={idx}
+              >
+                <h3>
+                  {icon}
+                  {title}
+                </h3>
+                {/* <Link to={`${CourseCard}`}> */}
+                  <AnimatedDisplayCard
+                    item={featuredItem}
+                    title={title}
+                  />
+                {/* </Link> */}
+              </Col>
               {/* </span> */}
             </>
           )

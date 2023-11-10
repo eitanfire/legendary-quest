@@ -175,10 +175,10 @@ color: rgb(148, 115, 54);
   margin-right: 2rem;
 } */
 
-.navbar-brand img {
+/* .navbar-brand img {
   max-width: 4rem;
     fill: green;
-}
+} */
 
 .page-enter {
   opacity: 0;
@@ -188,17 +188,20 @@ color: rgb(148, 115, 54);
 .vaporWave .btn,
 .vaporWave .nav-link,
 .flick {
-margin-left: 1rem;
+margin-left: 1.75rem;
+left: 2.1rem;
   font-weight: bold;
   font-family: "Comfortaa";
   background-clip: text;
   -webkit-background-clip: text;
   color: rgb(44, 214, 230);
-     -webkit-text-stroke: 0.09rem rgb(44, 214, 230);
+     -webkit-text-stroke: 0.001rem rgb(44, 214, 230);
 }
 
 .nav-link {
-  margin-top: .75rem;
+  position: relative;
+  margin-top: 1rem;
+  /* left: 0rem;background: #af7fdd; */
 }
 
 .page-enter-active {
@@ -218,6 +221,7 @@ margin-left: 1rem;
 .title-xs-sm,
 .btn,
 .nav-link
+/* .navbar-toggler-icon */
   {
     
     color: orange;
@@ -229,11 +233,46 @@ margin-left: 1rem;
 
 }
 
+.navbar-toggler-icon {
+/* background:var(--shadow-elevation-medium); */
+     /* -webkit-text-stroke: 0.09rem orange; */
+     /* stroke: #fc6767; */
+/* background: #ec008c; */
+ /* background-color: #af7fdd; */
+   /* background-blend-mode:luminosity; */
+}
+
 .btn,
 .nav-link {
   font-weight: bolder;
-   -webkit-text-stroke: .75px darkgreen;
+   /* -webkit-text-stroke: .75px darkgreen; */
+
   }
+
+  .collapse.navbar-collapse {
+    /* background:black; */
+    /* text-align:right; */
+    /* margin: ; */
+/* background:hsl(var(--shadow-color) / 0.55);    */
+/* background-blend-mode:luminosity; */
+
+/* url("https://image.shutterstock.com/image-vector/traditional-indian-paisley-pattern-on-600w-1726867504.jpg")
+      no-repeat, */
+
+    /* linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent); */
+/* max-width: fit-content;   */
+  /* margin-right: 10px; */
+  /* text-orientation:var(--diaganol-color); */
+margin-right:25rem;
+max-block-size: fit-content;
+}
+
+  /* .collapse.show.navbar-collapse {
+    background: #fc6767;
+  } */
+
 .vaporwave-title
 {
 color: magenta;
@@ -412,8 +451,8 @@ top: 0;
   opacity: 0.85; 
   -webkit-mask-image: url('./app/assets/img/TLLogo.svg');
   mask-image: url('./app/assets/img/TLLogo.svg');
-      width: 10%;
-      height: 70%;
+      width: 20%;
+      height: 150%;
 }
 
 .youtube-playlist {

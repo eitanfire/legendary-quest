@@ -35,6 +35,7 @@ const AnimatedDisplayCard = ({ item }) => {
           </p> */}
         </CardBody>
       </Card>
+      {/* </Link> */}
     </animated.div>
   );
 };

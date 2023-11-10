@@ -5,7 +5,7 @@ const SubHeader = ({ current, detail }) => {
   return (
     <Col id="BreadCrumb">
       <Breadcrumb>
-        <BreadcrumbItem Id="icon">
+        <BreadcrumbItem id="icon">
           <Link theme to="/">
             ☕️
           </Link>
