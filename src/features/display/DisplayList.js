@@ -12,8 +12,8 @@ import CourseCard from "../courses/CourseCard";
 const DisplayList = () => {
   const items = useSelector((state) => [
     selectFeaturedTake(state),
-    selectFeaturedRant(state),
     selectFeaturedCourse(state),
+    selectFeaturedRant(state),
   ]);
 
   console.log("display items:", items);
@@ -21,7 +21,7 @@ const DisplayList = () => {
   return (
     <Row className="displayList">
       {items.map((item, idx) => {
-        const { icon, title, featuredItem, isLoading, errMsg } = item;
+        const { icon, title, subtitle, link, featuredItem, isLoading, errMsg } = item;
         if (isLoading) {
           return <Loading key={idx} />;
         }
@@ -36,15 +36,17 @@ const DisplayList = () => {
                 // className="display-boxes m-1"
                 key={idx}
               >
-                <h3>
-                  {icon}
-                  {title}
-                </h3>
+                <h1>
+                  {/* <Link to={`${link}`}> */}
+                  <a href={`${link}`}>
+                    {icon}
+                    {title}
+                    {/* </Link> */}
+                  </a>
+                </h1>
+                <h2>{subtitle}</h2>
                 {/* <Link to={`${CourseCard}`}> */}
-                  <AnimatedDisplayCard
-                    item={featuredItem}
-                    title={title}
-                  />
+                <AnimatedDisplayCard item={featuredItem} title={title} />
                 {/* </Link> */}
               </Col>
               {/* </span> */}

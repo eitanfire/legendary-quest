@@ -63,6 +63,11 @@ export const selectCourseById = (id) => (state) => {
 export const selectFeaturedCourse = (state) => {
   return {
     // title: "Featured Course",
+    icon: "📓 ",
+    title: "Resources",
+    subtitle:
+      "I'm a teacher. I get it. If you need help with your content I've got you so you don’t lose it.",
+    link: "http://localhost:3000/directory/",
     featuredItem: state.courses.coursesArray.find((course) => course.featured),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,
