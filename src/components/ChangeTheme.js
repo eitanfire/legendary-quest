@@ -45,11 +45,12 @@ function Theme() {
         {theme === "light" ? <Header /> : <VaporWaveHeader />}
       </span>
       <span className={`App ${theme}`}>
+      
         {theme === "light" ? (
           <></>
         ) : (
           <>
-            <span className="flick">Flick the lights on oppression</span>
+            <span className="flick">Let your teaching shine</span>
           </>
         )}
       </span>

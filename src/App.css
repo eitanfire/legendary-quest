@@ -41,24 +41,42 @@ body {
   color: white;
   font-family: "Open Sans", sans-serif;
   position: relative;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-bottom: 2.5rem; /* Footer height */
 }
 
-h1,
-h2,
 h3,
 .card-body > .card-title {
     color: rgb(44, 214, 230);
+}
+
+.light .card-text {
+  color: black;
+}
+
+.light h1 {
+color:orange
+}
+
+.vaporWave h1 {
+color: rgb(44, 214, 230)
+}
+
+.light h2 {
+color: rgb(55, 183, 55)
+}
+
+.vaporWave h2 {
+color: magenta
 }
 
 h3 {
   text-align: center;
 }
 
-.card {
+/* .card {
 
-}
+} */
 
 .card-title {
   font-weight: 1000;
@@ -104,6 +122,7 @@ border-color: var(--diaganol-color);
   background-color: #af7fdd;
 }
 
+button,
 .card,
 .worldHistoryCredit,
 .uSHistoryCredit,

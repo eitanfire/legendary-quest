@@ -9,20 +9,22 @@ const RantPage = (props) => {
       <Col>
         <Row className="diaganol bg-transparent mt-5 mb-4">
           <p>
-            <h2 id="dream">
-              Know that dream where you show up for the final and realize you
+            <h2 
+            // id="dream"
+            >
+              Know that scary dream where you show up for the final and realize you
               forgot to go to class?
               <br></br>
               <br></br>
-              Yeah, we have that too but were supposed to be teaching it!
+              As educators we have that too but we're supposed to be teaching it!
             </h2>
           </p>
         </Row>
       </Col>
       <Row className="row-content">
         <Col sm="6">
-          <h3 className="title text-center">Our Mission</h3>
-          <h3 className="m-2">It's Hard for Educators</h3>
+          <h3 className="title text-center">It's Not Just You</h3>
+          <h3 className="m-2">It's Hard for All Educators</h3>
           <p>
             Teachers are entrusted by society to prepare the next generation.
             They have numerous duties and responsibilities they must meet with
@@ -48,9 +50,7 @@ const RantPage = (props) => {
             care, cooking, and cleaning without monetary compensation.
           </p>
           <p>
-            On the other hand, simply giving them a textbook to follow can be
-            soul-deadening. This website will offer teaching resources that
-            teachers can use right away and personalize for their own needs.
+Allow me to support you on your teaching journey.
           </p>
         </Col>
         <Col sm="6">
@@ -69,30 +69,18 @@ const RantPage = (props) => {
               </a>
             </CardBody>
           </Card>
-          <Card className="mt-5">
+          {/* <Card className="mt-5">
             <CardHeader className="card-header">
               <h3 className="text-center">Free Speech.</h3>
             </CardHeader>
             <CardBody>
               <h3 className="text-center">Not Free Work.</h3>
-              {/* </a> */}
             </CardBody>
-          </Card>
+          </Card> */}
         </Col>
       </Row>
       {/* <div className="spikes">Rants</div> */}
-      <Col>
-        <Row className="spikes bg-transparent mt-5 mb-4">
-          <p>
-            Know that dream where you show up for the final and realize you
-            forgot to go to class?
-            <br></br>
-            <br></br>
-            Yeah, we have that too but were supposed to be teaching it!
-          </p>
-        </Row>
-      </Col>
-      <Card className="spikes mt-5">
+      {/* <Card className="spikes mt-5">
         <div className="wrapper">
           <h2 className="text-center">
             <p>Enough.</p>
@@ -100,7 +88,7 @@ const RantPage = (props) => {
           <h3 className="">Our Students are Counting on Us.</h3>{" "}
           <h3> Flick the Lights on Oppression.</h3>
         </div>
-      </Card>
+      </Card> */}
       <Row className="row-content mt-5">
         <div className="wrapper">
           <Col xs="12">

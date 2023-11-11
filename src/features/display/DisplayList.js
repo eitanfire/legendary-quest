@@ -36,17 +36,20 @@ const DisplayList = () => {
                 // className="display-boxes m-1"
                 key={idx}
               >
-                <h1>
-                  {/* <Link to={`${link}`}> */}
-                  <a href={`${link}`}>
-                    {icon}
-                    {title}
-                    {/* </Link> */}
-                  </a>
-                </h1>
-                <h2>{subtitle}</h2>
-                {/* <Link to={`${CourseCard}`}> */}
-                <AnimatedDisplayCard item={featuredItem} title={title} />
+                {" "}
+                <a href={`${link}`} target="_blank" rel="noreferrer">
+                  <button>
+                    <h1>
+                      {/* <Link to={`${link}`}> */}
+                      {icon}
+                      {title}
+                      {/* </Link> */}
+                    </h1>
+                    <h2>{subtitle}</h2>
+                    {/* <Link to={`${CourseCard}`}> */}
+                    <AnimatedDisplayCard item={featuredItem} title={title} />
+                  </button>
+                </a>
                 {/* </Link> */}
               </Col>
               {/* </span> */}

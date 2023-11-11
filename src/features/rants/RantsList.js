@@ -1,4 +1,4 @@
-import { Col, Row } from "reactstrap";
+import { Card, Col, Row } from "reactstrap";
 // import RANTS from "../../app/shared/RANTS";
 import Rant from "./Rant";
 import { selectAllRants } from "./rantsSlice";
@@ -22,9 +22,9 @@ const RantsList = () => {
       <Row>
         {rants.map((rant) => {
           return (
-            <div className="d-flex mb-5" key={rant.id}>
-              <Rant rant={rant} />
-            </div>
+              <div className="card d-flex mb-5 pt-5" key={rant.id}>
+                <Rant rant={rant} />
+              </div>
           );
         })}
       </Row>
