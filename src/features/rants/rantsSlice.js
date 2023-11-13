@@ -50,10 +50,10 @@ export const selectAllRants = (state) => {
 
 export const selectFeaturedRant = (state) => {
   return {
-    icon: "🖇️ ",
-    title: "Connect",
-    subtitle: "Find comraderie and collaboration.",
-    link: "https://twitter.com/EitanFire/status/651521850095235072?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E651521850095235072%7Ctwgr%5Ec7b20ce67f4bdb366b65a0d5d1193d75b9ce4762%7Ctwcon%5Es1_c10&ref_url=https%3A%2F%2Fpublish.twitter.com%2F%3Fquery%3Dhttps3A2F2Ftwitter.com2FEitanFire2Fstatus2F651521850095235072widget%3DTweet",
+    icon: "📢 ",
+    title: "Rant",
+    subtitle: "Find comraderie and collaboration. 🖇️",
+    link: "https://www.theguardian.com/teacher-network/series/the-secret-teacher",
     featuredItem: state.rants.rantsArray.find((rant) => rant.featured),
     isLoading: state.rants.isLoading,
     errMsg: state.rants.errMsg,

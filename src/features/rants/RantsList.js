@@ -18,17 +18,20 @@ const RantsList = () => {
   ) : errMsg ? (
     <Error errMsg={errMsg} />
   ) : (
-    <Col className="mt-4">
-      <Row>
-        {rants.map((rant) => {
-          return (
-              <div className="card d-flex mb-5 pt-5" key={rant.id}>
+    <Row className="mt-4 col-9">
+      {rants.map((rant) => {
+        const { id, link } = rant;
+        return (
+          <a href={`${link}`} target="_blank" rel="noreferrer">
+            <button>
+              <div className="rants-list d-flex mb-5 pt-5" key={rant.id}>
                 <Rant rant={rant} />
               </div>
-          );
-        })}
-      </Row>
-    </Col>
+            </button>
+          </a>
+        );
+      })}
+    </Row>
   );
 };
 

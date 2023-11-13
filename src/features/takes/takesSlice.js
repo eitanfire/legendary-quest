@@ -52,8 +52,8 @@ export const selectFeaturedTake = (state) => {
   return {
     icon: "🔥 ",
     title: "Hot Take",
-    subtitle: "Get a fresh perspective.",
-    link: "https://haleytrippfire.substack.com/p/becoming-a-stay-at-home-mom-is-way?r=1ksnxn&utm_campaign=post&utm_medium=web",
+    subtitle: "Get a fresh perspective from the cutting edge.",
+    link: "https://haleytrippfire.substack.com/p/on-absenteeism",
     featuredItem: state.takes.takesArray.find((take) => take.featured),
     isLoading: state.takes.isLoading,
     errMsg: state.takes.errMsg,

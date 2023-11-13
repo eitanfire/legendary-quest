@@ -9,22 +9,23 @@ const RantPage = (props) => {
       <Col>
         <Row className="diaganol bg-transparent mt-5 mb-4">
           <p>
-            <h2 
+            <h2
             // id="dream"
             >
-              Know that scary dream where you show up for the final and realize you
-              forgot to go to class?
+              Know that scary dream where you show up for the final and realize
+              you forgot to go to class?
               <br></br>
               <br></br>
-              As educators we have that too but we're supposed to be teaching it!
+              As educators we have that nightmare too but we're the ones who are
+              supposed to be teaching it!
             </h2>
           </p>
         </Row>
       </Col>
       <Row className="row-content">
+        <h3 className="title text-center">It's Not Just You</h3>
+        <h3 className="m-2">It's Hard for All Educators</h3>
         <Col sm="6">
-          <h3 className="title text-center">It's Not Just You</h3>
-          <h3 className="m-2">It's Hard for All Educators</h3>
           <p>
             Teachers are entrusted by society to prepare the next generation.
             They have numerous duties and responsibilities they must meet with
@@ -49,9 +50,7 @@ const RantPage = (props) => {
             who are already doing more than their share of duties such as child
             care, cooking, and cleaning without monetary compensation.
           </p>
-          <p>
-Allow me to support you on your teaching journey.
-          </p>
+          <p>Allow me to support you on your teaching journey.</p>
         </Col>
         <Col sm="6">
           <Card>

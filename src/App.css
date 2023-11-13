@@ -63,11 +63,13 @@ color: rgb(44, 214, 230)
 }
 
 .light h2 {
-color: rgb(55, 183, 55)
+color: rgb(55, 183, 55);
+text-align:start;
 }
 
 .vaporWave h2 {
-color: magenta
+color: magenta;
+text-align:start;
 }
 
 h3 {
@@ -122,7 +124,7 @@ border-color: var(--diaganol-color);
   background-color: #af7fdd;
 }
 
-button,
+/* button, */
 .card,
 .worldHistoryCredit,
 .uSHistoryCredit,
@@ -476,4 +478,61 @@ top: 0;
 
 .youtube-playlist {
   text-align: center;
+}
+
+.vaporWave .rants-list {
+  padding-bottom: 2rem;
+  /* padding-left: 2rem; */
+   box-shadow: var(--shadow-elevation-low);
+      -webkit-text-stroke: 0.03rem black;
+
+     background: 
+  url("./app/assets/img/Blue-Aesthetic-PNG.png")
+  /* <a href=https://www.pngall.com/blue-aesthetic-png/download/92415 target="_blank">Blue Aesthetic Creative PNG Image</a>
+  [url=https://www.pngall.com/blue-aesthetic-png/download/92415 Blue Aesthetic Creative PNG Image[/url] */
+      no-repeat, linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.3)
+    )
+    ,
+    radial-gradient(ellipse at top, #ec008c, transparent)
+    /* ,
+    radial-gradient(ellipse at bottom, #fc6767, transparent) */
+    ;
+  /* opacity: 0.75; */
+  /* color: rgb(44, 214, 230) */
+  background-position: -3rem -5rem;
+  border: 2px solid black;
+  color: magenta;
+}
+
+.light .rants-list {
+  /* max-width: fit-content; */
+  padding-bottom: 2rem;
+  /* padding-left: 2rem; */
+   box-shadow: var(--shadow-elevation-low);
+      -webkit-text-stroke: 0.03rem black;
+
+     background: 
+  url("./app/assets/img/kisspng-green-paint-brushes-watercolor-painting-light-7-light-green-watercolor-brush-stroke-png-transpa-5cfe874fbf4a88.1910132315601846557835.png")
+  /* <a href=https://www.pngall.com/blue-aesthetic-png/download/92415 target="_blank">Blue Aesthetic Creative PNG Image</a>
+  [url=https://www.pngall.com/blue-aesthetic-png/download/92415 Blue Aesthetic Creative PNG Image[/url] */
+      no-repeat, linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.3)
+    )
+    /* ,
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent) */
+    ;
+  /* opacity: 0.75; */
+  /* color: rgb(44, 214, 230) */
+  background-position: 0rem 0rem;
+  background-size: 85%;
+  border: 2px solid black;
+}
+
+.rant-img {
+position:relative;
+border: 2px solid black;
 }
