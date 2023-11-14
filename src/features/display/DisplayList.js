@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Col, Row } from "reactstrap";
+import { CardGroup, Col, Row } from "reactstrap";
 import AnimatedDisplayCard from "./AnimatedDisplayCard";
 import { selectFeaturedTake } from "../takes/takesSlice";
 import { selectFeaturedRant } from "../rants/rantsSlice";

@@ -1,4 +1,4 @@
-import { Card, Col, Row } from "reactstrap";
+import { Button, Card, Col, Container, Row } from "reactstrap";
 // import RANTS from "../../app/shared/RANTS";
 import Rant from "./Rant";
 import { selectAllRants } from "./rantsSlice";
@@ -18,20 +18,25 @@ const RantsList = () => {
   ) : errMsg ? (
     <Error errMsg={errMsg} />
   ) : (
-    <Row className="mt-4 col-9">
-      {rants.map((rant) => {
-        const { id, link } = rant;
-        return (
-          <a href={`${link}`} target="_blank" rel="noreferrer">
-            <button>
-              <div className="rants-list d-flex mb-5 pt-5" key={rant.id}>
-                <Rant rant={rant} />
-              </div>
-            </button>
-          </a>
-        );
-      })}
-    </Row>
+    <Container>
+      <Row className="col-12">
+        {rants.map((rant) => {
+          const { id, link } = rant;
+          return (
+            <Card className="mb-5">
+              <a
+                key={`${id}`}
+                href={`${link}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Rant rant={rant} key={rant.id} />
+              </a>
+            </Card>
+          );
+        })}
+      </Row>
+    </Container>
   );
 };
 

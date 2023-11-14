@@ -1,4 +1,11 @@
-import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
+import {
+  CardGroup,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+} from "reactstrap";
 import { useState, useEffect } from 'react';
 import { useSpring, animated } from "react-spring";
 
@@ -18,7 +25,7 @@ const AnimatedDisplayCard = ({ item }) => {
 
   return (
     <animated.div className="theTeachersLounge" style={animatedStyle}>
-      <Card>
+      <CardGroup>
         <CardImg src={image} alt={name} />
         <CardBody>
           <CardTitle>
@@ -34,7 +41,7 @@ const AnimatedDisplayCard = ({ item }) => {
               : item.description}
           </p> */}
         </CardBody>
-      </Card>
+      </CardGroup>
       {/* </Link> */}
     </animated.div>
   );

@@ -19,7 +19,13 @@ const Header = () => {
 
   return (
     <>
-      <Navbar dark color="primary header-banner" sticky="top" expand="md">
+      <Navbar
+        dark
+        className="header-banner sticky-top"
+        color="primary"
+        sticky="top"
+        expand="md"
+      >
         <NavbarBrand className="ms-4" href="/">
           <object
             type="image/svg+xml"
@@ -39,12 +45,14 @@ const Header = () => {
           </h1>
           <h1 className="title-xs-sm d-xs-block d-md-none">Teach League</h1>
         </NavbarBrand>
-        <NavbarToggler className="navbar"
-          onClick={() => setMenuOpen(!menuOpen)}
+        <NavbarToggler
+          className="navbar" 
+          onClick={() => setMenuOpen(!menuOpen)
+          }
         />
         <Collapse isOpen={menuOpen} navbar>
-          <Nav className="ms-auto mt-4 " navbar>
-            <NavItem>
+          <Nav className="ms-auto mt-4 " navbar >
+            <NavItem className="nav-item">
               <NavLink className="nav-link" to="/">
                 <i className="fa fa-coffee" /> Lounge
               </NavLink>
@@ -65,11 +73,11 @@ const Header = () => {
                 <i className="fa far fa-comments" /> Connect
               </NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLink className="nav-link" to="/watch">
                 <i className="fa far fa-comments" /> Watch
               </NavLink>
-            </NavItem>
+            </NavItem> */}
           </Nav>
           <UserLoginForm />
         </Collapse>

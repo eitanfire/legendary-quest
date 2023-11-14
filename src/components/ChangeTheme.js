@@ -35,9 +35,11 @@ function Theme() {
               </button>
             </>
           ) : (
-            <button id="button">
-              <i className="darkBulb fa fa-lightbulb-o fa-lg" />
-            </button>
+            <>
+              <button id="button">
+                <i className="darkBulb fa fa-lightbulb-o fa-lg" />
+              </button>
+            </>
           )}
         </div>
       </Col>
@@ -45,12 +47,13 @@ function Theme() {
         {theme === "light" ? <Header /> : <VaporWaveHeader />}
       </span>
       <span className={`App ${theme}`}>
-      
         {theme === "light" ? (
-          <></>
-        ) : (
           <>
             <span className="flick">Let your teaching shine</span>
+          </>
+        ) : (
+          <>
+            <span className="flick">Flick the lights on Oppression</span>
           </>
         )}
       </span>

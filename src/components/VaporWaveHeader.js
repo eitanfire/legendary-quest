@@ -6,6 +6,7 @@ import {
   NavbarToggler,
   Nav,
   NavItem,
+  Row
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
@@ -20,45 +21,48 @@ const VaporWaveHeader = () => {
   
   return (
     <Navbar dark color="primary" sticky="top" expand="md">
-      <NavbarBrand className="ms-4" href="/">
-        <object
-          type="image/svg+xml"
-          data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
-          className="vaporwaveTrees-md-xxl d-none d-md-block"
-        >
-          Logo
-        </object>
-        <object
-          type="image/svg+xml"
-          data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
-          className="vaporwaveTrees-xs-sm d-xs-block d-md-none"
-        >
-          Logo
-        </object>
-        {/* <img
+      {/* <Row> */}
+        <NavbarBrand className="ms-4" href="/">
+          <object
+            type="image/svg+xml"
+            data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
+            className="vaporwaveTrees-md-xxl d-none d-md-block"
+          >
+            Logo
+          </object>
+          <object
+            type="image/svg+xml"
+            data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
+            className="vaporwaveTrees-xs-sm d-xs-block d-md-none"
+          >
+            Logo
+          </object>
+          {/* <img
           // src={vaporwaveTrees}
           src={logo}
           alt="Teach League Logo"
           className="vaporwaveTrees float-start"
         /> */}
-        <h1 className="vaporwave-title title-xxl d-none d-xxl-block">
-          Teach League
-        </h1>
-        <h1 className="vaporwave-title title-xl d-none d-xl-block d-xxl-none">
-          Teach League
-        </h1>
-        <h1 className="vaporwave-title title-md-l d-none d-md-block d-xl-none">
-          Teach League
-        </h1>
-        <h1 className="vaporwave-title title-xs-sm d-xs-block d-md-none">
-          Teach League
-        </h1>{" "}
-      </NavbarBrand>
+          <h1 className="vaporwave-title title-xxl d-none d-xxl-block">
+            Teach League
+          </h1>
+          <h1 className="vaporwave-title title-xl d-none d-xl-block d-xxl-none">
+            Teach League
+          </h1>
+          <h1 className="vaporwave-title title-md-l d-none d-md-block d-xl-none">
+            Teach League
+          </h1>
+          <h1 className="vaporwave-title title-xs-sm d-xs-block d-md-none">
+            Teach League
+          </h1>{" "}
+        </NavbarBrand>
+      {/* </Row> */}
+      {/* <Row> */}
       <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
 
       <Collapse isOpen={menuOpen} navbar>
         <Nav className="ms-auto mt-4 " navbar>
-          <NavItem>
+          <NavItem className="nav-item">
             <NavLink className="nav-link" to="/">
               <i className="fa fa-coffee" /> Lounge
             </NavLink>
@@ -81,6 +85,7 @@ const VaporWaveHeader = () => {
         </Nav>
         <UserLoginForm />
       </Collapse>
+      {/* </Row> */}
     </Navbar>
   );
 };
