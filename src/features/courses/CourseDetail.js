@@ -13,6 +13,11 @@ import React from "react";
 // import "../../Credit.css";
 import "../../courseTheme.css";
 import { getClassCredit } from "./creditType/getClassCredit";
+import {
+  makeCopyOfWarmups,
+  makeCopyOfExtra,
+  makeCopyOfCurriculum
+} from "../../utils/makeCopyOfLinks";
 
 const CourseDetail = ({ course }) => {
   const {
@@ -34,6 +39,7 @@ const CourseDetail = ({ course }) => {
   const creditArray = Array.isArray(credit) ? credit : [credit];
   const creditClasses = creditArray.map((creditItem) =>
     getClassCredit(creditItem)
+    
   );
 
   return (
@@ -102,7 +108,7 @@ const CourseDetail = ({ course }) => {
           </Col>
           <Col className="youtube-playlist">
             <a
-              href="https://docs.google.com/document/d/1xkXxjwE4FKx9pmOleHYkNFJFl5DK4yxBoJj_PPUwdy0/copy"
+              href={makeCopyOfWarmups(warmups)}
               target="_blank"
               rel="noreferrer"
             >
@@ -123,7 +129,7 @@ const CourseDetail = ({ course }) => {
           </Col>
           <Col className="youtube-playlist">
             <a
-              href="https://docs.google.com/document/d/1JYHPc44KjabOynCVk2p1XROe4OZuLllRo_kKBwWG-w4/copy"
+              href={makeCopyOfExtra(extra)}
               target="_blank"
               rel="noreferrer"
             >
@@ -133,24 +139,26 @@ const CourseDetail = ({ course }) => {
         </Row>
       )}
       <br></br>
-      {curriculum && (<Row>
-        <Col>
-          <Card className="youtube-playlist">
-            <a href={curriculum} target="_blank" rel="noreferrer">
-              {icon} Curriculum
+      {curriculum && (
+        <Row>
+          <Col>
+            <Card className="youtube-playlist">
+              <a href={curriculum} target="_blank" rel="noreferrer">
+                {icon} Curriculum
+              </a>
+            </Card>
+          </Col>
+          <Col className="youtube-playlist">
+            <a
+              href={makeCopyOfCurriculum(curriculum)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Make a Copy
             </a>
-          </Card>
-        </Col>
-        <Col className="youtube-playlist">
-          <a
-            href="https://docs.google.com/document/d/1JYHPc44KjabOynCVk2p1XROe4OZuLllRo_kKBwWG-w4/copy"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Make a Copy
-          </a>
-        </Col>
-      </Row>)}
+          </Col>
+        </Row>
+      )}
       <br></br>
       <br></br>
     </Container>
