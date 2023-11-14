@@ -468,8 +468,8 @@ top: 0;
   opacity: 0.85; 
   -webkit-mask-image: url('./app/assets/img/TLLogo.svg');
   mask-image: url('./app/assets/img/TLLogo.svg');
-      width: 20%;
-      height: 150%;
+      width: 10%;
+      height: 115%;
 }
 
 .youtube-playlist {
