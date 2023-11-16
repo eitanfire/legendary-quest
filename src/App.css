@@ -559,6 +559,15 @@ font-weight: 1000;
 top: 0rem;
 }
 
+.load-courses-buttons {
+  /* position: relative;
+text-align: center; */
+position: relative;
+left: 30%;
+/* right:50%; */
+/* bottom: 12rem; */
+}
+
  /* .header-banner {
   position: -webkit-sticky;
   position: sticky;
