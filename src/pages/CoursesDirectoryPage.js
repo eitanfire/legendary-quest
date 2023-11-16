@@ -3,7 +3,7 @@ import CoursesList from "../features/courses/CoursesList";
 import SubHeader from "../components/SubHeader";
 import LoadMoreCourses from "../features/courses/LoadMoreCourses";
 import Tags from "../features/courses/creditType/Tags";
-import ToggleCreditTags from "../components/ToggleCreditTags";
+// import ToggleCreditTags from "../components/ToggleCreditTags";
 // import fakerData from "../utils/fakerData";
 
 const CoursesDirectoryPage = () => {
@@ -11,9 +11,9 @@ const CoursesDirectoryPage = () => {
     <Container>
       <Row>
         <Col>
-          <SubHeader current="Directory" />
+          <SubHeader current="Resources" />
         </Col>
-        <Col col col-8>
+        <Col className="col col-8">
           <Tags />
           {/* <fakerData /> */}
           {/* <ToggleCreditTags /> */}

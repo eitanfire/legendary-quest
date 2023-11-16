@@ -555,6 +555,10 @@ font-weight: 1000;
   border: 2px solid rgb(44, 214, 230);
 }
 
+.shine {
+top: 0rem;
+}
+
  /* .header-banner {
   position: -webkit-sticky;
   position: sticky;

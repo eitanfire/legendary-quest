@@ -49,7 +49,7 @@ function Theme() {
       <span className={`App ${theme}`}>
         {theme === "light" ? (
           <>
-            <span className="flick">Let your teaching shine</span>
+            <span className="shine">Let your teaching shine</span>
           </>
         ) : (
           <>
