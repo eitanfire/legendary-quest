@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Row } from "reactstrap";
 import { useSelector } from "react-redux";
 import CourseCard from "./CourseCard";
-import CoursesList from "./CoursesList";
+// import CoursesList from "./CoursesList";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 

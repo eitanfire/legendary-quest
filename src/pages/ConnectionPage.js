@@ -11,12 +11,12 @@ const ConnectionPage = () => {
         <CardBody>
           <Row className="row-content align-items-center">
             <Col>
-              <h1 className="title">Build Community</h1>
+              <p className="build-community">Build Community</p>
             </Col>
             <Col>
               {" "}
               <Col className="text-center">
-                <h2>Social</h2>
+                {/* <h2>Social</h2> */}
                 <a
                   className="btn btn-social-icon btn-instagram"
                   href="http://instagram.com/"
@@ -41,6 +41,9 @@ const ConnectionPage = () => {
                 >
                   <i className="fa fa-youtube" />
                 </a>
+                <Row>
+                  <span className="build-community">🖇️</span>
+                </Row>
               </Col>
             </Col>
             <Col>
