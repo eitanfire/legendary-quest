@@ -26,7 +26,7 @@ function Theme() {
 
   return (
     <Row>
-      <Col Id="bulbBanner" className={`App ${theme}`} onClick={toggleTheme}>
+      <Col id="bulbBanner" className={`App ${theme}`} onClick={toggleTheme}>
         <div>
           {theme === "light" ? (
             <>
@@ -43,6 +43,10 @@ function Theme() {
           )}
         </div>
       </Col>
+      {/* //{" "}
+      {theme === "light"
+        ? (className = "g-sharetoclassroom classic")
+        : (className = "g-sharetoclassroom dark")} */}
       <span className={`App ${theme}`}>
         {theme === "light" ? <Header /> : <VaporWaveHeader />}
       </span>

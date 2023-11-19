@@ -339,16 +339,18 @@ color: magenta;
 #bulbBanner,
 .darkBulb {
   position: fixed;
-  /* left: 1rem; */
+  top: 6.5rem;
+  left: 1rem;
   color: rgb(44, 214, 230);
+    -webkit-text-stroke: 1px rgb(218, 236, 17);
+  border-radius: 12px;
 }
 
-#button {
-  -webkit-text-stroke: 1px rgb(218, 236, 17);
-  border-radius: 12px;
-  background-clip: text;
-  color: transparent;
+.light #button {
+  top: 6.2rem;
+  left: .5rem;
 }
+
 
 /* #BreadCrumb {
    position: absolute;
@@ -556,7 +558,12 @@ font-weight: 1000;
 }
 
 .shine {
-top: 0rem;
+  position: absolute;
+top: 5rem;
+color: yellow;
+      -webkit-text-stroke: 0.03rem black;
+margin-left: 1.75rem;
+
 }
 
 .load-courses-buttons {
@@ -589,4 +596,9 @@ background: #ec008c;
 
 .build-community {
   font-size: 5rem;
+}
+
+ .copy-button {
+  color: white;
+  background-color: blue;
 }

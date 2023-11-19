@@ -53,7 +53,7 @@ export const selectFeaturedRant = (state) => {
     icon: "📢 ",
     title: "Rant",
     subtitle: "Find comraderie and collaboration.",
-    link: "https://www.theguardian.com/teacher-network/series/the-secret-teacher",
+    link: "https://www.reddit.com/r/Teachers/",
     featuredItem: state.rants.rantsArray.find((rant) => rant.featured),
     isLoading: state.rants.isLoading,
     errMsg: state.rants.errMsg,

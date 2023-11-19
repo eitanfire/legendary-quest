@@ -8,6 +8,7 @@ import {
   CardImgOverlay,
   Container,
   Row,
+  Button,
 } from "reactstrap";
 import React from "react";
 // import "../../Credit.css";
@@ -106,13 +107,13 @@ const CourseDetail = ({ course }) => {
               </a>
             </Card>
           </Col>
-          <Col className="youtube-playlist">
+          <Col >
             <a
               href={makeCopyOfWarmups(warmups)}
               target="_blank"
               rel="noreferrer"
             >
-              Make a Copy
+              <Button className="copy-button"> Make a Copy</Button>
             </a>
           </Col>
         </Row>
@@ -128,11 +129,7 @@ const CourseDetail = ({ course }) => {
             </Card>
           </Col>
           <Col className="youtube-playlist">
-            <a
-              href={makeCopyOfExtra(extra)}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={makeCopyOfExtra(extra)} target="_blank" rel="noreferrer">
               Make a Copy
             </a>
           </Col>
