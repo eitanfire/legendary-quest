@@ -16,7 +16,6 @@ const ConnectionPage = () => {
             <Col>
               {" "}
               <Col className="text-center">
-                {/* <h2>Social</h2> */}
                 <a
                   className="btn btn-social-icon btn-instagram"
                   href="http://instagram.com/"
@@ -60,7 +59,6 @@ const ConnectionPage = () => {
               </a>
             </Col>
           </Row>
-          {/* <Row className="row-content"> */}
         </CardBody>
       </Card>
       <Row>

@@ -6,12 +6,12 @@ import { mapImageURL } from "../../utils/mapImageURL";
 export const fetchCourses = createAsyncThunk(
   "courses/fetchCourses",
   async () => {
-    const querySnapshot = await getDocs(collection(db, 'courses'));
+    const querySnapshot = await getDocs(collection(db, "courses"));
     const courses = [];
     querySnapshot.forEach((doc) => {
       courses.push(doc.data());
     });
-    
+
     return courses;
   }
 );
@@ -62,7 +62,6 @@ export const selectCourseById = (id) => (state) => {
 
 export const selectFeaturedCourse = (state) => {
   return {
-    // title: "Featured Course",
     icon: "📓 ",
     title: "Resources",
     subtitle:
@@ -76,7 +75,6 @@ export const selectFeaturedCourse = (state) => {
 
 export const selectFreeCourse = (state) => {
   return {
-    // title: "Free Course",
     freeItem: state.courses.coursesArray.find((course) => course.free),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,
@@ -86,7 +84,3 @@ export const selectFreeCourse = (state) => {
 export const shortSelectFeaturedCourse = (state) => {
   return selectFeaturedCourse.slice(0, 20);
 };
-
-// export const selectFreeCourse = (state) => {
-//   return state.courses.coursesArray.find((course) => course.free);
-// };

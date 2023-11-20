@@ -5,13 +5,16 @@ export function makeCopyOfWarmups(warmups) {
 }
 
 export function makeCopyOfExtra(extra) {
-  // Use a regular expression to replace "edit" with "copy" in the URL
   const modifiedURL = extra.replace(/\/edit(.*)/, "/copy$1");
   return modifiedURL;
 }
 
 export function makeCopyOfCurriculum(curriculum) {
-  // Use a regular expression to replace "edit" with "copy" in the URL
   const modifiedURL = curriculum.replace(/\/edit(.*)/, "/copy$1");
+  return modifiedURL;
+}
+
+export function makeCopyOfDescription(description) {
+  const modifiedURL = description.replace(/\/edit(.*)/, "/copy$1");
   return modifiedURL;
 }

@@ -3,18 +3,15 @@ import CoursesList from "../features/courses/CoursesList";
 import SubHeader from "../components/SubHeader";
 import LoadMoreCourses from "../features/courses/LoadMoreCourses";
 import Tags from "../features/courses/creditType/Tags";
-// import ToggleCreditTags from "../components/ToggleCreditTags";
-// import fakerData from "../utils/fakerData";
-import storedTheme  from "../components/ChangeTheme";
 
 const CoursesDirectoryPage = () => {
-    const url1 =
-      "https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit";
-    const url2 =
-      "https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit";
-    const assignments = [url2, url1];
+  const url1 =
+    "https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit";
+  const url2 =
+    "https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit";
+  const assignments = [url2, url1];
 
-    const mapassignments = assignments.map((link) => "data-url=" + link);
+  const mapassignments = assignments.map((link) => "data-url=" + link);
 
   return (
     <Container>
@@ -26,7 +23,7 @@ const CoursesDirectoryPage = () => {
           <Tags />
         </Col>
       </Row>
-      <Row>
+      {/* <Row>
         <p>
           Warm-ups, Bellringers, Skill Drills, Class Openers, Bellwork, Do Nows,
           Entry Tickets, Welcome Work, Questions of the Day.
@@ -50,28 +47,27 @@ const CoursesDirectoryPage = () => {
           their brains. After students have a chanch to respond in writing we
           discuss as a class and I take the opportunity to use the warm-up as an
           entry point into the day's lesson.
-        </p>
-        <div
+        </p> */}
+        {/* <div
           class="g-sharetoclassroom"
           data-size="64"
           data-itemtype="assignment"
-          // data-onsharestart="Warm-Ups"
           data-title="Warm-Ups"
           data-body="Come to class on time and aim to write at least five (5) sentences or a sketchnote.
 You may respond to the question, to another prompt of your choice, journal about how it’s going or what you’re grateful for, or add to your own story."
-          data-theme="classic"
-          // data-url=
-          // data-role="presentation"
-          // data-url={mapassignments}
-          // data-url1="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit"
-          // data-url2="https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit"
-          // data-topic="Warm-Up Questions"
-          data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/copy"
-          // data-copies-only=true
-          // className="vRMGwf oJeWuf"
-          // data-role="dialog"
-        ></div>
-      </Row>
+          data-theme="classic" */}
+          {/* data-url=
+           data-role="presentation"
+          data-url={mapassignments}
+          data-url1="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit"
+          data-url2="https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit"
+           data-topic="Warm-Up Questions"
+           data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/copy"
+           data-copies-only=true
+           className="vRMGwf oJeWuf"
+           data-role="dialog"
+         ></div> */}
+      {/* </Row> */}
       <LoadMoreCourses />
       {/* <CoursesList /> */}
     </Container>

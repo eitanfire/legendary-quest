@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Col, Row } from "reactstrap";
 import { useSelector } from "react-redux";
 import CourseCard from "./CourseCard";
-// import CoursesList from "./CoursesList";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 
@@ -13,7 +12,7 @@ const LoadMoreCourses = () => {
   const [showAllCourses, setShowAllCourses] = useState(false);
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
 
-  const courses = useSelector((state) => state.courses.coursesArray); // Accessing the coursesArray state from Redux
+  const courses = useSelector((state) => state.courses.coursesArray);
   const isLoading = useSelector((state) => state.courses.isLoading);
   const errMsg = useSelector((state) => state.courses.errMsg);
 

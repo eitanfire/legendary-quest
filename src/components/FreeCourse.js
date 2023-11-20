@@ -5,7 +5,7 @@ import {
 } from "../features/courses/coursesSlice";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
-import FreeCourseCard from '../features/courses/FreeCourseCard';
+import FreeCourseCard from "../features/courses/FreeCourseCard";
 
 const FreeCourse = () => {
   const { courseId } = useParams();

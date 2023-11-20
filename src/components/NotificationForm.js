@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Button, Label, Col, FormGroup, Row } from "reactstrap";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import { validateSignUpForm } from "../utils/validateSignUpForm";
+import { Label, Col, FormGroup, Row } from "reactstrap";
+import { Field, ErrorMessage } from "formik";
 
 function NotificationForm() {
-  const [notificationMethod, setNotificationMethod] = useState(""); // State variable to hold the user's selected notification method
+  const [notificationMethod, setNotificationMethod] = useState("");
 
   return (
     <Row>
@@ -22,8 +21,7 @@ function NotificationForm() {
             value="email"
             checked={notificationMethod === "email"}
             onChange={() => setNotificationMethod("email")}
-          />
-          {" "}
+          />{" "}
           By Email
         </label>
       </div>

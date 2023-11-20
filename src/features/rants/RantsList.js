@@ -1,5 +1,4 @@
-import { Button, Card, Col, Container, Row } from "reactstrap";
-// import RANTS from "../../app/shared/RANTS";
+import { Card, Container, Row } from "reactstrap";
 import Rant from "./Rant";
 import { selectAllRants } from "./rantsSlice";
 import Error from "../../components/Error";
@@ -7,10 +6,8 @@ import Loading from "../../components/Loading";
 import { useSelector } from "react-redux";
 
 const RantsList = () => {
-
   const isLoading = useSelector((state) => state.rants.isLoading);
   const errMsg = useSelector((state) => state.rants.errMsg);
-
 
   const rants = useSelector(selectAllRants);
   return isLoading ? (

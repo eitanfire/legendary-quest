@@ -8,9 +8,6 @@ import {
   NavItem,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
-// import { setTheme } from './ChangeTheme';
-// import vaporwaveTrees from "../app/assets/img/vaporwaveTrees.png";
-// import logo from "../app/assets/img/tlLogo.jpeg";
 import logo from "../app/assets/img/TLLogo.svg";
 import UserLoginForm from "../features/user/UserLoginForm";
 
@@ -34,8 +31,6 @@ const Header = () => {
           >
             Logo
           </object>
-
-          {/* <img src={logo} alt="Teach League Logo" className="float-start" /> */}
           <h1 className="title-xxl d-none d-xxl-block">Teach League</h1>
           <h1 className="title-xl d-none d-xl-block d-xxl-none">
             Teach League
@@ -46,12 +41,11 @@ const Header = () => {
           <h1 className="title-xs-sm d-xs-block d-md-none">Teach League</h1>
         </NavbarBrand>
         <NavbarToggler
-          className="navbar" 
-          onClick={() => setMenuOpen(!menuOpen)
-          }
+          className="navbar"
+          onClick={() => setMenuOpen(!menuOpen)}
         />
         <Collapse isOpen={menuOpen} navbar>
-          <Nav className="ms-auto mt-4 " navbar >
+          <Nav className="ms-auto mt-4 " navbar>
             <NavItem className="nav-item">
               <NavLink className="nav-link" to="/">
                 <i className="fa fa-coffee" /> Lounge

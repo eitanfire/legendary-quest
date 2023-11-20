@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 // import { COMMENTS } from '../../app/shared/COMMENTS';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { db } from "../../app/firebase.config";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -33,9 +33,9 @@ export const fetchComments = createAsyncThunk(
 // );
 
 const initialState = {
-    commentsArray: [],
-    isLoading: true,
-    errMsg: ''
+  commentsArray: [],
+  isLoading: true,
+  errMsg: "",
 };
 
 const commentsSlice = createSlice({

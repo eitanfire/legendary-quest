@@ -3,7 +3,6 @@
   background-position: 95% 80%;
   background-clip: content-box;
   opacity: 0.75;
-  /* background: -moz-linear-gradient(to bottom, #ffffff, #060f16); */
   background: linear-gradient(
     25deg,
     rgb(54, 87, 153),
@@ -19,19 +18,15 @@
 }
 
 .vaporWave a:link:not(.title) {
-/* background-color:#3ed5ad; */
-      /* -webkit-text-stroke: 0.3rem #3ed5ad; */
-      color: white;
+  color: white;
 }
 
 .vaporWave .card-header {
-  /* background-color: black; */
   background-color: black;
 }
 
 .vaporWave #social-bar {
   background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
-  /* background-position: 95% 20%; */
 }
 
 .light .card-header {
@@ -40,15 +35,11 @@
 }
 
 .vaporWave .site-footer {
-  /* color:g; */
-    background-blend-mode:hard-light;
+  background-blend-mode: hard-light;
 
   filter: invert(8%);
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-    radial-gradient(ellipse at top, #f90497, transparent),
-    radial-gradient(ellipse at bottom, #d1c3b2, transparent); */
   background: url(app/assets/img/wp5004292-vaporwave-aesthetic-1920x1080-wallpapers.jpg)
       /* url(app/img/Color-Explosion.png) */ no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
@@ -59,87 +50,41 @@
 }
 
 .light .site-footer {
-  /* border-top: 1px solid #000;
-  border-bottom: 1px solid #000; */
-    border: 1px solid rgb(47, 144, 177);
-    background: url('https://png.pngtree.com/background/20210715/original/pngtree-green-simple-plant-grid-background-picture-image_1282533.jpg')
-no-repeat,
-  linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-      radial-gradient(ellipse at center, red, transparent),
+  border: 1px solid rgb(47, 144, 177);
+  background: url("https://png.pngtree.com/background/20210715/original/pngtree-green-simple-plant-grid-background-picture-image_1282533.jpg")
+      no-repeat,
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
+    radial-gradient(ellipse at center, red, transparent),
     radial-gradient(ellipse at top, orange, transparent),
     radial-gradient(ellipse at bottom, yellow, transparent),
     linear-gradient(red, gold);
-    background-position: 50% 100%;
-    width: 100%;
-}
-
-.vaporwaveTrees-md-xxl {
-   position: absolute;
-
-  /* position: relative;
-  color: white;
-background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-    radial-gradient(ellipse at top, #ec008c, transparent),
-    radial-gradient(ellipse at bottom, #fc6767, transparent);   */
-    /* margin-top: 0rem;
-  top: -4rem;
-  left: -2rem;
-  z-index: 1;*/
-  /* opacity: 0.85;  */
-  /* -webkit-mask-image: url('./app/assets/img/TLLogo.svg'); */
-  mask-image: url('./app/assets/img/TLLogo.svg');
-  /* background: url('./app/assets/img/Color-Explosion.png'); */
-  /* fill: #ec008c; */
-  /* background: #901cad; */
-  /* background-position: 0% 75%; */
-    /* background-size: 15rem; */
-    width: 10%;
-      height: 115%;
-margin-right: 7rem;
-background-attachment:local;
-stroke-width: 5x #af1ad4;
-}
-
-.vaporwaveTrees-xs-sm {
-   position: absolute;
-
-  /* position: relative;
-  color: white;
-background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-    radial-gradient(ellipse at top, #ec008c, transparent),
-    radial-gradient(ellipse at bottom, #fc6767, transparent);   */
-    /* margin-top: 0rem;
-  top: -4rem;
-  left: -2rem;
-  z-index: 1;*/
-  /* opacity: 0.85;  */
-  -webkit-mask-image: url('./app/assets/img/TLLogo.svg');
-  mask-image: url('./app/assets/img/TLLogo.svg');
-  /* background: url('./app/assets/img/Color-Explosion.png'); */
-  /* fill: #ec008c; */
-  /* background: #901cad; */
-  /* background-position: 0% 75%; */
-    /* background-size: 15rem; */
-      width: 10%;
-      height: 70%;
-/* margin-right: -1rem; */
-background-color: #a4b82d;
-}
-
-/* .vaporwaveTrees::before,
-.vaporwaveTrees::after {
-  content: '';
-  position: absolute;
+  background-position: 50% 100%;
   width: 100%;
-  height: 50px;
-  background: #901cad;
-} */
+}
+
+.vaporwave-logo-md-xxl {
+  position: absolute;
+  mask-image: url("./app/assets/img/TLLogo.svg");
+  width: 10%;
+  height: 115%;
+  margin-right: 7rem;
+  background-attachment: local;
+  stroke-width: 5x #af1ad4;
+}
+
+.vaporwave-logo-xs-sm {
+  position: absolute;
+  -webkit-mask-image: url("./app/assets/img/TLLogo.svg");
+  mask-image: url("./app/assets/img/TLLogo.svg");
+  width: 10%;
+  height: 70%;
+  background-color: #a4b82d;
+}
 
 #bulbBanner {
   color: #000;
   position: fixed;
-  /* left: 9rem; */
-  left: .09rem;
+  left: 0.09rem;
   top: 6.5rem;
 }
 
@@ -147,20 +92,14 @@ background-color: #a4b82d;
   background-color: #901cad;
   height: 5rem;
   min-width: none;
-  /* width: 50rem; */
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
-  background: url("app/assets/img/statue-with-halo.jpg")
-      no-repeat,
+  background: url("app/assets/img/statue-with-halo.jpg") no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
   background-position: -2.5% 45%;
-    background-size: 48%;
-
-  /* width:auto; */
-  /* margin-bottom: 2rem; */
-  /* min-height: 2rem; */
+  background-size: 48%;
 }
 
 .light .navbar-dark {
@@ -169,29 +108,13 @@ background-color: #a4b82d;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
-  background: 
-  /* url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXoQaqB1lYYjRDvsEOKrF40QxUja96-h3p3Q&usqp=CAU")
-      no-repeat
-      , */
-      url('https://png.pngtree.com/background/20210715/original/pngtree-green-simple-plant-grid-background-picture-image_1282533.jpg')
-      no-repeat
-      /* , */
-    /* linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-    radial-gradient(ellipse at 25%, blue, transparent),
-    radial-gradient(ellipse at 75% bottom, red, transparent),
-    radial-gradient(ellipse at 33% bottom, red, transparent) */
-    ;
+  background: url("https://png.pngtree.com/background/20210715/original/pngtree-green-simple-plant-grid-background-picture-image_1282533.jpg")
+    no-repeat;
   background-position: 100% 2.5%;
   width: auto;
   min-height: 2rem;
-      background-size: 100%;
-     /* background-blend-mode:screen; */
-
+  background-size: 100%;
 }
-
-/* .vaporWave #icon {
-  opacity: 0.95;
-} */
 
 .vaporWave .diaganol {
   background-color: #000;

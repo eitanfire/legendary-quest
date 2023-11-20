@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
-import BottomText from './BottomText';
+import BottomText from "./BottomText";
 
 const Footer = () => {
   return (

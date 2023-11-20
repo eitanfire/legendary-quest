@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { Row, Col } from "reactstrap";
-// import { TAKES } from "../../app/shared/TAKES";
 import Take from "./Take";
 import { selectAllTakes } from "./takesSlice";
 import Error from "../../components/Error";

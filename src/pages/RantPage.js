@@ -11,7 +11,6 @@ const RantPage = (props) => {
         <Row className="diaganol bg-transparent mt-5 mb-4">
           <p>
             <h2
-            // id="dream"
             >
               Know that scary dream where you show up for the final and realize
               you forgot to go to class?

@@ -5,7 +5,7 @@ import CommentForm from "./CommentForm";
 import { selectCommentsByCourseId } from "./commentsSlice";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
-import {  } from "reactstrap";
+import {} from "reactstrap";
 
 const CommentsList = ({ courseId }) => {
   const comments = useSelector(selectCommentsByCourseId(courseId));
@@ -40,7 +40,7 @@ const CommentsList = ({ courseId }) => {
       </Col>
     );
   }
-  
+
   return (
     <Col md="5" className="m-1">
       There are no comments for this course yet.

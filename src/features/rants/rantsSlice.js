@@ -1,12 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import { RANTS } from "../../app/shared/RANTS";
 import { db } from "../../app/firebase.config";
 import { collection, getDocs } from "firebase/firestore";
 import { mapImageURL } from "../../utils/mapImageURL";
 
-export const fetchRants = createAsyncThunk(
-  "rants/fetchRants", 
-  async () => {
+export const fetchRants = createAsyncThunk("rants/fetchRants", async () => {
   const querySnapshot = await getDocs(collection(db, "rants"));
   const rants = [];
   querySnapshot.forEach((doc) => {

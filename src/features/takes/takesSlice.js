@@ -1,20 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import { TAKES } from "../../app/shared/TAKES";
-import { db } from '../../app/firebase.config';import { collection, getDocs } from 'firebase/firestore';
+import { db } from "../../app/firebase.config";
+import { collection, getDocs } from "firebase/firestore";
 import { mapImageURL } from "../../utils/mapImageURL";
 
-export const fetchTakes = createAsyncThunk(
-  "takes/fetchTakes",
-  async () => {
-    const querySnapshot = await getDocs(collection(db, 'takes'));
-    const takes = [];
-    querySnapshot.forEach((doc) => {
-      takes.push(doc.data());
-    });
-    
-    return takes;
-  }
-);
+export const fetchTakes = createAsyncThunk("takes/fetchTakes", async () => {
+  const querySnapshot = await getDocs(collection(db, "takes"));
+  const takes = [];
+  querySnapshot.forEach((doc) => {
+    takes.push(doc.data());
+  });
+
+  return takes;
+});
 
 const initialState = {
   takesArray: [],

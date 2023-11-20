@@ -5,19 +5,17 @@ import {
   CardBody,
   CardTitle,
   Col,
-  CardImgOverlay,
   Container,
   Row,
   Button,
 } from "reactstrap";
 import React from "react";
-// import "../../Credit.css";
 import "../../courseTheme.css";
 import { getClassCredit } from "./creditType/getClassCredit";
 import {
   makeCopyOfWarmups,
   makeCopyOfExtra,
-  makeCopyOfCurriculum
+  makeCopyOfCurriculum,
 } from "../../utils/makeCopyOfLinks";
 
 const CourseDetail = ({ course }) => {
@@ -26,6 +24,7 @@ const CourseDetail = ({ course }) => {
     icon,
     name,
     credit,
+    intro,
     description,
     theme,
     youtube,
@@ -40,7 +39,6 @@ const CourseDetail = ({ course }) => {
   const creditArray = Array.isArray(credit) ? credit : [credit];
   const creditClasses = creditArray.map((creditItem) =>
     getClassCredit(creditItem)
-    
   );
 
   return (
@@ -63,7 +61,7 @@ const CourseDetail = ({ course }) => {
           </CardTitle>
           <CardImg className="card-detail-image" top src={image} alt={name} />
           <CardBody>
-            <CardText>{description}</CardText>
+            <CardText>{intro}</CardText>
           </CardBody>
         </Card>
       </Col>
@@ -74,6 +72,15 @@ const CourseDetail = ({ course }) => {
             <Card className="youtube-playlist">
               <a href={youtube} target="_blank" rel="noreferrer">
                 {icon} YouTube playlist for {name}
+              </a>
+            </Card>
+          </Col>
+        )}{" "}
+        {description && (
+          <Col>
+            <Card className="youtube-playlist">
+              <a href={description} target="_blank" rel="noreferrer">
+                {icon} Course description and essential questions for{name}
               </a>
             </Card>
           </Col>
@@ -107,7 +114,7 @@ const CourseDetail = ({ course }) => {
               </a>
             </Card>
           </Col>
-          <Col >
+          <Col>
             <a
               href={makeCopyOfWarmups(warmups)}
               target="_blank"

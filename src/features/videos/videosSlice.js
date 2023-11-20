@@ -3,18 +3,15 @@ import { db } from "../../app/firebase.config";
 import { collection, getDocs } from "firebase/firestore";
 import { mapImageURL } from "../../utils/mapImageURL";
 
-export const fetchvideos = createAsyncThunk(
-  "videos/fetchvideos",
-  async () => {
-    const querySnapshot = await getDocs(collection(db, "videos"));
-    const videos = [];
-    querySnapshot.forEach((doc) => {
-      videos.push(doc.data());
-    });
+export const fetchvideos = createAsyncThunk("videos/fetchvideos", async () => {
+  const querySnapshot = await getDocs(collection(db, "videos"));
+  const videos = [];
+  querySnapshot.forEach((doc) => {
+    videos.push(doc.data());
+  });
 
-    return videos;
-  }
-);
+  return videos;
+});
 
 const initialState = {
   videosArray: [],
@@ -55,14 +52,11 @@ export const selectRandomVideo = (state) => {
 };
 
 export const selectVideoById = (id) => (state) => {
-  return state.videos.videosArray.find(
-    (video) => video.id === parseInt(id)
-  );
+  return state.videos.videosArray.find((video) => video.id === parseInt(id));
 };
 
 export const selectFeaturedVideo = (state) => {
   return {
-    // title: "Featured video",
     featuredItem: state.videos.videosArray.find((video) => video.featured),
     isLoading: state.videos.isLoading,
     errMsg: state.videos.errMsg,

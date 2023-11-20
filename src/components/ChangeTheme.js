@@ -5,7 +5,6 @@ import "../../src/vaporWaveMode.css";
 import { Row, Col } from "reactstrap";
 
 function Theme() {
-  // Step 1: Read the theme preference from local storage
   const storedTheme = localStorage.getItem("theme");
   const [theme, setTheme] = useState(storedTheme || "light");
 
@@ -18,7 +17,6 @@ function Theme() {
     }
   };
 
-  // Step 2: Store the theme preference in local storage
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme); // Store the theme in local storage
@@ -43,10 +41,6 @@ function Theme() {
           )}
         </div>
       </Col>
-      {/* //{" "}
-      {theme === "light"
-        ? (className = "g-sharetoclassroom classic")
-        : (className = "g-sharetoclassroom dark")} */}
       <span className={`App ${theme}`}>
         {theme === "light" ? <Header /> : <VaporWaveHeader />}
       </span>
