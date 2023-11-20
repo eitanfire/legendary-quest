@@ -3,7 +3,7 @@ import { Col, Row } from "reactstrap";
 import AnimatedDisplayCard from "./AnimatedDisplayCard";
 import { selectFeaturedTake } from "../takes/takesSlice";
 import { selectFeaturedRant } from "../rants/rantsSlice";
-import { selectFeaturedCourse } from "../courses/coursesSlice";
+import { selectFeaturedCourse, selectRandomCourse } from "../courses/coursesSlice";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 
@@ -11,6 +11,7 @@ const DisplayList = () => {
   const items = useSelector((state) => [
     selectFeaturedTake(state),
     selectFeaturedCourse(state),
+    // selectRandomCourse(state),
     selectFeaturedRant(state),
   ]);
 

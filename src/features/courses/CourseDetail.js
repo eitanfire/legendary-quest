@@ -16,6 +16,7 @@ import {
   makeCopyOfWarmups,
   makeCopyOfExtra,
   makeCopyOfCurriculum,
+  makeCopyOfDescription,
 } from "../../utils/makeCopyOfLinks";
 
 const CourseDetail = ({ course }) => {
@@ -66,6 +67,22 @@ const CourseDetail = ({ course }) => {
         </Card>
       </Col>
       <Row>
+        {description && (
+          <Col>
+            <Card className="youtube-playlist">
+              <a href={description} target="_blank" rel="noreferrer">
+                {icon} Course description and essential questions for {name}
+              </a>
+            </Card>
+          </Col>
+        )}
+        <Col>
+          <a href={makeCopyOfWarmups(warmups)} target="_blank" rel="noreferrer">
+            <Button className="copy-button"> Make a Copy</Button>
+          </a>
+        </Col>
+      </Row>
+      <Row>
         {" "}
         {youtube && (
           <Col>
@@ -76,15 +93,6 @@ const CourseDetail = ({ course }) => {
             </Card>
           </Col>
         )}{" "}
-        {description && (
-          <Col>
-            <Card className="youtube-playlist">
-              <a href={description} target="_blank" rel="noreferrer">
-                {icon} Course description and essential questions for{name}
-              </a>
-            </Card>
-          </Col>
-        )}
         {extrayoutube && (
           <Col>
             <Card className="youtube-playlist">
@@ -135,7 +143,7 @@ const CourseDetail = ({ course }) => {
               </a>
             </Card>
           </Col>
-          <Col className="youtube-playlist">
+          <Col className="copy-button">
             <a href={makeCopyOfExtra(extra)} target="_blank" rel="noreferrer">
               Make a Copy
             </a>
@@ -152,7 +160,7 @@ const CourseDetail = ({ course }) => {
               </a>
             </Card>
           </Col>
-          <Col className="youtube-playlist">
+          <Col className="copy-button">
             <a
               href={makeCopyOfCurriculum(curriculum)}
               target="_blank"
