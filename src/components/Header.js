@@ -8,7 +8,6 @@ import {
   NavItem,
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import logo from "../app/assets/img/TLLogo.svg";
 import UserLoginForm from "../features/user/UserLoginForm";
 
 const Header = () => {
@@ -60,6 +59,11 @@ const Header = () => {
             <NavItem>
               <NavLink className="nav-link" to="/rant">
                 <i className="fa fa-solid fa-bullhorn" /> Rant
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" to="/takes">
+                <i className="fa fa-solid fa-fire" /> Takes
               </NavLink>
             </NavItem>
             <NavItem>

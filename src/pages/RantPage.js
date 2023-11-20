@@ -1,7 +1,6 @@
 import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import RantsList from "../features/rants/RantsList";
-import TakesList from "../features/takes/TakesList";
 
 const RantPage = (props) => {
   return (
@@ -93,8 +92,8 @@ const RantPage = (props) => {
           <Col xs="12">
             <h2 className="text-center">Rants</h2>
           </Col>
-          {/* <RantsList /> */}
-          <TakesList />
+          <RantsList />
+          {/* <TakesList /> */}
         </div>
       </Row>
     </Container>

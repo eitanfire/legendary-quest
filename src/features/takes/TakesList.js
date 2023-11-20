@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Card, Container } from "reactstrap";
 import Take from "./Take";
 import { selectAllTakes } from "./takesSlice";
 import Error from "../../components/Error";
@@ -15,17 +15,25 @@ const TakesList = () => {
   ) : errMsg ? (
     <Error errMsg={errMsg} />
   ) : (
-    <Col className="mt-4">
-      <Row>
+    <Container>
+      <Row className="col-12">
         {takes.map((take) => {
+          const { id, link } = take;
           return (
-            <div className="d-flex mb-5" key={take.id}>
-              <Take take={take} />
-            </div>
+            <Card className="mb-5">
+              <a
+                key={`${id}`}
+                href={`${link}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Take take={take} key={take.id} />
+              </a>
+            </Card>
           );
         })}
       </Row>
-    </Col>
+    </Container>
   );
 };
 

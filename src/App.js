@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import ConnectionPage from "./pages/ConnectionPage";
 import TheTeachersLounge from "./pages/TheTeachersLounge";
 import RantPage from "./pages/RantPage";
+import TakesPage from "./pages/TakesPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
 import MovieDayPage from "./pages/MovieDayPage";
 import BottomText from "./components/BottomText";
@@ -32,6 +33,7 @@ function App() {
         <Route path="rant" element={<RantPage />} />
         <Route path="connect" element={<ConnectionPage />} />
         <Route path="watch" element={<MovieDayPage />} />
+        <Route path="takes" element={<TakesPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
       </Routes>
