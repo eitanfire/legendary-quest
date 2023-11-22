@@ -444,6 +444,10 @@ left: 30%;
 }
 
  .copy-button {
-  color: white;
-  background-color: blue;
+    all: initial;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+  background-color: white;
+  color: black;
+  border: 2px solid #04AA6D;
 }
