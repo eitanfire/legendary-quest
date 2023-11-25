@@ -66,62 +66,17 @@ const CourseDetail = ({ course }) => {
           </CardBody>
         </Card>
       </Col>
-      <Row>
-        {description && (
-          <Col>
-            <Card className="youtube-playlist">
-              <a href={description} target="_blank" rel="noreferrer">
-                {icon} Course description and essential questions for {name}
-              </a>
-            </Card>
-          </Col>
-        )}
-        <Col>
-          <a href={makeCopyOfWarmups(warmups)} target="_blank" rel="noreferrer">
-            <Button className="copy-button"> Make a Copy</Button>
-          </a>
-        </Col>
-      </Row>
-      <Row>
-        {" "}
-        {youtube && (
-          <Col>
-            <Card className="youtube-playlist">
-              <a href={youtube} target="_blank" rel="noreferrer">
-                {icon} YouTube playlist for {name}
-              </a>
-            </Card>
-          </Col>
-        )}{" "}
-        {extrayoutube && (
-          <Col>
-            <Card className="youtube-playlist">
-              <a href={extrayoutube} target="_blank" rel="noreferrer">
-                {icon} Related playlist for {name}
-              </a>
-            </Card>
-          </Col>
-        )}{" "}
-        {extrayoutube1 && (
-          <Col>
-            <Card className="youtube-playlist">
-              <a href={extrayoutube1} target="_blank" rel="noreferrer">
-                {icon} Another related playlist for {name}
-              </a>
-            </Card>
-          </Col>
-        )}
-      </Row>
-      <br></br>
-      {warmups && (
+      <span className="course-links-container">
         <Row>
-          <Col>
-            <Card className="youtube-playlist">
-              <a href={warmups} target="_blank" rel="noreferrer">
-                {icon} Warm-up questions
-              </a>
-            </Card>
-          </Col>
+          {description && (
+            <Col>
+              <Card className="youtube-playlist">
+                <a href={description} target="_blank" rel="noreferrer">
+                  {icon} Course description and essential questions for {name}
+                </a>
+              </Card>
+            </Col>
+          )}
           <Col>
             <a
               href={makeCopyOfWarmups(warmups)}
@@ -132,47 +87,99 @@ const CourseDetail = ({ course }) => {
             </a>
           </Col>
         </Row>
-      )}
-      <br></br>
-      {extra && (
+        <br></br>
         <Row>
-          <Col>
-            <Card className="youtube-playlist">
-              <a href={extra} target="_blank" rel="noreferrer">
-                {icon} Resources for Extra Credit and Honors Work
-              </a>
-            </Card>
-          </Col>
-          <Col className="copy-button">
-            <a href={makeCopyOfExtra(extra)} target="_blank" rel="noreferrer">
-              Make a Copy
-            </a>
-          </Col>
+          {" "}
+          {youtube && (
+            <Col>
+              <Card className="youtube-playlist">
+                <a href={youtube} target="_blank" rel="noreferrer">
+                  {icon} YouTube playlist for {name}
+                </a>
+              </Card>
+            </Col>
+          )}{" "}
+          {extrayoutube && (
+            <Col>
+              <Card className="youtube-playlist">
+                <a href={extrayoutube} target="_blank" rel="noreferrer">
+                  {icon} Related playlist for {name}
+                </a>
+              </Card>
+            </Col>
+          )}{" "}
+          {extrayoutube1 && (
+            <Col>
+              <Card className="youtube-playlist">
+                <a href={extrayoutube1} target="_blank" rel="noreferrer">
+                  {icon} Another related playlist for {name}
+                </a>
+              </Card>
+            </Col>
+          )}
         </Row>
-      )}
-      <br></br>
-      {curriculum && (
-        <Row>
-          <Col>
-            <Card className="youtube-playlist">
-              <a href={curriculum} target="_blank" rel="noreferrer">
-                {icon} Curriculum
+        <br></br>
+        {warmups && (
+          <Row>
+            <Col>
+              <Card className="youtube-playlist">
+                <a href={warmups} target="_blank" rel="noreferrer">
+                  {icon} Warm-up questions
+                </a>
+              </Card>
+            </Col>
+            <Col>
+              <a
+                href={makeCopyOfWarmups(warmups)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button className="copy-button"> Make a Copy</Button>
               </a>
-            </Card>
-          </Col>
-          <Col className="copy-button">
-            <a
-              href={makeCopyOfCurriculum(curriculum)}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Make a Copy
-            </a>
-          </Col>
-        </Row>
-      )}
-      <br></br>
-      <br></br>
+            </Col>
+          </Row>
+        )}
+        <br></br>
+        {extra && (
+          <Row>
+            <Col>
+              <Card className="youtube-playlist">
+                <a href={extra} target="_blank" rel="noreferrer">
+                  {icon} Resources for Extra Credit and Honors Work
+                </a>
+              </Card>
+            </Col>
+            <Col className="copy-button">
+              <a href={makeCopyOfExtra(extra)} target="_blank" rel="noreferrer">
+                Make a Copy
+              </a>
+            </Col>
+          </Row>
+        )}
+        <br></br>
+        {curriculum && (
+          <Row>
+            <Col>
+              <Card className="youtube-playlist">
+                <a href={curriculum} target="_blank" rel="noreferrer">
+                  {icon} Curriculum
+                </a>
+              </Card>
+            </Col>
+            <Col className="copy-button">
+              <a
+                href={makeCopyOfCurriculum(curriculum)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Make a Copy
+              </a>
+            </Col>
+          </Row>
+        )}
+        <br></br>
+        <br></br>
+      </span>
     </Container>
   );
 };
