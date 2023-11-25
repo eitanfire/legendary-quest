@@ -194,7 +194,7 @@ margin-left: 1.75rem;
 .title-xl,
 .title-md-l,
 .title-xs-sm,
-.btn,
+/* .btn, */
 .nav-link
   {
     
@@ -207,7 +207,7 @@ margin-left: 1.75rem;
 
 }
 
-.btn,
+/* .btn, */
 .nav-link {
   font-weight: bolder;
   }
@@ -327,9 +327,10 @@ color: magenta;
 
 .course-links-container,
 .comments {
-  /* z-index: 10; */
+  z-index: 10;
     background:
     linear-gradient(white, rgba(0, 0, 0, 0.3));  padding:1rem;
+    border: 2px solid black;
 }
 
 .spikes {
@@ -447,12 +448,19 @@ left: 30%;
 
  .copy-button {
     all: initial;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 
-  background-color: white;
-  color: black;
-  border: 2px solid #04AA6D;
-  gap: 12rem;
+/* margin-left: 1.75rem; */
+  /* font-weight: bold; */
+  /* font-family: "Comfortaa"; */
+  /* background-clip: text; */
+  /* -webkit-background-clip: text; */
+  /* color: rgb(44, 214, 230); */
+     /* -webkit-text-stroke: 0.001rem rgb(44, 214, 230); */
+/* background-color: #111ac8;
+  color: blue; */
+  /* border: 2px solid #04AA6D; */
+  /* gap: 12rem; */
 }
 
 /* .course-links-container {

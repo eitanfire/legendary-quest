@@ -66,10 +66,10 @@ const CourseDetail = ({ course }) => {
           </CardBody>
         </Card>
       </Col>
-      <span className="course-links-container">
+      <div className="course-links-container mb-4">
         <Row>
           {description && (
-            <Col>
+            <Col className="col col-8 col col-md-9 col-xxl-10">
               <Card className="youtube-playlist">
                 <a href={description} target="_blank" rel="noreferrer">
                   {icon} Course description and essential questions for {name}
@@ -79,17 +79,18 @@ const CourseDetail = ({ course }) => {
           )}
           <Col>
             <a
-              href={makeCopyOfWarmups(warmups)}
+              href={makeCopyOfDescription(description)}
               target="_blank"
               rel="noreferrer"
             >
-              <Button className="copy-button"> Make a Copy</Button>
+              <Button className="copy-button active" role="button">
+                Make a Copy
+              </Button>
             </a>
           </Col>
         </Row>
         <br></br>
         <Row>
-          {" "}
           {youtube && (
             <Col>
               <Card className="youtube-playlist">
@@ -98,7 +99,7 @@ const CourseDetail = ({ course }) => {
                 </a>
               </Card>
             </Col>
-          )}{" "}
+          )}
           {extrayoutube && (
             <Col>
               <Card className="youtube-playlist">
@@ -107,7 +108,7 @@ const CourseDetail = ({ course }) => {
                 </a>
               </Card>
             </Col>
-          )}{" "}
+          )}
           {extrayoutube1 && (
             <Col>
               <Card className="youtube-playlist">
@@ -121,7 +122,7 @@ const CourseDetail = ({ course }) => {
         <br></br>
         {warmups && (
           <Row>
-            <Col>
+            <Col className="col col-8 col col-md-9 col-xxl-10">
               <Card className="youtube-playlist">
                 <a href={warmups} target="_blank" rel="noreferrer">
                   {icon} Warm-up questions
@@ -134,7 +135,9 @@ const CourseDetail = ({ course }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Button className="copy-button"> Make a Copy</Button>
+                <Button className="copy-button active" role="button">
+                  Make a Copy
+                </Button>
               </a>
             </Col>
           </Row>
@@ -142,16 +145,18 @@ const CourseDetail = ({ course }) => {
         <br></br>
         {extra && (
           <Row>
-            <Col>
+            <Col className="col col-8 col col-md-9 col-xxl-10">
               <Card className="youtube-playlist">
                 <a href={extra} target="_blank" rel="noreferrer">
                   {icon} Resources for Extra Credit and Honors Work
                 </a>
               </Card>
             </Col>
-            <Col className="copy-button">
+            <Col>
               <a href={makeCopyOfExtra(extra)} target="_blank" rel="noreferrer">
-                Make a Copy
+                <Button className="copy-button active" role="button">
+                  Make a Copy
+                </Button>
               </a>
             </Col>
           </Row>
@@ -159,27 +164,27 @@ const CourseDetail = ({ course }) => {
         <br></br>
         {curriculum && (
           <Row>
-            <Col>
+            <Col className="col col-8 col col-md-9 col-xxl-10">
               <Card className="youtube-playlist">
                 <a href={curriculum} target="_blank" rel="noreferrer">
                   {icon} Curriculum
                 </a>
               </Card>
             </Col>
-            <Col className="copy-button">
+            <Col>
               <a
                 href={makeCopyOfCurriculum(curriculum)}
                 target="_blank"
                 rel="noreferrer"
               >
-                Make a Copy
+                <Button className="copy-button active" role="button">
+                  Make a Copy
+                </Button>
               </a>
             </Col>
           </Row>
         )}
-        <br></br>
-        <br></br>
-      </span>
+      </div>
     </Container>
   );
 };
