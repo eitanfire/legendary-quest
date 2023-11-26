@@ -1,11 +1,20 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux"; // Import useSelector from react-redux
 import "../../../Credit.css";
-import { fetchCourses } from "../coursesSlice";
+import {
+  fetchCourses,
+  selectGovernmentCourses,
+  selectWorldHistoryCourses,
+  selectUSHistoryCourses,
+  selectGeographyCourses,
+  selectMandatoryCourses,
+  selectLanguageArtsCourses,
+} from "../coursesSlice";
 import { getClassCredit } from "./getClassCredit";
-import Credit from "./Credit"; // Update the import statement
+import Credit from "./Credit";
 
 const Tags = () => {
-  const { credit } = fetchCourses;
+  const { credit } = fetchCourses();
   const [input, setInput] = useState("");
   const [tags, setTags] = useState([]);
 
@@ -44,6 +53,52 @@ const Tags = () => {
         onChange={onChange}
         className={`credit ${getClassCredit(input)}`}
       />
+
+      {/* Display courses based on the selected tags */}
+      {tags.map((tag) => {
+        switch (tag) {
+          case "Government":
+            return <CoursesList key={tag} selector={selectGovernmentCourses} />;
+          case "World History":
+            return (
+              <CoursesList key={tag} selector={selectWorldHistoryCourses} />
+            );
+          case "US History":
+            return <CoursesList key={tag} selector={selectUSHistoryCourses} />;
+          case "Geography":
+            return <CoursesList key={tag} selector={selectGeographyCourses} />;
+          case "Mandatory":
+            return <CoursesList key={tag} selector={selectMandatoryCourses} />;
+          case "Language Arts":
+            return (
+              <CoursesList key={tag} selector={selectLanguageArtsCourses} />
+            );
+          default:
+            return null;
+        }
+      })}
+    </div>
+  );
+};
+
+// Extracted component to display courses based on the selector
+const CoursesList = ({ selector }) => {
+  const { freeItem, isLoading, errMsg } = useSelector(selector);
+
+  return (
+    <div>
+      {/* Display courses based on the selector */}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : errMsg ? (
+        <p>Error: {errMsg}</p>
+      ) : (
+        <ul>
+          {freeItem.map((course) => (
+            <li key={course.id}>{course.name}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

@@ -84,3 +84,65 @@ export const selectFreeCourse = (state) => {
 export const shortSelectFeaturedCourse = (state) => {
   return selectFeaturedCourse.slice(0, 20);
 };
+
+// selectors.js
+
+export const selectGovernmentCourses = (state) => {
+  return {
+    freeItem: state.courses.coursesArray.filter(
+      (course) => course.credit.includes("Government")
+    ),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
+};
+
+export const selectWorldHistoryCourses = (state) => {
+  return {
+    freeItem: state.courses.coursesArray.filter(
+      (course) => course.credit.includes("World History")
+    ),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
+};
+
+export const selectUSHistoryCourses = (state) => {
+  return {
+    freeItem: state.courses.coursesArray.filter(
+      (course) => course.credit.includes("US History")
+    ),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
+};
+
+export const selectGeographyCourses = (state) => {
+  return {
+    freeItem: state.courses.coursesArray.filter(
+      (course) => course.credit.includes("Geography")
+    ),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
+};
+
+export const selectMandatoryCourses = (state) => {
+  return {
+    freeItem: state.courses.coursesArray.filter(
+      (course) => course.credit.includes("Mandatory")
+    ),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
+};
+
+export const selectLanguageArtsCourses = (state) => {
+  return {
+    freeItem: state.courses.coursesArray.filter(
+      (course) => course.credit.includes("Language Arts")
+    ),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
+};
