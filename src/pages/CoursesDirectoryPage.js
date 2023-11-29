@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import Tags from "../features/courses/creditType/Tags";
-import CoursesList from "../features/courses/CoursesList"; // Import the CoursesList component
+import CoursesList from "../features/courses/CoursesList";
 import { useSelector } from "react-redux";
 
 const CoursesDirectoryPage = () => {
@@ -59,13 +59,6 @@ const CoursesDirectoryPage = () => {
           <SubHeader current="Resources" />
         </Col>
       </Row>
-      {/* <Row className="m-4">
-        <Col className="governmentCredit">Government</Col>
-        <Col className="worldHistoryCredit">World History</Col>
-        <Col className="uSHistoryCredit">US History</Col>
-        <Col className="geographyCredit">Geography</Col>
-        <Col className="lACredit">Language Arts</Col>
-      </Row> */}
       <Tags selectedTags={selectedTags} onTagClick={handleTagClick} />
 
       <CoursesList courses={filteredCourses.slice(0, visibleCourses)} />

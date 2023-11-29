@@ -14,26 +14,7 @@ import CourseCard from "../CourseCard";
 import { Row, Col } from "reactstrap";
 
 const Tags = () => {
-  const [input, setInput] = useState("");
   const [tags, setTags] = useState([]);
-
-  const onChange = (e) => {
-    setInput(e.target.value);
-  };
-
-  const onKeyDown = (e) => {
-    if (e.key === "Enter") {
-      const trimmedInput = input.trim();
-      if (trimmedInput && !tags.includes(trimmedInput)) {
-        setTags((prevState) => [...prevState, trimmedInput]);
-        setInput("");
-      }
-    }
-  };
-
-  const removeTag = (tagToRemove) => {
-    setTags((prevState) => prevState.filter((tag) => tag !== tagToRemove));
-  };
 
   const handleCreditTagClick = (creditTag) => {
     // Toggle the credit tag in the list
@@ -41,6 +22,13 @@ const Tags = () => {
       prevTags.includes(creditTag)
         ? prevTags.filter((tag) => tag !== creditTag)
         : [...prevTags, creditTag]
+    );
+  };
+
+  const getTagClass = (creditTag) => {
+    // Return the appropriate class based on whether the tag is active
+    return (
+      getClassCredit(creditTag) + (tags.includes(creditTag) ? " active" : "")
     );
   };
 
@@ -56,54 +44,21 @@ const Tags = () => {
     <div className="container">
       <Row className="m-4">
         {creditTags.map((creditTag, index) => (
-          <Col
-            key={index}
-            className={`credit-tag ${getClassCredit(creditTag)}`}
-            onClick={() => handleCreditTagClick(creditTag)}
-          >
-            {creditTag}
+          <Col key={index}>
+            <label className={`credit-tag ${getTagClass(creditTag)}`}>
+              {creditTag}
+              <input
+                type="checkbox"
+                checked={tags.includes(creditTag)}
+                onChange={() => handleCreditTagClick(creditTag)}
+              />
+            </label>
           </Col>
         ))}
       </Row>
-      {tags.map((tag, index) => (
-        <div className={`tag ${getClassCredit(tag)}`} key={index}>
-          <Credit course={tag} />
-          <button className="remove-button" onClick={() => removeTag(tag)}>
-            X
-          </button>
-        </div>
+      {tags.map((tag) => (
+        <CoursesList key={tag} selector={getSelector(tag)} />
       ))}
-      <input
-        value={input}
-        placeholder="Search Courses"
-        onKeyDown={onKeyDown}
-        onChange={onChange}
-        className={`credit ${getClassCredit(input)}`}
-      />
-
-      {/* Display courses based on the selected tags */}
-      {tags.map((tag) => {
-        switch (tag) {
-          case "Government":
-            return <CoursesList key={tag} selector={selectGovernmentCourses} />;
-          case "World History":
-            return (
-              <CoursesList key={tag} selector={selectWorldHistoryCourses} />
-            );
-          case "US History":
-            return <CoursesList key={tag} selector={selectUSHistoryCourses} />;
-          case "Geography":
-            return <CoursesList key={tag} selector={selectGeographyCourses} />;
-          case "Mandatory":
-            return <CoursesList key={tag} selector={selectMandatoryCourses} />;
-          case "Language Arts":
-            return (
-              <CoursesList key={tag} selector={selectLanguageArtsCourses} />
-            );
-          default:
-            return null;
-        }
-      })}
     </div>
   );
 };
@@ -128,6 +83,26 @@ const CoursesList = ({ selector }) => {
       )}
     </div>
   );
+};
+
+const getSelector = (tag) => {
+  // Return the appropriate selector based on the tag
+  switch (tag) {
+    case "Government":
+      return selectGovernmentCourses;
+    case "World History":
+      return selectWorldHistoryCourses;
+    case "US History":
+      return selectUSHistoryCourses;
+    case "Geography":
+      return selectGeographyCourses;
+    case "Mandatory":
+      return selectMandatoryCourses;
+    case "Language Arts":
+      return selectLanguageArtsCourses;
+    default:
+      return null;
+  }
 };
 
 export default Tags;
