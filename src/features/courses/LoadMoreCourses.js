@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Button, Col, Row } from "reactstrap";
 import { useSelector } from "react-redux";
 import CourseCard from "./CourseCard";
+// import CoursesList from "./CoursesList";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
+import { getClassCredit } from "./creditType/getClassCredit";
 
 const coursePerRow = 4;
 
@@ -11,11 +13,20 @@ const LoadMoreCourses = () => {
   const [next, setNext] = useState(coursePerRow);
   const [showAllCourses, setShowAllCourses] = useState(false);
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
+  const [tags, setTags] = useState([]);
 
-  const courses = useSelector((state) => state.courses.coursesArray);
+  const courses = useSelector((state) => state.courses.coursesArray); // Accessing the coursesArray state from Redux
   const isLoading = useSelector((state) => state.courses.isLoading);
   const errMsg = useSelector((state) => state.courses.errMsg);
-
+const handleTagClick = (tag) => {
+ 
+  // Toggle the tag in the list
+  setTags((prevTags) =>
+    prevTags.includes(tag)
+      ? prevTags.filter((t) => t !== tag)
+      : [...prevTags, tag]
+  );
+};
   const handleMoreCourse = () => {
     setNext(next + coursePerRow);
     if (next + coursePerRow >= courses.length) {
@@ -46,6 +57,28 @@ const LoadMoreCourses = () => {
 
   return (
     <>
+      <Row>
+        <div className="tags-container">
+          {/* Display tags */}
+          {[
+            "Government",
+            "World History",
+            "US History",
+            "Geography",
+            "Language Arts",
+          ].map((tag) => (
+            <Col
+              key={tag}
+              className={`tag ${getClassCredit(tag)} ${
+                tags.includes(tag) ? "selected" : ""
+              }`}
+              onClick={() => handleTagClick(tag)}
+            >
+              {tag}
+            </Col>
+          ))}
+        </div>
+      </Row>
       <Row className="ms-auto justify-center">
         {showAllCourses
           ? courses?.map((course, id) => (

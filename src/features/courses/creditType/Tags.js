@@ -12,9 +12,11 @@ import {
 } from "../coursesSlice";
 import { getClassCredit } from "./getClassCredit";
 import Credit from "./Credit";
+import CourseCard from "../CourseCard";
+import { Row, Col } from "reactstrap";
 
 const Tags = () => {
-  const { credit } = fetchCourses();
+  // const { credit } = fetchCourses();
   const [input, setInput] = useState("");
   const [tags, setTags] = useState([]);
 
@@ -93,14 +95,19 @@ const CoursesList = ({ selector }) => {
       ) : errMsg ? (
         <p>Error: {errMsg}</p>
       ) : (
-        <ul>
-          {freeItem.map((course) => (
-            <li key={course.id}>{course.name}</li>
+        <Row>
+          {freeItem.map((course, id) => (
+            <Col md="5" className="m-4" key={id}>
+              <CourseCard course={course}>{course}</CourseCard>
+            </Col>
           ))}
-        </ul>
+        </Row>
       )}
+      ;
     </div>
   );
+    {
+    }
 };
 
 export default Tags;
