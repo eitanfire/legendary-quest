@@ -59,13 +59,13 @@ const CoursesDirectoryPage = () => {
           <SubHeader current="Resources" />
         </Col>
       </Row>
-      <Row className="mb-4">
+      {/* <Row className="m-4">
         <Col className="governmentCredit">Government</Col>
-        <Col className="worldHistoryCredit">World History</Col>{" "}
-        <Col className="uSHistoryCredit">US History</Col>{" "}
+        <Col className="worldHistoryCredit">World History</Col>
+        <Col className="uSHistoryCredit">US History</Col>
         <Col className="geographyCredit">Geography</Col>
         <Col className="lACredit">Language Arts</Col>
-      </Row>
+      </Row> */}
       <Tags selectedTags={selectedTags} onTagClick={handleTagClick} />
 
       <CoursesList courses={filteredCourses.slice(0, visibleCourses)} />

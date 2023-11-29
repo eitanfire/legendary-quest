@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux"; // Import useSelector from react-redux
-import "../../../Credit.css";
+import { useSelector } from "react-redux";
 import {
-  fetchCourses,
   selectGovernmentCourses,
   selectWorldHistoryCourses,
   selectUSHistoryCourses,
@@ -16,7 +14,6 @@ import CourseCard from "../CourseCard";
 import { Row, Col } from "reactstrap";
 
 const Tags = () => {
-  // const { credit } = fetchCourses();
   const [input, setInput] = useState("");
   const [tags, setTags] = useState([]);
 
@@ -38,8 +35,36 @@ const Tags = () => {
     setTags((prevState) => prevState.filter((tag) => tag !== tagToRemove));
   };
 
+  const handleCreditTagClick = (creditTag) => {
+    // Toggle the credit tag in the list
+    setTags((prevTags) =>
+      prevTags.includes(creditTag)
+        ? prevTags.filter((tag) => tag !== creditTag)
+        : [...prevTags, creditTag]
+    );
+  };
+
+  const creditTags = [
+    "Government",
+    "World History",
+    "US History",
+    "Geography",
+    "Language Arts",
+  ];
+
   return (
     <div className="container">
+      <Row className="m-4">
+        {creditTags.map((creditTag, index) => (
+          <Col
+            key={index}
+            className={`credit-tag ${getClassCredit(creditTag)}`}
+            onClick={() => handleCreditTagClick(creditTag)}
+          >
+            {creditTag}
+          </Col>
+        ))}
+      </Row>
       {tags.map((tag, index) => (
         <div className={`tag ${getClassCredit(tag)}`} key={index}>
           <Credit course={tag} />
@@ -83,13 +108,11 @@ const Tags = () => {
   );
 };
 
-// Extracted component to display courses based on the selector
 const CoursesList = ({ selector }) => {
   const { freeItem, isLoading, errMsg } = useSelector(selector);
 
   return (
     <div>
-      {/* Display courses based on the selector */}
       {isLoading ? (
         <p>Loading...</p>
       ) : errMsg ? (
@@ -103,11 +126,8 @@ const CoursesList = ({ selector }) => {
           ))}
         </Row>
       )}
-      ;
     </div>
   );
-    {
-    }
 };
 
 export default Tags;
