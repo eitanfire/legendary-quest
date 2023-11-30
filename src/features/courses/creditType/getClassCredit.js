@@ -12,7 +12,7 @@ export const getClassCredit = (type) => {
       return "mandatoryCredit";
     case "Language Arts":
       return "lACredit";
-    default:
-      return "electiveCredit";
+    default: 
+      return "Elective";
   }
 };

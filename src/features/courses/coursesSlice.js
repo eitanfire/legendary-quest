@@ -146,3 +146,13 @@ export const selectLanguageArtsCourses = (state) => {
     errMsg: state.courses.errMsg,
   };
 };
+
+export const selectElectiveCourses = (state) => {
+  return {
+    freeItem: state.courses.coursesArray.filter((course) =>
+      course.credit.includes("Elective")
+    ),
+    isLoading: state.courses.isLoading,
+    errMsg: state.courses.errMsg,
+  };
+};

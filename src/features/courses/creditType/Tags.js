@@ -56,6 +56,7 @@ const Tags = () => {
           </Col>
         ))}
       </Row>
+
       {tags.map((tag) => (
         <CoursesList key={tag} selector={getSelector(tag)} />
       ))}
