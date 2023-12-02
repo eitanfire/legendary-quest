@@ -1,5 +1,5 @@
+// Tags.js
 import React, { useState } from "react";
-import { Credit } from "./Credit";
 import { useSelector } from "react-redux";
 import { Row, Col } from "reactstrap";
 import {
@@ -9,26 +9,30 @@ import {
   selectGeographyCourses,
   selectMandatoryCourses,
   selectLanguageArtsCourses,
+  selectElectiveCourses,
+  selectAllCourses,
 } from "../coursesSlice";
 import { getClassCredit } from "./getClassCredit";
 import CourseCard from "../CourseCard";
+import LoadMoreCourses from "../LoadMoreCourses"; // Import LoadMoreCourses
+import Credit from './Credit'
 
 const Tags = () => {
-  const [selectedTag, setSelectedTag] = useState(null);
+  const [selectedTag, setSelectedTag] = useState("All courses");
 
   const handleCreditTagClick = (creditTag) => {
-    // Set the selected tag
-    setSelectedTag(creditTag);
+    setSelectedTag(creditTag === selectedTag ? "All courses" : creditTag);
   };
 
   const getTagClass = (creditTag) => {
-    // Return the appropriate class based on whether the tag is active
     return (
-      getClassCredit(creditTag) + (selectedTag === creditTag ? " active" : "")
+      getClassCredit(creditTag) +
+      (selectedTag === creditTag ? " active" : " disabled")
     );
   };
 
   const creditTags = [
+    "All courses", // Added "All courses" option
     "Government",
     "World History",
     "US History",
@@ -54,12 +58,20 @@ const Tags = () => {
         ))}
       </Row>
 
-      {selectedTag && <CoursesList selector={getSelector(selectedTag)} />}
+      {selectedTag === "All courses" && (
+        <CoursesList
+          selector={getAllCoursesSelector()}
+          renderLoadMore={true} // Render LoadMoreCourses for "All courses"
+        />
+      )}
+      {selectedTag !== "All courses" && selectedTag !== null && (
+        <CoursesList selector={getSelector(selectedTag)} />
+      )}
     </div>
   );
 };
 
-const CoursesList = ({ selector }) => {
+const CoursesList = ({ selector, renderLoadMore }) => {
   const { freeItem, isLoading, errMsg } = useSelector(selector);
 
   return (
@@ -77,12 +89,13 @@ const CoursesList = ({ selector }) => {
           ))}
         </Row>
       )}
+
+      {renderLoadMore && <LoadMoreCourses />}
     </div>
   );
 };
 
 const getSelector = (tag) => {
-  // Return the appropriate selector based on the tag
   switch (tag) {
     case "Government":
       return selectGovernmentCourses;
@@ -99,6 +112,11 @@ const getSelector = (tag) => {
     default:
       return null;
   }
+};
+
+const getAllCoursesSelector = () => {
+  // Return the selector for all courses
+  return selectElectiveCourses; // Adjust this based on your actual data structure
 };
 
 export default Tags;

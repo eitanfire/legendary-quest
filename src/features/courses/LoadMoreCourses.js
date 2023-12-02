@@ -57,9 +57,8 @@ const handleTagClick = (tag) => {
 
   return (
     <>
-      <Row>
+      {/* <Row>
         <div className="tags-container">
-          {/* Display tags */}
           {[
             "Government",
             "World History",
@@ -78,7 +77,7 @@ const handleTagClick = (tag) => {
             </Col>
           ))}
         </div>
-      </Row>
+      </Row> */}
       <Row className="ms-auto justify-center">
         {showAllCourses
           ? courses?.map((course, id) => (

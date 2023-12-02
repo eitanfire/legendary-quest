@@ -54,3 +54,8 @@ font-size: 1.5rem;
 background-color:currentColor;
 text-emphasis-color: white;
 }
+
+.credit:window-inactive {
+  background-color: red;
+  color: brown;
+}
