@@ -18,10 +18,10 @@ import LoadMoreCourses from "../LoadMoreCourses"; // Import LoadMoreCourses
 import Credit from './Credit'
 
 const Tags = () => {
-  const [selectedTag, setSelectedTag] = useState("All courses");
+  const [selectedTag, setSelectedTag] = useState("All Courses");
 
   const handleCreditTagClick = (creditTag) => {
-    setSelectedTag(creditTag === selectedTag ? "All courses" : creditTag);
+    setSelectedTag(creditTag === selectedTag ? "All Courses" : creditTag);
   };
 
   const getTagClass = (creditTag) => {
@@ -32,7 +32,7 @@ const Tags = () => {
   };
 
   const creditTags = [
-    "All courses", // Added "All courses" option
+    "All Courses",
     "Government",
     "World History",
     "US History",
@@ -58,13 +58,13 @@ const Tags = () => {
         ))}
       </Row>
 
-      {selectedTag === "All courses" && (
+      {selectedTag === "All Courses" && (
         <CoursesList
           selector={getAllCoursesSelector()}
-          renderLoadMore={true} // Render LoadMoreCourses for "All courses"
+          renderLoadMore={true} // Render LoadMoreCourses for "All Courses"
         />
       )}
-      {selectedTag !== "All courses" && selectedTag !== null && (
+      {selectedTag !== "All Courses" && selectedTag !== null && (
         <CoursesList selector={getSelector(selectedTag)} />
       )}
     </div>

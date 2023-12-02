@@ -1,5 +1,7 @@
 export const getClassCredit = (type) => {
   switch (type) {
+    case "All Courses":
+      return "allCoursesCredit";
     case "World History":
       return "worldHistoryCredit";
     case "US History":
@@ -12,7 +14,7 @@ export const getClassCredit = (type) => {
       return "mandatoryCredit";
     case "Language Arts":
       return "lACredit";
-    default: 
+    default:
       return "Elective";
   }
 };
