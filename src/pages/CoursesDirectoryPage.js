@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 const CoursesDirectoryPage = () => {
   const [selectedTags, setSelectedTags] = useState([]);
-  const [visibleCourses, setVisibleCourses] = useState(4);
+  const [visibleCourses, setVisibleCourses] = useState();
 
   const handleTagClick = (tag) => {
     setSelectedTags((prevTags) =>
@@ -16,7 +16,7 @@ const CoursesDirectoryPage = () => {
         ? prevTags.filter((t) => t !== tag)
         : [...prevTags, tag]
     );
-    setVisibleCourses(4);
+    setVisibleCourses(selectedTags);
   };
 
   const handleShowAllCourses = () => {
@@ -45,12 +45,11 @@ const CoursesDirectoryPage = () => {
   const courses = useSelector((state) => state.courses.coursesArray);
 
   // Filter courses based on selected tags and credit search
-  const filteredCourses = courses.filter((course) => {
-    const matchesTags =
+  const filteredCourses = courses.filter(
+    (course) =>
       selectedTags.length === 0 ||
-      selectedTags.some((tag) => course.tags.includes(tag));
-    return matchesTags;
-  });
+      selectedTags.some((tag) => course.tags.includes(tag))
+  );
 
   return (
     <Container>
@@ -61,7 +60,7 @@ const CoursesDirectoryPage = () => {
       </Row>
       <Tags selectedTags={selectedTags} onTagClick={handleTagClick} />
 
-      <CoursesList courses={filteredCourses.slice(0, visibleCourses)} />
+      {/* <CoursesList courses={filteredCourses.slice(0, selectedTags)} />
       <Row className="load-courses-buttons col-4">
         {visibleCourses < filteredCourses.length && (
           <>
@@ -77,7 +76,7 @@ const CoursesDirectoryPage = () => {
         {visibleCourses >= filteredCourses.length && (
           <p className="title mt-4 text-center">That's Everything!</p>
         )}
-      </Row>
+      </Row> */}
     </Container>
   );
 };

@@ -175,14 +175,14 @@ const CourseDetail = ({ course }) => {
             data-title="Warm-Ups"
             data-body="Come to class on time and aim to write at least five (5) sentences or a sketchnote. You may respond to the question, to another prompt of your choice, journal about how it’s going or what you’re grateful for, or add to your own story."
             data-theme="classic"
-            data-role="presentation"
+            // data-role="presentation"
             // data-url={mapassignments}
             //           data-url1="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit"
             //           data-url2="https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit"
                        data-topic="Warm-Up Questions"
                        data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/copy"
             //            data-copies-only=true
-                       className="vRMGwf oJeWuf"
+                      //  className="vRMGwf oJeWuf"
             //            data-role="dialog"
           ></div>
         </Row>

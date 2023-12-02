@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Credit } from "./Credit";
 import { useSelector } from "react-redux";
+import { Row, Col } from "reactstrap";
 import {
   selectGovernmentCourses,
   selectWorldHistoryCourses,
@@ -9,26 +11,20 @@ import {
   selectLanguageArtsCourses,
 } from "../coursesSlice";
 import { getClassCredit } from "./getClassCredit";
-import Credit from "./Credit";
 import CourseCard from "../CourseCard";
-import { Row, Col } from "reactstrap";
 
 const Tags = () => {
-  const [tags, setTags] = useState([]);
+  const [selectedTag, setSelectedTag] = useState(null);
 
   const handleCreditTagClick = (creditTag) => {
-    // Toggle the credit tag in the list
-    setTags((prevTags) =>
-      prevTags.includes(creditTag)
-        ? prevTags.filter((tag) => tag !== creditTag)
-        : [...prevTags, creditTag]
-    );
+    // Set the selected tag
+    setSelectedTag(creditTag);
   };
 
   const getTagClass = (creditTag) => {
     // Return the appropriate class based on whether the tag is active
     return (
-      getClassCredit(creditTag) + (tags.includes(creditTag) ? " active" : "")
+      getClassCredit(creditTag) + (selectedTag === creditTag ? " active" : "")
     );
   };
 
@@ -48,8 +44,9 @@ const Tags = () => {
             <label className={`credit-tag ${getTagClass(creditTag)}`}>
               {creditTag}
               <input
-                type="checkbox"
-                checked={tags.includes(creditTag)}
+                type="radio"
+                name="creditTag"
+                checked={selectedTag === creditTag}
                 onChange={() => handleCreditTagClick(creditTag)}
               />
             </label>
@@ -57,9 +54,7 @@ const Tags = () => {
         ))}
       </Row>
 
-      {tags.map((tag) => (
-        <CoursesList key={tag} selector={getSelector(tag)} />
-      ))}
+      {selectedTag && <CoursesList selector={getSelector(selectedTag)} />}
     </div>
   );
 };
