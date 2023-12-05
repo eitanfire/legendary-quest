@@ -111,7 +111,7 @@ linear-gradient(
   background-color: #af7fdd;
 }
 
-button,
+/* button, */
 .card,
 .worldHistoryCredit,
 .uSHistoryCredit,
@@ -162,7 +162,7 @@ color: rgb(148, 115, 54);
   transform: translateX(-100%);
 }
 
-.vaporWave .btn,
+/* .vaporWave .btn, */
 .vaporWave .nav-link,
 .flick {
 margin-left: 1.75rem;
@@ -460,4 +460,9 @@ left: 30%;
   color: blue; */
   /* border: 2px solid #04AA6D; */
   /* gap: 12rem; */
+}
+
+btn {
+  background-color: blue;
+  color: blue
 }

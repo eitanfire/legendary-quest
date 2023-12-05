@@ -27,7 +27,15 @@
 }
 
 .allCoursesCredit {
-color: white;
+  color: white;
+}
+
+.light .allCoursesCredit {
+  color: black;
+}
+
+.allCoursesCredit:active {
+  background-color: seashell;
 }
 
 .allCoursesCredit,
@@ -39,15 +47,16 @@ color: white;
 .mandatoryCredit,
 .lACredit,
 .credit {
-text-align: center;  
-font-size: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
   position: relative;
   border: thick double;
   margin-right: 1%;
   box-shadow: inset 0 0 0 1000px rgba(24, 27, 25, 0.394);
+  width: max-content;
+  margin: 5%;
 }
 
-.allCoursesCredit:active,
 .worldHistoryCredit:active,
 .uSHistoryCredit:active,
 .geographyCredit:active,
@@ -55,13 +64,7 @@ font-size: 1.5rem;
 .electiveCredit:active,
 .mandatoryCredit:active,
 .lACredit:active,
-.credit:active
-{
-background-color:currentColor;
-text-emphasis-color: white;
-}
-
-.credit:window-inactive {
-  background-color: red;
-  color: brown;
+.credit:active {
+  background-color: currentColor;
+  text-emphasis-color: white;
 }
