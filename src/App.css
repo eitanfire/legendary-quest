@@ -163,6 +163,7 @@ color: rgb(148, 115, 54);
 }
 
 /* .vaporWave .btn, */
+.nav-link,
 .vaporWave .nav-link,
 .flick {
 margin-left: 1.75rem;
@@ -172,10 +173,8 @@ margin-left: 1.75rem;
   -webkit-background-clip: text;
   color: rgb(44, 214, 230);
      -webkit-text-stroke: 0.001rem rgb(44, 214, 230);
-}
+            margin-top: 1rem;
 
-.nav-link {
-  margin-top: 1rem;
 }
 
 /* .nav-link .active {
@@ -193,6 +192,7 @@ backdrop-filter:unset;
 }
 
 .show .navbar-nav {
+  position:sticky;
   /* background-color:hsl(var(--shadow-color) / 0.08); */
 backdrop-filter: blur(4px) saturate(150%);
 width:max-content;
@@ -203,6 +203,12 @@ width:max-content;
   .light .show .navbar-nav {
     border: 2px solid rgb(169, 209, 234);
     /* align-items: center; */
+  }
+
+  .navbar-text {
+    position: fixed;
+    top:0rem;
+    right:0rem;
   }
 
 .page-enter-active {
