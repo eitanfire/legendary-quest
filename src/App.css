@@ -178,6 +178,33 @@ margin-left: 1.75rem;
   margin-top: 1rem;
 }
 
+/* .nav-link .active {
+  background-color: red;
+  color: #af7fdd;
+} */
+
+/* li .navbar-nav {
+  background-color:var(--body-bg);
+width: max-content;
+} */
+
+.collapse .navbar-nav {
+backdrop-filter:unset;
+}
+
+.show .navbar-nav {
+  /* background-color:hsl(var(--shadow-color) / 0.08); */
+backdrop-filter: blur(4px) saturate(150%);
+width:max-content;
+    border: 2px solid rgb(44, 214, 230);
+    /* align-items: center; */
+  }
+
+  .light .show .navbar-nav {
+    border: 2px solid rgb(169, 209, 234);
+    /* align-items: center; */
+  }
+
 .page-enter-active {
   opacity: 1;
   transform: translateX(0%);
