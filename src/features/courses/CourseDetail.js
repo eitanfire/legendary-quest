@@ -83,7 +83,7 @@ const CourseDetail = ({ course }) => {
               target="_blank"
               rel="noreferrer"
             >
-              <Button className="copy-button active" role="button">
+              <Button className="btn btn-lg btn-primary" role="button">
                 Make a Copy
               </Button>
             </a>
@@ -135,7 +135,7 @@ const CourseDetail = ({ course }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Button className="copy-button active" role="button">
+                <Button className="btn btn-primary" role="button">
                   Make a Copy
                 </Button>
               </a>
@@ -179,10 +179,10 @@ const CourseDetail = ({ course }) => {
             // data-url={mapassignments}
             //           data-url1="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit"
             //           data-url2="https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit"
-                       data-topic="Warm-Up Questions"
-                       data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/copy"
+            data-topic="Warm-Up Questions"
+            data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/"
             //            data-copies-only=true
-                      //  className="vRMGwf oJeWuf"
+            //  className="vRMGwf oJeWuf"
             //            data-role="dialog"
           ></div>
         </Row>
@@ -198,7 +198,7 @@ const CourseDetail = ({ course }) => {
             </Col>
             <Col>
               <a href={makeCopyOfExtra(extra)} target="_blank" rel="noreferrer">
-                <Button className="copy-button active" role="button">
+                <Button className="btn btn-primary" role="button">
                   Make a Copy
                 </Button>
               </a>
@@ -221,7 +221,7 @@ const CourseDetail = ({ course }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Button className="copy-button active" role="button">
+                <Button className="btn btn-primary" role="button">
                   Make a Copy
                 </Button>
               </a>

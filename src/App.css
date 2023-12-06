@@ -25,10 +25,10 @@
     96.8px 69.7px 144.9px -1.6px hsl(var(--shadow-color) / 0.64),
     150px 107.9px 224.5px -1.9px hsl(var(--shadow-color) / 0.68);
 }
-
+/* 
 html {
   color-scheme: dark light;
-}
+} */
 
 .wrapper {
   max-width: 50rem;
@@ -42,6 +42,7 @@ body {
   font-family: "Open Sans", sans-serif;
   position: relative;
   padding-bottom: 2.5rem;
+min-height: 100%;
 }
 
 h3,
@@ -143,12 +144,10 @@ linear-gradient(
   padding: 15px 0;
     -webkit-text-stroke: .75px  rgb(44, 214, 230);
   font-size: larger;
-    position: relative;
-    margin-top: 10%;
-    margin-bottom: -5rem;
-  bottom: 0;
+  margin-top: 2rem;
   width: 100%;
   text-align: center;
+    position: static;
 }
 
 .light .site-footer
@@ -209,6 +208,9 @@ width:max-content;
     position: fixed;
     top:0rem;
     right:0rem;
+      background-clip: text;
+  -webkit-background-clip: text;
+     -webkit-text-stroke: 0.09rem orange;
   }
 
 .page-enter-active {
@@ -495,7 +497,14 @@ left: 30%;
   /* gap: 12rem; */
 }
 
-btn {
+/* Button,
+.btn {
   background-color: blue;
   color: blue
-}
+} */
+
+/* .btn-danger
+{
+  color: #fc6767;
+  background-color: blue;
+} */
