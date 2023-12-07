@@ -115,7 +115,12 @@ const SignUpForm = () => {
           <button className="btn btn-link" onClick={handleCopyClick}>
             <i className="fa fa-copy" />
           </button>
-          <a className="btn btn-link" href="mailto:eitanfire@gmail.com">
+          <a
+            className="btn btn-link"
+            href="mailto:eitanfire@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+          >
             <i className="register-envelope fa fa-envelope-o" />
           </a>
         </ModalBody>
