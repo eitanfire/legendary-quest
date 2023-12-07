@@ -508,3 +508,13 @@ left: 30%;
   color: #fc6767;
   background-color: blue;
 } */
+
+.register-message {
+  color: black;
+  text-align: center;
+}
+
+.register-envelope {
+  color:blue;
+  text-align: center;
+}

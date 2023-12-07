@@ -1,74 +1,133 @@
-import { Button, Label, Col, FormGroup } from "reactstrap";
+import React, { useState } from "react";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  FormGroup,
+  Label,
+  Col,
+} from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateSignUpForm } from "../utils/validateSignUpForm";
 import NotificationForm from "./NotificationForm";
 
 const SignUpForm = () => {
-  const contactType = (Field, "contactType");
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
+  };
+
+  const handleCopyClick = () => {
+    const emailInput = document.getElementById("emailInput");
+    emailInput.select();
+    document.execCommand("copy");
+    emailInput.setSelectionRange(0, 0);
+  };
 
   const handleSubmit = (values, { resetForm }) => {
     console.log("form values:", values);
     console.log("in JSON format:", JSON.stringify(values));
     resetForm();
+    toggleModal();
   };
 
   return (
-    <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        phoneNum: "",
-        email: "",
-        agree: true,
-        contactType: "By Email",
-        feedback: "",
-      }}
-      onSubmit={handleSubmit}
-      validate={validateSignUpForm}
-    >
-      <Form>
-        <FormGroup row>
-          <Label htmlFor="firstName" md="2">
-            First Name
-          </Label>
-          <Col md="10">
-            <Field
-              name="firstName"
-              placeholder="First Name"
-              className="form-control"
-            />
-            <ErrorMessage name="firstName">
-              {(msg) => <p className="text-danger">{msg}</p>}
-            </ErrorMessage>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label htmlFor="lastName" md="2">
-            Last Name
-          </Label>
-          <Col md="10">
-            <Field
-              name="lastName"
-              placeholder="Last Name"
-              className="form-control"
-            />
-            <ErrorMessage name="lastName">
-              {(msg) => <p className="text-danger">{msg}</p>}
-            </ErrorMessage>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <NotificationForm />
-        </FormGroup>
-        <FormGroup row>
+    <div>
+      <Formik
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          phoneNum: "",
+          email: "",
+          agree: true,
+          contactType: "By Email",
+          feedback: "",
+        }}
+        onSubmit={handleSubmit}
+        validate={validateSignUpForm}
+      >
+        {({ handleSubmit }) => (
+          <Form>
+            <FormGroup row>
+              <Label htmlFor="firstName" md="2">
+                First Name
+              </Label>
+              <Col md="10">
+                <Field
+                  name="firstName"
+                  placeholder="First Name"
+                  className="form-control"
+                />
+                <ErrorMessage name="firstName">
+                  {(msg) => <p className="text-danger">{msg}</p>}
+                </ErrorMessage>
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <Label htmlFor="lastName" md="2">
+                Last Name
+              </Label>
+              <Col md="10">
+                <Field
+                  name="lastName"
+                  placeholder="Last Name"
+                  className="form-control"
+                />
+                <ErrorMessage name="lastName">
+                  {(msg) => <p className="text-danger">{msg}</p>}
+                </ErrorMessage>
+              </Col>
+            </FormGroup>
+            <FormGroup row>
+              <NotificationForm />
+            </FormGroup>
+            <FormGroup row>
+              <Col md={{ size: 10, offset: 2 }}>
+                <Button type="submit" color="primary" onClick={toggleModal}>
+                  Register
+                </Button>
+              </Col>
+            </FormGroup>
+          </Form>
+        )}
+      </Formik>
+
+      <Modal
+        className="register-message"
+        isOpen={isModalOpen}
+        toggle={toggleModal}
+      >
+        <ModalHeader toggle={toggleModal}>
+          Thanks for your interest!
+        </ModalHeader>
+        <ModalBody>
+          I'm not collecting registration info quite yet. If you like what I'm
+          doing with this MVP, get in touch:{" "}
+          <input
+            type="text"
+            value="eitanfire@gmail.com"
+            id="emailInput"
+            readOnly
+          />
+          <button className="btn btn-link" onClick={handleCopyClick}>
+            <i className="fa fa-copy" />
+          </button>
+          <a className="btn btn-link" href="mailto:eitanfire@gmail.com">
+            <i className="register-envelope fa fa-envelope-o" />
+          </a>
+        </ModalBody>
+        <ModalFooter>
           <Col md={{ size: 10, offset: 2 }}>
-            <Button type="submit" color="primary">
-              Register
+            <Button color="primary" onClick={toggleModal}>
+              Close
             </Button>
           </Col>
-        </FormGroup>
-      </Form>
-    </Formik>
+        </ModalFooter>
+      </Modal>
+    </div>
   );
 };
 
