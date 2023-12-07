@@ -5,7 +5,7 @@ import {
   ModalHeader,
   ModalBody,
   FormGroup,
-  Label,
+  Label, Col
 } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateCommentForm } from "../../utils/validateCommentForm";
@@ -84,9 +84,11 @@ const CommentForm = ({ courseId }) => {
                   className="form-control"
                 />
               </FormGroup>
-              <Button type="submit" color="primary">
-                Submit
-              </Button>
+              <Col xs={{ size: 10, offset: 5 }}>
+                <Button type="submit" color="primary">
+                  Submit
+                </Button>
+              </Col>
             </Form>
           </Formik>
         </ModalBody>

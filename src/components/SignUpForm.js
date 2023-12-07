@@ -120,7 +120,7 @@ const SignUpForm = () => {
           </a>
         </ModalBody>
         <ModalFooter>
-          <Col md={{ size: 10, offset: 2 }}>
+          <Col xs={{ size: 11, offset: 5 }}>
             <Button color="primary" onClick={toggleModal}>
               Close
             </Button>
