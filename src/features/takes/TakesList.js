@@ -10,29 +10,49 @@ const TakesList = () => {
   const errMsg = useSelector((state) => state.takes.errMsg);
 
   const takes = useSelector(selectAllTakes);
+
   return isLoading ? (
     <Loading />
   ) : errMsg ? (
     <Error errMsg={errMsg} />
   ) : (
     <Container>
-      <Row className="col-12">
-        {takes.map((take) => {
-          const { id, link } = take;
+      {takes.map((take, index) => {
+        const { id, link } = take;
+        let label;
+        if (index === 0) {
+          label = "🔥 The Hot Take";
           return (
-            <Card className="mb-5">
-              <a
-                key={`${id}`}
-                href={`${link}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Take take={take} key={take.id} />
-              </a>
-            </Card>
+            <Row className="mb-5" key={id}>
+              <Col>
+                <h2 className="text-center">{label}</h2>
+                <a href={link} target="_blank" rel="noreferrer">
+                  <Take take={take} />
+                </a>
+              </Col>
+            </Row>
           );
-        })}
-      </Row>
+        } else {
+          label = index === 1 ? "Doubletake" : "The Archive";
+          return (
+            <Row className="mb-5" key={id}>
+              <Col sm="6">
+                <h2>{label}</h2>
+                <p>
+                  {index === 1
+                    ? "Did you miss this last hot take? Dig in...it’s still warm!"
+                    : "Hit the stacks and go down the rabbithole"}
+                </p>
+              </Col>
+              <Col sm="6">
+                <a href={link} target="_blank" rel="noreferrer">
+                  <Take take={take} />
+                </a>
+              </Col>
+            </Row>
+          );
+        }
+      })}
     </Container>
   );
 };

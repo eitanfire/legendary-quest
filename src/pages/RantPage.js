@@ -22,10 +22,12 @@ const RantPage = (props) => {
         <h3 className="title text-center">It's Not Just You</h3>
         <h3 className="m-2">It's Hard for All Educators</h3>
         <Col sm="6">
-          <p>
+          <p className="text-center">
             Teachers are entrusted by society to prepare the next generation.
+          </p>
+          <p>
             They have numerous duties and responsibilities they must meet with
-            scarce resources.
+            scarce resources.{" "}
             <a
               href="https://www.edutopia.org/article/what-can-we-do-about-teacher-turnover"
               target="_blank"
@@ -37,17 +39,22 @@ const RantPage = (props) => {
           </p>
           <p>
             Lack of credit for their work is especially unjust considering the
-            fact that
+            fact that {""}
             <a
               href="https://www.weareteachers.com/teachers-undervalued-women/"
               target="_blank"
               rel="noreferrer"
             >
               most teachers are women
-            </a>{" "}
+            </a>
             who are already doing more than their share of duties such as child
             care, cooking, and cleaning without monetary compensation.
           </p>
+          <p>
+            All too often teachers are infantilized instead and their voices are
+            not valued.
+          </p>
+          <p>Politicians use teachers as props to score political points.</p>
         </Col>
         <Col sm="6">
           <Card>
@@ -91,14 +98,14 @@ const RantPage = (props) => {
             You forge the citizenry of tomorrow. You weave the fabric of our
             democracy. You should not toil away in the shadows.
           </p>
-          <p>Let your teaching shine.</p>
+          <p className="text-center">You should let your teaching shine.</p>
         </Col>
       </Row>
       {/* <div className="spikes">Rants</div> */}
       <Card className="spikes mt-5">
         <div className="wrapper">
           <h2 className="text-center">
-            <p>Enough.</p>
+            <p>It's Enough.</p>
           </h2>
           <h3 className="">Our Students are Counting on Us.</h3>
           <h3> Flick the Lights on Oppression.</h3>
