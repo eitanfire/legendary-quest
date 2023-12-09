@@ -6,6 +6,7 @@ const TakesPage = (props) => {
   return (
     <Container className="wrapper">
       <SubHeader current="Takes" />
+      <p>Don't go on your teaching journey alone.</p>
       <TakesList />
     </Container>
   );
