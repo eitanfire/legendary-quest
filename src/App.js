@@ -28,15 +28,18 @@ function App() {
   return (
     <div className="App">
       <Theme className="spikes" />
-      <Routes>
-        <Route path="/" element={<TheTeachersLounge />} />
-        <Route path="rant" element={<RantPage />} />
-        <Route path="connect" element={<ConnectionPage />} />
-        <Route path="watch" element={<MovieDayPage />} />
-        <Route path="takes" element={<TakesPage />} />
-        <Route path="directory" element={<CoursesDirectoryPage />} />
-        <Route path="directory/:courseId" element={<CourseDetailPage />} />
-      </Routes>
+      <span className="#page-container">
+        <Routes>
+          <Route path="/" element={<TheTeachersLounge />} />
+          <Route path="rant" element={<RantPage />} />
+          <Route path="connect" element={<ConnectionPage />} />
+          <Route path="watch" element={<MovieDayPage />} />
+          <Route path="takes" element={<TakesPage />} />
+          <Route path="directory" element={<CoursesDirectoryPage />} />
+          <Route path="directory/:courseId" element={<CourseDetailPage />} />
+        </Routes>
+      </span>
+      <span className="site-footer"></span>
       <BottomText />
     </div>
   );
