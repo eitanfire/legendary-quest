@@ -46,7 +46,7 @@ const RantPage = (props) => {
               rel="noreferrer"
             >
               most teachers are women
-            </a>
+            </a>{" "}
             who are already doing more than their share of duties such as child
             care, cooking, and cleaning without monetary compensation.
           </p>
@@ -102,19 +102,19 @@ const RantPage = (props) => {
         </Col>
       </Row>
       {/* <div className="spikes">Rants</div> */}
-      <Card className="spikes mt-5">
-        <div className="wrapper">
-          <h2 className="text-center">
-            <p>It's Enough.</p>
-          </h2>
-          <h3 className="">Our Students are Counting on Us.</h3>
-          <h3> Flick the Lights on Oppression.</h3>
-        </div>
-      </Card>
+      {/* <Card className="spikes mt-5"> */}
+      <div className="enough wrapper">
+        <p className="text-center">
+          <span className="crumple">Enough.</span>
+        </p>
+        <p className="crumple">Our Students are Counting on Us.</p>
+        <p className="crumple"> Let's flick the Lights on Oppression.</p>
+      </div>
+      {/* </Card> */}
       <Row className="row-content mt-5">
         <div className="wrapper">
           <Col xs="12">
-            <h2 className="text-center">Rants</h2>
+            <h2 className="title text-center">Rants</h2>
           </Col>
           <RantsList />
         </div>

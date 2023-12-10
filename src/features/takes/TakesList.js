@@ -16,19 +16,21 @@ const TakesList = () => {
   ) : errMsg ? (
     <Error errMsg={errMsg} />
   ) : (
-    <Container>
+    <Container className="text-center">
       {takes.map((take, index) => {
         const { id, link } = take;
         let label;
         if (index === 0) {
           label = "🔥 The Hot Take";
           return (
-            <Row className="mb-5" key={id}>
+            <Row className="text-center mb-5" key={id}>
               <Col>
                 <h2 className="text-center">{label}</h2>
-                <a href={link} target="_blank" rel="noreferrer">
-                  <Take take={take} />
-                </a>
+                <Col>
+                  <a href={link} target="_blank" rel="noreferrer">
+                    <Take take={take} />
+                  </a>
+                </Col>
               </Col>
             </Row>
           );
@@ -36,15 +38,13 @@ const TakesList = () => {
           label = index === 1 ? "Doubletake" : "The Archive";
           return (
             <Row className="mb-5" key={id}>
-              <Col sm="6">
-                <h2>{label}</h2>
+                            <h2>{label}</h2>
+              <Col>
                 <p>
                   {index === 1
                     ? "Did you miss this last hot take? Dig in...it’s still warm!"
                     : "Hit the stacks and go down the rabbithole"}
                 </p>
-              </Col>
-              <Col sm="6">
                 <a href={link} target="_blank" rel="noreferrer">
                   <Take take={take} />
                 </a>

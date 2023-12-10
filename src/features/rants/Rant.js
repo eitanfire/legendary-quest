@@ -14,16 +14,14 @@ const Rant = ({ rant }) => {
       <Row>
         <CardGroup>
           <CardImg
-            className="rant-img"
+            className="resource-img"
             src={image}
             alt={name}
             style={{ width: "150px" }}
           />
-          <Card className="card rants-list">
-            <CardTitle className="rant-title col-8">
-              <CardTitle className="rant-text fw-bold">{name}</CardTitle>
+          <Card className="card resources-list">
+              <CardTitle className="resource-title fw-bold">{name}</CardTitle>
               <CardText> {description}</CardText>
-            </CardTitle>
           </Card>
         </CardGroup>
       </Row>

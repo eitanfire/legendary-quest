@@ -60,7 +60,7 @@ h3,
 }
 
 .light h1 {
-color:orange
+color:rgb(255,190,152);
 }
 
 .vaporWave h1 {
@@ -68,8 +68,24 @@ color: rgb(44, 214, 230)
 }
 
 .light h2 {
-color: rgb(55, 183, 55);
+  color: white;
+/* color: rgb(55, 183, 55); */
 text-align:start;
+}
+
+h1,
+h2,
+h3,
+.resource-title,
+.stroke-n-shadow {
+      font-family: "helvetica", cursive;
+ -webkit-text-stroke: 1px black;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 
 .vaporWave h2 {
@@ -79,6 +95,10 @@ text-align:start;
 
 h3 {
   text-align: center;
+}
+
+p {
+font-size:large;
 }
 
 .card-title {
@@ -215,7 +235,7 @@ width:max-content;
     right:0rem;
       background-clip: text;
   -webkit-background-clip: text;
-     -webkit-text-stroke: 0.09rem orange;
+     -webkit-text-stroke: 0.09rem rgb(255,190,152);
   }
 
 .page-enter-active {
@@ -237,18 +257,22 @@ width:max-content;
 .nav-link
   {
     
-    color: orange;
+    color: rgb(255,190,152);
     font-family: "Comfortaa", cursive;
-  font-family: "Comfortaa";
   background-clip: text;
   -webkit-background-clip: text;
-     -webkit-text-stroke: 0.09rem orange;
+     -webkit-text-stroke: 0.09rem rgb(255,190,152);
 
 }
 
 /* .btn, */
 .nav-link {
   font-weight: bolder;
+     color: orange;
+    font-family: "Comfortaa", cursive;
+  background-clip: text;
+  -webkit-background-clip: text;
+     -webkit-text-stroke: 0.09rem orange;
   }
 
 .vaporwave-title
@@ -413,7 +437,7 @@ top: 0;
   text-align: center;
 }
 
-.vaporWave .rants-list {
+.vaporWave .resources-list {
   position: relative;
   padding-bottom: 2rem;
      background: 
@@ -429,7 +453,7 @@ top: 0;
   color: magenta;
 }
 
-.light .rants-list {
+.light .resources-list {
   padding-bottom: 2rem;
    box-shadow: var(--shadow-elevation-low);
       -webkit-text-stroke: 0.03rem black;
@@ -446,21 +470,21 @@ top: 0;
   border: 2px solid black;
 }
 
-.rant-img {
+.resource-img {
 position:absolute;
 margin-left: 2rem;
 z-index: 10;
 border: 2px solid black;
 }
 
-.rant-text
+.resource-title
  {
 text-align:center;  
 font-weight: 1000;
   font-size: 2.25rem;
 }
 
-.rant-title {
+.resource-title {
   margin-left: 15%;
 }
 
@@ -523,4 +547,31 @@ left: 30%;
 .register-envelope {
   color:rgb(51,102,204);
   text-align: center;
+}
+
+.enough {
+        font-family: "helvetica", cursive;
+color: rgb(255,190,152);
+  min-height: 19rem;
+  width: 35rem;
+    background-size: 810px;
+  background-image:   url("./app/assets/img/crumpled_paper.png");
+font-size: 4rem;
+  background-position: 50% 50%;
+}
+
+.crumple {
+  font-weight: bold;
+font-size: 3rem;
+  color:black;
+        /* -webkit-text-stroke: 0.03rem white; */
+
+   color: white;
+   -webkit-text-stroke: 1px black;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
