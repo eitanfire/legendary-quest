@@ -11,7 +11,7 @@ const Rant = ({ rant }) => {
   if (rant) {
     const { name, image, description } = rant;
     return (
-      <Row>
+      <Row className="card resources-list">
         <CardGroup>
           <CardImg
             className="resource-img"
@@ -19,10 +19,10 @@ const Rant = ({ rant }) => {
             alt={name}
             style={{ width: "150px" }}
           />
-          <Card className="card resources-list">
-              <CardTitle className="resource-title fw-bold">{name}</CardTitle>
-              <CardText> {description}</CardText>
-          </Card>
+          <span>
+            <CardTitle className="resource-title fw-bold">{name}</CardTitle>
+            <CardText> {description}</CardText>
+          </span>
         </CardGroup>
       </Row>
     );
