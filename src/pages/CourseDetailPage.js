@@ -7,11 +7,17 @@ import CommentsList from "../features/comments/CommentsList";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
 import SubHeader from "../components/SubHeader";
+import React, { useEffect } from "react";
 
 const CourseDetailPage = () => {
   const { courseId } = useParams();
   const course = useSelector(selectCourseById(courseId));
-  console.log("course:", course);
+
+  useEffect(() => {
+    if (course) {
+      document.title = course.name; // Set the document title based on the course name
+    }
+  }, [course]);
 
   const isLoading = useSelector((state) => state.courses.isLoading);
   const errMsg = useSelector((state) => state.courses.errMsg);
@@ -29,6 +35,7 @@ const CourseDetailPage = () => {
       </>
     );
   }
+
   return (
     <Container>
       {course && <SubHeader current={course.name} detail={true} />}
