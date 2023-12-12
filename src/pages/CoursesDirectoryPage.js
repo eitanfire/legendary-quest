@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import Tags from "../features/courses/creditType/Tags";
@@ -7,6 +7,10 @@ import LoadMoreCourses from "../features/courses/LoadMoreCourses.js";
 import CoursesList from "../features/courses/CoursesList";
 
 const CoursesDirectoryPage = () => {
+     useEffect(() => {
+       document.title = "Resources";
+     }, []);
+
   const [selectedTags, setSelectedTags] = useState([]);
 
   const handleTagClick = (tag) => {

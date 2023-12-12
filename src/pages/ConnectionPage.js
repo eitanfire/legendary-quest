@@ -2,8 +2,13 @@ import { Container, Col, Row, Card, CardBody } from "reactstrap";
 import SignUpForm from "../components/SignUpForm";
 import FreeCourse from "../components/FreeCourse";
 import SubHeader from "../components/SubHeader";
+import React, { useEffect } from "react";
 
 const ConnectionPage = () => {
+      useEffect(() => {
+        document.title = "Connect";
+      }, []);
+
   return (
     <Container>
       <SubHeader current="Connect" />

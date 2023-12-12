@@ -1,8 +1,13 @@
 import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import RantsList from "../features/rants/RantsList";
+import React, { useEffect } from "react";
 
 const RantPage = (props) => {
+      useEffect(() => {
+        document.title = "Rant";
+      }, []);
+      
   return (
     <Container className="wrapper">
       <SubHeader current="Rant" />
