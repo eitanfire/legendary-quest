@@ -20,7 +20,7 @@ const Rant = ({ rant }) => {
             style={{ width: "150px" }}
           />
           <span>
-            <CardTitle className="resource-title fw-bold">{name}</CardTitle>
+            <CardTitle className="resource-title take fw-bold">{name}</CardTitle>
             <CardText> {description}</CardText>
           </span>
         </CardGroup>
