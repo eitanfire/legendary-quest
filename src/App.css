@@ -73,6 +73,16 @@ min-height: fit-content;
 color:rgb(255,190,152);
 }
 
+.course-body,
+.course-intro-text
+ {
+  max-block-size: 2rem;
+  min-block-size: 5rem;
+  /* bottom: 0%; */
+  /* height:7rem; */
+  font-size: large;
+}
+
 .vaporWave h1 {
 color: rgb(44, 214, 230)
 }
@@ -124,17 +134,30 @@ font-size:large;
 }
 
 .card-image {
-  /* min-height: 7.5rem;
-  max-height: 0rem; */
+  min-height: 7.5rem;
+  max-height: 0rem;
 }
 
 .card-img-overlay .card-title {
-  /* color: white;
-  background-color: rgba(0, 0, 0, 0.5); */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* .youtube-playlist:hover,
+.card-detail-image {
+ object-fit: cover;
+ height: 15rem; 
+}
+
+.youtube-playlist
+ {
+  text-align: center;
+  padding: 1%;
+font-size: x-large;}
+
+.youtube-playlist:hover,
 .card-img-overlay:hover .card-title {
+    /* height: 3rem; */
+
   color: white;
   background: 
 linear-gradient(
@@ -145,7 +168,7 @@ linear-gradient(
     radial-gradient(ellipse at bottom, #fc6767, transparent);
   opacity: 0.75;
   background-color: #af7fdd;
-} */
+}
 
 /* button, */
 .card,
@@ -160,8 +183,8 @@ linear-gradient(
 {
   box-shadow: var(--shadow-elevation-medium);
       -webkit-text-stroke: 0.03rem black;
-
-    background: linear-gradient(rgb(252, 252, 252), rgba(0, 0, 0, 0.3));
+backdrop-filter: blur(4px) saturate(150%);
+    /* background: linear-gradient(rgb(252, 252, 252), rgba(0, 0, 0, 0.3)); */
     }
 
 .worldHistoryCredit,
@@ -443,10 +466,6 @@ top: 0;
       height: 115%;
 }
 
-.youtube-playlist {
-  text-align: center;
-}
-
 .vaporWave .resources-list {
   position: relative;
   padding-bottom: 2rem;
@@ -566,11 +585,11 @@ left: 30%;
   /* gap: 12rem; */
 }
 
-/* Button,
+button,
 .btn {
-  background-color: blue;
+  background-color:blue;
   color: blue
-} */
+}
 
 /* .btn-danger
 {

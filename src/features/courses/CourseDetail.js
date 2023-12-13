@@ -7,7 +7,7 @@ import {
   Col,
   Container,
   Row,
-  Button,
+  button,
 } from "reactstrap";
 import React from "react";
 import "../../courseTheme.css";
@@ -61,8 +61,8 @@ const CourseDetail = ({ course }) => {
             {icon} {name}
           </CardTitle>
           <CardImg className="card-detail-image" top src={image} alt={name} />
-          <CardBody>
-            <CardText>{intro}</CardText>
+          <CardBody className="course-body">
+            <CardText className="course-intro-text">{intro}</CardText>
           </CardBody>
         </Card>
       </Col>
@@ -83,9 +83,9 @@ const CourseDetail = ({ course }) => {
               target="_blank"
               rel="noreferrer"
             >
-              <Button className="btn btn-lg btn-primary" role="button">
+              <button className="btn btn-lg btn-primary" role="button">
                 Make a Copy
-              </Button>
+              </button>
             </a>
           </Col>
         </Row>
@@ -135,9 +135,9 @@ const CourseDetail = ({ course }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Button className="btn btn-primary" role="button">
+                <button className="btn btn-lg btn-primary" role="button">
                   Make a Copy
-                </Button>
+                </button>
               </a>
             </Col>
           </Row>
@@ -198,9 +198,9 @@ const CourseDetail = ({ course }) => {
             </Col>
             <Col>
               <a href={makeCopyOfExtra(extra)} target="_blank" rel="noreferrer">
-                <Button className="btn btn-primary" role="button">
+                <button className="btn btn-lg btn-primary" role="button">
                   Make a Copy
-                </Button>
+                </button>
               </a>
             </Col>
           </Row>
@@ -221,9 +221,9 @@ const CourseDetail = ({ course }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Button className="btn btn-primary" role="button">
+                <button className="btn btn-lg btn-primary" role="button">
                   Make a Copy
-                </Button>
+                </button>
               </a>
             </Col>
           </Row>

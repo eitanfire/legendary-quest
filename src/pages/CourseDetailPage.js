@@ -15,7 +15,7 @@ const CourseDetailPage = () => {
 
   useEffect(() => {
     if (course) {
-      document.title = course.name; // Set the document title based on the course name
+      document.title = course.name;
     }
   }, [course]);
 

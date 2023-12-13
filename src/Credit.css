@@ -1,17 +1,17 @@
 .worldHistoryCredit {
-  color: blue;
+  color: rgb(137, 186, 239);
 }
 
 .uSHistoryCredit {
-  color: red;
+  color: rgb(254, 106, 106);
 }
 
 .geographyCredit {
-  color: green;
+  color: rgb(36, 215, 36);
 }
 
 .governmentCredit {
-  color: purple;
+  color: rgb(251, 70, 251);
 }
 
 .electiveCredit {
@@ -19,7 +19,7 @@
 }
 
 .mandatoryCredit {
-  color: black;
+  color: rgb(105, 104, 104);
 }
 
 .lACredit {
@@ -66,5 +66,5 @@
 .lACredit:active,
 .credit:active {
   background-color: currentColor;
-  text-emphasis-color: white;
+  /* text-emphasis-color: white; */
 }
