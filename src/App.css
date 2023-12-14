@@ -59,11 +59,11 @@ h3,
   color: black;
 }
 
-.card-text {
+/* .card-text {
   position: absolute;
   bottom: 0%;
   font-size: x-large;
-}
+} */
 
 .card-group {
 min-height: fit-content;
@@ -154,6 +154,7 @@ font-size:large;
   padding: 1%;
 font-size: x-large;}
 
+.course-body,
 .youtube-playlist:hover,
 .card-img-overlay:hover .card-title {
     /* height: 3rem; */
@@ -353,16 +354,22 @@ color: magenta;
 #bulbBanner,
 .darkBulb {
   position: fixed;
-  top: 6.5rem;
+    font-size: x-large;
+
+  top: 6.9rem;
   left: 1rem;
   color: rgb(44, 214, 230);
     -webkit-text-stroke: 1px rgb(218, 236, 17);
-  border-radius: 12px;
+  border-radius: 20px;
 }
 
 .light #button {
   top: 6.2rem;
   left: .5rem;
+  background-color: transparent;
+  border-color: transparent;
+    border-radius: 30px;
+
 }
 
 #icon {
@@ -387,6 +394,30 @@ color: magenta;
   display: grid;
       gap: 1rem;
   max-width: auto;
+}
+
+.dispaly-card-image {
+  position:relative;
+  border: 4px solid black;
+  height: min-content;
+  object-fit: contain;
+}
+
+.vaporWave .dispaly-card-image {
+    border: 4px solid rgb(44, 214, 230);
+}
+.dispaly-card-intro {
+  max-height: 1rem;
+font-size: small;
+color: #ec008c;
+}
+
+.dispaly-card-group {
+padding-bottom: .5rem;
+}
+
+.theTeachersLounge {
+  
 }
 
 .diaganol {
@@ -585,11 +616,11 @@ left: 30%;
   /* gap: 12rem; */
 }
 
-button,
+/* button,
 .btn {
   background-color:blue;
   color: blue
-}
+} */
 
 /* .btn-danger
 {
@@ -637,4 +668,11 @@ font-size: 3rem;
 .dt-and-archive-label {
   margin-top: 5rem;
   background-color: #ec008c;
+}
+
+#BreadCrumb {
+  position: relative;
+  top: .15rem;;
+  left: 2rem;
+width: 95%;  
 }

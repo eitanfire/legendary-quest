@@ -1,4 +1,4 @@
-import { CardGroup, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
+import { CardGroup, CardImg, CardText, CardBody, CardTitle, Col } from "reactstrap";
 import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 
@@ -18,14 +18,16 @@ const AnimatedDisplayCard = ({ item }) => {
 
   return (
     <animated.div className="theTeachersLounge" style={animatedStyle}>
-      <CardGroup>
-        <CardImg src={image} alt={name} />
+      <CardGroup className="dispaly-card-group">
+        <CardImg className="dispaly-card-image" src={image} alt={name} />
         <CardBody>
           <CardTitle>
             <span id="icon">{icon}</span> {name}
           </CardTitle>
-          {intro && <CardText>{intro}</CardText>}
-          {!intro && <CardText>{description}</CardText>}
+          <Col className="display-card-intro">
+            {intro && <CardText>{intro}</CardText>}
+            {!intro && <CardText>{description}</CardText>}
+          </Col>
         </CardBody>
       </CardGroup>
     </animated.div>

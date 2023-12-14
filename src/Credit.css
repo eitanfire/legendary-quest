@@ -42,7 +42,7 @@
 }
 
 .allCoursesCredit {
-  background-color: white;
+  /* background-color: currentColor; */
     text-align: center;
   font-size: 1.5rem;
   position: relative;
