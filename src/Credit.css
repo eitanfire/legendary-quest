@@ -26,19 +26,33 @@
   color: orange;
 }
 
-.allCoursesCredit {
+/* .allCoursesCredit {
   color: white;
-}
+} */
 
 .light .allCoursesCredit {
   color: black;
+  background-color: white;
 }
 
-.allCoursesCredit:active {
-  background-color: seashell;
+.vaporWave .allCoursesCredit {
+  color: white;
+  background-color: #333;
+;
 }
 
-.allCoursesCredit,
+.allCoursesCredit {
+  background-color: white;
+    text-align: center;
+  font-size: 1.5rem;
+  position: relative;
+  border: thick double;
+  margin-right: 1%;
+  width: max-content;
+  margin: 5%;
+}
+
+/* .allCoursesCredit, */
 .worldHistoryCredit,
 .uSHistoryCredit,
 .geographyCredit,
