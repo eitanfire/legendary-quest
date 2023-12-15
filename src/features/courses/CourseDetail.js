@@ -83,9 +83,7 @@ const CourseDetail = ({ course }) => {
               target="_blank"
               rel="noreferrer"
             >
-              <button className="btn btn-lg btn-primary" role="button">
-                Make a Copy
-              </button>
+              <button className="btn btn-lg btn-primary">Make a Copy</button>
             </a>
           </Col>
         </Row>
@@ -135,15 +133,13 @@ const CourseDetail = ({ course }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <button className="btn btn-lg btn-primary" role="button">
-                  Make a Copy
-                </button>
+                <button className="btn btn-lg btn-primary">Make a Copy</button>
               </a>
             </Col>
           </Row>
         )}
         <Row>
-          <p>
+          {/* <p>
             Warm-ups, Bellringers, Skill Drills, Class Openers, Bellwork, Do
             Nows, Entry Tickets, Welcome Work, Questions of the Day.
             <br></br>
@@ -167,24 +163,31 @@ const CourseDetail = ({ course }) => {
             have a chanch to respond in writing we discuss as a class and I take
             the opportunity to use the warm-up as an entry point into the day's
             lesson.
-          </p>
-          <div
-            class="g-sharetoclassroom"
-            data-size="64"
-            data-itemtype="assignment"
-            data-title="Warm-Ups"
-            data-body="Come to class on time and aim to write at least five (5) sentences or a sketchnote. You may respond to the question, to another prompt of your choice, journal about how it’s going or what you’re grateful for, or add to your own story."
-            data-theme="classic"
-            // data-role="presentation"
-            // data-url={mapassignments}
-            //           data-url1="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit"
-            //           data-url2="https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit"
-            data-topic="Warm-Up Questions"
-            data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/"
-            //            data-copies-only=true
-            //  className="vRMGwf oJeWuf"
-            //            data-role="dialog"
-          ></div>
+          </p> */}
+       {/* <g:sharetoclassroom size=32 url="http://google.com"></g:sharetoclassroom> */}
+
+          <div class="g-sharetoclassroom" data-size="32" data-url="..."></div>
+          {/* {warmups && ( */}
+            <div
+            // explicit
+              class="g-sharetoclassroom"
+              data-size="64"
+              data-theme="classic"
+              data-topic="Warm-Up Questions"
+              data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/"
+              // data-role="presentation"
+              // data-url={mapassignments}
+              //           data-url1="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit"
+              //           data-url2="https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit"
+              // data-itemtype="assignment"
+              // data-title="Warm-Ups"
+              // data-body="Come to class on time and aim to write at least five (5) sentences or a sketchnote. You may respond to the question, to another prompt of your choice, journal about how it’s going or what you’re grateful for, or add to your own story."
+              //            data-copies-only=true
+              //            data-role="dialog"
+            >
+              {/* hello */}
+            </div>
+          {/* )} */}
         </Row>
         <br></br>
         {extra && (
@@ -198,9 +201,7 @@ const CourseDetail = ({ course }) => {
             </Col>
             <Col>
               <a href={makeCopyOfExtra(extra)} target="_blank" rel="noreferrer">
-                <button className="btn btn-lg btn-primary" role="button">
-                  Make a Copy
-                </button>
+                <button className="btn btn-lg btn-primary">Make a Copy</button>
               </a>
             </Col>
           </Row>
@@ -221,9 +222,7 @@ const CourseDetail = ({ course }) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <button className="btn btn-lg btn-primary" role="button">
-                  Make a Copy
-                </button>
+                <button className="btn btn-lg btn-primary">Make a Copy</button>
               </a>
             </Col>
           </Row>
