@@ -15,6 +15,7 @@ import BottomText from "./components/BottomText";
 import Theme from "./components/ChangeTheme";
 import "./App.css";
 import { fetchTakes } from "./features/takes/takesSlice";
+import GoogleShare from "./components/GoogleShare";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,10 +38,12 @@ function App() {
           <Route path="takes" element={<TakesPage />} />
           <Route path="directory" element={<CoursesDirectoryPage />} />
           <Route path="directory/:courseId" element={<CourseDetailPage />} />
+          {/* <Route path="directory/:courseId" element={<GoogleShare />} /> */}
         </Routes>
       </span>
-      <span className="site-footer"></span>
-      <BottomText />
+      <span className="site-footer">
+        <BottomText />
+      </span>
     </div>
   );
 }

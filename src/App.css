@@ -677,3 +677,25 @@ font-size: 3rem;
   left: 2rem;
 width: 95%;  
 }
+
+.light .∞-learning {
+  position: absolute;
+  bottom:2.5rem;
+  left: 3rem;
+  text-align: left;
+  color: red;
+}
+
+.vaporWave .∞-learning {
+  position: absolute;
+  bottom: -3.5rem;
+  left: 3rem;
+  text-align: left;
+  color: purple;
+}
+
+/* .sharetoclassroom {
+  position: absolute;
+  top: 210rem;
+  right: 10%;
+} */
