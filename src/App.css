@@ -97,6 +97,7 @@ h1,
 h2,
 h3,
 .resource-title,
+.broken-pencil,
 .stroke-n-shadow {
       font-family: "helvetica", cursive;
  -webkit-text-stroke: 1px black;
@@ -146,6 +147,13 @@ font-size:large;
 .card-detail-image {
  object-fit: cover;
  height: 15rem; 
+}
+
+.intro-card {
+  height: max-content;
+  font-size: larger;
+position: relative;
+top: 20%;
 }
 
 .youtube-playlist
@@ -639,6 +647,29 @@ left: 30%;
   text-align: center;
 }
 
+.Not-Just-You {
+text-align: center; 
+color: rgb(233, 132, 182);
+font-size: 3rem;
+}
+
+.broken-pencil {
+        font-family: "helvetica", cursive;
+  min-height: 15rem;
+  width: 50%;
+background-size: 500px;
+  background-image:   url("./app/assets/img/broken-pencil.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.Hard-for-All-Educator {
+  position: absolute;
+  top: 7%;
+font-size: 4rem;
+text-align: center;
+}
+
 .enough {
         font-family: "helvetica", cursive;
 color: rgb(255,190,152);
@@ -646,7 +677,8 @@ color: rgb(255,190,152);
   width: 35rem;
     background-size: 810px;
   background-image:   url("./app/assets/img/crumpled_paper.png");
-font-size: 4rem;
+  text-align: center;
+  font-size: 4rem;
   background-position: 50% 50%;
 }
 
