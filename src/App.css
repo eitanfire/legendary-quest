@@ -691,7 +691,7 @@ width:50%;
 color: rgb(255,190,152);
   /* min-height: 19rem; */
   /* width: 35rem; */
-    background-size: 810px;
+    background-size: 1210px;
   background-image:   url("./app/assets/img/crumpled_paper.png");
     background-repeat: no-repeat;
   text-align: center;
@@ -702,8 +702,10 @@ background-color: #fc6767;
 }
 
 .crumple {
+  position:static;
+  height: 10rem;
   font-weight: bold;
-font-size: 3rem;
+font-size: 5rem;
   color:black;
         /* -webkit-text-stroke: 0.03rem white; */
 

@@ -125,7 +125,7 @@ const TheTeachersLounge = () => {
           <span className="crumple">Enough.</span>
         </p>
         <p className="crumple">Our Students are Counting on Us.</p>
-        <p className="crumple"> Let's Flick the Lights on Oppression.</p>
+<br></br>        <p className="crumple"> Let's Flick the Lights on Oppression.</p>
       </div>
       <Row>
         <button onClick={scrollToTeachersLounge}>Scroll Down</button>
