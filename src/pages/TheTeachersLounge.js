@@ -6,66 +6,41 @@ import SubHeader from "../components/SubHeader";
 const TheTeachersLounge = () => {
   const [allowScroll, setAllowScroll] = useState(true);
 
-  useEffect(() => {
-    document.title = "The Teachers Lounge";
-
-    const handleKeyDown = (event) => {
-      if (
-        !allowScroll &&
-        (event.key === "ArrowDown" || event.key === "ArrowUp")
-      ) {
-        event.preventDefault();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [allowScroll]);
-
-  useEffect(() => {
-    document.body.style.overflow = allowScroll ? "auto" : "hidden";
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [allowScroll]);
-
   const scrollTo = (elementId) => {
     if (allowScroll) {
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        setAllowScroll(false);
       }
     }
   };
 
-  const resetScroll = () => {
-    setAllowScroll(true);
-  };
-
   const scrollToEnough = () => {
     scrollTo("enough");
-    resetScroll();
   };
 
   const scrollToTeachersLounge = () => {
     scrollTo("TeachersLounge");
-    resetScroll();
   };
 
   return (
     <>
-      <Row className="row-content">
+      <Row className="broken-pencil-section">
         <h3 className="Not-Just-You">It's Not Just You</h3>
         <span className="broken-pencil"></span>
-        <h3 className="Hard-for-All-Educator">It's Hard for All Educators</h3>
+        <h3 className="Hard-for-All-Educators">It's Hard for All Educators</h3>
         <Row>
-          {" "}
-          <p className="text-center">
+          <button
+            className="border border-dark rounded-pill btn-info btn-block"
+            onClick={() => scrollTo("intro-info")}
+          >
+            Scroll Down
+          </button>{" "}
+        </Row>
+      </Row>
+      <Row id="intro-info">
+        <Col sm="6">
+          <p className="Hard-for-All-Educators-Subsection text-center">
             Teachers are entrusted by society to prepare the next generation.
           </p>
           <p>
@@ -80,9 +55,6 @@ const TheTeachersLounge = () => {
               leaving the profession.
             </a>
           </p>
-        </Row>
-        <button onClick={() => scrollTo("content")}>Scroll Down</button>
-        <Col id="content" sm="6">
           <p>
             Lack of credit for their work is especially unjust considering the
             fact that {""}
@@ -119,47 +91,43 @@ const TheTeachersLounge = () => {
             </CardBody>
           </Card>
         </Col>
-      </Row>
-      <Row className="row-content">
-        <Col sm="6">
-          <Card className="mt-5">
-            <CardHeader className="card-header">
-              <h3 className="text-center">Free Speech.</h3>
-            </CardHeader>
-            <CardBody>
-              <h3 className="text-center">Not Free Work.</h3>
-            </CardBody>
-          </Card>
-        </Col>
-        <Col sm="6">
-          <p>
-            You should be recognized for what you do and get treated like the
-            professional that you are.
-          </p>
-          <p>
-            Share your lesson plans to support other educators and adequately
-            compensated for your work.
-          </p>
-          <p>
-            You forge the citizenry of tomorrow. You weave the fabric of our
-            democracy. You should not toil away in the shadows.
-          </p>
-          <p className="text-center">You should let your teaching shine.</p>
-        </Col>
-      </Row>
-      <Row>
-        {" "}
-        <button onClick={scrollToEnough}>Scroll Down</button>
+        <Row className="row-content">
+          <Col sm="6">
+            <Card className="mt-5">
+              <CardHeader className="card-header">
+                <h3 className="text-center">Free Speech.</h3>
+              </CardHeader>
+              <CardBody>
+                <h3 className="text-center">Not Free Work.</h3>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col sm="6">
+            <p>
+              You should be recognized for what you do and get treated like the
+              professional that you are.
+            </p>
+            <p>
+              Share your lesson plans to support other educators and adequately
+              compensated for your work.
+            </p>
+            <p>
+              You forge the citizenry of tomorrow. You weave the fabric of our
+              democracy. You should not toil away in the shadows.
+            </p>
+            <p className="text-center">You should let your teaching shine.</p>
+          </Col>
+        </Row>
+        <Row></Row> <button onClick={scrollToEnough}>Scroll Down</button>
       </Row>
       <div id="enough" className="enough wrapper">
         <p className="text-center">
           <span className="crumple">Enough.</span>
         </p>
         <p className="crumple">Our Students are Counting on Us.</p>
-        <p className="crumple"> Let's flick the Lights on Oppression.</p>
+        <p className="crumple"> Let's Flick the Lights on Oppression.</p>
       </div>
       <Row>
-        {" "}
         <button onClick={scrollToTeachersLounge}>Scroll Down</button>
       </Row>
       <Container id="TeachersLounge">

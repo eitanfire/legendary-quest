@@ -424,8 +424,9 @@ color: #ec008c;
 padding-bottom: .5rem;
 }
 
-.theTeachersLounge {
-  
+#TeachersLounge {
+     /* height: 90%;
+     background-color: aqua; */
 }
 
 .diaganol {
@@ -663,23 +664,41 @@ background-size: 500px;
   background-position: 50% 50%;
 }
 
-.Hard-for-All-Educator {
+.broken-pencil-section{
+   height: 100vh;
+background-color: #af7fdd;
+/* color: #af7fdd; */
+}
+
+.Hard-for-All-Educators {
   position: absolute;
   top: 7%;
 font-size: 4rem;
 text-align: center;
 }
 
-.enough {
+/* .Hard-for-All-Educators-Subsection {
+width:50%;
+} */
+
+#intro-info {
+     height: 100vh;
+     background-color: #ec008c;
+}
+
+#enough {
         font-family: "helvetica", cursive;
 color: rgb(255,190,152);
-  min-height: 19rem;
-  width: 35rem;
+  /* min-height: 19rem; */
+  /* width: 35rem; */
     background-size: 810px;
   background-image:   url("./app/assets/img/crumpled_paper.png");
+    background-repeat: no-repeat;
   text-align: center;
   font-size: 4rem;
   background-position: 50% 50%;
+     height: 100vh;
+background-color: #fc6767;
 }
 
 .crumple {
