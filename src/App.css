@@ -649,6 +649,8 @@ left: 30%;
 }
 
 .Not-Just-You {
+    position: absolute;
+  top: 5%;
 text-align: center; 
 color: rgb(233, 132, 182);
 font-size: 3rem;
@@ -658,32 +660,47 @@ font-size: 3rem;
         font-family: "helvetica", cursive;
   min-height: 15rem;
   width: 50%;
-background-size: 500px;
+background-size: 800px;
   background-image:   url("./app/assets/img/broken-pencil.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
 .broken-pencil-section{
-   height: 100vh;
+   height: 100svh;
 background-color: #af7fdd;
 /* color: #af7fdd; */
 }
 
 .Hard-for-All-Educators {
   position: absolute;
-  top: 7%;
+  top: 17%;
 font-size: 4rem;
 text-align: center;
 }
 
-/* .Hard-for-All-Educators-Subsection {
-width:50%;
-} */
+.hard-button {
+top: 20%;
+}
+
+.Hard-for-All-Educators-Subsection {
+left:5rem;
+}
+
+.hero-button {
+  position: absolute;
+background-color: aqua;
+right: 45%;
+/* top: 10%; */
+}
 
 #intro-info {
-     height: 100vh;
+     height: 100svh;
      background-color: #ec008c;
+}
+
+.intro-button {
+top: 45%;
 }
 
 #enough {
@@ -697,7 +714,7 @@ color: rgb(255,190,152);
   text-align: center;
   font-size: 4rem;
   background-position: 50% 50%;
-     height: 100vh;
+     height: 100svh;
 background-color: #fc6767;
 }
 
@@ -717,6 +734,11 @@ font-size: 5rem;
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
+}
+
+.crumple-button {
+position: absolute;
+top: 70%;
 }
 
 .dt-and-archive-label {

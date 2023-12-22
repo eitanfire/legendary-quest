@@ -29,14 +29,14 @@ const TheTeachersLounge = () => {
         <h3 className="Not-Just-You">It's Not Just You</h3>
         <span className="broken-pencil"></span>
         <h3 className="Hard-for-All-Educators">It's Hard for All Educators</h3>
-        <Row>
+        <Col>
           <button
-            className="border border-dark rounded-pill btn-info btn-block"
+            className="hard-button hero-button"
             onClick={() => scrollTo("intro-info")}
           >
             Scroll Down
           </button>{" "}
-        </Row>
+        </Col>
       </Row>
       <Row id="intro-info">
         <Col sm="6">
@@ -118,18 +118,30 @@ const TheTeachersLounge = () => {
             <p className="text-center">You should let your teaching shine.</p>
           </Col>
         </Row>
-        <Row></Row> <button onClick={scrollToEnough}>Scroll Down</button>
+        {/* <Row></Row>{" "} */}
+        <Col>
+          {" "}
+          <button className="intro-button hero-button" onClick={scrollToEnough}>
+            Scroll Down
+          </button>
+        </Col>
       </Row>
       <div id="enough" className="enough wrapper">
         <p className="text-center">
           <span className="crumple">Enough.</span>
         </p>
         <p className="crumple">Our Students are Counting on Us.</p>
-<br></br>        <p className="crumple"> Let's Flick the Lights on Oppression.</p>
+        <br></br>{" "}
+        <p className="crumple"> Let's Flick the Lights on Oppression.</p>
       </div>
-      <Row>
-        <button onClick={scrollToTeachersLounge}>Scroll Down</button>
-      </Row>
+      <Col>
+        <button
+          className="crumple-button hero-button"
+          onClick={scrollToTeachersLounge}
+        >
+          Scroll Down
+        </button>
+      </Col>
       <Container id="TeachersLounge">
         <SubHeader current="The Teachers Lounge" />
         <span>
