@@ -76,10 +76,6 @@ color:rgb(255,190,152);
 .course-body,
 .course-intro-text
  {
-  max-block-size: 2rem;
-  min-block-size: 5rem;
-  /* bottom: 0%; */
-  /* height:7rem; */
   font-size: large;
 }
 
@@ -692,7 +688,7 @@ top: 16%;
 right: 35%;
 }
 
-.Hard-for-Educators-Subsection {
+#Hard-for-Educators-Subsection {
 left:5%;
 border-radius: 5%;
 font-size: 1.8rem;
@@ -700,7 +696,6 @@ text-align: center;
 /* margin-left: 5rem;
 margin-right: 5rem;
 padding-left: 5rem; */
-
 }
 
 .hero-button {

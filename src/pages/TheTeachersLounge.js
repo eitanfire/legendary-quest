@@ -38,7 +38,7 @@ const TheTeachersLounge = () => {
         <Col>
           <button
             className="get-schooled-button hero-button"
-            onClick={() => scrollTo("intro-info")}
+            onClick={() => scrollTo("Hard-for-Educators-Subsection")}
           >
             Get Schooled
           </button>{" "}
@@ -50,12 +50,12 @@ const TheTeachersLounge = () => {
         <h3 className="Hard-for-Educators">It's Hard for Educators</h3>
       </Row>
       <Row id="intro-info" className="intro-info-bg">
-        <CardHeader sm="7">
-          <p className="Hard-for-Educators-Subsection">
+        <CardHeader>
+          <Col id="Hard-for-Educators-Subsection">
             Teachers are entrusted by society to prepare the next generation.
-          </p>
+          </Col>
         </CardHeader>
-        <Col sm="6">
+        <Col sm="6 mt-3">
           <p>
             They have numerous duties and responsibilities they must meet with
             scarce resources.{" "}
@@ -102,14 +102,14 @@ const TheTeachersLounge = () => {
           </Card>
         </Col>
         <Col sm="6">
-            <Card className="m-5">
-              <CardHeader className="card-header">
-                <h3 className="text-center">Free Speech.</h3>
-              </CardHeader>
-              <CardBody>
-                <h3 className="text-center">Not Free Work.</h3>
-              </CardBody>
-            </Card>
+          <Card className="m-5">
+            <CardHeader className="card-header">
+              <h3 className="text-center">Free Speech.</h3>
+            </CardHeader>
+            <CardBody>
+              <h3 className="text-center">Not Free Work.</h3>
+            </CardBody>
+          </Card>
           <p>Politicians use teachers as props to score political points.</p>
           <p>
             You should be recognized for what you do and get treated like the
