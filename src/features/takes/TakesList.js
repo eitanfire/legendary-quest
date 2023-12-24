@@ -39,12 +39,16 @@ const TakesList = () => {
           return (
             <Row className="mb-5" key={id}>
               {/* <Col className="col col-xs-2"> */}
-              <h2 className="dt-and-archive-label">{label}</h2>
-              <p>
-                {index === 1
-                  ? "Did you miss this last hot take? Dig in...it’s still warm!"
-                  : "Hit the stacks and go down the rabbithole"}
-              </p>
+              <h2 className="dt-and-archive-label text-center">{label}</h2>
+              {index === 1 ? (
+                <h3 className="dt-and-archive-label-subheadings">
+                  Did you miss this last hot take? Dig in...it’s still warm!
+                </h3>
+              ) : (
+                <h3 className="dt-and-archive-label-subheadings">
+                  Hit the stacks and go down the rabbithole
+                </h3>
+              )}
               {/* </Col> */}
               <Col className="mt-5 col col-xs-10">
                 <a href={link} target="_blank" rel="noreferrer">

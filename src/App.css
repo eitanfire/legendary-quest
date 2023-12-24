@@ -793,11 +793,6 @@ top: 16%;
 left: 33%
 }
 
-.dt-and-archive-label {
-  margin-top: 5rem;
-  background-color: #ec008c;
-}
-
 #BreadCrumb {
   position: relative;
   top: .15rem;;
@@ -829,4 +824,12 @@ width: 95%;
 
 .row-content {
 
+}
+
+.dt-and-archive-label {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.dt-and-archive-label-subheadings {
 }
