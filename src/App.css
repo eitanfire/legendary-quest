@@ -145,12 +145,30 @@ font-size:large;
  height: 15rem; 
 }
 
-.intro-card {
+.xs-speech-card,
+.speech-card,
+.know-card {
   height: max-content;
   font-size: larger;
 position: relative;
-top: 20%;
+top: 3%;
 /* align-items: center; */
+}
+
+.speech-card {
+top: 0%;
+    /* border: 2px solid rgb(44, 214, 230); */
+background-color: #FF512F;
+color: FF512F;
+}
+
+.xs-speech-card {
+  top: .5%;
+left: 37%;
+background-color: #259936;
+color: FF512F;
+
+    /* border: 2px solid rgb(44, 214, 230); */
 }
 
 .youtube-playlist
@@ -159,6 +177,7 @@ top: 20%;
   padding: 1%;
 font-size: x-large;}
 
+.you-should-let-your-teaching-shine,
 .course-body,
 .youtube-playlist:hover,
 .card-img-overlay:hover .card-title {
@@ -360,7 +379,7 @@ color: magenta;
 .darkBulb {
   position: fixed;
     font-size: x-large;
-
+z-index: 10;
   top: 6.9rem;
   left: 1rem;
   color: rgb(44, 214, 230);
@@ -536,12 +555,13 @@ top: 0;
   border: 2px solid black;
 }
 
-/* .resource-img {
-position:absolute;
-margin-left: 2rem;
+.resource-img {
+position:relative;
+margin-top: 5%;
+/* margin-left: 2rem; */
 z-index: 10;
 border: 2px solid black;
-} */
+}
 
 .resource-img  {
   position:relative;
@@ -550,7 +570,7 @@ border: 2px solid black;
   /* bottom: 50%; */
   /* max-width: 100%; */
   /* height: auto; */
-  height: min-content;
+  /* height: min-content; */
   object-fit: contain;
 }
 
@@ -566,15 +586,11 @@ border: 2px solid black;
 
 .resource-title
  {
-text-align:center;  
+/* text-align:center;   */
 font-weight: 1000;
   font-size: 2.25rem;
-  margin-left: 15%;
-  background-color: transparent;
-}
-
-.resource-title {
-
+  /* margin-left: 15%; */
+  /* background-color: transparent; */
 }
 
 .take {
@@ -672,8 +688,8 @@ background-size: 800px;
 }
 
 .Hard-for-Educators {
-  position: absolute;
-  top: 12%;
+  position: inline;
+  /* top: 12%; */
 font-size: 4rem;
 text-align: center;
 }
@@ -683,7 +699,7 @@ text-align: center;
   width: 4rem; */
   /* padding: 10px 24px; */
   /* border-radius: 12px; */
-top: 16%;
+top: 12%;
 /* left: 60%; */
 right: 35%;
 }
@@ -735,17 +751,20 @@ padding-left: 5rem; */
 #intro-info {
      /* height: 100svh; */
      /* background-color: #ec008c; */
-     padding-top: 5%;
+     /* z-index: -100; */
+     padding-top: 10%;
      padding-bottom: 5%;
      padding-left: 5%;
+     color:rgb(44, 214, 230);
+        -webkit-text-stroke: .5px white;
 }
 
 .intro-info-bg {
     opacity: .9;
-    background-size: 710px;
+    background-size: 700px;
   background-image:   url("./app/assets/img/fist-with-pencil.png");
     background-repeat: no-repeat;
-    background-position: 15% 90%;
+    background-position: 15% 95%;
 }
 
 .intro-button {
@@ -789,7 +808,7 @@ font-size: 3.7rem;
 
 .crumple-button {
 /* position: absolute;*/
-top: 16%;
+top: 12%;
 left: 33%
 }
 
@@ -832,4 +851,9 @@ width: 95%;
 }
 
 .dt-and-archive-label-subheadings {
+}
+
+.you-should-let-your-teaching-shine {
+max-width: fit-content;
+margin-left: 25%;
 }

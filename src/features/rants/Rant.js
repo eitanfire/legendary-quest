@@ -4,6 +4,7 @@ import {
   CardImg,
   CardText,
   CardTitle,
+  Col,
   Row,
 } from "reactstrap";
 
@@ -13,16 +14,20 @@ const Rant = ({ rant }) => {
     return (
       <Row className="card resources-list">
         <CardGroup>
-          <CardImg
-            className="resource-img"
-            src={image}
-            alt={name}
-            style={{ width: "150px" }}
-          />
-          <span>
-            <CardTitle className="resource-title take fw-bold">{name}</CardTitle>
+          <Col className="col col-sm-3">
+            <CardImg
+              className="resource-img"
+              src={image}
+              alt={name}
+              style={{ width: "150px" }}
+            />
+          </Col>
+          <Col>
+            <CardTitle className="resource-title take fw-bold">
+              {name}
+            </CardTitle>
             <CardText> {description}</CardText>
-          </span>
+          </Col>
         </CardGroup>
       </Row>
     );

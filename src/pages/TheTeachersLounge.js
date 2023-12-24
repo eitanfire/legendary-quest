@@ -85,7 +85,7 @@ const TheTeachersLounge = () => {
             All too often teachers are infantilized instead and their voices are
             not valued.
           </p>
-          <Card className="intro-card m-1">
+          <Card className="know-card m-1 col-xxl-5">
             <CardHeader className="card-header">
               <h3 className="text-center">Did You Know?</h3>
             </CardHeader>
@@ -102,7 +102,15 @@ const TheTeachersLounge = () => {
           </Card>
         </Col>
         <Col sm="6">
-          <Card className="m-5">
+          <Card className="xs-speech-card d-sm-none col-5 m-5">
+            <CardHeader className="card-header">
+              <h3 className="text-center">Free Speech.</h3>
+            </CardHeader>
+            <CardBody>
+              <h3 className="text-center">Not Free Work.</h3>
+            </CardBody>
+          </Card>
+          <Card className="speech-card d-none d-sm-block col-8 m-5">
             <CardHeader className="card-header">
               <h3 className="text-center">Free Speech.</h3>
             </CardHeader>
@@ -123,7 +131,9 @@ const TheTeachersLounge = () => {
             You forge the citizenry of tomorrow. You weave the fabric of our
             democracy. You should not toil away in the shadows.
           </p>
-          <p className="text-center">You should let your teaching shine.</p>
+          <p className="you-should-let-your-teaching-shine">
+            You should let your teaching shine.
+          </p>
         </Col>
         {/* <Row></Row>{" "} */}
         {/* <Col>

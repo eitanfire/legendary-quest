@@ -4,7 +4,7 @@ const Take = ({ take }) => {
   if (take) {
     const { image, name, description } = take;
     return (
-      <Row className="">
+      <Row className="take-row">
         <CardGroup>
           <Col className="col col-xs">
             <CardImg
@@ -14,12 +14,12 @@ const Take = ({ take }) => {
               style={{ width: "250px" }}
             />
           </Col>
-          <Col 
+          <Col
           // className="col col-xs-12"
           >
             <Card className="card resources-list">
-                <CardTitle className="resource-title fw-bold">{name}</CardTitle>
-                <CardText> {description}</CardText>
+              <CardTitle className="resource-title fw-bold">{name}</CardTitle>
+              <CardText> {description}</CardText>
             </Card>
           </Col>
         </CardGroup>
