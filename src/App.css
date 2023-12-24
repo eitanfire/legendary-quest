@@ -154,6 +154,7 @@ font-size:large;
   font-size: larger;
 position: relative;
 top: 20%;
+/* align-items: center; */
 }
 
 .youtube-playlist
@@ -658,49 +659,58 @@ font-size: 3rem;
 
 .broken-pencil {
         font-family: "helvetica", cursive;
-  min-height: 15rem;
+  min-height: 25rem;
   width: 50%;
 background-size: 800px;
   background-image:   url("./app/assets/img/broken-pencil.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
-}
-
-@keyframes fade-in {
-from {scale .8, opacity 0;}
-to { scale: 1; opacity 1;}
+  /* animation: fade-in linear;
+  animation-timeline: view(); */
 }
 
 .broken-pencil-section{
-   height: 100svh;
-background-color: #af7fdd;
+   /* height: 100svh; */
+/* background-color: #af7fdd; */
 /* color: #af7fdd; */
 }
 
-.Hard-for-All-Educators {
+.Hard-for-Educators {
   position: absolute;
-  top: 17%;
+  top: 12%;
 font-size: 4rem;
 text-align: center;
 }
 
-.hard-button {
-top: 20%;
+.get-schooled-button {
+  /* position: absolute;
+  width: 4rem; */
+  /* padding: 10px 24px; */
+  /* border-radius: 12px; */
+top: 16%;
+/* left: 60%; */
+right: 35%;
 }
 
-.Hard-for-All-Educators-Subsection {
-left:5rem;
+.Hard-for-Educators-Subsection {
+left:5%;
+border-radius: 5%;
+font-size: 1.8rem;
+text-align: center;
+/* margin-left: 5rem;
+margin-right: 5rem;
+padding-left: 5rem; */
+
 }
 
 .hero-button {
   position: absolute;
-background-color: aqua;
-right: 45%;
+/* right: 45%; */
 /* top: 10%; */
-  margin: 10px;
+  /* margin: 10px; */
   padding: 15px 30px;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
@@ -728,8 +738,19 @@ right: 45%;
 }
 
 #intro-info {
-     height: 100svh;
-     background-color: #ec008c;
+     /* height: 100svh; */
+     /* background-color: #ec008c; */
+     padding-top: 5%;
+     padding-bottom: 5%;
+     padding-left: 5%;
+}
+
+.intro-info-bg {
+    opacity: .9;
+    background-size: 710px;
+  background-image:   url("./app/assets/img/fist-with-pencil.png");
+    background-repeat: no-repeat;
+    background-position: 15% 90%;
 }
 
 .intro-button {
@@ -747,15 +768,17 @@ color: rgb(255,190,152);
   text-align: center;
   font-size: 4rem;
   background-position: 50% 50%;
-     height: 100svh;
-background-color: #fc6767;
+       padding-bottom: 10%;
+
+     /* height: 100svh; */
+/* background-color: #fc6767; */
 }
 
 .crumple {
   position:static;
   height: 10rem;
   font-weight: bold;
-font-size: 5rem;
+font-size: 3.7rem;
   color:black;
         /* -webkit-text-stroke: 0.03rem white; */
 
@@ -770,8 +793,9 @@ font-size: 5rem;
 }
 
 .crumple-button {
-position: absolute;
-top: 70%;
+/* position: absolute;*/
+top: 16%;
+left: 33%
 }
 
 .dt-and-archive-label {
@@ -807,3 +831,7 @@ width: 95%;
   top: 210rem;
   right: 10%;
 } */
+
+.row-content {
+
+}

@@ -25,24 +25,37 @@ const TheTeachersLounge = () => {
 
   return (
     <>
-      <Row className="broken-pencil-section">
-        <h3 className="Not-Just-You">It's Not Just You</h3>
-        <span className="broken-pencil"></span>
-        <h3 className="Hard-for-All-Educators">It's Hard for All Educators</h3>
+      <Row>
+        {" "}
         <Col>
           <button
-            className="hard-button hero-button"
+            className="crumple-button hero-button"
+            onClick={scrollToTeachersLounge}
+          >
+            Down to the Teachers Lounge
+          </button>
+        </Col>
+        <Col>
+          <button
+            className="get-schooled-button hero-button"
             onClick={() => scrollTo("intro-info")}
           >
-            Scroll Down
+            Get Schooled
           </button>{" "}
         </Col>
       </Row>
-      <Row id="intro-info">
-        <Col sm="6">
-          <p className="Hard-for-All-Educators-Subsection text-center">
+      <Row className="broken-pencil-section">
+        <h3 className="Not-Just-You">It's Not Just You</h3>
+        <span className="broken-pencil"></span>
+        <h3 className="Hard-for-Educators">It's Hard for Educators</h3>
+      </Row>
+      <Row id="intro-info" className="intro-info-bg">
+        <CardHeader sm="7">
+          <p className="Hard-for-Educators-Subsection">
             Teachers are entrusted by society to prepare the next generation.
           </p>
+        </CardHeader>
+        <Col sm="6">
           <p>
             They have numerous duties and responsibilities they must meet with
             scarce resources.{" "}
@@ -72,10 +85,7 @@ const TheTeachersLounge = () => {
             All too often teachers are infantilized instead and their voices are
             not valued.
           </p>
-          <p>Politicians use teachers as props to score political points.</p>
-        </Col>
-        <Col sm="6">
-          <Card className="intro-card">
+          <Card className="intro-card m-1">
             <CardHeader className="card-header">
               <h3 className="text-center">Did You Know?</h3>
             </CardHeader>
@@ -91,9 +101,8 @@ const TheTeachersLounge = () => {
             </CardBody>
           </Card>
         </Col>
-        <Row className="row-content">
-          <Col sm="6">
-            <Card className="mt-5">
+        <Col sm="6">
+            <Card className="m-5">
               <CardHeader className="card-header">
                 <h3 className="text-center">Free Speech.</h3>
               </CardHeader>
@@ -101,30 +110,28 @@ const TheTeachersLounge = () => {
                 <h3 className="text-center">Not Free Work.</h3>
               </CardBody>
             </Card>
-          </Col>
-          <Col sm="6">
-            <p>
-              You should be recognized for what you do and get treated like the
-              professional that you are.
-            </p>
-            <p>
-              Share your lesson plans to support other educators and adequately
-              compensated for your work.
-            </p>
-            <p>
-              You forge the citizenry of tomorrow. You weave the fabric of our
-              democracy. You should not toil away in the shadows.
-            </p>
-            <p className="text-center">You should let your teaching shine.</p>
-          </Col>
-        </Row>
+          <p>Politicians use teachers as props to score political points.</p>
+          <p>
+            You should be recognized for what you do and get treated like the
+            professional that you are.
+          </p>
+          <p>
+            Share your lesson plans to support other educators and adequately
+            compensated for your work.
+          </p>
+          <p>
+            You forge the citizenry of tomorrow. You weave the fabric of our
+            democracy. You should not toil away in the shadows.
+          </p>
+          <p className="text-center">You should let your teaching shine.</p>
+        </Col>
         {/* <Row></Row>{" "} */}
-        <Col>
+        {/* <Col>
           {" "}
           <button className="intro-button hero-button" onClick={scrollToEnough}>
             Scroll Down
           </button>
-        </Col>
+        </Col> */}
       </Row>
       <div id="enough" className="enough wrapper">
         <p className="text-center">
@@ -134,14 +141,6 @@ const TheTeachersLounge = () => {
         <br></br>{" "}
         <p className="crumple"> Let's Flick the Lights on Oppression.</p>
       </div>
-      <Col>
-        <button
-          className="crumple-button hero-button"
-          onClick={scrollToTeachersLounge}
-        >
-          Scroll Down
-        </button>
-      </Col>
       <Container id="TeachersLounge">
         <SubHeader current="The Teachers Lounge" />
         <span>
