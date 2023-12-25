@@ -55,6 +55,10 @@ h3,
     color: rgb(44, 214, 230);
 }
 
+/* .vaporWave .card-body a {
+color:chartreuse
+} */
+
 .light .card-text {
   color: black;
 }
@@ -147,7 +151,9 @@ font-size:large;
 
 .xs-speech-card,
 .speech-card,
-.know-card {
+.know-card
+/* .vaporWave .know-card a:link  */
+{
   height: max-content;
   font-size: larger;
 position: relative;
@@ -160,6 +166,10 @@ top: 0%;
     /* border: 2px solid rgb(44, 214, 230); */
 background-color: #FF512F;
 color: FF512F;
+}
+
+.vaporWave .know-card a:link {
+color: transparent;
 }
 
 .xs-speech-card {
