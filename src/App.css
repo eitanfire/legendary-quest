@@ -599,6 +599,11 @@ font-weight: 1000;
   left: 25%;
   height: fit-content;
 }
+
+.take-subheading {
+font-size: x-large;
+}
+
 .CardGroup {
   border: 2px solid rgb(44, 214, 230);
 }
@@ -694,16 +699,6 @@ font-size: 4rem;
 text-align: center;
 }
 
-.get-schooled-button {
-  /* position: absolute;
-  width: 4rem; */
-  /* padding: 10px 24px; */
-  /* border-radius: 12px; */
-top: 12%;
-/* left: 60%; */
-right: 35%;
-}
-
 #Hard-for-Educators-Subsection {
 left:5%;
 border-radius: 5%;
@@ -712,7 +707,7 @@ text-align: center;
 /* margin-left: 5rem;
 margin-right: 5rem;
 padding-left: 5rem; */
-}
+font-weight: 700;}
 
 .hero-button {
   position: absolute;
@@ -737,6 +732,23 @@ padding-left: 5rem; */
   touch-action: manipulation;
 }
 
+.vaporWave .hero-button {
+ color: white;
+   /* box-shadow: 0px 0px 14px -7px #c9c0b3; */
+  background-image: 
+linear-gradient(
+  45deg, #ec008c 0%, #fc6767  51%, transparent  100%
+      /* rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.3)
+    )
+    ,
+    radial-gradient(ellipse at top, #ec008c, transparent),
+    radial-gradient(ellipse at bottom, #fc6767, transparent */
+    );
+  opacity: 0.75;
+  background-color: #af7fdd;
+}
+
 .hero-button:hover {
   background-position: right center;
   /* change the direction of the change here */
@@ -748,23 +760,51 @@ padding-left: 5rem; */
   transform: scale(0.95);
 }
 
-#intro-info {
+ #intro-info {
+      position: relative; 
      /* height: 100svh; */
      /* background-color: #ec008c; */
      /* z-index: -100; */
      padding-top: 10%;
-     padding-bottom: 5%;
+     margin-bottom: 6%;
+     padding-bottom: 0%;
      padding-left: 5%;
-     color:rgb(44, 214, 230);
-        -webkit-text-stroke: .5px white;
+        -webkit-text-stroke: .5px rgb(242, 59, 190);
+        color: black;
+        font-family:'Courier New', Courier, monospace;
+          border-bottom: 1px solid magenta;
+
 }
 
-.intro-info-bg {
+ #intro-info::before {
+      content: "";
+            position: absolute;
+            background-size: cover;
+              top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.5;
+    background-size: 700px;
+  background-image:   url("./app/assets/img/fist-with-pencil.png");
+    background-repeat: no-repeat;
+    background-position: 15% 95%;
+    z-index: -10;
+ }
+.vaporWave #intro-info {
+       color:rgb(44, 214, 230);
+
+}
+
+/* .intro-info-bg {
     opacity: .9;
     background-size: 700px;
   background-image:   url("./app/assets/img/fist-with-pencil.png");
     background-repeat: no-repeat;
     background-position: 15% 95%;
+} */
+.fist-with-pencil {
+  
 }
 
 .intro-button {
@@ -806,10 +846,49 @@ font-size: 3.7rem;
        1px 1px 0 #000;
 }
 
-.crumple-button {
-/* position: absolute;*/
+.xs-lounge-button {
+top: 8%;
+left: 8%
+}
+
+.xs-get-schooled-button {
+top: 8%;
+right: 0%;
+}
+
+.sm-md-lounge-button {
+top: 8%;
+left: 8%
+}
+
+.sm-md-get-schooled-button {
+top: 8%;
+right: 12%;
+}
+
+.lg-lounge-button {
+top: 10%;
+left: 20%
+}
+
+.lg-get-schooled-button {
+top: 10%;
+right: 20%;
+}
+
+.xl-xxl-lounge-button {
 top: 12%;
 left: 33%
+}
+
+.xl-xxl-get-schooled-button {
+  /* position: absolute;
+  width: 4rem; */
+  /* padding: 10px 24px; */
+  /* border-radius: 12px; */
+top: 12%;
+/* left: 60%; */
+right: 29%;
 }
 
 #BreadCrumb {
@@ -856,4 +935,5 @@ width: 95%;
 .you-should-let-your-teaching-shine {
 max-width: fit-content;
 margin-left: 25%;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

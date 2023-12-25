@@ -11,7 +11,7 @@ const TakesPage = (props) => {
   return (
     <Container className="wrapper">
       <SubHeader current="Takes" />
-      <p>Don't go on your teaching journey alone. Hone your craft with the insights you find here.</p>
+      <p className="take-subheading">Don't go on your teaching journey alone. Hone your craft with the insights you find here.</p>
       <TakesList />
     </Container>
   );

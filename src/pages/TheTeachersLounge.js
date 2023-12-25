@@ -29,7 +29,15 @@ const TheTeachersLounge = () => {
         {" "}
         <Col>
           <button
-            className="crumple-button hero-button"
+            className="xs-lounge-button hero-button d-sm-none"
+            onClick={scrollToTeachersLounge}
+          >
+            Down to the Teachers Lounge
+          </button>
+        </Col>{" "}
+        <Col>
+          <button
+            className="sm-md-lounge-button hero-button d-none d-sm-block d-lg-none"
             onClick={scrollToTeachersLounge}
           >
             Down to the Teachers Lounge
@@ -37,7 +45,47 @@ const TheTeachersLounge = () => {
         </Col>
         <Col>
           <button
-            className="get-schooled-button hero-button"
+            className="lg-lounge-button hero-button d-none d-lg-block d-xl-none"
+            onClick={scrollToTeachersLounge}
+          >
+            Down to the Teachers Lounge
+          </button>
+        </Col>
+        <Col>
+          <button
+            className="xl-xxl-lounge-button hero-button d-none d-xl-block"
+            onClick={scrollToTeachersLounge}
+          >
+            Down to the Teachers Lounge
+          </button>
+        </Col>
+        <Col>
+          <button
+            className="xs-get-schooled-button hero-button d-sm-none"
+            onClick={() => scrollTo("Hard-for-Educators-Subsection")}
+          >
+            Get Schooled
+          </button>{" "}
+        </Col>
+        <Col>
+          <button
+            className="sm-md-get-schooled-button hero-button d-none d-sm-block d-lg-none"
+            onClick={() => scrollTo("Hard-for-Educators-Subsection")}
+          >
+            Get Schooled
+          </button>{" "}
+        </Col>
+        <Col>
+          <button
+            className="lg-get-schooled-button hero-button d-none d-lg-block d-xl-none"
+            onClick={() => scrollTo("Hard-for-Educators-Subsection")}
+          >
+            Get Schooled
+          </button>{" "}
+        </Col>
+        <Col>
+          <button
+            className="xl-xxl-get-schooled-button hero-button d-none d-xl-block"
             onClick={() => scrollTo("Hard-for-Educators-Subsection")}
           >
             Get Schooled
