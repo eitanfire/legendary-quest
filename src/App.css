@@ -50,7 +50,8 @@ body {
 /* min-height: 100%; */
 /* height: fit-content; */
 /* width:auto; */
-overflow-x: hidden;}
+overflow-x: hidden;
+}
 
 h3,
 .card-body > .card-title {
@@ -187,11 +188,12 @@ color: FF512F;
  {
   text-align: center;
   padding: 1%;
-font-size: x-large;}
+font-size: x-large;
+}
 
 .you-should-let-your-teaching-shine,
 .course-body,
-.youtube-playlist:hover,
+.youtube-playlist,
 .card-img-overlay:hover .card-title {
     /* height: 3rem; */
 
@@ -732,6 +734,7 @@ margin-right: 5rem;
 padding-left: 5rem; */
 font-weight: 700;}
 
+.youtube-playlist,
 .hero-button {
   position: absolute;
 /* right: 45%; */
@@ -755,6 +758,7 @@ font-weight: 700;}
   touch-action: manipulation;
 }
 
+.vaporWave .youtube-playlist,
 .vaporWave .hero-button {
  color: white;
    /* box-shadow: 0px 0px 14px -7px #c9c0b3; */
@@ -772,6 +776,7 @@ linear-gradient(
   background-color: #af7fdd;
 }
 
+.youtube-playlist:hover,
 .hero-button:hover {
   background-position: right center;
   /* change the direction of the change here */
@@ -779,6 +784,7 @@ linear-gradient(
   text-decoration: none;
 }
 
+.youtube-playlist:active,
 .hero-button:active {
   transform: scale(0.95);
 }
