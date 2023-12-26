@@ -3,9 +3,11 @@ import {
   Button,
   Modal,
   ModalHeader,
+  ModalFooter,
   ModalBody,
   FormGroup,
-  Label, Col
+  Label,
+  Col,
 } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateCommentForm } from "../../utils/validateCommentForm";
@@ -14,6 +16,8 @@ import { useDispatch } from "react-redux";
 
 const CommentForm = ({ courseId }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [commentSubmitted, setCommentSubmitted] = useState(false);
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -25,9 +29,17 @@ const CommentForm = ({ courseId }) => {
       text: values.commentText,
       date: new Date(Date.now()).toISOString(),
     };
+
     console.log("comment", comment);
     // dispatch(postComment(comment));
+
+    setCommentSubmitted(true);
     setModalOpen(false);
+    setSuccessModalOpen(true);
+  };
+
+  const closeSuccessModal = () => {
+    setSuccessModalOpen(false);
   };
 
   return (
@@ -40,6 +52,9 @@ const CommentForm = ({ courseId }) => {
           Add Comment
         </ModalHeader>
         <ModalBody>
+          {commentSubmitted && (
+            <p className="text-success">Thank you for your comment!</p>
+          )}
           <Formik
             initialValues={{
               rating: undefined,
@@ -93,7 +108,21 @@ const CommentForm = ({ courseId }) => {
           </Formik>
         </ModalBody>
       </Modal>
+      <Modal isOpen={successModalOpen} toggle={closeSuccessModal}>
+        <ModalHeader toggle={closeSuccessModal}>
+          Comment Submitted Successfully!
+        </ModalHeader>
+        <ModalBody>
+          <p className="text-success">Thank you for your comment!</p>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={closeSuccessModal}>
+            Close
+          </Button>
+        </ModalFooter>
+      </Modal>
     </>
   );
 };
+
 export default CommentForm;

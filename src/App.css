@@ -241,13 +241,13 @@ backdrop-filter: blur(4px) saturate(150%);
   padding: 15px 0;
     -webkit-text-stroke: .75px  rgb(44, 214, 230);
   font-size: larger;
-  margin-top: 2rem;
+  margin-top: 0rem;
   /* width: 100%; */
   text-align: center;
     position: static;
 }
 
-.light .site-footer
+.vaporWave .site-footer
 
 {
 color: rgb(148, 115, 54);
@@ -302,7 +302,7 @@ width:max-content;
   }
 
   .navbar-text {
-    position: fixed;
+    position: sticky;
     top:0rem;
     right:0rem;
       background-clip: text;
@@ -941,7 +941,7 @@ width: 95%;
     content: "";
   position: absolute;
   /* width: 100%; */
-  top:6rem;
+  top:4rem;
   left: 3rem;
   text-align: left;
   color: purple;
