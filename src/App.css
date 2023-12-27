@@ -210,6 +210,7 @@ linear-gradient(
 }
 
 /* button, */
+.light .∞-learning,
 .card,
 .worldHistoryCredit,
 .uSHistoryCredit,
@@ -511,11 +512,11 @@ padding-bottom: .5rem;
 /* padding: fit-content; */
 }
 
-.spikes {
+/* .spikes {
   --spike-color: var(--body-bg);
 position: relative;
 height: 100px
-}
+} */
 
 /* .spikes::before,
 .spikes::after { 
@@ -529,14 +530,14 @@ background: var(--spike-color);
 mask-image: url('app/assets/img/triangle.svg');
  } */
 
- .spikes::before {
+ /* .spikes::before {
 top: 0;
  }
 
   .spikes::after {
   bottom: 0;
   transform: rotate(.5turn);
- }
+ } */
 
 .teach-league-logo {
    position: absolute;
@@ -832,9 +833,6 @@ linear-gradient(
     background-repeat: no-repeat;
     background-position: 15% 95%;
 } */
-.fist-with-pencil {
-  
-}
 
 .intro-button {
 top: 45%;
@@ -933,8 +931,6 @@ width: 95%;
   bottom:2.5rem;
   left: 3rem;
   text-align: left;
-  color: red;
-
 }
 
 .vaporWave .∞-learning {
@@ -945,6 +941,8 @@ width: 95%;
   left: 3rem;
   text-align: left;
   color: purple;
+  background-color:color-mix(in srgb-linear, transparent 45%, black 55%);
+/* backdrop-filter: blur(4px) saturate(150%); */
 }
 
 

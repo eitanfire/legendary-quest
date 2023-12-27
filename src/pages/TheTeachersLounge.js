@@ -1,10 +1,52 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
 import DisplayList from "../features/display/DisplayList";
 import SubHeader from "../components/SubHeader";
 
 const TheTeachersLounge = () => {
+  const navigate = useNavigate();
   const [allowScroll, setAllowScroll] = useState(true);
+  const [scrolledToTeachersLounge, setScrolledToTeachersLounge] =
+    useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const teachersLoungeSection = document.getElementById("TeachersLounge");
+      if (teachersLoungeSection) {
+        const scrolled =
+          window.scrollY >=
+          teachersLoungeSection.offsetTop - window.innerHeight / 2;
+
+        setScrolledToTeachersLounge(scrolled);
+
+        if (scrolled) {
+          navigate("/TheTeachersLounge");
+        }
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Set the default and dynamic titles
+  // Add a separate useEffect for navigation
+  useEffect(() => {
+    if (scrolledToTeachersLounge) {
+      navigate("/TheTeachersLounge");
+    }
+  }, [scrolledToTeachersLounge, navigate]);
+
+  // Set the default and dynamic titles
+  const pageTitle = scrolledToTeachersLounge
+    ? "The Teachers Lounge"
+    : "Teach League";
 
   const scrollTo = (elementId) => {
     if (allowScroll) {
@@ -22,7 +64,6 @@ const TheTeachersLounge = () => {
   const scrollToTeachersLounge = () => {
     scrollTo("TeachersLounge");
   };
-
   return (
     <>
       <Row>
@@ -205,6 +246,8 @@ const TheTeachersLounge = () => {
           <DisplayList className="displayList" />
         </span>
       </Container>
+      {/* Set the document title dynamically */}
+      {document.title !== pageTitle && (document.title = pageTitle)}
     </>
   );
 };

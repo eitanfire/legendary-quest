@@ -32,6 +32,7 @@ function App() {
       <span className="#page-container">
         <Routes>
           <Route path="/" element={<TheTeachersLounge />} />
+          <Route path="/TheTeachersLounge" element={<TheTeachersLounge />} />
           <Route path="rant" element={<RantPage />} />
           <Route path="connect" element={<ConnectionPage />} />
           <Route path="watch" element={<MovieDayPage />} />

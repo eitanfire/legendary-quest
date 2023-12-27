@@ -77,8 +77,8 @@
 #governmentColor {
   content: "";
   box-shadow: inset 0 0 0 1000px rgb(7, 73, 58), 0.75;
-  background: 
-  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */ url("https://en.pimg.jp/043/069/837/1/43069837.jpg");
+  background-image: 
+  url("https://en.pimg.jp/043/069/837/1/43069837.jpg");
   background-size: 80rem;
   position: absolute;
   top: 0px;
@@ -90,10 +90,11 @@
 }
 
 #migrationColor {
-  content: "";
+  /* content: ""; */
   box-shadow: inset 0 0 0 1000px rgb(23, 120, 42), 0.75;
   background: 
-  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */ url("https://www.voicesofyouth.org/sites/voy/files/styles/full_width_image/public/images/2020-01/world_passports_2019_0_0.jpg?itok=oQC2AJnK");
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%), */
+  url("https://www.voicesofyouth.org/sites/voy/files/styles/full_width_image/public/images/2020-01/world_passports_2019_0_0.jpg?itok=oQC2AJnK");
   background-size: 80rem;
   position: absolute;
   top: 0px;
@@ -104,6 +105,16 @@
   z-index: -10;
 }
 
+#migrationColor::before {
+    content: "";
+position: absolute;
+background-size: cover;
+      opacity: 0.5;
+    z-index: -10;
+  background:   url("https://www.voicesofyouth.org/sites/voy/files/styles/full_width_image/public/images/2020-01/world_passports_2019_0_0.jpg?itok=oQC2AJnK");
+
+  /* radial-gradient(circle, #00ff7f 25%, rgb(255, 255, 255) 100%) */
+}
 #uSHistColor {
   content: "";
   box-shadow: inset 0 0 0 1000px rgb(194, 20, 20), 0.75;
