@@ -29,13 +29,13 @@ function Theme() {
           {theme === "light" ? (
             <>
               <button id="button">
-                <i className="fa fa-lightbulb-o fa-lg" />
+                <i className="fa fa-lightbulb-o fa-lg fa-spin" />
               </button>
             </>
           ) : (
             <>
               <button id="button">
-                <i className="darkBulb fa fa-lightbulb-o fa-lg" />
+                <i className="darkBulb fa fa-lightbulb-o fa-lg fa-spin" />
               </button>
             </>
           )}
