@@ -397,9 +397,13 @@ color: magenta;
 z-index: 10;
   top: 6.9rem;
   left: 1rem;
-  color: rgb(44, 214, 230);
+  /* color: rgb(44, 214, 230); */
     -webkit-text-stroke: 1px rgb(218, 236, 17);
   border-radius: 20px;
+}
+
+.darkBulb {
+color: rgb(44, 214, 230);
 }
 
 .light #button {
@@ -410,16 +414,47 @@ z-index: 10;
     border-radius: 30px;
 }
 
-.bulb-shine {
+.bulb-shine-yellow {
   position: fixed;
   top: 6.5rem;
   left: .9rem;
+  /* font-size: 5rem; */
   color: yellow;
+    color: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+/* -webkit-text-stroke: 1px transparent */
+}
+
+.bulb-shine-orange {
+ position: fixed;
+  top: 6.5rem;
+  left: .9rem;
+  color: orange;
+    color: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+/* -webkit-text-stroke: 1px transparent */
+z-index: -1;
+}
+
+.bulb-shine-red {
+ position: fixed;
+  top: 6.5rem;
+  left: .9rem;
+  color: red;
+    color: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+/* -webkit-text-stroke: 1px transparent */
+z-index: -2;
 }
 
 .slow-spin {
   -webkit-animation: fa-spin 8s infinite linear;
   animation: fa-spin 8s infinite linear;
+}
+
+.slower-and-backwards-spin {
+  -webkit-animation: fa-spin 0s infinite linear;
+  animation: fa-spin 9s infinite linear;
+    -webkit-animation-direction:reverse;
+     -moz-animation-direction:reverse;
+          animation-direction:reverse;
 }
 
 .button-85 {
