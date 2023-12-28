@@ -50,7 +50,7 @@ export const selectFeaturedRant = (state) => {
     icon: "📢 ",
     title: "Rant",
     subtitle: "Find comraderie and collaboration.",
-    link: "https://www.reddit.com/r/Teachers/",
+    link: "http://localhost:3000/rant",
     featuredItem: state.rants.rantsArray.find((rant) => rant.featured),
     isLoading: state.rants.isLoading,
     errMsg: state.rants.errMsg,
