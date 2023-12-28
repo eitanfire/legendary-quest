@@ -18,7 +18,7 @@ const DisplayList = () => {
   console.log("display items:", items);
 
   return (
-    <Row className="displayList">
+    <Row className="displaylist">
       {items.map((item, idx) => {
         const { icon, title, subtitle, link, featuredItem, isLoading, errMsg } =
           item;
@@ -34,12 +34,12 @@ const DisplayList = () => {
               <Col key={idx}>
                 {" "}
                 <a href={`${link}`} target="_blank" rel="noreferrer">
-                  <button>
+                  <button className="displaylist-child">
                     <h1>
                       {icon}
                       {title}
                     </h1>
-                    <h2>{subtitle}</h2>
+                    <subheading className="subheading">{subtitle}</subheading>
                     <AnimatedDisplayCard item={featuredItem} title={title} />
                   </button>
                 </a>

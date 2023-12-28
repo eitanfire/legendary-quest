@@ -11,7 +11,10 @@ const RantPage = (props) => {
   return (
     <Container className="wrapper">
       <SubHeader current="Rant" />
-      <h2>The challenges you face as a teacher can be daunting. Sometimes you just need to vent or hear a good rant to feel validated.</h2>
+      <subheading className="subheading">
+        The challenges you face as a teacher can be daunting. Sometimes you just
+        need to vent or hear a good rant to feel validated.
+      </subheading>
       <Row className="diaganol bg-transparent mt-5 mb-4">
         <p>
           <h3>
@@ -24,7 +27,7 @@ const RantPage = (props) => {
           </h3>
         </p>
       </Row>
-           {/* </Card> */}
+      {/* </Card> */}
       <Row className="row-content mt-5">
         <div className="wrapper">
           <Col xs="12">

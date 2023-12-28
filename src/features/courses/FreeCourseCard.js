@@ -11,7 +11,7 @@ const FreeCourseCard = ({ course }) => {
         </CardTitle>
         <CardImg id="free-course" top src={image} alt={name} />
         <CardBody>
-          <CardText className="text-center">{freeContentDescription}</CardText>
+          <CardText className="h4">{freeContentDescription}</CardText>
         </CardBody>
       </Card>
     </Col>

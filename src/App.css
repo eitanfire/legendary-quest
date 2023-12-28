@@ -137,9 +137,15 @@ font-size:large;
   font-size: xx-large;
 }
 
-.card-image {
+.card-image 
+{
   min-height: 7.5rem;
-  max-height: 0rem;
+  max-height: 2rem;
+  max-width: auto;
+    position:relative;
+  /* border: 4px solid black; */
+  height: min-content;
+  object-fit: cover;
 }
 
 .card-img-overlay .card-title {
@@ -542,17 +548,32 @@ z-index: -2;
   background-position: 90% 18%;
 }
 
-.displayList {
-  display: grid;
+.displaylist {
+     width: 100%;
+  display: flex;
       gap: 1rem;
-  max-width: auto;
+    /* background-color: #a91db0; */
 }
 
+/* .card-body,
+.card-group, */
+/* .card-text, */
+/* button, */
+/* .dispaly-card-group, */
+.displaylist-child 
+{
+  flex: 1;
+  flex-basis: 1;
+  /* background-color: #00ffd5; */
+font-size: calc(1vw + 1vh);
+}
+
+/* .card-image, */
 .dispaly-card-image {
   position:relative;
   border: 4px solid black;
   height: min-content;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .vaporWave .dispaly-card-image {
@@ -565,12 +586,16 @@ color: #ec008c;
 }
 
 .dispaly-card-group {
-padding-bottom: .5rem;
+/* padding-bottom: .5rem; */
 }
 
 #TeachersLounge {
      /* height: 90%;
      background-color: aqua; */
+         /* width: 100%;
+  display: flex;
+      gap: 1rem;
+    background-color: #ae6135; */
 }
 
 .diaganol {
@@ -755,8 +780,13 @@ font-weight: 1000;
   height: fit-content;
 }
 
-.take-subheading {
+.light .subheading {
+  color: #69604D;
+}
+.subheading {
 font-size: x-large;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+color: #9600ff;
 }
 
 .CardGroup {

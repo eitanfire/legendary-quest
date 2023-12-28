@@ -72,7 +72,9 @@ const ConnectionPage = () => {
           <FreeCourse id="free-course" />
         </Col>
         <Col xs="6">
-          <h2>Sign up for a free account</h2>
+          <subheading className="subheading">
+            Sign up for a free account
+          </subheading>
           <hr />
           <SignUpForm />
         </Col>
