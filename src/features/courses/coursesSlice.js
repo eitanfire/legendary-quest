@@ -66,7 +66,7 @@ export const selectFeaturedCourse = (state) => {
     title: "Resources",
     subtitle:
       "I'm a teacher. I get it. If you need help with your content I've got you so you don’t lose it.",
-    link: "http://localhost:3000/directory/",
+    link: "directory",
     featuredItem: state.courses.coursesArray.find((course) => course.featured),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,

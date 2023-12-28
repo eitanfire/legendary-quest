@@ -11,16 +11,17 @@ const RantPage = (props) => {
   return (
     <Container className="wrapper">
       <SubHeader current="Rant" />
+      <h2>The challenges you face as a teacher can be daunting. Sometimes you just need to vent or hear a good rant to feel validated.</h2>
       <Row className="diaganol bg-transparent mt-5 mb-4">
         <p>
-          <h2>
+          <h3>
             Know that scary dream where you show up for the final and realize
             you forgot to go to class?
             <br></br>
             <br></br>
             As educators we have that nightmare too but we're the ones who are
             supposed to be teaching it!
-          </h2>
+          </h3>
         </p>
       </Row>
            {/* </Card> */}
