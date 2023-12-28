@@ -410,6 +410,13 @@ z-index: 10;
     border-radius: 30px;
 }
 
+.bulb-shine {
+    position: fixed;
+  top: 6.5rem;
+  left: .9rem;
+  color: yellow;
+}
+
 .button-85 {
   padding: 0.6em 2em;
   border: none;
@@ -554,6 +561,18 @@ padding-bottom: .5rem;
 
   filter: blur(5px);
   -webkit-filter: blur(5px);
+}
+
+@keyframes glowing-dream {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 #dream {

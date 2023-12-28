@@ -28,14 +28,15 @@ function Theme() {
         <div>
           {theme === "light" ? (
             <>
+              <i className="bulb-shine fa fa-certificate fa-spin" />
               <button id="button">
-                <i className="fa fa-lightbulb-o fa-lg fa-spin" />
+                <i className="fa fa-lightbulb-o fa-lg" />
               </button>
             </>
           ) : (
             <>
               <button id="button">
-                <i className="darkBulb fa fa-lightbulb-o fa-lg fa-spin" />
+                <i className="darkBulb fa fa-lightbulb-o fa-lg" />
               </button>
             </>
           )}
