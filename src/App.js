@@ -15,7 +15,7 @@ import BottomText from "./components/BottomText";
 import Theme from "./components/ChangeTheme";
 import "./App.css";
 import { fetchTakes } from "./features/takes/takesSlice";
-import GoogleShare from "./components/GoogleShare";
+// import GoogleShare from "./components/GoogleShare";
 
 function App() {
   const dispatch = useDispatch();
