@@ -129,3 +129,9 @@
     rgb(129, 39, 39)
   );
 }
+
+.vaporWave .comments,
+.comments button
+{
+  color:#000;
+}
