@@ -24,24 +24,32 @@ const ConnectionPage = () => {
                 <a
                   className="btn btn-social-icon btn-instagram"
                   href="http://instagram.com/"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fa fa-instagram" />
                 </a>{" "}
                 <a
                   className="btn btn-social-icon btn-facebook"
                   href="http://www.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fa fa-facebook" />
                 </a>{" "}
                 <a
                   className="btn btn-social-icon btn-twitter"
                   href="http://twitter.com/"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fa fa-twitter" />
                 </a>{" "}
                 <a
                   className="btn btn-social-icon btn-google"
                   href="http://youtube.com/"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   <i className="fa fa-youtube" />
                 </a>
@@ -59,6 +67,8 @@ const ConnectionPage = () => {
                 role="button"
                 className="btn btn-link"
                 href="mailto:support@teachleague.com"
+                target="_blank"
+                rel="noreferrer"
               >
                 <i className="fa fa-envelope-o" /> support@teachleague.com
               </a>
