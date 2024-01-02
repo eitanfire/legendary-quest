@@ -25,10 +25,10 @@
     96.8px 69.7px 144.9px -1.6px hsl(var(--shadow-color) / 0.64),
     150px 107.9px 224.5px -1.9px hsl(var(--shadow-color) / 0.68);
 }
-/* 
+
 html {
   color-scheme: dark light;
-} */
+}
 
 .wrapper {
   /* max-width: 50rem; */
@@ -36,10 +36,10 @@ html {
   padding-inline: 1rem;
 }
 
-#page-container {
+/* #page-container {
   position: relative;
   min-height: 100vh;
-}
+} */
 
 body {
   background: var(--body-bg);
@@ -252,7 +252,7 @@ backdrop-filter: blur(4px) saturate(150%);
   padding: 15px 0;
     -webkit-text-stroke: .75px  rgb(44, 214, 230);
   font-size: larger;
-  margin-top: 0rem;
+  margin-top: 2rem;
   /* width: 100%; */
   text-align: center;
     position: static;
@@ -294,6 +294,12 @@ margin-left: 1.75rem;
 width: max-content;
 } */
 
+.navbar-nav {
+  position: absolute;
+    bottom: 0%;
+    right: 0%
+}
+
 .collapse .navbar-nav {
 backdrop-filter:unset;
 }
@@ -315,7 +321,7 @@ width:max-content;
   .navbar-text {
     position: sticky;
     top:0rem;
-    right:0rem;
+    /* right:10rem; */
       background-clip: text;
   -webkit-background-clip: text;
      -webkit-text-stroke: 0.09rem rgb(255,190,152);
@@ -335,17 +341,21 @@ width:max-content;
 .title-xxl,
 .title-xl,
 .title-md-l,
-.title-xs-sm,
+.title-xs-sm
 /* .btn, */
-.nav-link
+/* .nav-link */
   {
     
     color: rgb(255,190,152);
-    font-family: "Comfortaa", cursive;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-clip: text;
   -webkit-background-clip: text;
      -webkit-text-stroke: 0.09rem rgb(255,190,152);
-
+font-size: 6rem;
+text-align: center;
+left: -45.5rem;
+top:0rem;
+position: absolute;
 }
 
 /* .btn, */
@@ -356,12 +366,30 @@ width:max-content;
   background-clip: text;
   -webkit-background-clip: text;
      -webkit-text-stroke: 0.09rem orange;
+     bottom: 0rem;
+     /* left: 8rem; */
+
+     position: sticky-bottom;
+  }
+
+  .header-banner {
+height: 5rem;
+background-color: #00ffd5;
   }
 
 .vaporwave-title
 {
+  height: 5rem;
+
 color: magenta;
      -webkit-text-stroke: 0.09rem magenta;
+}
+
+.title-xxl,
+  .title-xl,
+  .title-md-l,
+  .title-xs-sm {
+    height: 5rem;
 }
 
 .title-xxl {
@@ -399,15 +427,20 @@ color: magenta;
   filter: grayscale(0);
 }
 
+.flick {
+position: relative;
+  top: 2rem;
+left: 2.3rem;
+}
+
 #button,
 #bulbBanner,
 .darkBulb {
   position: absolute;
     font-size: x-large;
 z-index: 10;
-  top: 2.1rem;
+  top: 3.25rem;
   left: .5rem;
-  /* color: rgb(44, 214, 230); */
     -webkit-text-stroke: 1px rgb(218, 236, 17);
   border-radius: 20px;
 }
@@ -418,8 +451,6 @@ color: rgb(44, 214, 230);
 
 .light #button {
   position: absolute;
-  /* top: 3.75rem;
-  left: -2.75rem; */
   background-color: transparent;
   border-color: transparent;
     border-radius: 30px;
@@ -432,7 +463,7 @@ color: rgb(44, 214, 230);
 .bulb-shine-red
  {
   position: absolute;
-  top: 3.75rem;
+  top: 6.3rem;
   left: -2.75rem;
 }
 
@@ -712,6 +743,7 @@ top: 0;
 
 .teach-league-logo {
    position: absolute;
+   top: 12%;
   opacity: 0.85; 
   -webkit-mask-image: url('./app/assets/img/TLLogo.svg');
   mask-image: url('./app/assets/img/TLLogo.svg');
@@ -812,7 +844,8 @@ color: #9600ff;
 
 .shine {
   position: absolute;
-top: 5rem;
+top: 10.1rem;
+left: 2rem;
 color: yellow;
       -webkit-text-stroke: 0.03rem black;
 margin-left: 1.75rem;
@@ -1097,8 +1130,9 @@ right: 29%;
 
 #BreadCrumb {
   position: relative;
-  top: .15rem;;
+  top: 3.15rem;;
   left: 2rem;
+  padding-bottom: 10%;
 width: 95%;  
 }
 
@@ -1114,7 +1148,7 @@ width: 95%;
     content: "";
   position: absolute;
   /* width: 100%; */
-  top:4rem;
+  /* top:4rem; */
   left: 3rem;
   text-align: left;
   color: purple;
@@ -1145,4 +1179,15 @@ width: 95%;
 max-width: fit-content;
 margin-left: 25%;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-btn {
+  position: absolute;
+  bottom:0rem;
+  left:40rem;
+  color: white;
+  border: 1px solid white;
+  /* color: white; 
+  border: 1px solid white; */
+  background-color: #00ffd5;
 }

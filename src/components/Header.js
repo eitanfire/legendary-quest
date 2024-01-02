@@ -17,9 +17,9 @@ const Header = () => {
     <>
       <Navbar
         dark
-        className="header-banner sticky-top"
+        className="header-banner"
         color="primary"
-        sticky="top"
+        // sticky="top"
         expand="md"
       >
         <NavbarBrand className="ms-4" href="/">

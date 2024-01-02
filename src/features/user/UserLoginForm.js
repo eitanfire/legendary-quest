@@ -41,9 +41,11 @@ const UserLoginForm = () => {
           </div>
         ) : (
           <Button
-            outline
+            // outline
             onClick={() => setLoginModalOpen(true)}
-            style={{ color: "white", border: "1px solid white" }}
+            color="primary"
+            className="login-btn"
+            // style={{ color: "white", border: "1px solid white" }}
           >
             <i className="fa fa-sign-in fa-lg" /> Login
           </Button>

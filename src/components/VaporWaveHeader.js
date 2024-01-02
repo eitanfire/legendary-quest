@@ -14,12 +14,14 @@ const VaporWaveHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <Navbar dark color="primary" sticky="top" expand="md">
+    <Navbar dark color="primary" 
+    sticky="top" 
+    expand="md">
       <NavbarBrand className="ms-4" href="/">
         <object
           type="image/svg+xml"
           data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
-          className="vaporwave-logo-md-xxl d-none d-md-block"
+          className="teach-league-logo vaporwave-logo-md-xxl d-none d-md-block"
         >
           Logo
         </object>

@@ -91,6 +91,8 @@
 .vaporWave .navbar-dark {
   background-color: #901cad;
   height: 5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
@@ -105,6 +107,8 @@
 .light .navbar-dark {
   background-color: #901cad;
   height: 5rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
