@@ -319,12 +319,12 @@ width:max-content;
   }
 
   .navbar-text {
-    position: sticky;
+    /* position: sticky; */
     top:0rem;
     /* right:10rem; */
       background-clip: text;
   -webkit-background-clip: text;
-     -webkit-text-stroke: 0.09rem rgb(255,190,152);
+     /* -webkit-text-stroke: 0.09rem rgb(255,190,152); */
   }
 
 .page-enter-active {
@@ -1180,14 +1180,15 @@ max-width: fit-content;
 margin-left: 25%;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.login-btn {
+.login-btn,
+.vaporWave .login-btn {
   position: absolute;
-  bottom:0rem;
-  left:40rem;
-  color: white;
-  border: 1px solid white;
+  bottom:4rem;
+  left: 95rem;
+  /* color: white; */
+  /* border: 1px solid white; */
   /* color: white; 
   border: 1px solid white; */
   background-color: #00ffd5;
+  color: magenta;
 }
