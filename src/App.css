@@ -379,7 +379,8 @@ background-color: #00ffd5;
 
 .vaporwave-title
 {
-  height: 5rem;
+  position: absolute;
+  top: -18%;
 
 color: magenta;
      -webkit-text-stroke: 0.09rem magenta;
@@ -389,7 +390,7 @@ color: magenta;
   .title-xl,
   .title-md-l,
   .title-xs-sm {
-    height: 5rem;
+    /* height: 5rem; */
 }
 
 .title-xxl {
@@ -397,16 +398,19 @@ color: magenta;
 }
 
 .title-xl {
-  text-indent: 120%;
+  text-indent: 190.5%;
 }
 
 .title-md-l {
-  text-indent: 110%;
+  text-indent: 165%;
 }
 
 .title-xs-sm {
-  text-indent: 65%;
-     font-size: 2rem;
+  text-indent: 210%;
+font-size:7.5svh;
+position: absolute;
+  top: 0%;
+
 }
 
 .page-exit-active {
