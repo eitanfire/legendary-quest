@@ -105,14 +105,28 @@
   /* opacity: .75; */
 }
 
-@media all and (max-width: 512px) {
+@media all and (max-width: 500px) {
   .vaporWave .navbar-dark
    {   
     background-size: 101%;
       background-position: 2% 45%;
-  /* background-blend-mode:luminosity; */
-  filter: invert(8%);
+  background-blend-mode:color-dodge;
+  /* filter: invert(8%); */
+  /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
+/* backdrop-filter: blur(4px) saturate(150%); */
+ }
+}
 
+@media all and (max-width: 1173px) {
+  .vaporWave .navbar-dark
+   {   
+    background-size: 100%;
+      background-position: 2% 45%;
+  background-blend-mode:color-dodge;
+  /* filter:brightness(90%); */
+  /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
+/* backdrop-filter: blur(4px) saturate(150%); */
+/* opacity: 1; */
  }
 }
 

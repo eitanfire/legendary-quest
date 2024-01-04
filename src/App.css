@@ -245,8 +245,8 @@ backdrop-filter: blur(4px) saturate(150%);
           margin-right: 1rem;
 }
 
-.credit-tag {
-}
+/* .credit-tag {
+} */
 
 .site-footer {
   padding: 15px 0;
@@ -300,10 +300,15 @@ width: max-content;
     bottom: 10%;
     right: 2%;
     color: #259936;
-        border-color: lightgreen;
+        border-color: #69604D;
+;
  /* background-clip: text;
   -webkit-background-clip: text;
      -webkit-text-stroke: 0.09rem rgb(255,190,152); */
+  }
+
+  .vaporWave .navbar-toggler { 
+        border-color:magenta;
   }
 
 .navbar-nav {
@@ -323,6 +328,7 @@ backdrop-filter: blur(4px) saturate(150%);
 width:max-content;
     border: 2px solid rgb(44, 214, 230);
     /* align-items: center; */
+    z-index: 1;
   }
 
   .light .show .navbar-nav {
@@ -415,7 +421,7 @@ color: magenta;
 }
 
 .title-md-l {
-  text-indent: 155%;
+  text-indent: 160%;
 }
 
 .title-sm {
@@ -638,6 +644,7 @@ z-index: -2;
   flex-basis: 1;
   /* background-color: #00ffd5; */
 font-size: calc(1vw + 1vh);
+background-color: unset;
 }
 
 /* .card-image, */
@@ -774,6 +781,11 @@ top: 0;
       /* width: 10%; */
       /* height: 115%; */
       height: auto;
+/* backdrop-filter: blur(4px) saturate(150%); */
+}
+
+.vaporWave .teach-league-logo {
+  filter:brightness(65%)  saturate(400%);
 }
 
 .vaporWave .resources-list {
@@ -884,7 +896,10 @@ left: 30%;
 }
 
 .build-community {
-  font-size: 5rem;
+  font-size: calc(5vw + 10vh);
+    color: rgb(255,190,152);
+
+  /* font-size: 5rem; */
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -1109,13 +1124,13 @@ font-size: 3.7rem;
 }
 
 .xs-lounge-button {
-top: 8%;
-left: 8%
+top: 10%;
+right: 6%;
 }
 
 .xs-get-schooled-button {
 top: 8%;
-right: 0%;
+right: 6%;
 }
 
 .sm-md-lounge-button {
@@ -1205,6 +1220,7 @@ max-width: fit-content;
 margin-left: 25%;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .login-btn,
 .vaporWave .login-btn {
   position: absolute;
@@ -1216,4 +1232,22 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 1px solid white; */
   background-color: #00ffd5;
   color: magenta;
+}
+
+@media all and (max-width: 1583px) {
+.login-btn,
+.vaporWave .login-btn {
+    position: absolute;
+  bottom:-4rem;
+  left: 22rem;
+}
+}
+
+@media all and (max-width: 763px) {
+.login-btn,
+.vaporWave .login-btn {
+    position: absolute;
+  bottom:0rem;
+  left: 0rem;
+}
 }

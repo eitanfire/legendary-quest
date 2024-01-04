@@ -70,10 +70,10 @@ const TheTeachersLounge = () => {
         {" "}
         <Col>
           <button
-            className="xs-lounge-button hero-button d-sm-none"
+            className="xs-lounge-button hero-button d-sm-none col col-8"
             onClick={scrollToTeachersLounge}
           >
-            Down to the Teachers Lounge
+            The Teachers Lounge
           </button>
         </Col>{" "}
         <Col>
@@ -81,7 +81,7 @@ const TheTeachersLounge = () => {
             className="sm-md-lounge-button hero-button d-none d-sm-block d-lg-none"
             onClick={scrollToTeachersLounge}
           >
-            Down to the Teachers Lounge
+            The Teachers Lounge
           </button>
         </Col>
         <Col>
@@ -89,7 +89,7 @@ const TheTeachersLounge = () => {
             className="lg-lounge-button hero-button d-none d-lg-block d-xl-none"
             onClick={scrollToTeachersLounge}
           >
-            Down to the Teachers Lounge
+            The Teachers Lounge
           </button>
         </Col>
         <Col>
@@ -97,12 +97,12 @@ const TheTeachersLounge = () => {
             className="xl-xxl-lounge-button hero-button d-none d-xl-block"
             onClick={scrollToTeachersLounge}
           >
-            Down to the Teachers Lounge
+            The Teachers Lounge
           </button>
         </Col>
         <Col>
           <button
-            className="xs-get-schooled-button hero-button d-sm-none"
+            className="xs-get-schooled-button hero-button d-sm-none col col-8"
             onClick={() => scrollTo("Hard-for-Educators-Subsection")}
           >
             Get Schooled

@@ -46,6 +46,7 @@ const UserLoginForm = () => {
             // color="danger"
             className="login-btn"
             // style={{ color: "white", border: "1px solid white", background: "transparent" }}
+            sticky="right"
           >
             <i className="fa fa-sign-in fa-lg" /> Login
           </Button>
