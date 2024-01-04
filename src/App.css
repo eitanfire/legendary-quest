@@ -294,6 +294,18 @@ margin-left: 1.75rem;
 width: max-content;
 } */
 
+.navbar-toggler {
+  position: absolute;
+    bottom: 10%;
+    right: 2%;
+    color: #259936;
+        border-color: lightgreen;
+
+  /* background-clip: text;
+  -webkit-background-clip: text;
+     -webkit-text-stroke: 0.09rem rgb(255,190,152); */
+  }
+
 .navbar-nav {
   position: absolute;
     bottom: 0%;
@@ -402,14 +414,21 @@ color: magenta;
 }
 
 .title-md-l {
-  text-indent: 165%;
+  text-indent: 155%;
 }
 
-.title-xs-sm {
-  text-indent: 210%;
-font-size:7.5svh;
+.title-sm {
+  text-indent: 8%;
+font-size:20svh;
 position: absolute;
   top: 0%;
+}
+
+.title-xs {
+  text-indent: 12%;
+font-size:17svh;
+position: absolute;
+  top: 10%;
 
 }
 

@@ -37,7 +37,10 @@ const Header = () => {
           <h1 className="title-md-l d-none d-md-block d-xl-none">
             Teach League
           </h1>
-          <h1 className="title-xs-sm d-xs-block d-md-none">Teach League</h1>
+          <h1 className="title-sm d-none d-sm-block d-md-none">
+            Teach League
+          </h1>
+          <h1 className="title-xs d-xs-block d-sm-none">Teach League</h1>
         </NavbarBrand>
         <NavbarToggler
           className="navbar"

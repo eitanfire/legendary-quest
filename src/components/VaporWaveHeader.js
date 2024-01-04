@@ -14,10 +14,7 @@ const VaporWaveHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <Navbar dark 
-    color="primary" 
-    sticky="top" 
-    expand="md">
+    <Navbar dark color="primary" sticky="top" expand="md">
       <NavbarBrand className="ms-4" href="/">
         <object
           type="image/svg+xml"
@@ -42,7 +39,10 @@ const VaporWaveHeader = () => {
         <h1 className="vaporwave-title title-md-l d-none d-md-block d-xl-none">
           Teach League
         </h1>
-        <h1 className="vaporwave-title title-xs-sm d-xs-block d-md-none">
+        <h1 className="vaporwave-title title-sm d-none d-sm-block d-md-none">
+          Teach League
+        </h1>
+        <h1 className="vaporwave-title title-xs d-xs-block d-sm-none">
           Teach League
         </h1>{" "}
       </NavbarBrand>
