@@ -102,6 +102,18 @@
     radial-gradient(ellipse at bottom, #fc6767, transparent);
   background-position: -2.5% 45%;
   background-size: 48%;
+  /* opacity: .75; */
+}
+
+@media all and (max-width: 512px) {
+  .vaporWave .navbar-dark
+   {   
+    background-size: 101%;
+      background-position: 2% 45%;
+  /* background-blend-mode:luminosity; */
+  filter: invert(8%);
+
+ }
 }
 
 .light .navbar-dark {

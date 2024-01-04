@@ -294,14 +294,14 @@ margin-left: 1.75rem;
 width: max-content;
 } */
 
+.light .navbar-toggler,
 .navbar-toggler {
   position: absolute;
     bottom: 10%;
     right: 2%;
     color: #259936;
         border-color: lightgreen;
-
-  /* background-clip: text;
+ /* background-clip: text;
   -webkit-background-clip: text;
      -webkit-text-stroke: 0.09rem rgb(255,190,152); */
   }
@@ -391,22 +391,23 @@ background-color: #00ffd5;
 
 .vaporwave-title
 {
-  position: absolute;
-  top: -18%;
 
 color: magenta;
      -webkit-text-stroke: 0.09rem magenta;
 }
 
+.vaporwave-title,
 .title-xxl,
   .title-xl,
   .title-md-l,
   .title-xs-sm {
-    /* height: 5rem; */
-}
+  position: absolute;
+  top: -18%;
+  }
 
 .title-xxl {
-  text-indent: 215%;
+  font-size:6.7rem;
+  text-indent: 185%;
 }
 
 .title-xl {
@@ -418,18 +419,18 @@ color: magenta;
 }
 
 .title-sm {
-  text-indent: 8%;
-font-size:20svh;
+  text-indent: 7%;
+font-size:5rem;
 position: absolute;
   top: 0%;
 }
 
 .title-xs {
-  text-indent: 12%;
-font-size:17svh;
+  text-indent: 10%;
+font-size:4.2rem;
 position: absolute;
-  top: 10%;
-
+  top: 3%;
+   /* background-size: 100%; */
 }
 
 .page-exit-active {
@@ -770,8 +771,9 @@ top: 0;
   opacity: 0.85; 
   -webkit-mask-image: url('./app/assets/img/TLLogo.svg');
   mask-image: url('./app/assets/img/TLLogo.svg');
-      width: 10%;
-      height: 115%;
+      /* width: 10%; */
+      /* height: 115%; */
+      height: auto;
 }
 
 .vaporWave .resources-list {

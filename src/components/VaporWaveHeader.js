@@ -19,17 +19,17 @@ const VaporWaveHeader = () => {
         <object
           type="image/svg+xml"
           data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
-          className="teach-league-logo vaporwave-logo-md-xxl d-none d-md-block"
+          className="teach-league-logo vaporwave-logo"
         >
           Logo
         </object>
-        <object
+        {/* <object
           type="image/svg+xml"
           data="https://garden.spoonflower.com/c/14309517/p/f/m/oKwbAQnUmPMTMWdEJSLEby7ZD7EsUDjwaV9Zk6Ua8HFhN5XbsSLFzBw/Stay%20Golden%20Miami.jpg"
           className="vaporwave-logo-xs-sm d-xs-block d-md-none"
         >
           Logo
-        </object>
+        </object> */}
         <h1 className="vaporwave-title title-xxl d-none d-xxl-block">
           Teach League
         </h1>
@@ -46,7 +46,7 @@ const VaporWaveHeader = () => {
           Teach League
         </h1>{" "}
       </NavbarBrand>
-      <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
+      <NavbarToggler className="navbar-toggler" onClick={() => setMenuOpen(!menuOpen)} />
 
       <Collapse isOpen={menuOpen} navbar>
         <Nav className="ms-auto mt-4 " navbar>

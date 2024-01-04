@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <Theme className="spikes" />
-      <span className="#page-container">
+      {/* <span className="#page-container"> */}
         <Routes>
           <Route path="/" element={<TheTeachersLounge />} />
           <Route path="/TheTeachersLounge" element={<TheTeachersLounge />} />
@@ -41,7 +41,7 @@ function App() {
           <Route path="directory/:courseId" element={<CourseDetailPage />} />
           {/* <Route path="directory/:courseId" element={<GoogleShare />} /> */}
         </Routes>
-      </span>
+      {/* </span> */}
       <span className="site-footer">
         <BottomText />
       </span>
