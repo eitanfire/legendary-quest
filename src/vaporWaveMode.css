@@ -121,12 +121,13 @@
   .vaporWave .navbar-dark
    {   
     background-size: 100%;
-      background-position: 2% 45%;
+      background-position: 0% 55%;
   background-blend-mode:color-dodge;
   /* filter:brightness(90%); */
   /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
 /* backdrop-filter: blur(4px) saturate(150%); */
 /* opacity: 1; */
+
  }
 }
 

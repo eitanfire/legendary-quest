@@ -279,9 +279,59 @@ margin-left: 1.75rem;
   background-clip: text;
   -webkit-background-clip: text;
   color: rgb(44, 214, 230);
-     -webkit-text-stroke: 0.001rem rgb(44, 214, 230);
+     -webkit-text-stroke: 0.004rem white;
             margin-top: 1rem;
 
+}
+
+@media all and (max-width: 1583px) {
+.nav-link,
+.vaporWave .nav-link {
+margin-left: 1.75rem;
+  font-weight: bold;
+  font-family: "Comfortaa";
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: magenta;
+       -webkit-text-stroke: 0.1rem white;
+
+     /* -webkit-text-stroke: 0.04rem white; */
+            margin-top: 1rem;
+
+}
+}
+
+@media all and (max-width: 1583px) {
+.nav-link,
+.light .nav-link {
+margin-left: 1.75rem;
+  font-weight: bold;
+  font-family: "Comfortaa";
+  background-clip: text;
+  -webkit-background-clip: text;
+  /* color:  #FF512F;
+     -webkit-text-stroke: 0.001rem rgb(44, 214, 230); */
+          color: white;
+     -webkit-text-stroke: 0.1rem rgb(41, 71, 41);
+            margin-top: 1rem;
+
+}
+}
+
+@media all and (max-width:  1173px) {
+.nav-link,
+.vaporWave .nav-link {
+margin-left: 1.75rem;
+  font-weight: bold;
+  font-family: "Comfortaa";
+  background-clip: text;
+  -webkit-background-clip: text;
+     /* color: white; */
+          color: white;
+     -webkit-text-stroke: 0.1rem rgb(41, 71, 41);
+            margin-top: 1rem;
+
+}
 }
 
 /* .nav-link .active {
@@ -1234,16 +1284,16 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: magenta;
 }
 
-@media all and (max-width: 1583px) {
+/* @media all and (max-width: 1583px) {
 .login-btn,
 .vaporWave .login-btn {
     position: absolute;
   bottom:-4rem;
   left: 22rem;
 }
-}
+} */
 
-@media all and (max-width: 763px) {
+@media all and (max-width: 1583px) {
 .login-btn,
 .vaporWave .login-btn {
     position: absolute;
