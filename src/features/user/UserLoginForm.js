@@ -43,7 +43,7 @@ const UserLoginForm = () => {
           <Button
             // outline
             onClick={() => setLoginModalOpen(true)}
-            // color="danger"
+            color="primary"
             className="login-btn"
             // style={{ color: "white", border: "1px solid white", background: "transparent" }}
             sticky="right"

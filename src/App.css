@@ -198,6 +198,7 @@ color: FF512F;
 font-size: x-large;
 }
 
+.vaporWave #Hard-for-Educators-Subsection,
 .you-should-let-your-teaching-shine,
 .course-body,
 .youtube-playlist,
@@ -327,8 +328,8 @@ margin-left: 1.75rem;
   background-clip: text;
   -webkit-background-clip: text;
      /* color: white; */
-          color: white;
-     -webkit-text-stroke: 0.1rem rgb(41, 71, 41);
+          color: rgb(244, 200, 244);
+     -webkit-text-stroke: 0.07rem black;
             margin-top: 1rem;
 
 }
@@ -426,20 +427,34 @@ top:0rem;
 position: absolute;
 }
 
-/* .btn, */
-.nav-link {
-  font-weight: bolder;
-     color: orange;
+@media all and (max-width: 767px) {
+  .light .nav-link 
+  { 
+      font-weight: bolder;
     font-family: "Comfortaa", cursive;
   background-clip: text;
   -webkit-background-clip: text;
-     -webkit-text-stroke: 0.09rem orange;
+         color: #69604D;
+     -webkit-text-stroke: 0.05rem #f09819#69604D; 
+     /* backdrop-filter: blur(4px) saturate(150%); */
+
+    }
+}
+/* .btn, */
+@media all and (min-width: 767px) {
+.light .nav-link {
+  font-weight: bolder;
+    font-family: "Comfortaa", cursive;
+  background-clip: text;
+  -webkit-background-clip: text;
+  /* color: #69604D;
+     -webkit-text-stroke: 0.05rem #f09819; */
+       color: #f09819;
+     -webkit-text-stroke: 0.05rem #69604D;
      bottom: 0rem;
      /* left: 8rem; */
-
-     position: sticky-bottom;
   }
-
+}
   .header-banner {
 height: 5rem;
 background-color: #00ffd5;
@@ -482,7 +497,7 @@ position: absolute;
 }
 
 .title-xs {
-  text-indent: 10%;
+  /* text-indent: 0%; */
 font-size:4.2rem;
 position: absolute;
   top: 3%;
@@ -1007,7 +1022,7 @@ font-size: 3rem;
 background-size: 800px;
   background-image:   url("./app/assets/img/broken-pencil.png");
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: 45% 50%;
   /* animation: fade-in linear;
   animation-timeline: view(); */
 }
@@ -1175,12 +1190,12 @@ font-size: 3.7rem;
 
 .xs-lounge-button {
 top: 10%;
-right: 6%;
+right: 12%;
 }
 
 .xs-get-schooled-button {
 top: 8%;
-right: 6%;
+right: 12%;
 }
 
 .sm-md-lounge-button {
