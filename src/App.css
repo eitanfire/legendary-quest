@@ -416,7 +416,12 @@ width:max-content;
   {
     
     color: rgb(255,190,152);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    /* font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+        /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+        /* font-family:Arial, Helvetica, sans-serif; */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   background-clip: text;
   -webkit-background-clip: text;
      -webkit-text-stroke: 0.09rem rgb(255,190,152);
@@ -473,7 +478,7 @@ color: magenta;
   .title-md-l,
   .title-xs-sm {
   position: absolute;
-  top: -18%;
+  top: -10%;
   }
 
 .title-xxl {
