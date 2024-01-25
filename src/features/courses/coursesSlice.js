@@ -49,10 +49,12 @@ export const selectAllCourses = (state) => {
 };
 
 export const selectRandomCourse = (state) => {
-  return state.courses.coursesArray[
-    Math.floor(fetchCourses.length * Math.random())
-  ];
+  const coursesArray = state.courses.coursesArray;
+  const randomIndex = Math.floor(coursesArray.length * Math.random());
+
+  return coursesArray[randomIndex];
 };
+
 
 export const selectCourseById = (id) => (state) => {
   return state.courses.coursesArray.find(
@@ -84,8 +86,6 @@ export const selectFreeCourse = (state) => {
 export const shortSelectFeaturedCourse = (state) => {
   return selectFeaturedCourse.slice(0, 20);
 };
-
-// selectors.js
 
 export const selectGovernmentCourses = (state) => {
   return {

@@ -268,7 +268,7 @@
 
 #nAColor {
   content: "";
-  box-shadow: inset 0 0 0 1000px rgba(190, 17, 28, 0.541);
+  box-shadow: inset 0 0 0 1000px rgba(212, 212, 15, 0.541);
   background: 
   /* radial-gradient(circle, #3a97b4d1 25%, rgb(55, 30, 151) 10%), */ url("../src/app/assets/img/na-bg.jpg");
   background-size: 2000px;
