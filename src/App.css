@@ -92,6 +92,7 @@ color: rgb(44, 214, 230)
 }
 
 .light h2 {
+    font-size:3rem;
   color: white;
 /* color: rgb(55, 183, 55); */
 text-align:start;
@@ -114,6 +115,7 @@ h3,
 }
 
 .vaporWave h2 {
+  font-size:3rem;
 color: magenta;
 text-align:start;
 }
@@ -251,7 +253,7 @@ backdrop-filter: blur(4px) saturate(150%);
 
 .site-footer {
   padding: 15px 0;
-    -webkit-text-stroke: .75px  rgb(44, 214, 230);
+    -webkit-text-stroke: .75px  rgb(0, 223, 244);
   font-size: larger;
   margin-top: 2rem;
   /* width: 100%; */
@@ -262,7 +264,7 @@ backdrop-filter: blur(4px) saturate(150%);
 .vaporWave .site-footer
 
 {
-color: rgb(148, 115, 54);
+color: rgb(224, 240, 5);
 }
 
 .page-enter {
@@ -741,9 +743,9 @@ color: #ec008c;
 
 #TeachersLounge {
      /* height: 90%;
-     background-color: aqua; */
-         /* width: 100%;
-  display: flex;
+     background-color: aqua;
+         width: 100%; */
+  /* display: flex;
       gap: 1rem;
     background-color: #ae6135; */
 }
@@ -935,6 +937,9 @@ font-weight: 1000;
   top: 0%;
   left: 25%;
   height: fit-content;
+}
+.subheader-title {
+color:unset
 }
 
 .light .subheading {

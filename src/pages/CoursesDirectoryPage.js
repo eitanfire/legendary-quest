@@ -32,7 +32,7 @@ const CoursesDirectoryPage = () => {
   return (
     <Container>
       <Row>
-        <Col>
+        <Col class='subheader-title'>
           <SubHeader current="Resources" />
         </Col>
       </Row>
