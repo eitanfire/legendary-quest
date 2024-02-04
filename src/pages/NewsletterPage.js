@@ -4,14 +4,14 @@ import FreeCourse from "../components/FreeCourse";
 import SubHeader from "../components/SubHeader";
 import React, { useEffect } from "react";
 
-const ConnectionPage = () => {
-      useEffect(() => {
-        document.title = "Connect";
-      }, []);
+const NewsletterPage = () => {
+  useEffect(() => {
+    document.title = "Newsletter";
+  }, []);
 
   return (
     <Container>
-      <SubHeader current="Connect" />
+      <SubHeader current="Newsletter" />
       <Card id="social-bar" className="m-4">
         <CardBody>
           <Row className="row-content align-items-center">
@@ -83,7 +83,7 @@ const ConnectionPage = () => {
         </Col>
         <Col xs="6">
           <subheading className="subheading">
-            Sign up for a free account
+            Sign up for the newsletter
           </subheading>
           <hr />
           <SignUpForm />
@@ -93,4 +93,4 @@ const ConnectionPage = () => {
   );
 };
 
-export default ConnectionPage;
+export default NewsletterPage;

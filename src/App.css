@@ -503,12 +503,21 @@ position: absolute;
 font-size:4.2rem;
 position: absolute;
   top: 3%;
+  /* left: 0% */
    /* background-size: 100%; */
 }
 
-@media all and (max-width: 450px) {.title-xs { 
-  text-indent: 3%;
-  font-size:3.8rem;
+@media all and (max-width: 455px) {.title-xs { 
+  /* text-indent: 3%; */
+    left: 0%;
+font-size:3.8rem;
+ }
+}
+
+@media all and (max-width: 320px) {.title-xs { 
+  /* text-indent: 3%; */
+    left: 0%;
+font-size:3.2rem;
  }
 }
 
@@ -750,6 +759,12 @@ color: #ec008c;
     background-color: #ae6135; */
 }
 
+@media all and (max-width: 385px) { #TeachersLounge  { 
+  /* position: absolute; */
+padding-top: 7rem;
+ }
+}
+
 .diaganol {
   --diaganol-color:var(--body-bg)
   padding: 1rem;
@@ -938,11 +953,21 @@ font-weight: 1000;
   left: 25%;
   height: fit-content;
 }
+
+.extra-take {
+    border-top: 2px solid rgb(255,190,152);
+}
+
+.vaporWave .extra-take {
+    border-top: 2px solid rgb(44, 214, 230);
+}
+
 .subheader-title {
 color:unset
 }
 
 .light .subheading {
+margin-left: unset;
   color: #69604D;
 }
 .subheading {
@@ -1050,6 +1075,18 @@ background-size: 800px;
 font-size: 4rem;
 text-align: center;
 }
+
+@media all and (max-width: 385px) { .Hard-for-Educators  { 
+  /* position: absolute; */
+padding-top: 5rem;
+ }
+}
+
+
+/* @media all and (max-width: 385px) {#Hard-for-Educators-Subsection { 
+
+ }
+} */
 
 #Hard-for-Educators-Subsection {
 left:5%;
@@ -1197,6 +1234,19 @@ font-size: 3.7rem;
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
+}
+
+@media all and (max-width: 455px) {.crumple { 
+font-size:2.5rem;
+ }
+}
+
+.flick-the-lights { 
+color: rgb(255,190,152);
+}
+
+.vaporWave .flick-the-lights { 
+color: #00ffd5;
 }
 
 .xs-lounge-button {

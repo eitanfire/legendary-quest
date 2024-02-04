@@ -70,7 +70,7 @@ const TakesList = () => {
         } else {
           // Render other archive takes
           return (
-            <Row className="mb-5" key={id}>
+            <Row className="extra-take mb-5" key={id}>
               <Col className="mt-5 col col-xs-10">
                 <a href={link} target="_blank" rel="noreferrer">
                   <Take take={take} />

@@ -36,7 +36,6 @@ const TheTeachersLounge = () => {
   }, []);
 
   // Set the default and dynamic titles
-  // Add a separate useEffect for navigation
   useEffect(() => {
     if (scrolledToTeachersLounge) {
       navigate("/TheTeachersLounge");
@@ -238,7 +237,7 @@ const TheTeachersLounge = () => {
         </p>
         <p className="crumple">Our Students are Counting on Us.</p>
         <br></br>{" "}
-        <p className="crumple"> Let's Flick the Lights on Oppression.</p>
+        <p className="crumple flick-the-lights"> Let's Flick the Lights on Oppression.</p>
       </div>
       <Container id="TeachersLounge">
         <SubHeader current="The Teachers Lounge" />

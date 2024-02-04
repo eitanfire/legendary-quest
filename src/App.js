@@ -5,7 +5,7 @@ import { fetchRants } from "./features/rants/rantsSlice";
 import { fetchComments } from "./features/comments/commentsSlice";
 import CoursesDirectoryPage from "./pages/CoursesDirectoryPage";
 import { Routes, Route } from "react-router-dom";
-import ConnectionPage from "./pages/ConnectionPage";
+import NewsletterPage from "./pages/NewsletterPage";
 import TheTeachersLounge from "./pages/TheTeachersLounge";
 import RantPage from "./pages/RantPage";
 import TakesPage from "./pages/TakesPage";
@@ -30,17 +30,17 @@ function App() {
     <div className="App">
       <Theme className="spikes" />
       {/* <span className="#page-container"> */}
-        <Routes>
-          <Route path="/" element={<TheTeachersLounge />} />
-          <Route path="/TheTeachersLounge" element={<TheTeachersLounge />} />
-          <Route path="rant" element={<RantPage />} />
-          <Route path="connect" element={<ConnectionPage />} />
-          <Route path="watch" element={<MovieDayPage />} />
-          <Route path="takes" element={<TakesPage />} />
-          <Route path="directory" element={<CoursesDirectoryPage />} />
-          <Route path="directory/:courseId" element={<CourseDetailPage />} />
-          {/* <Route path="directory/:courseId" element={<GoogleShare />} /> */}
-        </Routes>
+      <Routes>
+        <Route path="/" element={<TheTeachersLounge />} />
+        <Route path="/TheTeachersLounge" element={<TheTeachersLounge />} />
+        <Route path="rant" element={<RantPage />} />
+        <Route path="newsletter" element={<NewsletterPage />} />
+        <Route path="watch" element={<MovieDayPage />} />
+        <Route path="takes" element={<TakesPage />} />
+        <Route path="directory" element={<CoursesDirectoryPage />} />
+        <Route path="directory/:courseId" element={<CourseDetailPage />} />
+        {/* <Route path="directory/:courseId" element={<GoogleShare />} /> */}
+      </Routes>
       {/* </span> */}
       <span className="site-footer">
         <BottomText />
