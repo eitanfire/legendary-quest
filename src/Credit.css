@@ -38,12 +38,11 @@
 .vaporWave .allCoursesCredit {
   color: white;
   background-color: #333;
-;
 }
 
 .allCoursesCredit {
   /* background-color: currentColor; */
-    text-align: center;
+  text-align: center;
   font-size: 1.5rem;
   position: relative;
   border: thick double;
@@ -80,5 +79,4 @@
 .lACredit:active,
 .credit:active {
   background-color: currentColor;
-  /* text-emphasis-color: white; */
 }
