@@ -71,8 +71,8 @@ const VaporWaveHeader = () => {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="nav-link" to="/connect">
-              <i className="fa far fa-comments" /> Connect
+            <NavLink className="nav-link" to="/newsletter">
+              <i className="fa far fa-comments" /> Newsletter
             </NavLink>
           </NavItem>
         </Nav>
