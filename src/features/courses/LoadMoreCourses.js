@@ -18,15 +18,14 @@ const LoadMoreCourses = () => {
   const courses = useSelector((state) => state.courses.coursesArray); // Accessing the coursesArray state from Redux
   const isLoading = useSelector((state) => state.courses.isLoading);
   const errMsg = useSelector((state) => state.courses.errMsg);
-const handleTagClick = (tag) => {
- 
-  // Toggle the tag in the list
-  setTags((prevTags) =>
-    prevTags.includes(tag)
-      ? prevTags.filter((t) => t !== tag)
-      : [...prevTags, tag]
-  );
-};
+  const handleTagClick = (tag) => {
+    // Toggle the tag in the list
+    setTags((prevTags) =>
+      prevTags.includes(tag)
+        ? prevTags.filter((t) => t !== tag)
+        : [...prevTags, tag]
+    );
+  };
   const handleMoreCourse = () => {
     setNext(next + coursePerRow);
     if (next + coursePerRow >= courses.length) {
