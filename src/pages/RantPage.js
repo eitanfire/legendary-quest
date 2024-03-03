@@ -4,10 +4,10 @@ import RantsList from "../features/rants/RantsList";
 import React, { useEffect } from "react";
 
 const RantPage = (props) => {
-      useEffect(() => {
-        document.title = "Rant";
-      }, []);
-      
+  useEffect(() => {
+    document.title = "Rant";
+  }, []);
+
   return (
     <Container className="wrapper">
       <SubHeader current="Rant" />
