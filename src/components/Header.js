@@ -37,9 +37,7 @@ const Header = () => {
           <h1 className="title-md-l d-none d-md-block d-xl-none">
             Teach League
           </h1>
-          <h1 className="title-sm d-none d-sm-block d-md-none">
-            Teach League
-          </h1>
+          <h1 className="title-sm d-none d-sm-block d-md-none">Teach League</h1>
           <h1 className="title-xs d-xs-block d-sm-none">Teach League</h1>
         </NavbarBrand>
         <NavbarToggler
@@ -50,7 +48,7 @@ const Header = () => {
           <Nav className="ms-auto mt-4 " navbar>
             <NavItem className="nav-item">
               <NavLink className="nav-link" to="/">
-                <i className="fa fa-coffee" /> Lounge
+                <i className="fa fa-coffee fa-lg" /> Lounge
               </NavLink>
             </NavItem>
             <NavItem>
@@ -61,17 +59,17 @@ const Header = () => {
             </NavItem>
             <NavItem>
               <NavLink className="nav-link" to="/rant">
-                <i className="fa fa-solid fa-bullhorn" /> Rant
+                <i className="fa fa-solid fa-bullhorn fa-lg" /> Rant
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink className="nav-link" to="/takes">
-                <i className="fa fa-solid fa-fire" /> Takes
+                <i className="fa fa-solid fa-fire fa-lg" /> Takes
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink className="nav-link" to="/newsletter">
-                <i className="fa far fa-comments" /> Newsletter
+                <i className="fa far fa-comments fa-lg" /> Newsletter
               </NavLink>
             </NavItem>
             {/* <NavItem>
