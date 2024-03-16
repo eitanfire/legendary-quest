@@ -32,8 +32,25 @@ const CoursesDirectoryPage = () => {
   return (
     <Container>
       <Row>
-        <Col class='subheader-title'>
+        <Col class="subheader-title">
           <SubHeader current="Resources" />
+          <h3 className="social-media-links">
+            <a
+              className="btn btn-social-icon btn-google"
+              href="https://www.youtube.com/@eitanfire9861/playlists"
+              target="_blank"
+              rel="noopener"
+            >
+              <i className="fa fa-youtube" />
+            </a>
+            <a
+              href="https://www.youtube.com/@eitanfire9861/playlists"
+              target="_blank"
+              rel="noopener"
+            >
+            </a>{" "}
+            Need a video? Subscribe for curated content.
+          </h3>
         </Col>
       </Row>
       {selectedTags.length === 0 && selectedTags.includes("All courses") && (

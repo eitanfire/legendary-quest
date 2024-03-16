@@ -95,7 +95,10 @@ const CourseDetail = ({ course }) => {
               <Col>
                 <Card className="youtube-playlist">
                   <a href={youtube} target="_blank" rel="noreferrer">
-                    {icon} YouTube playlist for {name}
+                    <a className="btn btn-social-icon btn-google">
+                      <i className="fa fa-youtube" />
+                    </a>{" "}
+                    YouTube playlist for {name}
                   </a>
                 </Card>
               </Col>
