@@ -136,7 +136,26 @@ const TheTeachersLounge = () => {
         <h3 className="Not-Just-You">It's Not Just You</h3>
         <span className="broken-pencil"></span>
         <h3 className="Hard-for-Educators">It's Hard for Educators</h3>
+        <Container id="TeachersLounge">
+          <SubHeader current="The Teachers Lounge" />
+          <span>
+            <DisplayList className="displayList" />
+          </span>
+        </Container>
+        {/* Set the document title dynamically */}
+        {document.title !== pageTitle && (document.title = pageTitle)}
       </Row>
+      <div id="enough" className="enough wrapper">
+        <p className="text-center">
+          {/* <span className="crumple">Enough.</span> */}
+        </p>
+        <p className="crumple">Our Students are Counting on Us.</p>
+        <br></br>{" "}
+        <p className="crumple flick-the-lights">
+          {" "}
+          Let's Flick the Lights on Oppression.
+        </p>
+      </div>
       <Row id="intro-info" className="intro-info-bg">
         <CardHeader>
           <Col id="Hard-for-Educators-Subsection">
@@ -231,22 +250,6 @@ const TheTeachersLounge = () => {
           </button>
         </Col> */}
       </Row>
-      <div id="enough" className="enough wrapper">
-        <p className="text-center">
-          <span className="crumple">Enough.</span>
-        </p>
-        <p className="crumple">Our Students are Counting on Us.</p>
-        <br></br>{" "}
-        <p className="crumple flick-the-lights"> Let's Flick the Lights on Oppression.</p>
-      </div>
-      <Container id="TeachersLounge">
-        <SubHeader current="The Teachers Lounge" />
-        <span>
-          <DisplayList className="displayList" />
-        </span>
-      </Container>
-      {/* Set the document title dynamically */}
-      {document.title !== pageTitle && (document.title = pageTitle)}
     </>
   );
 };
