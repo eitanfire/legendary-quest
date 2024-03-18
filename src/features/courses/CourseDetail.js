@@ -107,7 +107,10 @@ const CourseDetail = ({ course }) => {
               <Col>
                 <Card className="youtube-playlist">
                   <a href={extrayoutube} target="_blank" rel="noreferrer">
-                    {icon} Related playlist for {name}
+                    <a className="btn btn-social-icon btn-google">
+                      <i className="fa fa-youtube" />
+                    </a>{" "}
+                    Related playlist for {name}
                   </a>
                 </Card>
               </Col>
@@ -116,7 +119,10 @@ const CourseDetail = ({ course }) => {
               <Col>
                 <Card className="youtube-playlist">
                   <a href={extrayoutube1} target="_blank" rel="noreferrer">
-                    {icon} Another related playlist for {name}
+                    <a className="btn btn-social-icon btn-google">
+                      <i className="fa fa-youtube" />
+                    </a>{" "}
+                    Another related playlist for {name}
                   </a>
                 </Card>
               </Col>

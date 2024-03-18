@@ -47,8 +47,7 @@ const CoursesDirectoryPage = () => {
               href="https://www.youtube.com/@eitanfire9861/playlists"
               target="_blank"
               rel="noopener"
-            >
-            </a>{" "}
+            ></a>{" "}
             Need a video? Subscribe for curated content.
           </h3>
         </Col>

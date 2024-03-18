@@ -59,10 +59,6 @@ const NewsletterPage = () => {
               </Col>
             </Col>
             <Col>
-              {/* <a role="button" className="btn btn-link" href="tel:+12065551234">
-                <i className="fa fa-phone" /> 1-206-555-1234
-              </a>
-              <br /> */}
               <a
                 role="button"
                 className="btn btn-link"

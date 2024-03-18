@@ -1202,6 +1202,7 @@ top: 45%;
 }
 
 #enough {
+  margin-top: 10%;
         font-family: "helvetica", cursive;
 color: rgb(255,190,152);
   /* min-height: 19rem; */
