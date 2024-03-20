@@ -91,8 +91,8 @@
 .vaporWave .navbar-dark {
   background-color: #901cad;
   height: 5rem;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
@@ -106,37 +106,34 @@
 }
 
 @media all and (max-width: 500px) {
-  .vaporWave .navbar-dark
-   {   
+  .vaporWave .navbar-dark {
     background-size: 101%;
-      background-position: 2% 45%;
-  background-blend-mode:color-dodge;
-  /* filter: invert(8%); */
-  /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
-/* backdrop-filter: blur(4px) saturate(150%); */
- }
+    background-position: 2% 45%;
+    background-blend-mode: color-dodge;
+    /* filter: invert(8%); */
+    /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
+    /* backdrop-filter: blur(4px) saturate(150%); */
+  }
 }
 
 @media all and (max-width: 1173px) {
-  .vaporWave .navbar-dark
-   {   
+  .vaporWave .navbar-dark {
     background-size: 100%;
-      background-position: 0% 60%;
-  background-blend-mode:color-dodge;
-    filter:invert(.01);
-  /* filter:brightness(90%); */
-  /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
-/* backdrop-filter: blur(4px) saturate(150%); */
-/* opacity: 1; */
-
- }
+    background-position: 0% 60%;
+    background-blend-mode: color-dodge;
+    filter: invert(0.01);
+    /* filter:brightness(90%); */
+    /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
+    /* backdrop-filter: blur(4px) saturate(150%); */
+    /* opacity: 1; */
+  }
 }
 
 .light .navbar-dark {
   background-color: #901cad;
   height: 5rem;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   min-width: none;
   border-top: 1px solid #000;
   border-bottom: 1px solid rgb(0, 0, 0);
@@ -163,7 +160,6 @@
 }
 
 .vaporWave .comments,
-.comments button
-{
-  color:#000;
+.comments button {
+  color: #000;
 }

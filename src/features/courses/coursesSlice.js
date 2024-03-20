@@ -55,7 +55,6 @@ export const selectRandomCourse = (state) => {
   return coursesArray[randomIndex];
 };
 
-
 export const selectCourseById = (id) => (state) => {
   return state.courses.coursesArray.find(
     (course) => course.id === parseInt(id)
@@ -89,8 +88,8 @@ export const shortSelectFeaturedCourse = (state) => {
 
 export const selectGovernmentCourses = (state) => {
   return {
-    freeItem: state.courses.coursesArray.filter(
-      (course) => course.credit.includes("Government")
+    freeItem: state.courses.coursesArray.filter((course) =>
+      course.credit.includes("Government")
     ),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,
@@ -99,8 +98,8 @@ export const selectGovernmentCourses = (state) => {
 
 export const selectWorldHistoryCourses = (state) => {
   return {
-    freeItem: state.courses.coursesArray.filter(
-      (course) => course.credit.includes("World History")
+    freeItem: state.courses.coursesArray.filter((course) =>
+      course.credit.includes("World History")
     ),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,
@@ -109,8 +108,8 @@ export const selectWorldHistoryCourses = (state) => {
 
 export const selectUSHistoryCourses = (state) => {
   return {
-    freeItem: state.courses.coursesArray.filter(
-      (course) => course.credit.includes("US History")
+    freeItem: state.courses.coursesArray.filter((course) =>
+      course.credit.includes("US History")
     ),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,
@@ -119,8 +118,8 @@ export const selectUSHistoryCourses = (state) => {
 
 export const selectGeographyCourses = (state) => {
   return {
-    freeItem: state.courses.coursesArray.filter(
-      (course) => course.credit.includes("Geography")
+    freeItem: state.courses.coursesArray.filter((course) =>
+      course.credit.includes("Geography")
     ),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,
@@ -129,8 +128,8 @@ export const selectGeographyCourses = (state) => {
 
 export const selectMandatoryCourses = (state) => {
   return {
-    freeItem: state.courses.coursesArray.filter(
-      (course) => course.credit.includes("Mandatory")
+    freeItem: state.courses.coursesArray.filter((course) =>
+      course.credit.includes("Mandatory")
     ),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,
@@ -139,8 +138,8 @@ export const selectMandatoryCourses = (state) => {
 
 export const selectLanguageArtsCourses = (state) => {
   return {
-    freeItem: state.courses.coursesArray.filter(
-      (course) => course.credit.includes("Language Arts")
+    freeItem: state.courses.coursesArray.filter((course) =>
+      course.credit.includes("Language Arts")
     ),
     isLoading: state.courses.isLoading,
     errMsg: state.courses.errMsg,

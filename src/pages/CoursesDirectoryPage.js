@@ -7,9 +7,9 @@ import LoadMoreCourses from "../features/courses/LoadMoreCourses.js";
 import CoursesList from "../features/courses/CoursesList";
 
 const CoursesDirectoryPage = () => {
-     useEffect(() => {
-       document.title = "Resources";
-     }, []);
+  useEffect(() => {
+    document.title = "Resources";
+  }, []);
 
   const [selectedTags, setSelectedTags] = useState([]);
 
