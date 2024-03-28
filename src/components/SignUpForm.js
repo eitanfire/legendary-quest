@@ -119,8 +119,7 @@ const SignUpForm = () => {
             href="mailto:eitanfire@gmail.com"
             target="_blank"
             rel="noreferrer"
-          >
-          </a>
+          ></a>
         </ModalBody>
         <ModalFooter>
           <Col xs={{ size: 11, offset: 5 }}>
