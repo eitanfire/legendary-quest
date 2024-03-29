@@ -49,7 +49,7 @@ const UserLoginForm = () => {
     <>
       <span className="navbar-text ml-auto">
         {currentUser ? (
-          <div style={{ width: "4rem", height: "4rem" }}>
+          <div className="avatar">
             <img
               src={currentUser.avatar || defaultAvatar} // Use default avatar if currentUser.avatar is not available
               alt={"user"}

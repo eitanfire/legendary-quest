@@ -1374,11 +1374,19 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 .login-btn,
 .vaporWave .login-btn {
     position: absolute;
-  bottom:0rem;
+  top:0rem;
   left: 0rem;
 }
 }
 
+
+.avatar {
+      position: absolute;
+  bottom:25%;
+  right: 0%;
+width: 3.5rem;
+height: auto;
+}
 .social-media-links {
 margin-left: 10%; 
 }
