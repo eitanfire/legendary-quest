@@ -1381,12 +1381,20 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 
 .avatar {
-      position: absolute;
+  position: absolute;
   bottom:25%;
   right: 0%;
-width: 3.5rem;
-height: auto;
+  width: 3.5rem;
+  height: auto;
+    border-radius: 30px;
+  border: 2px solid black;
 }
+
+.vaporWave .avatar {   border: 2px solid magenta
+   /* #00ffd5 */
+   ;
+}
+
 .social-media-links {
 margin-left: 10%; 
-}
+};

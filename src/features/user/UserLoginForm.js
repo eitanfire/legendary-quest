@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentUser, selectCurrentUser } from "./userSlice";
 import {
@@ -12,18 +12,13 @@ import {
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import defaultAvatar from "../../app/assets/img/Avatar.png"; // Import default avatar image
 import { validateUserLoginForm } from "../../utils/validateUserLoginForm";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  EmailAuthCredential,
-  getAuth,
-  signInWithEmailAndPassword,
-  updatePassword,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
+import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const UserLoginForm = () => {
   const auth = getAuth();
   const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [loginError, setLoginError] = useState(null); // State to store login error
   const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
 
@@ -40,8 +35,10 @@ const UserLoginForm = () => {
       setLoginModalOpen(false);
     } catch (error) {
       // Handle login error
+      setLoginError(
+        "No account was found with the credentials you provided. Try again or create a new account."
+      );
       console.error("Login error:", error.message);
-      // You can dispatch an action or set an error message state to display to the user
     }
   };
 
@@ -76,6 +73,9 @@ const UserLoginForm = () => {
           >
             {(formik) => (
               <Form>
+                {loginError && formik.submitCount > 0 && (
+                  <p className="text-danger">{loginError}</p>
+                )}
                 <FormGroup>
                   <Label htmlFor="username">
                     Username
