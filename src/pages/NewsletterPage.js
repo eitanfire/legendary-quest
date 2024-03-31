@@ -6,12 +6,27 @@ import React, { useEffect } from "react";
 
 const NewsletterPage = () => {
   useEffect(() => {
-    document.title = "Newsletter";
+    document.title = "Sign Up";
   }, []);
+
+
+  const handleCopyClick = () => {
+    const emailInput = document.getElementById("emailInput");
+    emailInput.select();
+    document.execCommand("copy");
+    emailInput.setSelectionRange(0, 0);
+  };
 
   return (
     <Container>
-      <SubHeader current="Newsletter" />
+      <SubHeader current="Create an Account" />
+      <Row>
+        <h1 className="text-center mb-4">Easier than signing a yearbook</h1>
+        <SignUpForm />
+        {/* <Col> */}
+        <FreeCourse id="free-course" />
+        {/* </Col> */}
+      </Row>
       <Card id="social-bar" className="m-4">
         <CardBody>
           <Row className="row-content align-items-center">
@@ -62,29 +77,26 @@ const NewsletterPage = () => {
               <a
                 role="button"
                 className="btn btn-link"
-                href="mailto:support@teachleague.com"
+                href="mailto:teachleagueabc@gmail.com
+"
                 target="_blank"
                 rel="noreferrer"
               >
-                <i className="fa fa-envelope-o" /> support@teachleague.com
+                <i className="fa fa-envelope-o" /> teachleagueabc@gmail.com
+              </a>
+              <a
+                href="teachleagueabc@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <button className="btn btn-link" onClick={handleCopyClick}>
+                  <i className="fa fa-copy" />
+                </button>
               </a>
             </Col>
           </Row>
         </CardBody>
       </Card>
-      <Row>
-        <h1 className="text-center mb-4">Easier than signing a yearbook</h1>
-        <Col xs="6">
-          <FreeCourse id="free-course" />
-        </Col>
-        <Col xs="6">
-          <subheading className="subheading">
-            Sign up for the newsletter
-          </subheading>
-          <hr />
-          <SignUpForm />
-        </Col>
-      </Row>
     </Container>
   );
 };

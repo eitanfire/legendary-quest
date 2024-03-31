@@ -7,14 +7,18 @@ function NotificationForm() {
 
   return (
     <Row>
-      <Col>
-        <Label check md={{ size: 5, offset: 2 }}>
+      {/* <Col> */}
+        {/* <Label check md={{ size: 5, offset: 2 }}> */}
           <Field name="agree" type="checkbox" className="form-check-input" />
           {"  "}
-          Stay in Touch
-        </Label>
-      </Col>
-      <div>
+ {/* <Col xs="6"> */}
+          <h2 className="subheading">
+            Sign up for the newsletter
+          </h2>
+          <hr />        
+          {/* </Label> */}
+      {/* </Col> */}
+      {/* <div> */}
         <label>
           <input
             type="radio"
@@ -24,7 +28,7 @@ function NotificationForm() {
           />{" "}
           By Email
         </label>
-      </div>
+      {/* </div> */}
 
       <div>
         <label>

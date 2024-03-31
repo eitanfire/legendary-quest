@@ -1,8 +1,5 @@
 export const validateUserLoginForm = (values) => {
   const errors = {};
-  // if (!values.login) {
-  //   errors.login = "No account was found with the credentials you provided. Try again or create a new account.";
-  // }
   if (!values.username) {
     errors.username = "Required";
   } else if (values.username.length < 6) {
