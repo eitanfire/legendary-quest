@@ -37,13 +37,15 @@ const SignUpForm = () => {
   return (
     <div>
       <FormGroup row>
+        <Col></Col>
         <Col
         // md={{ size: 10, offset: 2 }}
         >
           <Button
-            className="sign-up"
+            className="btn btn-primary btn-lg btn-block"
+            role="button"
             type="submit"
-            // color="primary"
+            color="primary"
             onClick={toggleModal}
           >
             Sign Up
