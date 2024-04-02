@@ -9,7 +9,6 @@ const NewsletterPage = () => {
     document.title = "Sign Up";
   }, []);
 
-
   const handleCopyClick = () => {
     const emailInput = document.getElementById("emailInput");
     emailInput.select();
