@@ -31,7 +31,6 @@ html {
 }
 
 .wrapper {
-  /* max-width: 50rem; */
   margin-inline: auto;
   padding-inline: 1rem;
 }
@@ -47,9 +46,6 @@ body {
   font-family: "Open Sans", sans-serif;
   position: relative;
   padding-bottom: 2.5rem;
-/* min-height: 100%; */
-/* height: fit-content; */
-/* width:auto; */
 overflow-x: hidden;
 }
 
@@ -94,7 +90,6 @@ color: rgb(44, 214, 230)
 .light h2 {
     font-size:3rem;
   color: white;
-/* color: rgb(55, 183, 55); */
 text-align:start;
 }
 
@@ -146,7 +141,6 @@ font-size:large;
   max-height: 2rem;
   max-width: auto;
     position:relative;
-  /* border: 4px solid black; */
   height: min-content;
   object-fit: cover;
 }
