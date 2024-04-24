@@ -11,7 +11,10 @@ const BottomText = () => {
       </p>
       <div className="∞-learning">
         <div>Need something right now?</div>
-        <div>☜ Assign this for ∞ learning. You'll still need to find your own sub though.</div>
+        <div>
+          ☜ Assign this for ∞ learning. You'll still need to find your own sub
+          though.
+        </div>
       </div>
     </>
   );

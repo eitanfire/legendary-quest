@@ -42,7 +42,7 @@ const SignUpForm = () => {
         // md={{ size: 10, offset: 2 }}
         >
           <Button
-            className="btn btn-primary btn-lg btn-block"
+            className="sign-up-btn btn btn-primary btn-lg btn-block"
             role="button"
             type="submit"
             color="primary"

@@ -5,7 +5,7 @@ import { fetchRants } from "./features/rants/rantsSlice";
 import { fetchComments } from "./features/comments/commentsSlice";
 import CoursesDirectoryPage from "./pages/CoursesDirectoryPage";
 import { Routes, Route } from "react-router-dom";
-import NewsletterPage from "./pages/NewsletterPage";
+import AccountPage from "./pages/AccountPage";
 import TheTeachersLounge from "./pages/TheTeachersLounge";
 import RantPage from "./pages/RantPage";
 import TakesPage from "./pages/TakesPage";
@@ -34,7 +34,7 @@ function App() {
         <Route path="/" element={<TheTeachersLounge />} />
         <Route path="/TheTeachersLounge" element={<TheTeachersLounge />} />
         <Route path="rant" element={<RantPage />} />
-        <Route path="newsletter" element={<NewsletterPage />} />
+        <Route path="account" element={<AccountPage />} />
         <Route path="watch" element={<MovieDayPage />} />
         <Route path="takes" element={<TakesPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />

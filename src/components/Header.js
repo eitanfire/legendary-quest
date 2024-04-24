@@ -68,8 +68,8 @@ const Header = () => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className="nav-link" to="/newsletter">
-                <i className="fa far fa-comments fa-lg" /> Newsletter
+              <NavLink className="nav-link" to="/account">
+                <i className="fa far fa-comments fa-lg" /> Account
               </NavLink>
             </NavItem>
             {/* <NavItem>

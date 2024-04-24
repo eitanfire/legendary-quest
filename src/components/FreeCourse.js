@@ -14,9 +14,6 @@ const FreeCourse = () => {
 
   return (
     <Container>
-      <subheading className="subheading">
-        Receive a <b>free</b> course when you sign up
-      </subheading>
       <Row className="ms-auto">
         {courses.map((course) => {
           return (

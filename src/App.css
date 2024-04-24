@@ -223,7 +223,8 @@ linear-gradient(
 .electiveCredit,
 .mandatoryCredit,
 .lACredit,
-.credit 
+.credit,
+.sign-up-col
 {
   box-shadow: var(--shadow-elevation-medium);
       -webkit-text-stroke: 0.03rem black;
@@ -632,6 +633,7 @@ z-index: -2;
   touch-action: manipulation;
 }
 
+/* .sign-up-col, */
 .button-85:before {
   content: "";
   background: linear-gradient(
@@ -699,7 +701,7 @@ z-index: -2;
 #social-bar {
   background-size: 2100px;
   background-image: url("https://images.surferseo.art/72645927-376a-41df-90b4-183722dca33b.jpeg");
-  background-position: 90% 18%;
+  background-position: 90% 21%;
 }
 
 .displaylist {
@@ -807,6 +809,7 @@ padding-top: 7rem;
 
 }
 
+.sign-up-col,
 .course-links-container,
 .comments 
 {
@@ -961,13 +964,13 @@ color:unset
 }
 
 .light .subheading {
-margin-left: unset;
-  color: #69604D;
+/* margin-left: unset; */
+  /* color: #69604D; */
 }
 .subheading {
 font-size: x-large;
 font-family:Verdana, Geneva, Tahoma, sans-serif;
-color: #9600ff;
+/* color: #9600ff; */
 }
 
 .CardGroup {
@@ -991,11 +994,24 @@ left: 30%;
 }
 
 .build-community {
-  font-size: calc(3vw + 7vh);
-    color: rgb(255,190,152);
-
-  /* font-size: 5rem; */
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: calc(3vw + 7vh); */
+    /* color: rgb(255,190,152); */
+  font-size: 5rem;
+  font-size: calc(5vw);
+  font-family:fantasy;
+  /* height:5rem; */
+    /* background: -webkit-linear-gradient(#09203f, #958653); */
+    background: rgb(2,0,36);
+/* background-position: 25% 75%; */
+background: linear-gradient(170deg, rgba(2,0,36,1) 0%, rgba(26,149,146,1) 35%, rgba(0,212,255,1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* color: rgb(34, 6, 61); */
+  margin-bottom: 0%;
+  position: absolute;
+  left: 24%;
+  top: 16%;
 }
 
  .copy-button {
@@ -1373,6 +1389,30 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 }
 
+/* .have-an-account-login-btn {
+position: inline;
+left:10rem;
+} */
+
+/* .top-of-fold-sign-up-btn {
+position:absolute;
+left: 5;
+color: #00ffd5;
+} */
+
+.sign-up-btn {
+  position: relative;
+right: 50%;
+margin-top: 5%;
+}
+
+.sign-up-col {
+position: relative;
+align-items: left;
+margin-bottom: 5%;
+/* margin-left: 18%; */
+/* height: 10%; */
+}
 
 .avatar {
   position: absolute;
