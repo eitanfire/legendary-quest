@@ -57,6 +57,7 @@ const CoursesDirectoryPage = () => {
       )}
       <Tags selectedTags={selectedTags} onTagClick={handleTagClick} />
       {selectedTags.length > 0 && <CoursesList courses={filteredCourses} />}
+      <span className="gclassroom-padding"></span>
     </Container>
   );
 };

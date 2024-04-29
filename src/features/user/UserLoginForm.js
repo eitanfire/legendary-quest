@@ -109,7 +109,7 @@ const UserLoginForm = () => {
                 </Button>
                 &nbsp;&nbsp;&nbsp;
                 <Link
-                  to="/newsletter"
+                  to="/account"
                   className=""
                   type="submit"
                   color="primary"

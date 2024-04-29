@@ -17,6 +17,10 @@
   color: white;
 }
 
+.vaporWave .credit-tag {
+  background-color: #333;
+}
+
 .vaporWave a:link:not(.title) {
   color: white;
 }
@@ -36,7 +40,6 @@
 
 .vaporWave .site-footer {
   background-blend-mode: hard-light;
-
   filter: invert(8%);
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
@@ -45,8 +48,10 @@
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
-  background-position: 70% 25%;
-  background-size: 99%;
+  background-position: 50% 25%;
+  /* background-size: 100%; */
+  width: 100%;
+  filter:contrast(.96);
 }
 
 .light .site-footer {
@@ -103,6 +108,8 @@
   background-position: -2.5% 45%;
   background-size: 48%;
   /* opacity: .75; */
+filter:brightness(.96);
+
 }
 
 @media all and (max-width: 500px) {

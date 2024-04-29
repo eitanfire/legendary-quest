@@ -42,9 +42,7 @@ function App() {
         {/* <Route path="directory/:courseId" element={<GoogleShare />} /> */}
       </Routes>
       {/* </span> */}
-      <span className="site-footer">
-        <BottomText />
-      </span>
+      <BottomText />
     </div>
   );
 }

@@ -20,12 +20,12 @@ const SignUpForm = () => {
     setModalOpen(!isModalOpen);
   };
 
-  const handleCopyClick = () => {
-    const emailInput = document.getElementById("emailInput");
-    emailInput.select();
-    document.execCommand("copy");
-    emailInput.setSelectionRange(0, 0);
-  };
+  // const handleCopyClick = () => {
+  //   const emailInput = document.getElementById("emailInput");
+  //   emailInput.select();
+  //   document.execCommand("copy");
+  //   emailInput.setSelectionRange(0, 0);
+  // };
 
   const handleSubmit = (values, { resetForm }) => {
     console.log("form values:", values);
@@ -108,7 +108,9 @@ const SignUpForm = () => {
                   <NotificationForm />
                 </FormGroup>
                 <FormGroup row>
-                  <Col md={{ size: 10, offset: 2 }}>
+                  <Col 
+                  // md={{ size: 10, offset: 2 }}
+                  >
                     <Button type="submit" color="primary" onClick={toggleModal}>
                       Register
                     </Button>
@@ -137,7 +139,9 @@ const SignUpForm = () => {
           ></a>
         </ModalBody> */}
         <ModalFooter>
-          <Col xs={{ size: 11, offset: 5 }}>
+          <Col 
+          // xs={{ size: 11, offset: 5 }}
+          >
             <Button color="primary" onClick={toggleModal}>
               Close
             </Button>

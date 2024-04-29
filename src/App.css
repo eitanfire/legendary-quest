@@ -26,6 +26,12 @@
     150px 107.9px 224.5px -1.9px hsl(var(--shadow-color) / 0.68);
 }
 
+.light {
+  color: #414141;
+  text-shadow: 0px 1px white;
+  background-color: #F2F2F2;
+}
+
 html {
   color-scheme: dark light;
 }
@@ -42,11 +48,11 @@ html {
 
 body {
   background: var(--body-bg);
-  color: white;
   font-family: "Open Sans", sans-serif;
   position: relative;
   padding-bottom: 2.5rem;
 overflow-x: hidden;
+padding-bottom: 4rem;
 }
 
 h3,
@@ -243,17 +249,18 @@ backdrop-filter: blur(4px) saturate(150%);
           margin-right: 1rem;
 }
 
-/* .credit-tag {
-} */
+.credit-tag {
+  background-color:white
+}
 
 .site-footer {
   padding: 15px 0;
     -webkit-text-stroke: .75px  rgb(0, 223, 244);
   font-size: larger;
-  margin-top: 2rem;
+  margin-top: 4rem;
   /* width: 100%; */
   text-align: center;
-    position: static;
+    position: absolute;
 }
 
 .vaporWave .site-footer
@@ -454,6 +461,7 @@ position: absolute;
 }
   .header-banner {
 height: 5rem;
+filter:brightness(.96);
 background-color: #00ffd5;
   }
 
@@ -692,10 +700,12 @@ z-index: -2;
 }
 
 #free-course {
-  position: relative;
+  position: static;
   margin-right: 200rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  /* margin-top: 1rem; */
+  /* margin-bottom: 1rem; */
+  padding: 5px;
+   margin-bottom: 1%;
 }
 
 #social-bar {
@@ -908,7 +918,7 @@ top: 0;
 
 .resource-img {
 position:relative;
-margin-top: 5%;
+/* margin-top: 5%; */
 /* margin-left: 2rem; */
 z-index: 10;
 border: 2px solid black;
@@ -1316,9 +1326,11 @@ width: 95%;
 .light .∞-learning {
   content: "";
     position: absolute;
-  bottom:2.5rem;
+  bottom:4rem;
   left: 3rem;
   text-align: left;
+      filter:brightness(.96);
+
 }
 
 .vaporWave .∞-learning {
@@ -1327,9 +1339,10 @@ width: 95%;
   /* width: 100%; */
   /* top:4rem; */
   left: 3rem;
+  bottom: 4rem;
   text-align: left;
-  color: purple;
-  background-color:color-mix(in srgb-linear, transparent 45%, black 55%);
+  color: rgb(150, 142, 150);
+  /* background-color:unset; */
 /* backdrop-filter: blur(4px) saturate(150%); */
 }
 
@@ -1339,6 +1352,10 @@ width: 95%;
   top: 210rem;
   right: 10%;
 } */
+
+.gclassroom-padding {
+  height: 4.5rem;
+}
 
 .row-content {
 
@@ -1403,15 +1420,18 @@ color: #00ffd5;
 .sign-up-btn {
   position: relative;
 right: 50%;
-margin-top: 5%;
+/* left: 50%; */
+margin-top: 10%
 }
 
 .sign-up-col {
 position: relative;
-align-items: left;
-margin-bottom: 5%;
+align-items: center;
+padding: 15px;
+/* margin-bottom: 5%; */
 /* margin-left: 18%; */
-/* height: 10%; */
+ height: fit-content;
+ margin-bottom: 3%;
 }
 
 .avatar {
