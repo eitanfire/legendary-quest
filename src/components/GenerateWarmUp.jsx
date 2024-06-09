@@ -7,16 +7,16 @@ const GenerateWarmUp = () => {
   const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
-    console.log("User Input Changed:", e.target.value); // Debugging
+    // console.log("User Input Changed:", e.target.value);
     setUserInput(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted"); // Debugging
+    // console.log("Form Submitted");
     setLoading(true);
     try {
-      console.log("Calling run with userInput:", userInput); // Debugging
+      // console.log("Calling run with userInput:", userInput);
       const response = await run(userInput);
       // console.log("API Response:", response); // Debugging
 
