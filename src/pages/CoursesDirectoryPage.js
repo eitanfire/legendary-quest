@@ -5,6 +5,7 @@ import Tags from "../features/courses/creditType/Tags";
 import { useSelector } from "react-redux";
 import LoadMoreCourses from "../features/courses/LoadMoreCourses.js";
 import CoursesList from "../features/courses/CoursesList";
+import { Link } from "react-router-dom";
 
 const CoursesDirectoryPage = () => {
   useEffect(() => {
@@ -51,6 +52,18 @@ const CoursesDirectoryPage = () => {
             Need a video? Subscribe for curated content.
           </h3>
         </Col>
+      </Row>
+      <Row>
+        {" "}
+        <Link
+          to="/warmups"
+          className=""
+          type="submit"
+          color="primary"
+          // onClick={() => setLoginModalOpen(false)}
+        >
+          Warm-Ups
+        </Link>
       </Row>
       {selectedTags.length === 0 && selectedTags.includes("All courses") && (
         <LoadMoreCourses />

@@ -11,6 +11,7 @@ import RantPage from "./pages/RantPage";
 import TakesPage from "./pages/TakesPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
 import MovieDayPage from "./pages/MovieDayPage";
+import WarmUpPage from "./pages/WarmUpPage";
 import BottomText from "./components/BottomText";
 import Theme from "./components/ChangeTheme";
 import "./App.css";
@@ -39,6 +40,7 @@ function App() {
         <Route path="takes" element={<TakesPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
+        <Route path="warmups" element={< WarmUpPage/>} />
         {/* <Route path="directory/:courseId" element={<GoogleShare />} /> */}
       </Routes>
       {/* </span> */}
