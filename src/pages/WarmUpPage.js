@@ -12,11 +12,11 @@ const WarmUpPage = () => {
     <Container>
       <SubHeader current="Warm-Ups" />
       <Row>
+        <p>
+          Warm-ups, Bellringers, Skill Drills, Class Openers, Bellwork, Do Nows,
+          Entry Tickets, Welcome Work, Questions of the Day.
+        </p>
         <Col className="comments">
-          <p>
-            Warm-ups, Bellringers, Skill Drills, Class Openers, Bellwork, Do
-            Nows, Entry Tickets, Welcome Work, Questions of the Day.
-          </p>
           <p>
             Starting class by having students work on a literacy activity can
             increase your effectiveness in the classroom.
