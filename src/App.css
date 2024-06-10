@@ -200,6 +200,7 @@ color: FF512F;
 font-size: x-large;
 }
 
+.ai-input,
 .vaporWave #Hard-for-Educators-Subsection,
 .you-should-let-your-teaching-shine,
 .course-body,
@@ -1449,9 +1450,27 @@ padding: 15px;
    ;
 }
 
-.social-media-links {
-margin-left: 10%; 
-};
+.ai-input-field {
+  margin-top: 2rem;
+margin-left: 2rem;
+}
+
+.ai-submit-btn {
+margin-left: 40%
+}
+
+.ai-prompt-boilerplate {
+  width: 100%;
+margin-top: 2rem;
+}
+
+/* .social-media-links {
+text-align: center;
+}; */
+
+/* .btn-social-icon {
+display: block;
+} */
 
 /* .sign-up-btn {
 text-align: center;  
