@@ -1,5 +1,5 @@
-import { Container, Row, Col } from "reactstrap";
 import { useEffect } from "react";
+import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import GenerateWarmUp from '../../src/components/GenerateWarmUp.jsx';
 
@@ -12,26 +12,34 @@ const WarmUpPage = () => {
     <Container>
       <SubHeader current="Warm-Ups" />
       <Row>
-        <p>
+        <h4 className="">
           Warm-ups, Bellringers, Skill Drills, Class Openers, Bellwork, Do Nows,
           Entry Tickets, Welcome Work, Questions of the Day.
-        </p>
-        <Col className="comments">
-          <p>
-            Starting class by having students work on a literacy activity can
-            increase your effectiveness in the classroom.
+        </h4>
+        <h4>
+          {" "}
+          Starting class by having students work on a literacy activity can
+          increase your effectiveness in the classroom.
+        </h4>
+        <Col className="col-xl-12">
+          <p className="m-1">
+            <h3 className="diaganol bg-transparent warm-up-title text-center">
+              Powerup Engagement
+            </h3>
+            <div>
+              I begin class by with a daily warm-up question on the board or
+              screen for students to respond to as class begins. I ask students
+              to respond to a thought-provoking question that connects with
+              their own identity and with the content we're studying in class. I
+              share these questions with students on Google Classroom in a view
+              only file and a response sheet which I have Google Classroom make
+              a copy for each student. I find that the response sheet is helpful
+              to keep students organized but I don't require them to use it.
+              While students are hard at work I take attendance and get complete
+              any setup for the class period.
+            </div>
           </p>
-          <p>
-            I begin class by projecting a daily warm-up question for students to
-            respond to as class begins. I ask students to respond to a
-            thought-provoking question that connects with their own identity and
-            with the content we're studying in class. I share these questions
-            with students on Google Classroom in a view only file and a response
-            sheet which I have Google Classroom make a copy for each student. I
-            find that the response sheet is helpful to keep students organized
-            but I don't require them to use it. While students are hard at work
-            I take attendance and get complete any setup for the class period.
-          </p>
+            <br></br>
           <p>
             After about 10 minutes I check students' response and record a grade
             between 1 and 8 points for their response. After 10 responses I
@@ -43,9 +51,9 @@ const WarmUpPage = () => {
             to use the warm-up as an entry point into the day's lesson.
           </p>
         </Col>
-        <Col className="ai-input mt-4 mb-4">
+        <Col className="col-xl-8 ai-input-component mt-4 mb-4">
           <h3>
-            Generate your own warm-up question with <b>AI</b>
+            <b>Generate your own warm-up question with AI</b>
           </h3>
           <GenerateWarmUp />
         </Col>

@@ -27,8 +27,8 @@
 }
 
 .light {
-  color: #414141;
-  text-shadow: 0px 1px white;
+  /* color: #414141; */
+  /* text-shadow: 0px 1px white; */
   background-color: #F2F2F2;
 }
 
@@ -200,7 +200,7 @@ color: FF512F;
 font-size: x-large;
 }
 
-.ai-input,
+.ai-input-component,
 .vaporWave #Hard-for-Educators-Subsection,
 .you-should-let-your-teaching-shine,
 .course-body,
@@ -812,6 +812,16 @@ padding-top: 7rem;
   100% {
     background-position: 0 0;
   }
+}
+
+.warm-up-title {
+  max-height: 2rem;
+    margin-top: 1.75rem;
+  /* margin-bottom: 2rem; */
+    padding-top: 1rem;
+  padding-bottom: 3rem;
+    --skew-angle: 0deg;
+
 }
 
 #dream {
@@ -1450,18 +1460,30 @@ padding: 15px;
    ;
 }
 
+.ai-input-component {
+  padding: 1.5%;
+  margin-left: 2%;
+  border: 2px solid black;
+}
+
 .ai-input-field {
   margin-top: 2rem;
-margin-left: 2rem;
+/* margin-left: 2rem; */
 }
 
 .ai-submit-btn {
+  margin-top: 2%;
 margin-left: 40%
 }
 
 .ai-prompt-boilerplate {
   width: 100%;
 margin-top: 2rem;
+}
+
+.ai-textarea {
+/* margin-left: 2rem; */
+width: 100%;
 }
 
 /* .social-media-links {

@@ -91,14 +91,14 @@ const GenerateWarmUp = () => {
   return (
     <>
       <button
-        className="ai-prompt-boilerplate"
+        className="ai-prompt-boilerplate btn btn-outline-info"
         onClick={handle1stButtonClick}
         disabled={loading}
       >
         Use primary sources to understand the Revolutionary War
       </button>
       <button
-        className="ai-prompt-boilerplate"
+        className="ai-prompt-boilerplate btn btn-outline-info"
         onClick={handle2ndButtonClick}
         disabled={loading}
       >
@@ -106,24 +106,30 @@ const GenerateWarmUp = () => {
         respond to challenges?
       </button>
       <button
-        className="ai-prompt-boilerplate"
+        className="ai-prompt-boilerplate btn btn-outline-info"
         onClick={handle3rdButtonClick}
         disabled={loading}
       >
-        Compare and contrast the causes and effects of WWI and WWII based on political, economic, and technological factors.
+        Compare and contrast the causes and effects of WWI and WWII based on
+        political, economic, and technological factors.
       </button>
       <div className="ai-input-field">
         What topic and skills will you be exploring in today's lesson?
         <form onSubmit={handleSubmit}>
           <textarea
+            className="ai-textarea"
             value={userInput}
             onChange={handleInputChange}
             placeholder="Type your input here"
-            rows="4"
-            cols="50"
+            rows="3"
+            // cols="64"
           />
           <br />
-          <button className="ai-submit-btn" type="submit" disabled={loading}>
+          <button
+            className="ai-submit-btn button-85"
+            type="submit"
+            disabled={loading}
+          >
             {loading ? "Generating..." : "Submit"}
           </button>
         </form>
