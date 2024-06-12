@@ -628,7 +628,8 @@ z-index: -2;
 }
 
 .button-85 {
-  padding: 0.6em 2em;
+  /* padding: 0.6em 2em; */
+    padding: .6em 3.8em;
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
@@ -636,7 +637,7 @@ z-index: -2;
   cursor: pointer;
   position: relative;
   z-index: 0;
-  border-radius: 10px;
+  border-radius: 15px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -1462,28 +1463,31 @@ padding: 15px;
 
 .ai-input-component {
   padding: 1.5%;
-  margin-left: 2%;
+  margin-left: 12%;
+    margin-right: 12%;
   border: 2px solid black;
 }
 
 .ai-input-field {
   margin-top: 2rem;
-/* margin-left: 2rem; */
+margin-left: 3rem;
+margin-right: 3rem;
+padding-left: 8rem;
 }
 
 .ai-submit-btn {
   margin-top: 2%;
-margin-left: 40%
+margin-left: 32%;
 }
 
 .ai-prompt-boilerplate {
-  width: 100%;
 margin-top: 2rem;
+margin: 1rem;
 }
 
 .ai-textarea {
-/* margin-left: 2rem; */
-width: 100%;
+margin-left: 2rem;
+width: 75%;
 }
 
 /* .social-media-links {
