@@ -53,7 +53,7 @@ const WarmUpPage = () => {
         // className="d-none d-block-lg"
         >
         </Col>
-        <Col className="col-lg-8 ai-input-component mt-4 mb-4">
+        <Col className="col-9 col-lg-8 ai-input-component mt-4 mb-4">
           <h3>
             <b>Generate your own warm-up question with AI</b>
           </h3>

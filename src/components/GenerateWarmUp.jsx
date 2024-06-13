@@ -93,34 +93,36 @@ const GenerateWarmUp = () => {
 
   return (
     <Container>
-      <Col className="hstack">
-        <button
-          className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
-          onClick={handle1stButtonClick}
-          disabled={loading}
-        >
-          Analyze primary sources to understand the Revolutionary War
-        </button>
-        <button
-          className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
-          onClick={handle2ndButtonClick}
-          disabled={loading}
-        >
-          Examine how different economic and government systems affect how
-          countries respond to challenges?
-        </button>
-        <button
-          className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
-          onClick={handle3rdButtonClick}
-          disabled={loading}
-        >
-          Compare and contrast the causes and effects of WWI and WWII based on
-          political, economic, and technological factors.
-        </button>
-      </Col>
+        <Col className="">
+          <button
+            className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+            onClick={handle1stButtonClick}
+            disabled={loading}
+          >
+            Analyze primary sources to understand the Revolutionary War
+          </button>
+          <button
+            className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+            onClick={handle2ndButtonClick}
+            disabled={loading}
+          >
+            Examine how different economic and government systems affect how
+            countries respond to challenges?
+          </button>
+          <button
+            className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+            onClick={handle3rdButtonClick}
+            disabled={loading}
+          >
+            Compare and contrast the causes and effects of WWI and WWII based on
+            political, economic, and technological factors.
+          </button>
+        </Col>
       <Row>
         <div className="ai-input-field">
-          What topic and skills will you be exploring in today's lesson?
+          <div className="text-md-center mb-3">
+            What topic and skills will you be exploring in today's lesson?
+          </div>
           <form onSubmit={handleSubmit}>
             <textarea
               className="ai-textarea"
@@ -142,7 +144,7 @@ const GenerateWarmUp = () => {
           {aiResponse && (
             <div>
               <h3>Warm-Up Question:</h3>
-              <p>{aiResponse}</p>
+              <p className="ai-response">{aiResponse}</p>
             </div>
           )}
         </div>

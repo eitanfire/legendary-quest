@@ -1464,20 +1464,17 @@ padding: 15px;
 .ai-input-component {
   padding: 1.5%;
   margin-left: 12%;
-    margin-right: 12%;
-  border: 2px solid black;
+  margin-right: 12%;
+  border: 2px solid rgb(147, 103, 103);
 }
 
 .ai-input-field {
-  margin-top: 2rem;
-margin-left: 3rem;
-margin-right: 3rem;
-padding-left: 8rem;
+  margin-bottom: 2rem;
 }
 
 .ai-submit-btn {
   margin-top: 2%;
-margin-left: 32%;
+margin-left: 28%;
 }
 
 .ai-prompt-boilerplate {
@@ -1486,8 +1483,13 @@ margin: 1rem;
 }
 
 .ai-textarea {
-margin-left: 2rem;
+  margin-bottom: 1rem;
+margin-left: 14%;
 width: 75%;
+}
+
+.ai-response {
+margin-right: 5rem;
 }
 
 /* .social-media-links {
