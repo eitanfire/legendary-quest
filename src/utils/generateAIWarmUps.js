@@ -39,7 +39,7 @@ export async function run(userInput) {
 
   const parts = [
     {
-      text: "input: " + userInput,
+      text: userInput,
     },
     {
       text: "output: Don't label the prompt. \n\nA writing prompt that will activate students' background knowledge on the topic and the skills they will use for the day's lesson. Students should respond with at least five sentences or a sketchnote. (which is a picture that symbolically answers the question) but you don't need to reiterate this requirement.",
