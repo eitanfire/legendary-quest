@@ -19,6 +19,7 @@ import {
   makeCopyOfDescription,
 } from "../../utils/makeCopyOfLinks";
 import GoogleShare from "../../components/GoogleShare";
+// import STWResources from '../../features/courses/stw-resources.html';
 
 const CourseDetail = ({ course }) => {
   const {
@@ -160,13 +161,13 @@ const CourseDetail = ({ course }) => {
             {/* <a href="#warm-ups" onClick="renderWidget();">
             Render the Classroom share button
           </a> */}
-            <div id="warm-ups">
+            {/* <div id="warm-ups">
               <div
                 class="g-sharetoclassroom"
                 data-size="32"
                 data-url="..."
               ></div>
-            </div>
+            </div> */}
             {/* <g:sharetoclassroom size=32 url="http://google.com"></g:sharetoclassroom> */}
             {/* <a
             href="https://classroom.google.com/share?url=https://foo.com/"
@@ -174,37 +175,59 @@ const CourseDetail = ({ course }) => {
           >
             Warm-Ups
           </a> */}
-            {/* <Col class="g-sharetoclassroom" data-size="32" data-url="...">
-            <a
+            {/* <Col class="g-sharetoclassroom" data-size="32" data-url="..."> */}
+            {/* <a
               href="https://classroom.google.com/share?url=https://foo.com/"
               topic="Warm-Up Questions"
+              body="Come to class on time and aim to write at least five (5) sentences or a sketchnote. You may respond to the question, to another prompt of your choice, journal about how it’s going or what you’re grateful for, or add to your own story"
+              // className="g-sharetoclassroom"
             >
               {" "}
               Warm-Ups
-            </a>
-          </Col> */}
-            {/* {warmups && ( */}
-            <div
-              //   className="warmUps"
-              //  explicit
-              class="g-sharetoclassroom"
-              data-size="64"
-              data-theme="classic"
+            </a> */}
+            {/* <a
+              href="https://classroom.google.com/share?url=https://foo.com/"
               data-topic="Warm-Up Questions"
-              data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/"
-              //  data-role="presentation"
-              //  data-url={mapassignments}
-              //            data-url1="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit"
-              //            data-url2="https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit"
-              data-itemtype="assignment"
-              data-title="Warm-Ups"
-              data-body="Come to class on time and aim to write at least five (5) sentences or a sketchnote. You may respond to the question, to another prompt of your choice, journal about how it’s going or what you’re grateful for, or add to your own story."
-              // data-copies-only=true
-              // data-role="dialog"
+              body="Come to class on time and aim to write at least five (5) sentences or a sketchnote. You may respond to the question, to another prompt of your choice, journal about how it’s going or what you’re grateful for, or add to your own story"
+              // className="g-sharetoclassroom"
             >
-              {/* hello */}
-            </div>
-            {/* )} */}
+              {" "}
+              Warm-Ups
+            </a> */}
+            {/* <g:sharetoclassroom
+              size="32"
+              url="http://google.com"
+            ></g:sharetoclassroom> */}
+            {/* {React.createElement(
+              "g:sharetoclassroom",
+              { theme: "dark", size: "32" },
+              null
+            )}
+            ; */}
+            {/* <div class="g-sharetoclassroom" data-size="32" data-url="..."></div> */}
+            {/* </Col> */}
+            {/* {warmups && (
+              <div
+                className="warmUps"
+                explicit
+                clasName="g-sharetoclassroom"
+                data-size="64"
+                data-theme="classic"
+                data-topic="Warm-Up Questions"
+                data-url="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/"
+                data-role="presentation" */}
+            {/* //  data-url={mapassignments}
+                //            data-url1="https://docs.google.com/document/d/1dbdDA3tfZp5NugzgwWx2FdOfh7b3U2xHxGbILYKIliA/edit"
+                //            data-url2="https://docs.google.com/document/d/1cftkj88mYvBn6q3JI5YAJXJgcVvpERpo1nWDzs88wSY/edit"
+                data-itemtype="assignment"
+                data-title="Warm-Ups"
+                data-body="Come to class on time and aim to write at least five (5) sentences or a sketchnote. You may respond to the question, to another prompt of your choice, journal about how it’s going or what you’re grateful for, or add to your own story."
+                data-copies-only={true}
+                // data-role="dialog"
+              >
+                hello */}
+            {/* </div>
+            )} */}
           </Row>
           <br></br>
           {extra && (

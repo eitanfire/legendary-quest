@@ -21,7 +21,7 @@ const TheTeachersLounge = () => {
         setScrolledToTeachersLounge(scrolled);
 
         if (scrolled) {
-          navigate("/TheTeachersLounge");
+          navigate("/#TeachersLounge");
         }
       }
     };
@@ -33,12 +33,12 @@ const TheTeachersLounge = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [navigate]);
 
   // Set the default and dynamic titles
   useEffect(() => {
     if (scrolledToTeachersLounge) {
-      navigate("/TheTeachersLounge");
+      navigate("/#TeachersLounge");
     }
   }, [scrolledToTeachersLounge, navigate]);
 
@@ -56,17 +56,13 @@ const TheTeachersLounge = () => {
     }
   };
 
-  const scrollToEnough = () => {
-    scrollTo("enough");
+  const scrollToTeachersLounge = () => {
+    scrollTo("/#TeachersLounge");
   };
 
-  const scrollToTeachersLounge = () => {
-    scrollTo("TeachersLounge");
-  };
   return (
     <>
       <Row>
-        {" "}
         <Col>
           <button
             className="xs-lounge-button hero-button d-sm-none col col-8"
@@ -74,7 +70,7 @@ const TheTeachersLounge = () => {
           >
             The Teachers Lounge
           </button>
-        </Col>{" "}
+        </Col>
         <Col>
           <button
             className="sm-md-lounge-button hero-button d-none d-sm-block d-lg-none"
@@ -105,7 +101,7 @@ const TheTeachersLounge = () => {
             onClick={() => scrollTo("Hard-for-Educators-Subsection")}
           >
             Get Schooled
-          </button>{" "}
+          </button>
         </Col>
         <Col>
           <button
@@ -113,7 +109,7 @@ const TheTeachersLounge = () => {
             onClick={() => scrollTo("Hard-for-Educators-Subsection")}
           >
             Get Schooled
-          </button>{" "}
+          </button>
         </Col>
         <Col>
           <button
@@ -121,7 +117,7 @@ const TheTeachersLounge = () => {
             onClick={() => scrollTo("Hard-for-Educators-Subsection")}
           >
             Get Schooled
-          </button>{" "}
+          </button>
         </Col>
         <Col>
           <button
@@ -129,7 +125,7 @@ const TheTeachersLounge = () => {
             onClick={() => scrollTo("Hard-for-Educators-Subsection")}
           >
             Get Schooled
-          </button>{" "}
+          </button>
         </Col>
       </Row>
       <Row className="broken-pencil-section">
@@ -146,13 +142,10 @@ const TheTeachersLounge = () => {
         {document.title !== pageTitle && (document.title = pageTitle)}
       </Row>
       <div id="enough" className="enough wrapper">
-        <p className="text-center">
-          {/* <span className="crumple">Enough.</span> */}
-        </p>
+        <p className="text-center"></p>
         <p className="crumple">Our Students are Counting on Us.</p>
-        <br></br>{" "}
+        <br />
         <p className="crumple flick-the-lights">
-          {" "}
           Let's Flick the Lights on Oppression.
         </p>
       </div>
@@ -242,13 +235,6 @@ const TheTeachersLounge = () => {
             You should let your teaching shine.
           </p>
         </Col>
-        {/* <Row></Row>{" "} */}
-        {/* <Col>
-          {" "}
-          <button className="intro-button hero-button" onClick={scrollToEnough}>
-            Scroll Down
-          </button>
-        </Col> */}
       </Row>
     </>
   );

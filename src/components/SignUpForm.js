@@ -12,41 +12,44 @@ import {
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateSignUpForm } from "../utils/validateSignUpForm";
 import NotificationForm from "./NotificationForm";
+import { firebaseConfig } from "../app/firebase.config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUpForm = () => {
   const [isModalOpen, setModalOpen] = useState(false);
+  const [error, setError] = useState("");
 
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
   };
 
-  // const handleCopyClick = () => {
-  //   const emailInput = document.getElementById("emailInput");
-  //   emailInput.select();
-  //   document.execCommand("copy");
-  //   emailInput.setSelectionRange(0, 0);
-  // };
-
-  const handleSubmit = (values, { resetForm }) => {
-    console.log("form values:", values);
-    console.log("in JSON format:", JSON.stringify(values));
-    resetForm();
-    toggleModal();
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        firebaseConfig,
+        values.email,
+        values.password // Assume you have a password field in your form
+      );
+      console.log("User created:", userCredential.user);
+      resetForm();
+      toggleModal();
+    } catch (error) {
+      setError(error.message);
+      console.error("Error creating user:", error);
+    }
   };
 
   return (
     <div>
       <FormGroup row>
         <Col></Col>
-        <Col
-        // md={{ size: 10, offset: 2 }}
-        >
+        <Col>
           <Button
             className="sign-up-btn btn btn-primary btn-lg btn-block"
             role="button"
-            type="submit"
+            type="button" // Changed type to button
             color="primary"
-            onClick={toggleModal}
+            onClick={toggleModal} // Moved onClick to here
           >
             Sign Up
           </Button>
@@ -65,6 +68,7 @@ const SignUpForm = () => {
               lastName: "",
               phoneNum: "",
               email: "",
+              password: "", // Add a password field
               agree: true,
               contactType: "By Email",
               feedback: "",
@@ -73,7 +77,9 @@ const SignUpForm = () => {
             validate={validateSignUpForm}
           >
             {({ handleSubmit }) => (
-              <Form>
+              <Form onSubmit={handleSubmit}>
+                {" "}
+                {/* Added onSubmit handler */}
                 <FormGroup row>
                   <Label htmlFor="firstName" md="2">
                     First Name
@@ -105,13 +111,43 @@ const SignUpForm = () => {
                   </Col>
                 </FormGroup>
                 <FormGroup row>
-                  <NotificationForm />
+                  <Label htmlFor="email" md="2">
+                    Email
+                  </Label>
+                  <Col md="10">
+                    <Field
+                      name="email"
+                      placeholder="Email"
+                      className="form-control"
+                    />
+                    <ErrorMessage name="email">
+                      {(msg) => <p className="text-danger">{msg}</p>}
+                    </ErrorMessage>
+                  </Col>
                 </FormGroup>
                 <FormGroup row>
-                  <Col 
-                  // md={{ size: 10, offset: 2 }}
-                  >
-                    <Button type="submit" color="primary" onClick={toggleModal}>
+                  <Label htmlFor="password" md="2">
+                    Password
+                  </Label>
+                  <Col md="10">
+                    <Field
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      className="form-control"
+                    />
+                    <ErrorMessage name="password">
+                      {(msg) => <p className="text-danger">{msg}</p>}
+                    </ErrorMessage>
+                  </Col>
+                </FormGroup>
+                <FormGroup row>
+                  <NotificationForm />
+                </FormGroup>
+                {error && <p className="text-danger">{error}</p>}
+                <FormGroup row>
+                  <Col>
+                    <Button type="submit" color="primary">
                       Register
                     </Button>
                   </Col>
@@ -120,28 +156,8 @@ const SignUpForm = () => {
             )}
           </Formik>
         </ModalBody>
-        {/* <ModalBody>
-          I'm not collecting registration info quite yet. If you like what I'm
-          doing with this MVP, get in touch:{" "}
-          <input
-            type="text"
-            value="eitanfire@gmail.com"
-            id="emailInput"
-            readOnly
-          />
-          <button className="btn btn-link" onClick={handleCopyClick}>
-            <i className="fa fa-copy" />
-          </button>
-          <a
-            href="mailto:eitanfire@gmail.com"
-            target="_blank"
-            rel="noreferrer"
-          ></a>
-        </ModalBody> */}
         <ModalFooter>
-          <Col 
-          // xs={{ size: 11, offset: 5 }}
-          >
+          <Col>
             <Button color="primary" onClick={toggleModal}>
               Close
             </Button>

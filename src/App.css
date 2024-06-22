@@ -696,11 +696,6 @@ z-index: -2;
   border-radius: 10px;
 }
 
-#icon {
-  font-size: 170%;
-  margin-top: -1.5%;
-}
-
 #free-course {
   position: static;
   margin-right: 200rem;
@@ -1328,6 +1323,7 @@ right: 29%;
 }
 
 #BreadCrumb {
+  /* font-size:.5rem; */
   position: relative;
   top: 3.15rem;;
   left: 2rem;
