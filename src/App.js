@@ -16,7 +16,6 @@ import BottomText from "./components/BottomText";
 import Theme from "./components/ChangeTheme";
 import "./App.css";
 import { fetchTakes } from "./features/takes/takesSlice";
-// import GoogleShare from "./components/GoogleShare";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,9 +30,25 @@ function App() {
 
   useEffect(() => {
     if (hash) {
-      const element = document.getElementById(hash.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      if (hash === "#TeachersLounge") {
+        const element = document.getElementById("TeachersLounge");
+        if (element) {
+          // Temporarily remove the smooth scroll behavior
+          element.scrollIntoView({ behavior: "auto" });
+          // Add back the smooth scroll behavior after navigation
+          setTimeout(() => {
+            window.history.replaceState(
+              {},
+              document.title,
+              window.location.pathname + window.location.search
+            ); // Clear the hash to prevent scrolling
+          }, 0);
+        }
+      } else {
+        const element = document.getElementById(hash.replace("#", ""));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   }, [hash]);
@@ -41,7 +56,6 @@ function App() {
   return (
     <div className="App">
       <Theme className="spikes" />
-      {/* <span className="#page-container"> */}
       <Routes>
         <Route path="/" element={<TheTeachersLounge />} />
         <Route path="/TheTeachersLounge" element={<TheTeachersLounge />} />
@@ -52,9 +66,7 @@ function App() {
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
         <Route path="warmups" element={<WarmUpPage />} />
-        {/* <Route path="directory/:courseId" element={<GoogleShare />} /> */}
       </Routes>
-      {/* </span> */}
       <BottomText />
     </div>
   );

@@ -7,7 +7,9 @@ const SubHeader = ({ current, detail }) => {
       <Breadcrumb>
         {current !== "Home" && current !== "The Teachers Lounge" && (
           <BreadcrumbItem>
-            <Link to="/#TeachersLounge">☕️ The Teachers Lounge</Link>
+            <Link theme to="/#TeachersLounge">
+              The Teachers Lounge
+            </Link>
           </BreadcrumbItem>
         )}
         {detail && current !== "Home" && current !== "The Teachers Lounge" && (
