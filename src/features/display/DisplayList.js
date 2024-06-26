@@ -3,7 +3,10 @@ import { Col, Row } from "reactstrap";
 import AnimatedDisplayCard from "./AnimatedDisplayCard";
 import { selectFeaturedTake } from "../takes/takesSlice";
 import { selectFeaturedRant } from "../rants/rantsSlice";
-import { selectFeaturedCourse, selectRandomCourse } from "../courses/coursesSlice";
+import {
+  selectFeaturedCourse,
+  selectRandomCourse,
+} from "../courses/coursesSlice";
 import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 
@@ -30,21 +33,18 @@ const DisplayList = () => {
         }
         return (
           featuredItem && (
-            <>
-              <Col key={idx}>
-                {" "}
-                <a href={`${link}`} target="_blank" rel="noreferrer">
-                  <button className="displaylist-child">
-                    <h1>
-                      {icon}
-                      {title}
-                    </h1>
-                    <subheading className="subheading">{subtitle}</subheading>
-                    <AnimatedDisplayCard item={featuredItem} title={title} />
-                  </button>
-                </a>
-              </Col>
-            </>
+            <Col key={idx}>
+              <a href={`${link}`} target="_blank" rel="noreferrer">
+                <button className="displaylist-child">
+                  <h1>
+                    {icon}
+                    {title}
+                  </h1>
+                  <subheading className="subheading">{subtitle}</subheading>
+                  <AnimatedDisplayCard item={featuredItem} title={title} />
+                </button>
+              </a>
+            </Col>
           )
         );
       })}
