@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
 import SubHeader from "../components/SubHeader";
-import GenerateWarmUp from '../../src/components/GenerateWarmUp.jsx';
+import GenerateWarmUp from "../../src/components/GenerateWarmUp.jsx";
 
 const WarmUpPage = () => {
   useEffect(() => {
@@ -49,17 +49,16 @@ const WarmUpPage = () => {
             class and I take the opportunity to use the warm-up
           </p> */}
         {/* </Col> */}
-        <Col 
+        <Col
         // className="d-none d-block-lg"
-        >
-        </Col>
+        ></Col>
         <Col className="col-9 col-lg-8 ai-input-component mt-4 mb-4">
           <h3>
             <b>Generate your own warm-up question with AI</b>
           </h3>
           <GenerateWarmUp />
         </Col>
-        <Col 
+        <Col
         // className="d-none d-block-lg"
         ></Col>
       </Row>

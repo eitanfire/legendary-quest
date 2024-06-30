@@ -12,8 +12,7 @@ import {
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateSignUpForm } from "../utils/validateSignUpForm";
 import NotificationForm from "./NotificationForm";
-import { firebaseConfig } from "../app/firebase.config";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUpForm = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -24,11 +23,13 @@ const SignUpForm = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
+    const auth = getAuth();
+    console.log("Submitting form with values:", values);
     try {
       const userCredential = await createUserWithEmailAndPassword(
-        firebaseConfig,
+        auth,
         values.email,
-        values.password // Assume you have a password field in your form
+        values.password
       );
       console.log("User created:", userCredential.user);
       resetForm();
@@ -47,9 +48,9 @@ const SignUpForm = () => {
           <Button
             className="sign-up-btn btn btn-primary btn-lg btn-block"
             role="button"
-            type="button" // Changed type to button
+            type="button"
             color="primary"
-            onClick={toggleModal} // Moved onClick to here
+            onClick={toggleModal}
           >
             Sign Up
           </Button>
@@ -68,7 +69,7 @@ const SignUpForm = () => {
               lastName: "",
               phoneNum: "",
               email: "",
-              password: "", // Add a password field
+              password: "",
               agree: true,
               contactType: "By Email",
               feedback: "",
@@ -78,8 +79,6 @@ const SignUpForm = () => {
           >
             {({ handleSubmit }) => (
               <Form onSubmit={handleSubmit}>
-                {" "}
-                {/* Added onSubmit handler */}
                 <FormGroup row>
                   <Label htmlFor="firstName" md="2">
                     First Name
