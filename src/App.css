@@ -130,6 +130,7 @@ font-size:large;
 }
 
 .card-title {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 1000;
   font-size: 1.25rem;
 }
@@ -357,7 +358,6 @@ width: max-content;
     right: 2%;
     color: #259936;
         border-color: #69604D;
-;
  /* background-clip: text;
   -webkit-background-clip: text;
      -webkit-text-stroke: 0.09rem rgb(255,190,152); */
