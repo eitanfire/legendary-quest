@@ -41,11 +41,6 @@ html {
   padding-inline: 1rem;
 }
 
-/* #page-container {
-  position: relative;
-  min-height: 100vh;
-} */
-
 body {
   background: var(--body-bg);
   font-family: "Open Sans", sans-serif;
@@ -60,19 +55,9 @@ h3,
     color: rgb(44, 214, 230);
 }
 
-/* .vaporWave .card-body a {
-color:chartreuse
-} */
-
 .light .card-text {
   color: black;
 }
-
-/* .card-text {
-  position: absolute;
-  bottom: 0%;
-  font-size: x-large;
-} */
 
 .card-group {
 min-height: fit-content;
@@ -165,18 +150,15 @@ font-size:large;
 .xs-speech-card,
 .speech-card,
 .know-card
-/* .vaporWave .know-card a:link  */
 {
   height: max-content;
   font-size: larger;
 position: relative;
 top: 3%;
-/* align-items: center; */
 }
 
 .speech-card {
 top: 0%;
-    /* border: 2px solid rgb(44, 214, 230); */
 background-color: #FF512F;
 color: FF512F;
 }
@@ -207,8 +189,6 @@ font-size: x-large;
 .course-body,
 .youtube-playlist,
 .card-img-overlay:hover .card-title {
-    /* height: 3rem; */
-
   color: white;
   background: 
 linear-gradient(
@@ -221,7 +201,6 @@ linear-gradient(
   background-color: #af7fdd;
 }
 
-/* button, */
 .light .∞-learning,
 .card,
 .worldHistoryCredit,
@@ -237,7 +216,6 @@ linear-gradient(
   box-shadow: var(--shadow-elevation-medium);
       -webkit-text-stroke: 0.03rem black;
 backdrop-filter: blur(4px) saturate(150%);
-    /* background: linear-gradient(rgb(252, 252, 252), rgba(0, 0, 0, 0.3)); */
     }
 
 .worldHistoryCredit,
@@ -260,7 +238,6 @@ backdrop-filter: blur(4px) saturate(150%);
     -webkit-text-stroke: .75px  rgb(0, 223, 244);
   font-size: larger;
   margin-top: 4rem;
-  /* width: 100%; */
   text-align: center;
     position: absolute;
 }
@@ -276,7 +253,6 @@ color: rgb(224, 240, 5);
   transform: translateX(-100%);
 }
 
-/* .vaporWave .btn, */
 .nav-link,
 .vaporWave .nav-link,
 .flick {
