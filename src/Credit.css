@@ -26,10 +26,6 @@
   color: orange;
 }
 
-/* .allCoursesCredit {
-  color: white;
-} */
-
 .light .allCoursesCredit {
   color: black;
   background-color: white;
@@ -41,7 +37,6 @@
 }
 
 .allCoursesCredit {
-  /* background-color: currentColor; */
   text-align: center;
   font-size: 1.5rem;
   position: relative;
@@ -51,7 +46,6 @@
   margin: 5%;
 }
 
-/* .allCoursesCredit, */
 .worldHistoryCredit,
 .uSHistoryCredit,
 .geographyCredit,

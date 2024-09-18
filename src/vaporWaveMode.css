@@ -49,9 +49,8 @@
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
   background-position: 50% 25%;
-  /* background-size: 100%; */
   width: 100%;
-  filter:contrast(.96);
+  filter: contrast(0.96);
 }
 
 .light .site-footer {
@@ -107,9 +106,7 @@
     radial-gradient(ellipse at bottom, #fc6767, transparent);
   background-position: -2.5% 45%;
   background-size: 48%;
-  /* opacity: .75; */
-filter:brightness(.96);
-
+  filter: brightness(0.96);
 }
 
 @media all and (max-width: 500px) {
@@ -117,9 +114,6 @@ filter:brightness(.96);
     background-size: 101%;
     background-position: 2% 45%;
     background-blend-mode: color-dodge;
-    /* filter: invert(8%); */
-    /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
-    /* backdrop-filter: blur(4px) saturate(150%); */
   }
 }
 
@@ -129,10 +123,6 @@ filter:brightness(.96);
     background-position: 0% 60%;
     background-blend-mode: color-dodge;
     filter: invert(0.01);
-    /* filter:brightness(90%); */
-    /* background-color:color-mix(in srgb-linear, transparent 45%, black 55%); */
-    /* backdrop-filter: blur(4px) saturate(150%); */
-    /* opacity: 1; */
   }
 }
 
