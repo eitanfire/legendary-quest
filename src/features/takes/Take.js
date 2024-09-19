@@ -1,4 +1,12 @@
-import { Card, CardGroup, CardImg, CardText, CardTitle, Row, Col } from "reactstrap";
+import {
+  Card,
+  CardGroup,
+  CardImg,
+  CardText,
+  CardTitle,
+  Row,
+  Col,
+} from "reactstrap";
 
 const Take = ({ take }) => {
   if (take) {
@@ -14,9 +22,7 @@ const Take = ({ take }) => {
               style={{ width: "250px" }}
             />
           </Col>
-          <Col
-          // className="col col-xs-12"
-          >
+          <Col>
             <Card className="card resources-list">
               <CardTitle className="resource-title fw-bold">{name}</CardTitle>
               <CardText> {description}</CardText>
