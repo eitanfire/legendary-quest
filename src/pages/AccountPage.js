@@ -1,10 +1,10 @@
 import { Container, Col, Row, Card, CardBody } from "reactstrap";
 import SignUpForm from "../components/SignUpForm";
-import UserLoginForm from "../features/user/UserLoginForm";
+// import UserLoginForm from "../features/user/UserLoginForm";
 import FreeCourse from "../components/FreeCourse";
 import SubHeader from "../components/SubHeader";
 import React, { useEffect } from "react";
-import ContactInfo from "../components/ContactInfo";
+// import ContactInfo from "../components/ContactInfo";
 
 const AccountPage = () => {
   useEffect(() => {
