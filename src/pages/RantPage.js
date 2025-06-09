@@ -27,7 +27,6 @@ const RantPage = (props) => {
           </h3>
         </p>
       </Row>
-      {/* </Card> */}
       <Row className="row-content mt-5">
         <div className="wrapper">
           <Col xs="12">
