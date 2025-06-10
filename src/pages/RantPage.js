@@ -1,4 +1,4 @@
-import { Col, Row, Container, Card, CardBody, CardHeader } from "reactstrap";
+import { Col, Row, Container } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import RantsList from "../features/rants/RantsList";
 import React, { useEffect } from "react";
