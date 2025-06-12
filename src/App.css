@@ -841,12 +841,17 @@ font-weight: 1000;
 }
 
 .subheader-title {
-color:unset
+color:unset;
 }
 
 .subheading {
 font-size: x-large;
 font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.subheading {
+  font-size: 2rem;
+  color: rgb(44, 214, 230);
 }
 
 .CardGroup {
