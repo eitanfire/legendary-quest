@@ -13,7 +13,6 @@ const AccountPage = () => {
     <Container>
       <SubHeader current="Account" />
       <Row className="row-content"></Row>
-      {/* <UserLoginForm className="top-of-fold-sign-up-btn" /> */}
       <Card id="social-bar" className="m-4">
         <CardBody>
           <Row className="row-content text-center mt-5 pt-5">
