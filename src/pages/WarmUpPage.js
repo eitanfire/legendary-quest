@@ -21,7 +21,6 @@ const WarmUpPage = () => {
           Starting class by having students work on a literacy activity can
           increase your effectiveness in the classroom.
         </h4>
-        {/* <Col className="col-xl-12"> */}
         <p>
           {/* <h3 className="diaganol bg-transparent warm-up-title flick-the-lights text-center">
               Powerup Engagement
@@ -50,7 +49,6 @@ const WarmUpPage = () => {
           </p> */}
         {/* </Col> */}
         <Col
-        // className="d-none d-block-lg"
         ></Col>
         <Col className="col-9 col-lg-8 ai-input-component mt-4 mb-4">
           <h3>
@@ -59,7 +57,6 @@ const WarmUpPage = () => {
           <GenerateWarmUp />
         </Col>
         <Col
-        // className="d-none d-block-lg"
         ></Col>
       </Row>
     </Container>
