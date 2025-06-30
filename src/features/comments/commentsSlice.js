@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { COMMENTS } from '../../app/shared/COMMENTS';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { db } from "../../app/firebase.config";
 import { collection, getDocs } from "firebase/firestore";
