@@ -15,21 +15,6 @@ export const fetchComments = createAsyncThunk(
     return comments;
   }
 );
-// export const postComment = createAsyncThunk(
-//   "comments/postComment",
-//   async (comment, { dispatch }) => {
-//     const response = await fetch(baseUrl + "comments", {
-//       method: "POST",
-//       body: JSON.stringify(comment),
-//       headers: { "Content-Type": "application/json" },
-//     });
-//     if (!response.ok) {
-//       return Promise.reject(response.status);
-//     }
-//     const data = await response.json();
-//     dispatch(addComment(data));
-//   }
-// );
 
 const initialState = {
   commentsArray: [],
