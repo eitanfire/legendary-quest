@@ -9,7 +9,6 @@ function Theme() {
   const [theme, setTheme] = useState(storedTheme || "light");
 
   const toggleTheme = () => {
-    // Toggle the theme
     if (theme === "light") {
       setTheme("vaporWave");
     } else {
