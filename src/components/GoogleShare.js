@@ -20,7 +20,6 @@ const GoogleShare = ({ url }) => {
 
   return (
     <div ref={containerRef} style={{ cursor: "pointer" }}>
-      {/* No need for an onClick handler if you want to use the default behavior */}
       Share to Google Classroom
     </div>
   );
