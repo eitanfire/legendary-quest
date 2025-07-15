@@ -7,7 +7,6 @@ import {
   Col,
   Container,
   Row,
-  button,
 } from "reactstrap";
 import React from "react";
 import "../../courseTheme.css";
@@ -33,7 +32,6 @@ const CourseDetail = ({ course }) => {
     youtube,
     extrayoutube,
     extrayoutube1,
-    id,
     warmups,
     extra,
     curriculum,
