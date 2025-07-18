@@ -1,5 +1,4 @@
 import {
-  Card,
   CardGroup,
   CardImg,
   CardText,
