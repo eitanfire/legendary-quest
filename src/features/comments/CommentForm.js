@@ -12,7 +12,6 @@ import {
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateCommentForm } from "../../utils/validateCommentForm";
 import { useDispatch } from "react-redux";
-// import { addComment, postComment } from "./commentsSlice";
 
 const CommentForm = ({ courseId }) => {
   const [modalOpen, setModalOpen] = useState(false);
