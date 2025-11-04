@@ -4,10 +4,13 @@ import {
   HarmBlockThreshold,
 } from "@google/generative-ai";
 
-const MODEL_NAME = "gemini-1.5-pro";
+const MODEL_NAME = "gemini-2.0-flash-exp";
 const API_KEY = process.env.REACT_APP_GEMINI_KEY;
 
 export async function run(userInput) {
+  if (!API_KEY) {
+    throw new Error("API key is missing. Check your .env file.");
+  }
   const genAI = new GoogleGenerativeAI(API_KEY);
   const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
