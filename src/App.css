@@ -187,7 +187,7 @@ font-size: x-large;
 .course-body,
 .youtube-playlist,
 .card-img-overlay:hover .card-title {
-  color: white;
+  /* color: white; */
   background: 
 linear-gradient(
       rgba(0, 0, 0, 0.1),
@@ -1226,4 +1226,12 @@ width: 75%;
 
 .ai-response {
 margin-right: 5rem;
+}
+
+.warm-up-text, .lesson-plan-content {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.course-recommendations-section {
+  color: rgba(0, 0, 0, 0.75);
 }

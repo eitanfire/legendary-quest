@@ -1,12 +1,25 @@
-import { useEffect } from "react";
-import { Col, Row, Container } from "reactstrap";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Col, Row, Container, Button } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import GenerateWarmUp from "../../src/components/GenerateWarmUp.jsx";
+import FeaturedCourseDisplay from "../features/courses/FeaturedCourseDisplay";
 
 const WarmUpPage = () => {
+  const [featuredCourse, setFeaturedCourse] = useState(null);
+  const coursesArray = useSelector((state) => state.courses.coursesArray);
+
   useEffect(() => {
-    document.title = "Warm-Ups";
+    document.title = "Lesson Plans & Warm-Ups";
   }, []);
+
+  const handleCourseClick = (course) => {
+    setFeaturedCourse(course);
+    // Scroll to featured course
+    if (course) {
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    }
+  };
 
   return (
     <Container>
@@ -22,42 +35,46 @@ const WarmUpPage = () => {
           increase your effectiveness in the classroom.
         </h4>
         <p>
-          {/* <h3 className="diaganol bg-transparent warm-up-title flick-the-lights text-center">
-              Powerup Engagement
-            </h3> */}
           <div className="pt-2">
             My students begin class with a daily warm-up question that activates
             their prior understanding and provides an entry point into the day's
             lesson.
           </div>
         </p>
-        {/* <br></br>
-          <p>
-            I share these questions with students on Google Classroom in a view
-            only file and a response sheet which I have Google Classroom make a
-            copy for each student. I find that the response sheet is helpful to
-            keep students organized but I don't require them to use it. While
-            students are hard at work I take attendance and get complete any
-            setup for the class period. After about 10 minutes I check students'
-            response and record a grade between 1 and 8 points for their
-            response. After 10 responses I record the grade in the gradebook. I
-            allow students to respond in writing or with a sketchnote and allow
-            students to write about other things as well so that they have a
-            chance to get prepared for the lessson and to wake up their brains.
-            After students have a chanch to respond in writing we discuss as a
-            class and I take the opportunity to use the warm-up
-          </p> */}
-        {/* </Col> */}
-        <Col
-        ></Col>
+        <Col></Col>
         <Col className="col-9 col-lg-8 ai-input-component mt-4 mb-4">
+          {/* Debug: Test Featured Course Display */}
+          {coursesArray && coursesArray.length > 0 && !featuredCourse && (
+            <div className="mb-3">
+              <Button
+                color="info"
+                size="sm"
+                onClick={() => setFeaturedCourse(coursesArray[0])}
+              >
+                🧪 Test: Show Featured Course (click to see how it looks)
+              </Button>
+              <small className="ms-2 text-muted">
+                ({coursesArray.length} courses loaded)
+              </small>
+            </div>
+          )}
+
+          {/* Featured Course Display */}
+          {featuredCourse && (
+            <div className="mb-4">
+              <FeaturedCourseDisplay
+                course={featuredCourse}
+                onClose={() => setFeaturedCourse(null)}
+              />
+            </div>
+          )}
+
           <h3>
-            <b>Generate your own warm-up question with AI</b>
+            <b>Generate lesson plans and warm-up questions with AI</b>
           </h3>
-          <GenerateWarmUp />
+          <GenerateWarmUp onCourseClick={handleCourseClick} />
         </Col>
-        <Col
-        ></Col>
+        <Col></Col>
       </Row>
     </Container>
   );
