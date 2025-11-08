@@ -149,9 +149,9 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
   // Initialize displayed courses - randomize 4 for mobile on home page
   React.useEffect(() => {
     if (isHomePage && filteredCourses.length > 0) {
-      // Shuffle and take first 4 for initial mobile display
+      // Shuffle for variety
       const shuffled = [...filteredCourses].sort(() => 0.5 - Math.random());
-      setDisplayedCourses(shuffled.slice(0, 4));
+      setDisplayedCourses(shuffled);
     } else {
       setDisplayedCourses(filteredCourses);
     }
@@ -178,16 +178,18 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
             ))}
           </Row>
 
-          {/* Desktop view - show all courses */}
-          <Row className="d-none d-lg-flex">
-            {coursesToDisplay.map((course, id) => (
-              <Col md="5" className="m-4" key={id}>
-                <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
-                  {course}
-                </CourseCard>
-              </Col>
-            ))}
-          </Row>
+          {/* Desktop view - show courses in scrollable container to match AI form height */}
+          <div className="d-none d-lg-block courses-scroll-container">
+            <Row>
+              {coursesToDisplay.map((course, id) => (
+                <Col md="5" className="m-4" key={id}>
+                  <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
+                    {course}
+                  </CourseCard>
+                </Col>
+              ))}
+            </Row>
+          </div>
         </>
       )}
 
