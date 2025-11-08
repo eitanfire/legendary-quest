@@ -2,34 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import SubHeader from "../components/SubHeader";
 import Tags from "../features/courses/creditType/Tags";
-import { useSelector } from "react-redux";
-import LoadMoreCourses from "../features/courses/LoadMoreCourses.js";
-import CoursesList from "../features/courses/CoursesList";
 import { Link } from "react-router-dom";
 import Gemini from '../app/assets/img/google-gemini-icon.png';
 
 const CoursesDirectoryPage = () => {
+  const [featuredCourse, setFeaturedCourse] = useState(null);
+
   useEffect(() => {
     document.title = "Resources";
   }, []);
 
-  const [selectedTags, setSelectedTags] = useState([]);
-
-  const handleTagClick = (tag) => {
-    setSelectedTags((prevTags) =>
-      prevTags.includes(tag)
-        ? prevTags.filter((t) => t !== tag)
-        : [...prevTags, tag]
-    );
+  const handleCourseClick = (course) => {
+    setFeaturedCourse(course);
+    // Scroll to top to show featured course
+    if (course) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
-
-  const courses = useSelector((state) => state.courses.coursesArray);
-
-  const filteredCourses = courses.filter(
-    (course) =>
-      selectedTags.length === 0 ||
-      selectedTags.some((tag) => course.tags.includes(tag))
-  );
 
   return (
     <Container>
@@ -73,11 +62,7 @@ const CoursesDirectoryPage = () => {
         </Col>
       </Row>
 
-      {selectedTags.length === 0 && selectedTags.includes("All courses") && (
-        <LoadMoreCourses />
-      )}
-      <Tags selectedTags={selectedTags} onTagClick={handleTagClick} />
-      {selectedTags.length > 0 && <CoursesList courses={filteredCourses} />}
+      <Tags featuredCourse={featuredCourse} onCourseClick={handleCourseClick} />
       <span className="gclassroom-padding"></span>
     </Container>
   );

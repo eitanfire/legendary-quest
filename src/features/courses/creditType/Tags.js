@@ -1,37 +1,40 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Row, Col } from "reactstrap";
-import {
-  selectGovernmentCourses,
-  selectWorldHistoryCourses,
-  selectUSHistoryCourses,
-  selectGeographyCourses,
-  selectMandatoryCourses,
-  selectLanguageArtsCourses,
-  selectElectiveCourses,
-  selectAllCourses,
-} from "../coursesSlice";
+import { Row, Col, Badge } from "reactstrap";
 import { getClassCredit } from "./getClassCredit";
 import CourseCard from "../CourseCard";
-import LoadMoreCourses from "../LoadMoreCourses"; // Import LoadMoreCourses
-import Credit from './Credit'
+import LoadMoreCourses from "../LoadMoreCourses";
+import FeaturedCourseDisplay from "../FeaturedCourseDisplay";
 
-const Tags = () => {
-  const [selectedTag, setSelectedTag] = useState("All Courses");
+const Tags = ({ featuredCourse, onCourseClick }) => {
+  const [selectedTags, setSelectedTags] = useState([]);
+  const coursesState = useSelector((state) => state.courses);
+  const { coursesArray } = coursesState;
 
-  const handleCreditTagClick = (creditTag) => {
-    setSelectedTag(creditTag === selectedTag ? "All Courses" : creditTag);
-  };
+  // Calculate filtered course count
+  const filteredCount = selectedTags.length === 0
+    ? coursesArray.length
+    : coursesArray.filter((course) =>
+        selectedTags.every((tag) => course.credit && course.credit.includes(tag))
+      ).length;
 
-  const getTagClass = (creditTag) => {
-    return (
-      getClassCredit(creditTag) +
-      (selectedTag === creditTag ? " active" : " disabled")
+  const handleTagClick = (creditTag) => {
+    setSelectedTags((prevTags) =>
+      prevTags.includes(creditTag)
+        ? prevTags.filter((tag) => tag !== creditTag)
+        : [...prevTags, creditTag]
     );
   };
 
+  const handleRemoveTag = (tagToRemove) => {
+    setSelectedTags((prevTags) => prevTags.filter((tag) => tag !== tagToRemove));
+  };
+
+  const handleClearAll = () => {
+    setSelectedTags([]);
+  };
+
   const creditTags = [
-    "All Courses",
     "Government",
     "World History",
     "US History",
@@ -41,37 +44,105 @@ const Tags = () => {
 
   return (
     <div className="container">
-      <Row className="m-4">
-        {creditTags.map((creditTag, index) => (
-          <Col key={index}>
-            <label className={`credit-tag ${getTagClass(creditTag)}`}>
-              {creditTag}
-              <input
-                type="radio"
-                name="creditTag"
-                checked={selectedTag === creditTag}
-                onChange={() => handleCreditTagClick(creditTag)}
-              />
-            </label>
-          </Col>
-        ))}
-      </Row>
-
-      {selectedTag === "All Courses" && (
-        <CoursesList
-          selector={getAllCoursesSelector()}
-          renderLoadMore={true} // Render LoadMoreCourses for "All Courses"
+      {/* Featured Course Display */}
+      {featuredCourse && (
+        <FeaturedCourseDisplay
+          course={featuredCourse}
+          onClose={() => onCourseClick && onCourseClick(null)}
         />
       )}
-      {selectedTag !== "All Courses" && selectedTag !== null && (
-        <CoursesList selector={getSelector(selectedTag)} />
-      )}
+
+      {/* Formula Bar */}
+      <div className="formula-bar mb-4 p-3 bg-light border rounded">
+        <div className="d-flex align-items-center flex-wrap">
+          <span className="me-2 fw-bold text-muted">Show courses with</span>
+
+          {selectedTags.length === 0 ? (
+            <span className="text-muted fst-italic">all tags</span>
+          ) : (
+            selectedTags.map((tag, index) => (
+              <React.Fragment key={tag}>
+                <Badge
+                  color="primary"
+                  className="me-2 mb-1 d-inline-flex align-items-center"
+                  style={{
+                    fontSize: '0.9rem',
+                    padding: '0.4rem 0.6rem',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {tag}
+                  <button
+                    onClick={() => handleRemoveTag(tag)}
+                    className="btn-close btn-close-white ms-2"
+                    style={{ fontSize: '0.6rem' }}
+                    aria-label={`Remove ${tag}`}
+                  ></button>
+                </Badge>
+                {index < selectedTags.length - 1 && (
+                  <span className="me-2 fw-bold text-primary">AND</span>
+                )}
+              </React.Fragment>
+            ))
+          )}
+
+          <span className="ms-2 me-2 fw-bold">=</span>
+          <Badge color="success" className="me-3" style={{ fontSize: '1rem', padding: '0.4rem 0.8rem' }}>
+            {filteredCount} {filteredCount === 1 ? 'course' : 'courses'}
+          </Badge>
+
+          {selectedTags.length > 0 && (
+            <button
+              className="btn btn-sm btn-outline-secondary"
+              onClick={handleClearAll}
+            >
+              Clear All
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Available Tags Section */}
+      <div className="mb-4">
+        <h5 className="text-muted mb-3">Available Tags:</h5>
+        <Row className="g-2">
+          {creditTags.map((creditTag) => {
+            const isSelected = selectedTags.includes(creditTag);
+            return (
+              <Col key={creditTag} xs="auto">
+                <button
+                  className={`btn ${isSelected ? 'btn-primary' : 'btn-outline-primary'}`}
+                  onClick={() => handleTagClick(creditTag)}
+                  style={{ minWidth: '120px' }}
+                >
+                  {isSelected && <span className="me-2">✓</span>}
+                  {creditTag}
+                </button>
+              </Col>
+            );
+          })}
+        </Row>
+      </div>
+
+      <CoursesList
+        selectedTags={selectedTags}
+        renderLoadMore={selectedTags.length === 0}
+        onCourseClick={onCourseClick}
+      />
     </div>
   );
 };
 
-const CoursesList = ({ selector, renderLoadMore }) => {
-  const { freeItem, isLoading, errMsg } = useSelector(selector);
+const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick }) => {
+  const coursesState = useSelector((state) => state.courses);
+  const { coursesArray, isLoading, errMsg } = coursesState;
+
+  // Filter courses to show only those that have ALL selected tags (AND logic)
+  const filteredCourses = selectedTags.length === 0
+    ? coursesArray
+    : coursesArray.filter((course) =>
+        selectedTags.every((tag) => course.credit && course.credit.includes(tag))
+      );
 
   return (
     <div>
@@ -81,9 +152,11 @@ const CoursesList = ({ selector, renderLoadMore }) => {
         <p>Error: {errMsg}</p>
       ) : (
         <Row>
-          {freeItem.map((course, id) => (
+          {filteredCourses.map((course, id) => (
             <Col md="5" className="m-4" key={id}>
-              <CourseCard course={course}>{course}</CourseCard>
+              <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
+                {course}
+              </CourseCard>
             </Col>
           ))}
         </Row>
@@ -92,30 +165,6 @@ const CoursesList = ({ selector, renderLoadMore }) => {
       {renderLoadMore && <LoadMoreCourses />}
     </div>
   );
-};
-
-const getSelector = (tag) => {
-  switch (tag) {
-    case "Government":
-      return selectGovernmentCourses;
-    case "World History":
-      return selectWorldHistoryCourses;
-    case "US History":
-      return selectUSHistoryCourses;
-    case "Geography":
-      return selectGeographyCourses;
-    case "Mandatory":
-      return selectMandatoryCourses;
-    case "Language Arts":
-      return selectLanguageArtsCourses;
-    default:
-      return null;
-  }
-};
-
-const getAllCoursesSelector = () => {
-  // Return the selector for all courses
-  return selectElectiveCourses; // Adjust this based on your actual data structure
 };
 
 export default Tags;
