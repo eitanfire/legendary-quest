@@ -6,6 +6,7 @@ import { fetchComments } from "./features/comments/commentsSlice";
 import CoursesDirectoryPage from "./pages/CoursesDirectoryPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AccountPage from "./pages/AccountPage";
+import HomePage from "./pages/HomePage";
 import TheTeachersLounge from "./pages/TheTeachersLounge";
 import RantPage from "./pages/RantPage";
 import TakesPage from "./pages/TakesPage";
@@ -57,8 +58,9 @@ function App() {
     <div className="App">
       <Theme className="spikes" />
       <Routes>
-        <Route path="/" element={<TheTeachersLounge />} />
-        <Route path="/TheTeachersLounge" element={<TheTeachersLounge />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="lounge" element={<TheTeachersLounge />} />
+        <Route path="TheTeachersLounge" element={<TheTeachersLounge />} />
         <Route path="rant" element={<RantPage />} />
         <Route path="account" element={<AccountPage />} />
         <Route path="watch" element={<MovieDayPage />} />

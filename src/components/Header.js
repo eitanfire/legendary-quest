@@ -48,7 +48,17 @@ const Header = () => {
           <Nav className="ms-auto mt-4 " navbar>
             <NavItem className="nav-item">
               <NavLink className="nav-link" to="/">
+                <i className="fa fa-home fa-lg" /> Home
+              </NavLink>
+            </NavItem>
+            <NavItem className="nav-item">
+              <NavLink className="nav-link" to="/lounge">
                 <i className="fa fa-coffee fa-lg" /> Lounge
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" to="/warmups">
+                <i className="fa fa-lightbulb-o fa-lg" /> Warm-ups
               </NavLink>
             </NavItem>
             <NavItem>
