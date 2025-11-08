@@ -8,7 +8,7 @@ import { getClassCredit } from "./creditType/getClassCredit";
 
 const coursePerRow = 4;
 
-const LoadMoreCourses = () => {
+const LoadMoreCourses = ({ isHomePage = false }) => {
   const [next, setNext] = useState(coursePerRow);
   const [showAllCourses, setShowAllCourses] = useState(false);
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
@@ -55,41 +55,25 @@ const LoadMoreCourses = () => {
 
   return (
     <>
-      {/* <Row>
-        <div className="tags-container">
-          {[
-            "Government",
-            "World History",
-            "US History",
-            "Geography",
-            "Language Arts",
-          ].map((tag) => (
-            <Col
-              key={tag}
-              className={`tag ${getClassCredit(tag)} ${
-                tags.includes(tag) ? "selected" : ""
-              }`}
-              onClick={() => handleTagClick(tag)}
-            >
-              {tag}
-            </Col>
-          ))}
-        </div>
-      </Row> */}
-      <Row className="ms-auto justify-center">
-        {showAllCourses
-          ? courses?.map((course, id) => (
-              <Col md="5" className="m-4" key={id}>
-                <CourseCard course={course} />
-              </Col>
-            ))
-          : courses?.slice(0, next)?.map((course, id) => (
-              <Col md="5" className="m-4" key={id}>
-                <CourseCard course={course} />
-              </Col>
-            ))}
-      </Row>
-      <Row className="load-courses-buttons col-4">
+      {/* Desktop view - only show buttons on home page, courses are shown in Tags component */}
+      {!isHomePage && (
+        <Row className="ms-auto justify-center">
+          {showAllCourses
+            ? courses?.map((course, id) => (
+                <Col md="5" className="m-4" key={id}>
+                  <CourseCard course={course} />
+                </Col>
+              ))
+            : courses?.slice(0, next)?.map((course, id) => (
+                <Col md="5" className="m-4" key={id}>
+                  <CourseCard course={course} />
+                </Col>
+              ))}
+        </Row>
+      )}
+
+      {/* Buttons Row - positioned differently on home page */}
+      <Row className={isHomePage ? "load-courses-buttons-home col-4 mt-4" : "load-courses-buttons col-4"}>
         {!showAllCourses && showLoadMoreButton && (
           <Button className="mt-4" onClick={handleMoreCourse}>
             Load more

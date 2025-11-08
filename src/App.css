@@ -874,6 +874,20 @@ position: relative;
 left: 30%;
 }
 
+.load-courses-buttons-home {
+  position: relative;
+  left: 30%;
+}
+
+/* Wide view - align buttons with bottom of AI form on left side */
+@media (min-width: 992px) {
+  .load-courses-buttons-home {
+    position: sticky;
+    bottom: 0;
+    margin-top: auto;
+  }
+}
+
 .build-community {
   font-size: 5rem;
   font-size: calc(5vw);

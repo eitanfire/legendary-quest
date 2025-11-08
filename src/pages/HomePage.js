@@ -106,7 +106,7 @@ const HomePage = () => {
             )}
 
             {/* Course Tags and Filtering */}
-            <Tags featuredCourse={featuredCourse} onCourseClick={handleCourseClick} />
+            <Tags featuredCourse={featuredCourse} onCourseClick={handleCourseClick} isHomePage={true} />
           </div>
         </Col>
       </Row>

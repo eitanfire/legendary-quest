@@ -6,7 +6,7 @@ import CourseCard from "../CourseCard";
 import LoadMoreCourses from "../LoadMoreCourses";
 import FeaturedCourseDisplay from "../FeaturedCourseDisplay";
 
-const Tags = ({ featuredCourse, onCourseClick }) => {
+const Tags = ({ featuredCourse, onCourseClick, isHomePage = false }) => {
   const [selectedTags, setSelectedTags] = useState([]);
   const coursesState = useSelector((state) => state.courses);
   const { coursesArray } = coursesState;
@@ -128,14 +128,16 @@ const Tags = ({ featuredCourse, onCourseClick }) => {
         selectedTags={selectedTags}
         renderLoadMore={selectedTags.length === 0}
         onCourseClick={onCourseClick}
+        isHomePage={isHomePage}
       />
     </div>
   );
 };
 
-const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick }) => {
+const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }) => {
   const coursesState = useSelector((state) => state.courses);
   const { coursesArray, isLoading, errMsg } = coursesState;
+  const [displayedCourses, setDisplayedCourses] = React.useState([]);
 
   // Filter courses to show only those that have ALL selected tags (AND logic)
   const filteredCourses = selectedTags.length === 0
@@ -144,6 +146,19 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick }) => {
         selectedTags.every((tag) => course.credit && course.credit.includes(tag))
       );
 
+  // Initialize displayed courses - randomize 4 for mobile on home page
+  React.useEffect(() => {
+    if (isHomePage && filteredCourses.length > 0) {
+      // Shuffle and take first 4 for initial mobile display
+      const shuffled = [...filteredCourses].sort(() => 0.5 - Math.random());
+      setDisplayedCourses(shuffled.slice(0, 4));
+    } else {
+      setDisplayedCourses(filteredCourses);
+    }
+  }, [filteredCourses, isHomePage]);
+
+  const coursesToDisplay = isHomePage ? displayedCourses : filteredCourses;
+
   return (
     <div>
       {isLoading ? (
@@ -151,18 +166,32 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick }) => {
       ) : errMsg ? (
         <p>Error: {errMsg}</p>
       ) : (
-        <Row>
-          {filteredCourses.map((course, id) => (
-            <Col md="5" className="m-4" key={id}>
-              <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
-                {course}
-              </CourseCard>
-            </Col>
-          ))}
-        </Row>
+        <>
+          {/* Mobile view - show only 4 random courses initially */}
+          <Row className="d-lg-none">
+            {coursesToDisplay.slice(0, 4).map((course, id) => (
+              <Col md="5" className="m-4" key={id}>
+                <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
+                  {course}
+                </CourseCard>
+              </Col>
+            ))}
+          </Row>
+
+          {/* Desktop view - show all courses */}
+          <Row className="d-none d-lg-flex">
+            {coursesToDisplay.map((course, id) => (
+              <Col md="5" className="m-4" key={id}>
+                <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
+                  {course}
+                </CourseCard>
+              </Col>
+            ))}
+          </Row>
+        </>
       )}
 
-      {renderLoadMore && <LoadMoreCourses />}
+      {renderLoadMore && <LoadMoreCourses isHomePage={isHomePage} />}
     </div>
   );
 };
