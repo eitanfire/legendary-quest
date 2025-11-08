@@ -138,6 +138,8 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
   const coursesState = useSelector((state) => state.courses);
   const { coursesArray, isLoading, errMsg } = coursesState;
   const [displayedCourses, setDisplayedCourses] = React.useState([]);
+  const [next, setNext] = React.useState(isHomePage ? 6 : 4); // Show 6 on home page desktop, 4 on mobile
+  const [showAll, setShowAll] = React.useState(false);
 
   // Filter courses to show only those that have ALL selected tags (AND logic)
   const filteredCourses = selectedTags.length === 0
@@ -146,7 +148,7 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
         selectedTags.every((tag) => course.credit && course.credit.includes(tag))
       );
 
-  // Initialize displayed courses - randomize 4 for mobile on home page
+  // Initialize displayed courses - randomize for home page
   React.useEffect(() => {
     if (isHomePage && filteredCourses.length > 0) {
       // Shuffle for variety
@@ -159,6 +161,17 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
 
   const coursesToDisplay = isHomePage ? displayedCourses : filteredCourses;
 
+  const handleLoadMore = () => {
+    setNext(prev => prev + 4);
+  };
+
+  const handleShowAll = () => {
+    setShowAll(true);
+  };
+
+  const coursesToShow = showAll ? coursesToDisplay : coursesToDisplay.slice(0, next);
+  const hasMoreCourses = coursesToDisplay.length > next && !showAll;
+
   return (
     <div>
       {isLoading ? (
@@ -167,9 +180,9 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
         <p>Error: {errMsg}</p>
       ) : (
         <>
-          {/* Mobile view - show only 4 random courses initially */}
+          {/* Mobile view - show limited courses */}
           <Row className="d-lg-none">
-            {coursesToDisplay.slice(0, 4).map((course, id) => (
+            {coursesToShow.slice(0, 4).map((course, id) => (
               <Col md="5" className="m-4" key={id}>
                 <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
                   {course}
@@ -178,10 +191,10 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
             ))}
           </Row>
 
-          {/* Desktop view - show courses in scrollable container to match AI form height */}
+          {/* Desktop view - show courses to match AI form height */}
           <div className="d-none d-lg-block courses-scroll-container">
             <Row>
-              {coursesToDisplay.map((course, id) => (
+              {coursesToShow.map((course, id) => (
                 <Col md="5" className="m-4" key={id}>
                   <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
                     {course}
@@ -193,7 +206,27 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
         </>
       )}
 
-      {renderLoadMore && <LoadMoreCourses isHomePage={isHomePage} />}
+      {/* Show load more buttons only on home page */}
+      {isHomePage && (
+        <div className="load-courses-buttons-home">
+          {hasMoreCourses && (
+            <>
+              <button className="btn btn-primary mt-4 me-2" onClick={handleLoadMore}>
+                Load More
+              </button>
+              <button className="btn btn-outline-primary mt-4" onClick={handleShowAll}>
+                See All
+              </button>
+            </>
+          )}
+          {!hasMoreCourses && coursesToDisplay.length > 6 && (
+            <p className="title mt-4 text-center">That's Everything!</p>
+          )}
+        </div>
+      )}
+
+      {/* Original LoadMoreCourses component for non-home pages */}
+      {renderLoadMore && !isHomePage && <LoadMoreCourses isHomePage={isHomePage} />}
     </div>
   );
 };

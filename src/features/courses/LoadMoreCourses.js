@@ -7,9 +7,11 @@ import Loading from "../../components/Loading";
 import { getClassCredit } from "./creditType/getClassCredit";
 
 const coursePerRow = 4;
+const coursesOnHomePage = 6; // Show 6 courses on home page desktop to match form height
 
 const LoadMoreCourses = ({ isHomePage = false }) => {
-  const [next, setNext] = useState(coursePerRow);
+  const initialDisplay = isHomePage ? coursesOnHomePage : coursePerRow;
+  const [next, setNext] = useState(initialDisplay);
   const [showAllCourses, setShowAllCourses] = useState(false);
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
   const [tags, setTags] = useState([]);
