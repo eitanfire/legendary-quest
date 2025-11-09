@@ -6,6 +6,7 @@ import Tags from "../features/courses/creditType/Tags";
 
 const HomePage = () => {
   const [featuredCourse, setFeaturedCourse] = useState(null);
+  const [curriculumGenerated, setCurriculumGenerated] = useState(false);
 
   useEffect(() => {
     document.title = "TeachLeague - Home";
@@ -17,6 +18,10 @@ const HomePage = () => {
     if (course) {
       window.scrollTo({ top: 200, behavior: 'smooth' });
     }
+  };
+
+  const handleCurriculumGenerated = (generated) => {
+    setCurriculumGenerated(generated);
   };
 
   return (
@@ -45,10 +50,22 @@ const HomePage = () => {
         </Col>
       </Row>
 
-      {/* Main Content: Warm-ups (Left) and Directory (Right) */}
+      {/* Featured Course Display - Full Width */}
+      {featuredCourse && (
+        <Row className="mb-4">
+          <Col xs="12">
+            <FeaturedCourseDisplay
+              course={featuredCourse}
+              onClose={() => setFeaturedCourse(null)}
+            />
+          </Col>
+        </Row>
+      )}
+
+      {/* Main Content: Warm-ups and Directory */}
       <Row>
-        {/* Left Side - Warm-ups */}
-        <Col lg="6" className="mb-4">
+        {/* Curriculum Generator - Full width when curriculum generated, half when not */}
+        <Col xs="12" lg={curriculumGenerated ? "12" : "6"} className="mb-4">
           <div className="p-3 border rounded bg-light shadow-sm">
             <h3 className="text-center mb-4">
               <b>Curriculum Generator</b>
@@ -56,12 +73,15 @@ const HomePage = () => {
             <p className="text-center text-muted mb-4">
               Generate AI-powered warm-up questions and complete lesson plans tailored to your needs
             </p>
-            <GenerateWarmUp onCourseClick={handleCourseClick} />
+            <GenerateWarmUp
+              onCourseClick={handleCourseClick}
+              onCurriculumGenerated={handleCurriculumGenerated}
+            />
           </div>
         </Col>
 
-        {/* Right Side - Course Directory */}
-        <Col lg="6" className="mb-4">
+        {/* Course Directory - Full width when curriculum generated, half when not */}
+        <Col xs="12" lg={curriculumGenerated ? "12" : "6"} className="mb-4">
           <div className="p-3 border rounded bg-light shadow-sm">
             <h3 className="text-center mb-4">
               <b>Course Directory</b>
@@ -69,16 +89,6 @@ const HomePage = () => {
             <p className="text-center text-muted mb-4">
               Browse our comprehensive collection of educational courses
             </p>
-
-            {/* Featured Course Display */}
-            {featuredCourse && (
-              <div className="mb-4">
-                <FeaturedCourseDisplay
-                  course={featuredCourse}
-                  onClose={() => setFeaturedCourse(null)}
-                />
-              </div>
-            )}
 
             {/* Course Tags and Filtering */}
             <Tags featuredCourse={featuredCourse} onCourseClick={handleCourseClick} isHomePage={true} />

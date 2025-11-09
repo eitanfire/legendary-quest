@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, FormGroup, Label, Input } from "reactstrap";
 import { useSelector } from "react-redux";
 import { run } from "../utils/generateAIWarmUps";
 
-const GenerateWarmUp = ({ onCourseClick }) => {
+const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
   const [userInput, setUserInput] = useState("");
   const [warmUpResponse, setWarmUpResponse] = useState("");
   const [lessonPlanResponse, setLessonPlanResponse] = useState("");
@@ -22,6 +22,14 @@ const GenerateWarmUp = ({ onCourseClick }) => {
   const [additionalCriteria, setAdditionalCriteria] = useState('');
 
   const coursesArray = useSelector((state) => state.courses.coursesArray);
+
+  // Notify parent when curriculum is generated or cleared
+  useEffect(() => {
+    if (onCurriculumGenerated) {
+      const hasContent = warmUpResponse || lessonPlanResponse;
+      onCurriculumGenerated(!!hasContent);
+    }
+  }, [warmUpResponse, lessonPlanResponse, onCurriculumGenerated]);
 
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
