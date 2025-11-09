@@ -565,6 +565,29 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
               {loading ? "Generating..." : "Generate Lesson Materials"}
             </button>
           </form>
+
+          {/* Debug: Test Featured Course Display */}
+          {coursesArray && coursesArray.length > 0 && (warmUpResponse || lessonPlanResponse) && onCourseClick && (
+            <div className="mt-3 mb-3 p-3 bg-info bg-opacity-10 border border-info rounded">
+              <div className="d-flex align-items-center justify-content-between">
+                <small className="text-muted">
+                  <strong>Test Featured Course:</strong> Click a course below to see it featured above
+                </small>
+              </div>
+              <div className="mt-2 d-flex flex-wrap gap-2">
+                {coursesArray.slice(0, 5).map((course, idx) => (
+                  <button
+                    key={idx}
+                    className="btn btn-sm btn-outline-info"
+                    onClick={() => onCourseClick(course)}
+                  >
+                    {course.icon} {course.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {warmUpResponse && (
             <WarmUpDisplay
               response={warmUpResponse}
@@ -702,6 +725,15 @@ const CourseLinksParser = ({ text, courses, onCourseClick }) => {
   const courseNames = courses.map(c => c.name);
   const pattern = courseNames.map(name => name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
   const regex = new RegExp(`\\b(${pattern})\\b`, 'gi');
+
+  // Debug: Log if any courses are found in the text
+  const matches = text.match(regex);
+  if (matches && matches.length > 0) {
+    console.log('CourseLinksParser found courses:', matches);
+  } else {
+    console.log('CourseLinksParser - No course matches found in text:', text.substring(0, 100));
+    console.log('Available course names:', courseNames.slice(0, 5));
+  }
 
   // Split the text by course names and create clickable links
   const parts = [];
