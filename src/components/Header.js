@@ -1,25 +1,13 @@
-import { useState } from "react";
-import {
-  Navbar,
-  NavbarBrand,
-  Collapse,
-  NavbarToggler,
-  Nav,
-  NavItem,
-} from "reactstrap";
-import { NavLink } from "react-router-dom";
-import UserLoginForm from "../features/user/UserLoginForm";
+import { Navbar, NavbarBrand } from "reactstrap";
+import AvatarImg from "../app/assets/img/Avatar.png";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <>
       <Navbar
         dark
-        className="header-banner"
+        className="header-banner d-flex justify-content-between align-items-center"
         color="primary"
-        // sticky="top"
         expand="md"
       >
         <NavbarBrand className="ms-4" href="/">
@@ -40,56 +28,29 @@ const Header = () => {
           <h1 className="title-sm d-none d-sm-block d-md-none">Teach League</h1>
           <h1 className="title-xs d-xs-block d-sm-none">Teach League</h1>
         </NavbarBrand>
-        <NavbarToggler
-          className="navbar"
-          onClick={() => setMenuOpen(!menuOpen)}
-        />
-        <Collapse isOpen={menuOpen} navbar>
-          <Nav className="ms-auto mt-4 " navbar>
-            <NavItem className="nav-item">
-              <NavLink className="nav-link" to="/">
-                <i className="fa fa-home fa-lg" /> Home
-              </NavLink>
-            </NavItem>
-            <NavItem className="nav-item">
-              <NavLink className="nav-link" to="/lounge">
-                <i className="fa fa-coffee fa-lg" /> Lounge
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/warmups">
-                <i className="fa fa-lightbulb-o fa-lg" /> Warm-ups
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/directory">
-                <i className="fa fa-archive fa-lg" aria-hidden="true" />{" "}
-                Resources
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/rant">
-                <i className="fa fa-solid fa-bullhorn fa-lg" /> Rant
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/takes">
-                <i className="fa fa-solid fa-fire fa-lg" /> Takes
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/account">
-                <i className="fa far fa-comments fa-lg" /> Account
-              </NavLink>
-            </NavItem>
-            {/* <NavItem>
-              <NavLink className="nav-link" to="/watch">
-                <i className="fa far fa-comments" /> Watch
-              </NavLink>
-            </NavItem> */}
-          </Nav>
-          <UserLoginForm />
-        </Collapse>
+
+        {/* Avatar Link to Personal Website */}
+        <a
+          href="https://eitans.website"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="me-4"
+          style={{ transition: 'transform 0.2s' }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+        >
+          <img
+            src={AvatarImg}
+            alt="Eitan's Avatar"
+            style={{
+              width: '50px',
+              height: '50px',
+              borderRadius: '50%',
+              border: '2px solid white',
+              cursor: 'pointer'
+            }}
+          />
+        </a>
       </Navbar>
       <br></br>
     </>

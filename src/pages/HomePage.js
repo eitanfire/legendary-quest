@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Card, CardBody, CardTitle } from "reactstrap";
-import { Link } from "react-router-dom";
-import SubHeader from "../components/SubHeader";
 import GenerateWarmUp from "../components/GenerateWarmUp";
 import FeaturedCourseDisplay from "../features/courses/FeaturedCourseDisplay";
 import Tags from "../features/courses/creditType/Tags";
@@ -23,33 +21,10 @@ const HomePage = () => {
 
   return (
     <Container fluid>
-      <SubHeader current="Home" />
-
       {/* Hero Cards Section */}
       <Row className="mb-5 mt-4 justify-content-center">
-        <Col md="6" lg="5" className="mb-3">
-          <a href="https://eitans.website" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-            <Card className="h-100 shadow-sm" style={{ cursor: 'pointer', transition: 'transform 0.2s' }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-            >
-              <CardBody className="d-flex flex-column align-items-center justify-content-center p-5"
-                style={{ minHeight: '200px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
-              >
-                <CardTitle tag="h2" className="text-white mb-3">
-                  <span className="me-3" style={{ fontSize: '3rem' }}>👨‍💻</span>
-                  About & Contact
-                </CardTitle>
-                <p className="text-white text-center" style={{ fontSize: '1.1rem' }}>
-                  Learn about the mission, connect on social media, and reach out
-                </p>
-              </CardBody>
-            </Card>
-          </a>
-        </Col>
-
-        <Col md="6" lg="5" className="mb-3">
-          <Link to="/watch" style={{ textDecoration: 'none' }}>
+        <Col md="8" lg="6" className="mb-3">
+          <a href="https://www.youtube.com/@eitanfire9861/playlists" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <Card className="h-100 shadow-sm" style={{ cursor: 'pointer', transition: 'transform 0.2s' }}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -59,14 +34,14 @@ const HomePage = () => {
               >
                 <CardTitle tag="h2" className="text-white mb-3">
                   <span className="me-3" style={{ fontSize: '3rem' }}>🎬</span>
-                  Videos
+                  YouTube Videos
                 </CardTitle>
                 <p className="text-white text-center" style={{ fontSize: '1.1rem' }}>
-                  Watch educational content and teaching resources
+                  Watch educational content and teaching resources on my YouTube channel
                 </p>
               </CardBody>
             </Card>
-          </Link>
+          </a>
         </Col>
       </Row>
 

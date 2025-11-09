@@ -8,19 +8,20 @@ import AccountPage from "./pages/AccountPage";
 import HomePage from "./pages/HomePage";
 import ExternalRedirect from "./components/ExternalRedirect";
 import CourseDetailPage from "./pages/CourseDetailPage";
-import MovieDayPage from "./pages/MovieDayPage";
 import WarmUpPage from "./pages/WarmUpPage";
 import BottomText from "./components/BottomText";
 import Theme from "./components/ChangeTheme";
 import "./App.css";
 
-// ARCHIVED CONTENT REFERENCE:
-// - TheTeachersLounge component: src/pages/TheTeachersLounge.js (commit: bd51efc)
-// - RantPage component: src/pages/RantPage.js (commit: bd51efc)
-// - TakesPage component: src/pages/TakesPage.js (commit: bd51efc)
+// ARCHIVED CONTENT REFERENCE (commit: 21a9e1b):
+// - TheTeachersLounge component: src/pages/TheTeachersLounge.js
+// - RantPage component: src/pages/RantPage.js
+// - TakesPage component: src/pages/TakesPage.js
+// - MovieDayPage component: src/pages/MovieDayPage.js
 // - fetchRants: src/features/rants/rantsSlice.js
 // - fetchTakes: src/features/takes/takesSlice.js
-// To restore these features, check out the commit before this restructure
+// - Old Header/VaporWaveHeader with full navigation menu
+// To restore these features, check out commit 21a9e1b
 
 function App() {
   const dispatch = useDispatch();
@@ -66,7 +67,6 @@ function App() {
         <Route path="TheTeachersLounge" element={<ExternalRedirect to="https://eitans.website" />} />
         {/* User account management - preserved for future CRUD operations */}
         <Route path="account" element={<AccountPage />} />
-        <Route path="watch" element={<MovieDayPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
         <Route path="warmups" element={<WarmUpPage />} />
