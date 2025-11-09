@@ -78,6 +78,13 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
     criteriaSection += `\n\nSchool District: ${criteria.district} - Consider district-specific requirements if known`;
   }
 
+  if (criteria.classPeriodLength && criteria.classPeriodLength.trim()) {
+    const duration = criteria.classPeriodLength === 'custom'
+      ? 'a custom duration'
+      : `${criteria.classPeriodLength} minutes`;
+    criteriaSection += `\n\nClass Period Length: ${duration} - Please adjust activity timings accordingly`;
+  }
+
   if (criteria.additional && criteria.additional.trim()) {
     criteriaSection += `\n\nAdditional Requirements: ${criteria.additional}`;
   }

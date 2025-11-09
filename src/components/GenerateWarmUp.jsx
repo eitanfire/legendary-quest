@@ -17,6 +17,8 @@ const GenerateWarmUp = ({ onCourseClick }) => {
   const [politicalLeaning, setPoliticalLeaning] = useState('centrist');
   const [alignmentStandards, setAlignmentStandards] = useState([]);
   const [schoolDistrict, setSchoolDistrict] = useState('');
+  const [classPeriodLength, setClassPeriodLength] = useState('');
+  const [customPeriodLength, setCustomPeriodLength] = useState('');
   const [additionalCriteria, setAdditionalCriteria] = useState('');
 
   const coursesArray = useSelector((state) => state.courses.coursesArray);
@@ -64,6 +66,7 @@ const GenerateWarmUp = ({ onCourseClick }) => {
       politicalLeaning: showPoliticalPerspective ? politicalLeaning : null,
       standards: alignmentStandards,
       district: schoolDistrict,
+      classPeriodLength: classPeriodLength === 'custom' ? customPeriodLength : classPeriodLength,
       additional: additionalCriteria
     };
 
@@ -109,6 +112,7 @@ const GenerateWarmUp = ({ onCourseClick }) => {
       politicalLeaning,
       standards: alignmentStandards,
       district: schoolDistrict,
+      classPeriodLength: classPeriodLength === 'custom' ? customPeriodLength : classPeriodLength,
       additional: additionalCriteria
     };
     try {
@@ -141,6 +145,7 @@ const GenerateWarmUp = ({ onCourseClick }) => {
         politicalLeaning,
         standards: alignmentStandards,
         district: schoolDistrict,
+        classPeriodLength: classPeriodLength === 'custom' ? customPeriodLength : classPeriodLength,
         additional: additionalCriteria
       };
       try {
@@ -173,6 +178,7 @@ const GenerateWarmUp = ({ onCourseClick }) => {
          politicalLeaning,
          standards: alignmentStandards,
          district: schoolDistrict,
+         classPeriodLength: classPeriodLength === 'custom' ? customPeriodLength : classPeriodLength,
          additional: additionalCriteria
        };
        try {
@@ -196,36 +202,13 @@ const GenerateWarmUp = ({ onCourseClick }) => {
 
   return (
     <Container>
-        <Col className="">
-          <button
-            className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
-            onClick={handle1stButtonClick}
-            disabled={loading}
-          >
-            Analyze primary sources to understand the Revolutionary War
-          </button>
-          <button
-            className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
-            onClick={handle2ndButtonClick}
-            disabled={loading}
-          >
-            Examine how different economic and government systems affect how
-            countries respond to challenges?
-          </button>
-          <button
-            className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
-            onClick={handle3rdButtonClick}
-            disabled={loading}
-          >
-            Compare and contrast the causes and effects of WWI and WWII based on
-            political, economic, and technological factors.
-          </button>
-        </Col>
       <Row>
         <div className="ai-input-field">
           {/* Topic Input - Moved to Top */}
           <div className="mb-4">
-            <h5 className="text-md-center mb-3">What topic and skills will you be exploring in today's lesson?</h5>
+            <h5 className="text-md-center mb-3">
+              What topic and skills will you be exploring in today's lesson?
+            </h5>
             <textarea
               className="ai-textarea"
               value={userInput}
@@ -234,12 +217,51 @@ const GenerateWarmUp = ({ onCourseClick }) => {
               rows="3"
             />
           </div>
-
+          <Col className="">
+            <button
+              className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+              onClick={handle1stButtonClick}
+              disabled={loading}
+            >
+              Analyze primary sources to understand the Revolutionary War
+            </button>
+            <button
+              className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+              onClick={handle2ndButtonClick}
+              disabled={loading}
+            >
+              Examine how different economic and government systems affect how
+              countries respond to challenges?
+            </button>
+            <button
+              className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+              onClick={handle3rdButtonClick}
+              disabled={loading}
+            >
+              Compare and contrast the causes and effects of WWI and WWII based
+              on political, economic, and technological factors.
+            </button>
+          </Col>
           {/* Student Grade Level */}
           <div className="mb-4 p-3 bg-light border rounded">
             <h5 className="mb-3">Student Grade Level</h5>
             <div className="d-flex flex-wrap gap-2">
-              {['K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 'College'].map(grade => (
+              {[
+                "K",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "College",
+              ].map((grade) => (
                 <FormGroup check inline key={grade} className="me-3">
                   <Label check>
                     <Input
@@ -262,7 +284,9 @@ const GenerateWarmUp = ({ onCourseClick }) => {
                 <Input
                   type="checkbox"
                   checked={showPoliticalPerspective}
-                  onChange={() => setShowPoliticalPerspective(!showPoliticalPerspective)}
+                  onChange={() =>
+                    setShowPoliticalPerspective(!showPoliticalPerspective)
+                  }
                   className="me-2"
                 />
                 <h5 className="mb-0">Include Political Perspective Rating</h5>
@@ -272,7 +296,8 @@ const GenerateWarmUp = ({ onCourseClick }) => {
             {showPoliticalPerspective && (
               <div className="mt-3">
                 <small className="text-muted d-block mb-2">
-                  How would you rate the political perspective of this content? (Self-rated by curriculum creators and reviewed by community)
+                  How would you rate the political perspective of this content?
+                  (Self-rated by curriculum creators and reviewed by community)
                 </small>
                 <FormGroup>
                   <div className="d-flex align-items-center justify-content-between mb-2">
@@ -284,24 +309,44 @@ const GenerateWarmUp = ({ onCourseClick }) => {
                     type="range"
                     min="1"
                     max="5"
-                    value={politicalLeaning === 'progressive' ? 1 : politicalLeaning === 'moderate-progressive' ? 2 : politicalLeaning === 'centrist' ? 3 : politicalLeaning === 'moderate-conservative' ? 4 : 5}
+                    value={
+                      politicalLeaning === "progressive"
+                        ? 1
+                        : politicalLeaning === "moderate-progressive"
+                        ? 2
+                        : politicalLeaning === "centrist"
+                        ? 3
+                        : politicalLeaning === "moderate-conservative"
+                        ? 4
+                        : 5
+                    }
                     onChange={(e) => {
                       const val = parseInt(e.target.value);
                       setPoliticalLeaning(
-                        val === 1 ? 'progressive' :
-                        val === 2 ? 'moderate-progressive' :
-                        val === 3 ? 'centrist' :
-                        val === 4 ? 'moderate-conservative' : 'conservative'
+                        val === 1
+                          ? "progressive"
+                          : val === 2
+                          ? "moderate-progressive"
+                          : val === 3
+                          ? "centrist"
+                          : val === 4
+                          ? "moderate-conservative"
+                          : "conservative"
                       );
                     }}
                     className="form-range"
                   />
                   <div className="text-center mt-2">
                     <span className="badge bg-info">
-                      {politicalLeaning === 'progressive' ? 'Progressive' :
-                       politicalLeaning === 'moderate-progressive' ? 'Moderate Progressive' :
-                       politicalLeaning === 'centrist' ? 'Centrist' :
-                       politicalLeaning === 'moderate-conservative' ? 'Moderate Conservative' : 'Conservative'}
+                      {politicalLeaning === "progressive"
+                        ? "Progressive"
+                        : politicalLeaning === "moderate-progressive"
+                        ? "Moderate Progressive"
+                        : politicalLeaning === "centrist"
+                        ? "Centrist"
+                        : politicalLeaning === "moderate-conservative"
+                        ? "Moderate Conservative"
+                        : "Conservative"}
                     </span>
                   </div>
                 </FormGroup>
@@ -312,14 +357,22 @@ const GenerateWarmUp = ({ onCourseClick }) => {
           {/* Alignment Standards */}
           <div className="mb-4 p-3 bg-light border rounded">
             <h5 className="mb-3">Alignment Standards</h5>
-            <small className="text-muted d-block mb-2">Select which educational standards to align with:</small>
+            <small className="text-muted d-block mb-2">
+              Select which educational standards to align with:
+            </small>
             <div className="d-flex flex-wrap gap-2 mb-3">
               {[
-                { value: 'CCSS', label: 'Common Core State Standards (CCSS)' },
-                { value: 'TEKS', label: 'Texas Essential Knowledge and Skills (TEKS)' },
-                { value: 'Colorado', label: 'Colorado Academic Standards' },
-                { value: 'NGSS', label: 'Next Generation Science Standards (NGSS)' }
-              ].map(standard => (
+                { value: "CCSS", label: "Common Core State Standards (CCSS)" },
+                {
+                  value: "TEKS",
+                  label: "Texas Essential Knowledge and Skills (TEKS)",
+                },
+                { value: "Colorado", label: "Colorado Academic Standards" },
+                {
+                  value: "NGSS",
+                  label: "Next Generation Science Standards (NGSS)",
+                },
+              ].map((standard) => (
                 <FormGroup check key={standard.value} className="mb-2">
                   <Label check>
                     <Input
@@ -334,19 +387,29 @@ const GenerateWarmUp = ({ onCourseClick }) => {
               ))}
             </div>
             <FormGroup>
-              <Label for="otherStandards" className="fw-bold">Other Standards:</Label>
+              <Label for="otherStandards" className="fw-bold">
+                Other Standards:
+              </Label>
               <Input
                 type="text"
                 id="otherStandards"
                 placeholder="Any Standards Worldwide (e.g., IB, Cambridge, Australian Curriculum)"
-                value={alignmentStandards.find(s => s.startsWith('Other:'))?.substring(6) || ''}
+                value={
+                  alignmentStandards
+                    .find((s) => s.startsWith("Other:"))
+                    ?.substring(6) || ""
+                }
                 onChange={(e) => {
                   const value = e.target.value;
-                  setAlignmentStandards(prev => {
+                  setAlignmentStandards((prev) => {
                     // Remove any existing "Other:" entries
-                    const filtered = prev.filter(s => !s.startsWith('Other:'));
+                    const filtered = prev.filter(
+                      (s) => !s.startsWith("Other:")
+                    );
                     // Add new value if not empty
-                    return value.trim() ? [...filtered, `Other:${value}`] : filtered;
+                    return value.trim()
+                      ? [...filtered, `Other:${value}`]
+                      : filtered;
                   });
                 }}
               />
@@ -357,7 +420,8 @@ const GenerateWarmUp = ({ onCourseClick }) => {
           <div className="mb-4 p-3 bg-light border rounded">
             <h5 className="mb-3">School District (Optional)</h5>
             <small className="text-muted d-block mb-2">
-              Enter your school district name or leave blank for general curriculum
+              Enter your school district name or leave blank for general
+              curriculum
             </small>
             <Input
               type="text"
@@ -367,8 +431,48 @@ const GenerateWarmUp = ({ onCourseClick }) => {
               className="mb-2"
             />
             <small className="text-muted">
-              Future: We'll integrate with NCES database for district-specific standards and requirements
+              Future: We'll integrate with NCES database for district-specific
+              standards and requirements
             </small>
+          </div>
+
+          {/* Class Period Length */}
+          <div className="mb-4 p-3 bg-light border rounded">
+            <h5 className="mb-3">Class Period Length</h5>
+            <small className="text-muted d-block mb-2">
+              Select the duration of your class period to help tailor activity timing
+            </small>
+            <Input
+              type="select"
+              value={classPeriodLength}
+              onChange={(e) => setClassPeriodLength(e.target.value)}
+              className="mb-2"
+            >
+              <option value="">Select duration...</option>
+              <option value="30">30 minutes</option>
+              <option value="40">40 minutes</option>
+              <option value="45">45 minutes</option>
+              <option value="50">50 minutes</option>
+              <option value="55">55 minutes</option>
+              <option value="60">60 minutes</option>
+              <option value="75">75 minutes</option>
+              <option value="90">90 minutes (block schedule)</option>
+              <option value="custom">Custom duration</option>
+            </Input>
+            {classPeriodLength === 'custom' && (
+              <div className="mt-3">
+                <Label for="customDuration">Enter custom duration (in minutes):</Label>
+                <Input
+                  type="number"
+                  id="customDuration"
+                  value={customPeriodLength}
+                  onChange={(e) => setCustomPeriodLength(e.target.value)}
+                  placeholder="e.g., 80"
+                  min="1"
+                  max="240"
+                />
+              </div>
+            )}
           </div>
 
           {/* Additional Criteria */}
@@ -397,7 +501,7 @@ const GenerateWarmUp = ({ onCourseClick }) => {
                   onChange={handleWarmUpToggle}
                   className="me-2"
                 />
-                <span style={{ fontSize: '1.1rem' }}>
+                <span style={{ fontSize: "1.1rem" }}>
                   Generate Warm-Up Question
                 </span>
               </Label>
@@ -410,28 +514,37 @@ const GenerateWarmUp = ({ onCourseClick }) => {
                   onChange={handleLessonPlanToggle}
                   className="me-2"
                 />
-                <span style={{ fontSize: '1.1rem' }}>
-                  Generate Lesson Plan
-                </span>
+                <span style={{ fontSize: "1.1rem" }}>Generate Lesson Plan</span>
               </Label>
             </FormGroup>
             <FormGroup check className="mb-2">
-              <Label check className="d-flex align-items-center" style={{ opacity: 0.5, cursor: 'not-allowed' }}>
-                <Input
-                  type="checkbox"
-                  disabled
-                  className="me-2"
-                />
-                <span style={{ fontSize: '1.1rem' }}>
-                  Generate Unit Plan <span className="badge bg-secondary ms-2">Coming Soon - Premium</span>
+              <Label
+                check
+                className="d-flex align-items-center"
+                style={{ opacity: 0.5, cursor: "not-allowed" }}
+              >
+                <Input type="checkbox" disabled className="me-2" />
+                <span style={{ fontSize: "1.1rem" }}>
+                  Generate Unit Plan{" "}
+                  <span className="badge bg-secondary ms-2">
+                    Coming Soon - Premium
+                  </span>
                 </span>
               </Label>
             </FormGroup>
-            <div className="mt-2 text-muted" style={{ fontSize: '0.9rem' }}>
-              {generateWarmUp && generateLessonPlan && "Will generate: Warm-Up Question + Full Lesson Plan"}
-              {generateWarmUp && !generateLessonPlan && "Will generate: Warm-Up Question only"}
-              {!generateWarmUp && generateLessonPlan && "Will generate: Full Lesson Plan only"}
-              {!generateWarmUp && !generateLessonPlan && "Please select at least one option"}
+            <div className="mt-2 text-muted" style={{ fontSize: "0.9rem" }}>
+              {generateWarmUp &&
+                generateLessonPlan &&
+                "Will generate: Warm-Up Question + Full Lesson Plan"}
+              {generateWarmUp &&
+                !generateLessonPlan &&
+                "Will generate: Warm-Up Question only"}
+              {!generateWarmUp &&
+                generateLessonPlan &&
+                "Will generate: Full Lesson Plan only"}
+              {!generateWarmUp &&
+                !generateLessonPlan &&
+                "Please select at least one option"}
             </div>
           </div>
 
