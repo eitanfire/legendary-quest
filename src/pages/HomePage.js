@@ -26,9 +26,9 @@ const HomePage = () => {
       <SubHeader current="Home" />
 
       {/* Hero Cards Section */}
-      <Row className="mb-5 mt-4">
-        <Col md="6" className="mb-3">
-          <Link to="/lounge" style={{ textDecoration: 'none' }}>
+      <Row className="mb-5 mt-4 justify-content-center">
+        <Col md="6" lg="5" className="mb-3">
+          <a href="https://eitans.website" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
             <Card className="h-100 shadow-sm" style={{ cursor: 'pointer', transition: 'transform 0.2s' }}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -37,18 +37,18 @@ const HomePage = () => {
                 style={{ minHeight: '200px', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}
               >
                 <CardTitle tag="h2" className="text-white mb-3">
-                  <span className="me-3" style={{ fontSize: '3rem' }}>☕</span>
-                  The Teachers Lounge
+                  <span className="me-3" style={{ fontSize: '3rem' }}>👨‍💻</span>
+                  About & Contact
                 </CardTitle>
                 <p className="text-white text-center" style={{ fontSize: '1.1rem' }}>
-                  Learn about the mission, read educator perspectives, and join the conversation
+                  Learn about the mission, connect on social media, and reach out
                 </p>
               </CardBody>
             </Card>
-          </Link>
+          </a>
         </Col>
 
-        <Col md="6" className="mb-3">
+        <Col md="6" lg="5" className="mb-3">
           <Link to="/watch" style={{ textDecoration: 'none' }}>
             <Card className="h-100 shadow-sm" style={{ cursor: 'pointer', transition: 'transform 0.2s' }}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
@@ -76,7 +76,7 @@ const HomePage = () => {
         <Col lg="6" className="mb-4">
           <div className="p-3 border rounded bg-light shadow-sm">
             <h3 className="text-center mb-4">
-              <b>Lesson Plans & Warm-Up Generator</b>
+              <b>Curriculum Generator</b>
             </h3>
             <p className="text-center text-muted mb-4">
               Generate AI-powered warm-up questions and complete lesson plans tailored to your needs

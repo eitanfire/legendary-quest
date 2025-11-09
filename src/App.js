@@ -1,22 +1,26 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCourses } from "./features/courses/coursesSlice";
-import { fetchRants } from "./features/rants/rantsSlice";
 import { fetchComments } from "./features/comments/commentsSlice";
 import CoursesDirectoryPage from "./pages/CoursesDirectoryPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AccountPage from "./pages/AccountPage";
 import HomePage from "./pages/HomePage";
-import TheTeachersLounge from "./pages/TheTeachersLounge";
-import RantPage from "./pages/RantPage";
-import TakesPage from "./pages/TakesPage";
+import ExternalRedirect from "./components/ExternalRedirect";
 import CourseDetailPage from "./pages/CourseDetailPage";
 import MovieDayPage from "./pages/MovieDayPage";
 import WarmUpPage from "./pages/WarmUpPage";
 import BottomText from "./components/BottomText";
 import Theme from "./components/ChangeTheme";
 import "./App.css";
-import { fetchTakes } from "./features/takes/takesSlice";
+
+// ARCHIVED CONTENT REFERENCE:
+// - TheTeachersLounge component: src/pages/TheTeachersLounge.js (commit: bd51efc)
+// - RantPage component: src/pages/RantPage.js (commit: bd51efc)
+// - TakesPage component: src/pages/TakesPage.js (commit: bd51efc)
+// - fetchRants: src/features/rants/rantsSlice.js
+// - fetchTakes: src/features/takes/takesSlice.js
+// To restore these features, check out the commit before this restructure
 
 function App() {
   const dispatch = useDispatch();
@@ -24,8 +28,6 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCourses());
-    dispatch(fetchRants());
-    dispatch(fetchTakes());
     dispatch(fetchComments());
   }, [dispatch]);
 
@@ -59,12 +61,12 @@ function App() {
       <Theme className="spikes" />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="lounge" element={<TheTeachersLounge />} />
-        <Route path="TheTeachersLounge" element={<TheTeachersLounge />} />
-        <Route path="rant" element={<RantPage />} />
+        {/* Redirect to external personal website */}
+        <Route path="lounge" element={<ExternalRedirect to="https://eitans.website" />} />
+        <Route path="TheTeachersLounge" element={<ExternalRedirect to="https://eitans.website" />} />
+        {/* User account management - preserved for future CRUD operations */}
         <Route path="account" element={<AccountPage />} />
         <Route path="watch" element={<MovieDayPage />} />
-        <Route path="takes" element={<TakesPage />} />
         <Route path="directory" element={<CoursesDirectoryPage />} />
         <Route path="directory/:courseId" element={<CourseDetailPage />} />
         <Route path="warmups" element={<WarmUpPage />} />
