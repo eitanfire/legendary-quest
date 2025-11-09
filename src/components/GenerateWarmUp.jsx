@@ -313,13 +313,12 @@ const GenerateWarmUp = ({ onCourseClick }) => {
           <div className="mb-4 p-3 bg-light border rounded">
             <h5 className="mb-3">Alignment Standards</h5>
             <small className="text-muted d-block mb-2">Select which educational standards to align with:</small>
-            <div className="d-flex flex-wrap gap-2">
+            <div className="d-flex flex-wrap gap-2 mb-3">
               {[
                 { value: 'CCSS', label: 'Common Core State Standards (CCSS)' },
                 { value: 'TEKS', label: 'Texas Essential Knowledge and Skills (TEKS)' },
                 { value: 'Colorado', label: 'Colorado Academic Standards' },
-                { value: 'NGSS', label: 'Next Generation Science Standards (NGSS)' },
-                { value: 'Any', label: 'Any Standards Worldwide' }
+                { value: 'NGSS', label: 'Next Generation Science Standards (NGSS)' }
               ].map(standard => (
                 <FormGroup check key={standard.value} className="mb-2">
                   <Label check>
@@ -334,6 +333,24 @@ const GenerateWarmUp = ({ onCourseClick }) => {
                 </FormGroup>
               ))}
             </div>
+            <FormGroup>
+              <Label for="otherStandards" className="fw-bold">Other Standards:</Label>
+              <Input
+                type="text"
+                id="otherStandards"
+                placeholder="Any Standards Worldwide (e.g., IB, Cambridge, Australian Curriculum)"
+                value={alignmentStandards.find(s => s.startsWith('Other:'))?.substring(6) || ''}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setAlignmentStandards(prev => {
+                    // Remove any existing "Other:" entries
+                    const filtered = prev.filter(s => !s.startsWith('Other:'));
+                    // Add new value if not empty
+                    return value.trim() ? [...filtered, `Other:${value}`] : filtered;
+                  });
+                }}
+              />
+            </FormGroup>
           </div>
 
           {/* School District */}

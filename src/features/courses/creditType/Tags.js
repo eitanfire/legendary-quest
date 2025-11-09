@@ -148,16 +148,26 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
         selectedTags.every((tag) => course.credit && course.credit.includes(tag))
       );
 
-  // Initialize displayed courses - randomize for home page
+  // Initialize displayed courses - randomize once for home page on mount
   React.useEffect(() => {
-    if (isHomePage && filteredCourses.length > 0) {
-      // Shuffle for variety
+    if (isHomePage && filteredCourses.length > 0 && displayedCourses.length === 0) {
+      // Shuffle for variety - only on initial load
       const shuffled = [...filteredCourses].sort(() => 0.5 - Math.random());
       setDisplayedCourses(shuffled);
-    } else {
+    } else if (!isHomePage) {
       setDisplayedCourses(filteredCourses);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filteredCourses, isHomePage]);
+
+  // Update displayed courses when filters change
+  React.useEffect(() => {
+    if (isHomePage && filteredCourses.length > 0 && displayedCourses.length > 0) {
+      // When filters change, update without re-randomizing
+      setDisplayedCourses(filteredCourses);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedTags]);
 
   const coursesToDisplay = isHomePage ? displayedCourses : filteredCourses;
 
