@@ -1,5 +1,5 @@
 import { Navbar, NavbarBrand } from "reactstrap";
-import AvatarImg from "../app/assets/img/Avatar.png";
+import AvatarImg from "../app/assets/img/vapor-wave-statue.jpg";
 
 const VaporWaveHeader = () => {
   return (
