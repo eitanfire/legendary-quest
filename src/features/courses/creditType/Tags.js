@@ -44,8 +44,8 @@ const Tags = ({ featuredCourse, onCourseClick, isHomePage = false }) => {
 
   return (
     <div className="container">
-      {/* Featured Course Display */}
-      {featuredCourse && (
+      {/* Featured Course Display - Only show on standalone directory page, not on home page */}
+      {!isHomePage && featuredCourse && (
         <FeaturedCourseDisplay
           course={featuredCourse}
           onClose={() => onCourseClick && onCourseClick(null)}
