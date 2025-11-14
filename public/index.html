@@ -12,10 +12,15 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Teach League</title>
-    <script>
-      gapi.sharetoclassroom.render("content", { size: "300", theme: "light" });
-    </script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+      // Wait for gapi to load before calling it
+      window.addEventListener('load', function() {
+        if (window.gapi && window.gapi.sharetoclassroom) {
+          gapi.sharetoclassroom.render("content", { size: "300", theme: "light" });
+        }
+      });
+    </script>
     <script
       src="https://kit.fontawesome.com/bec01d8631.js"
       crossorigin="anonymous"

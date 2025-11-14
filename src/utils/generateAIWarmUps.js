@@ -1,60 +1,133 @@
-import {
-  GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
-} from "@google/generative-ai";
+import { getAIProviderManager } from './aiProviderFactory';
+import { extractResourcesForCourses, selectRelevantResources, formatResourcesForPrompt } from './courseResourceExtractor';
 
-const MODEL_NAME = "gemini-2.0-flash-exp";
-const API_KEY = process.env.REACT_APP_GEMINI_KEY;
+/**
+ * Calculate relevance score for a course based on user input
+ */
+function calculateRelevance(course, userInput) {
+  const searchText = userInput.toLowerCase();
+  const courseName = (course.name || '').toLowerCase();
+  const courseIntro = (course.intro || '').toLowerCase();
+  const courseDesc = typeof course.description === 'string' ? course.description.toLowerCase() : '';
 
-export async function run(userInput, courses = [], generationType = 'lessonPlan', criteria = {}) {
-  console.log('AI Generator called with:', { userInput, courseCount: courses?.length, generationType, criteria });
+  let score = 0;
 
-  if (!API_KEY) {
-    throw new Error("API key is missing. Check your .env file.");
+  // Extract key terms from user input (remove common words)
+  const commonWords = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'up', 'about', 'into', 'through', 'during', 'how', 'what', 'which', 'who', 'when', 'where', 'why'];
+  const keywords = searchText.split(/\s+/).filter(word =>
+    word.length > 2 && !commonWords.includes(word)
+  );
+
+  // Score based on keyword matches in course name (highest priority)
+  keywords.forEach(keyword => {
+    if (courseName.includes(keyword)) {
+      score += 10; // High score for name matches
+    }
+  });
+
+  // Score based on keyword matches in intro/description
+  keywords.forEach(keyword => {
+    if (courseIntro.includes(keyword)) {
+      score += 5; // Medium score for intro matches
+    }
+    if (courseDesc.includes(keyword)) {
+      score += 3; // Lower score for description matches
+    }
+  });
+
+  // Bonus for courses with YouTube playlists
+  if (course.youtube || course.extrayoutube || course.extrayoutube1) {
+    score += 2;
   }
 
-  const genAI = new GoogleGenerativeAI(API_KEY);
-  const model = genAI.getGenerativeModel({ model: MODEL_NAME });
+  return score;
+}
 
-  const generationConfig = {
-    temperature: 0.5,
-    topK: 64,
-    topP: 0.95,
-    maxOutputTokens: 8192,
-  };
-
-  const safetySettings = [
-    {
-      category: HarmCategory.HARM_CATEGORY_HARASSMENT,
-      threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-      threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
-      threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
-    },
-    {
-      category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
-      threshold: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
-    },
-  ];
+export async function run(userInput, courses = [], generationType = 'lessonPlan', criteria = {}, preferredProvider = null) {
+  console.log('AI Generator called with:', { userInput, courseCount: courses?.length, generationType, criteria, preferredProvider });
 
   // Create course list for the prompt - only include courses with name and description
   const validCourses = courses?.filter(c => c?.name && (c?.intro || c?.description)) || [];
-  const courseList = validCourses.length > 0
-    ? validCourses.slice(0, 10).map(course => {
-        const desc = course.intro || course.description;
-        const shortDesc = typeof desc === 'string' ? desc.substring(0, 100) : desc;
-        return `- **${course.name}**: ${shortDesc}`;
-      }).join('\n')
-    : '';
+
+  // Rank courses by relevance to user input
+  const rankedCourses = validCourses.map(course => ({
+    ...course,
+    relevanceScore: calculateRelevance(course, userInput)
+  }))
+  .sort((a, b) => b.relevanceScore - a.relevanceScore);
+
+  // Split into highly relevant (score > 5) and somewhat relevant
+  const highlyRelevant = rankedCourses.filter(c => c.relevanceScore > 5).slice(0, 5);
+  const somewhatRelevant = rankedCourses.filter(c => c.relevanceScore > 0 && c.relevanceScore <= 5).slice(0, 5);
+
+  console.log('Course relevance scores:', rankedCourses.slice(0, 10).map(c => ({ name: c.name, score: c.relevanceScore })));
+
+  // Extract resources from top relevant courses
+  const topCourses = rankedCourses.slice(0, 5); // Extract from top 5 most relevant courses
+  let extractedResourcesSection = '';
+
+  try {
+    console.log('Extracting detailed resources from top courses...');
+    const extractedData = await extractResourcesForCourses(topCourses, userInput);
+
+    if (extractedData && extractedData.length > 0) {
+      const relevantResources = selectRelevantResources(extractedData, userInput, 15);
+      if (relevantResources.length > 0) {
+        extractedResourcesSection = formatResourcesForPrompt(relevantResources);
+        console.log(`✓ Found ${relevantResources.length} relevant resources from course docs and videos`);
+      }
+    }
+  } catch (error) {
+    console.error('Error extracting course resources:', error);
+    // Continue without extracted resources
+  }
+
+  // Build course list with relevance indicators
+  let courseList = '';
+
+  if (highlyRelevant.length > 0) {
+    courseList += '**HIGHLY RELEVANT Courses (prioritize these):**\n';
+    courseList += highlyRelevant.map(course => {
+      const desc = course.intro || course.description;
+      const shortDesc = typeof desc === 'string' ? desc.substring(0, 150) : desc;
+      let entry = `- **${course.name}**: ${shortDesc}`;
+
+      const playlists = [];
+      if (course.youtube) playlists.push(course.youtube);
+      if (course.extrayoutube) playlists.push(course.extrayoutube);
+      if (course.extrayoutube1) playlists.push(course.extrayoutube1);
+
+      if (playlists.length > 0) {
+        entry += `\n  YouTube Playlists: ${playlists.join(', ')}`;
+      }
+
+      return entry;
+    }).join('\n');
+  }
+
+  if (somewhatRelevant.length > 0) {
+    if (highlyRelevant.length > 0) courseList += '\n\n';
+    courseList += '**Other Potentially Relevant Courses:**\n';
+    courseList += somewhatRelevant.map(course => {
+      const desc = course.intro || course.description;
+      const shortDesc = typeof desc === 'string' ? desc.substring(0, 100) : desc;
+      let entry = `- **${course.name}**: ${shortDesc}`;
+
+      const playlists = [];
+      if (course.youtube) playlists.push(course.youtube);
+      if (course.extrayoutube) playlists.push(course.extrayoutube);
+      if (course.extrayoutube1) playlists.push(course.extrayoutube1);
+
+      if (playlists.length > 0) {
+        entry += `\n  YouTube Playlists: ${playlists.join(', ')}`;
+      }
+
+      return entry;
+    }).join('\n');
+  }
 
   const coursesSection = courseList
-    ? `\n\nAvailable TeachLeague Courses:\n${courseList}\n\nYou may reference these courses by name where highly relevant.`
+    ? `\n\nAvailable TeachLeague Courses with Video Resources:\n${courseList}\n\n**IMPORTANT**: Prioritize the HIGHLY RELEVANT courses listed above. Only include YouTube playlists from courses that are truly relevant to the lesson topic.`
     : '';
 
   console.log('Courses section length:', coursesSection.length);
@@ -94,7 +167,7 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
   if (generationType === 'warmUp') {
     prompt = `Create a warm-up writing prompt based on the following topic and skills.
 
-Topic and Skills: ${userInput}${coursesSection}${criteriaSection}
+Topic and Skills: ${userInput}${extractedResourcesSection}${coursesSection}${criteriaSection}
 
 Instructions:
 - Create an engaging warm-up question that activates students' background knowledge
@@ -110,7 +183,7 @@ Warm-up question:`;
   } else if (generationType === 'lessonPlan') {
     prompt = `Create a comprehensive lesson plan based on the following topic and skills.
 
-Topic and Skills: ${userInput}${coursesSection}${criteriaSection}
+Topic and Skills: ${userInput}${extractedResourcesSection}${coursesSection}${criteriaSection}
 
 Instructions:
 - Create a detailed lesson plan outline with the following sections:
@@ -126,34 +199,44 @@ Instructions:
 - Throughout the lesson plan, include relevant educational resource links where appropriate:
   - Use markdown link format: [Link Text](URL)
   - Include links to educational sites like Khan Academy, PBS LearningMedia, National Geographic Education, Smithsonian Learning Lab, or other reputable educational resources
+  - **IMPORTANT**: When TeachLeague courses with YouTube playlists are relevant, include the YouTube playlist links in the appropriate lesson sections (e.g., "Watch videos from [YouTube Playlist](playlist_url)" or "Students can explore [course name YouTube playlist](url)")
   - Only include links that are genuinely relevant and useful
   - Make link text descriptive (e.g., "explore the Khan Academy module on fractions" rather than "click here")
 
+- **Video Integration**:
+  - If TeachLeague courses have YouTube playlists relevant to the lesson topic, reference them in appropriate sections (Introduction, Direct Instruction, or Independent Practice)
+  - Format video references as: "View videos from the [Course Name YouTube Playlist](playlist_url)"
+  - Suggest specific ways to use the videos (whole class viewing, flipped classroom, supplementary learning, etc.)
+
 - If any TeachLeague courses are HIGHLY relevant to specific activities or sections, mention them inline using exact course names
-- At the end, if there are generally relevant TeachLeague courses, list them under a "Related Courses" section
+- At the end, if there are generally relevant TeachLeague courses, list them under a "Related Courses" section with their YouTube playlist links
 
 Format your response as a well-structured lesson plan with clear section headers using markdown (## for main sections, ### for subsections).
 
 Lesson Plan:`;
   }
 
-  const parts = [{ text: prompt }];
-
   try {
-    const result = await model.generateContent({
-      contents: [{ role: "user", parts }],
-      generationConfig,
-      safetySettings,
+    const aiManager = getAIProviderManager();
+    const result = await aiManager.generate(prompt, preferredProvider);
+
+    console.log("AI generation result:", {
+      provider: result.provider,
+      providerName: result.providerName,
+      usedFallback: result.usedFallback,
+      contentLength: result.content?.length
     });
 
-    console.log("API raw result:", result);
-
-    if (result && result.response && result.response.text) {
-      return result.response.text();
-    } else {
-      console.error("API response is missing expected fields.");
-      return "No response from AI. Please try again.";
-    }
+    // Return both the content and metadata about which provider was used
+    return {
+      content: result.content,
+      metadata: {
+        provider: result.provider,
+        providerName: result.providerName,
+        usedFallback: result.usedFallback,
+        fallbackReason: result.fallbackReason
+      }
+    };
   } catch (error) {
     console.error("Error in AI generation:", error);
     throw error;
