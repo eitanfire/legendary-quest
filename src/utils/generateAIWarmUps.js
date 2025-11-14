@@ -1,5 +1,11 @@
 import { getAIProviderManager } from './aiProviderFactory';
-import { extractResourcesForCourses, selectRelevantResources, formatResourcesForPrompt } from './courseResourceExtractor';
+import {
+  extractResourcesForCourses,
+  selectRelevantResources,
+  formatResourcesForPrompt,
+  selectWarmUpFromResources,
+  formatWarmupsForPrompt
+} from './courseResourceExtractor';
 
 /**
  * Calculate relevance score for a course based on user input
@@ -65,16 +71,27 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
   // Extract resources from top relevant courses
   const topCourses = rankedCourses.slice(0, 5); // Extract from top 5 most relevant courses
   let extractedResourcesSection = '';
+  let warmupQuestionsSection = '';
 
   try {
     console.log('Extracting detailed resources from top courses...');
     const extractedData = await extractResourcesForCourses(topCourses, userInput);
 
     if (extractedData && extractedData.length > 0) {
+      // For lesson plans, extract general resources
       const relevantResources = selectRelevantResources(extractedData, userInput, 15);
       if (relevantResources.length > 0) {
         extractedResourcesSection = formatResourcesForPrompt(relevantResources);
         console.log(`✓ Found ${relevantResources.length} relevant resources from course docs and videos`);
+      }
+
+      // For warm-ups, extract specific warm-up questions
+      if (generationType === 'warmUp') {
+        const selectedWarmups = selectWarmUpFromResources(extractedData, userInput);
+        if (selectedWarmups) {
+          warmupQuestionsSection = formatWarmupsForPrompt(selectedWarmups);
+          console.log(`✓ Found ${selectedWarmups.warmups.length} ${selectedWarmups.source} warm-up questions`);
+        }
       }
     }
   } catch (error) {
@@ -167,12 +184,13 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
   if (generationType === 'warmUp') {
     prompt = `Create a warm-up writing prompt based on the following topic and skills.
 
-Topic and Skills: ${userInput}${extractedResourcesSection}${coursesSection}${criteriaSection}
+Topic and Skills: ${userInput}${warmupQuestionsSection}${extractedResourcesSection}${coursesSection}${criteriaSection}
 
 Instructions:
 - Create an engaging warm-up question that activates students' background knowledge
 - The question should relate to both the topic and the skills they'll use in today's lesson
 - Students should be able to respond with at least five sentences OR a sketchnote (a symbolic picture answer)
+${warmupQuestionsSection ? '- IMPORTANT: Review the suggested warm-up questions above and choose the most appropriate one for this lesson. You may adapt it to better fit the grade level and criteria, but try to use or modify an existing question rather than creating a completely new one.' : ''}
 - Format your response in TWO parts:
   1. First: The warm-up question itself (just the question, no labels)
   2. Then: If any TeachLeague courses are relevant, add a blank line and mention them starting with "For deeper learning..." or "To explore this further..." or "Consider checking out..."

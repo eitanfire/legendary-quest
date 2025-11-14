@@ -258,9 +258,108 @@ export function formatResourcesForPrompt(resources) {
   return formatted;
 }
 
+/**
+ * Select a warm-up question from extracted warmup docs
+ * Looks for actual warm-up questions in the extracted links
+ */
+export function selectWarmUpFromResources(extractedResources, lessonTopic) {
+  if (!extractedResources || extractedResources.length === 0) {
+    return null;
+  }
+
+  // Collect all warmup links
+  const warmupLinks = [];
+  extractedResources.forEach(({ course, resources }) => {
+    if (resources.warmups?.links && resources.warmups.links.length > 0) {
+      resources.warmups.links.forEach(link => {
+        warmupLinks.push({
+          ...link,
+          courseName: course.name,
+          docUrl: resources.warmups.url
+        });
+      });
+    }
+  });
+
+  if (warmupLinks.length === 0) {
+    return null;
+  }
+
+  // Calculate relevance scores for warmup links
+  const topicKeywords = lessonTopic.toLowerCase()
+    .split(/\s+/)
+    .filter(word => word.length > 3);
+
+  const scoredWarmups = warmupLinks.map(link => {
+    let score = 0;
+    const textLower = (link.text || '').toLowerCase();
+    const urlLower = (link.url || '').toLowerCase();
+
+    topicKeywords.forEach(keyword => {
+      if (textLower.includes(keyword)) score += 10;
+      if (urlLower.includes(keyword)) score += 3;
+    });
+
+    return { ...link, relevanceScore: score };
+  });
+
+  // Sort by relevance and pick top warmups
+  const relevantWarmups = scoredWarmups
+    .filter(w => w.relevanceScore > 0)
+    .sort((a, b) => b.relevanceScore - a.relevanceScore)
+    .slice(0, 3); // Get top 3 most relevant
+
+  if (relevantWarmups.length === 0) {
+    // If no relevant warmups found, return a random one
+    const randomIndex = Math.floor(Math.random() * warmupLinks.length);
+    return {
+      warmups: [warmupLinks[randomIndex]],
+      source: 'random'
+    };
+  }
+
+  return {
+    warmups: relevantWarmups,
+    source: 'relevant'
+  };
+}
+
+/**
+ * Format selected warmups for AI prompt
+ */
+export function formatWarmupsForPrompt(selectedWarmups) {
+  if (!selectedWarmups || !selectedWarmups.warmups || selectedWarmups.warmups.length === 0) {
+    return '';
+  }
+
+  let formatted = '\n\n## SUGGESTED WARM-UP QUESTIONS FROM TEACHLEAGUE COURSES\n\n';
+  formatted += 'The following warm-up questions have been used successfully in related courses:\n\n';
+
+  selectedWarmups.warmups.forEach((warmup, index) => {
+    formatted += `${index + 1}. **${warmup.text}**\n`;
+    formatted += `   - From: "${warmup.courseName}" course\n`;
+    if (warmup.url && !warmup.url.startsWith('#')) {
+      formatted += `   - Link: ${warmup.url}\n`;
+    }
+    formatted += '\n';
+  });
+
+  formatted += '\n**INSTRUCTIONS**: ';
+  if (selectedWarmups.source === 'relevant') {
+    formatted += 'These warm-up questions are relevant to the lesson topic. Choose the most appropriate one and adapt it if needed to fit the specific lesson goals. ';
+  } else {
+    formatted += 'Consider whether any of these warm-up questions could be adapted for this lesson, or create a new one inspired by these examples. ';
+  }
+  formatted += 'Feel free to modify the question to better align with the grade level, class period length, and other specified criteria.\n';
+
+  return formatted;
+}
+
 export default {
   extractCourseResources,
   extractResourcesForCourses,
   selectRelevantResources,
-  formatResourcesForPrompt
+  formatResourcesForPrompt,
+  selectWarmUpFromResources,
+  formatWarmupsForPrompt
 };
