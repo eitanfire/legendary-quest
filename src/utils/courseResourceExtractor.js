@@ -271,6 +271,7 @@ export function selectWarmUpFromResources(extractedResources, lessonTopic) {
   const warmupLinks = [];
   extractedResources.forEach(({ course, resources }) => {
     if (resources.warmups?.links && resources.warmups.links.length > 0) {
+      console.log(`  📝 ${course.name}: Found ${resources.warmups.links.length} warmup links`);
       resources.warmups.links.forEach(link => {
         warmupLinks.push({
           ...link,
@@ -281,6 +282,11 @@ export function selectWarmUpFromResources(extractedResources, lessonTopic) {
     }
   });
 
+  console.log(`Total warmup links collected: ${warmupLinks.length}`);
+  if (warmupLinks.length > 0) {
+    console.log('First warmup link example:', warmupLinks[0]);
+  }
+
   if (warmupLinks.length === 0) {
     return null;
   }
@@ -290,37 +296,63 @@ export function selectWarmUpFromResources(extractedResources, lessonTopic) {
     .split(/\s+/)
     .filter(word => word.length > 3);
 
+  console.log(`  🔍 Searching for warmups matching keywords:`, topicKeywords);
+
   const scoredWarmups = warmupLinks.map(link => {
     let score = 0;
     const textLower = (link.text || '').toLowerCase();
     const urlLower = (link.url || '').toLowerCase();
 
+    // Exact keyword matches (high score)
     topicKeywords.forEach(keyword => {
       if (textLower.includes(keyword)) score += 10;
       if (urlLower.includes(keyword)) score += 3;
     });
 
+    // Partial keyword matches (medium score)
+    // Check if any part of the keyword matches
+    topicKeywords.forEach(keyword => {
+      if (keyword.length >= 4) {
+        const keywordPart = keyword.substring(0, Math.max(4, keyword.length - 1));
+        if (textLower.includes(keywordPart) && !textLower.includes(keyword)) {
+          score += 3;
+        }
+      }
+    });
+
+    // Related word matching (lower score)
+    // Give small scores for common educational terms
+    const educationalTerms = ['writing', 'reading', 'analysis', 'discussion', 'thinking', 'creative', 'critical'];
+    educationalTerms.forEach(term => {
+      if (textLower.includes(term) && topicKeywords.some(k => k.includes(term.substring(0, 4)))) {
+        score += 2;
+      }
+    });
+
+    // Base score for all warmups (ensures we always have options)
+    score += 1;
+
     return { ...link, relevanceScore: score };
   });
 
-  // Sort by relevance and pick top warmups
-  const relevantWarmups = scoredWarmups
-    .filter(w => w.relevanceScore > 0)
-    .sort((a, b) => b.relevanceScore - a.relevanceScore)
-    .slice(0, 3); // Get top 3 most relevant
+  // Sort by relevance
+  const sortedWarmups = scoredWarmups.sort((a, b) => b.relevanceScore - a.relevanceScore);
 
-  if (relevantWarmups.length === 0) {
-    // If no relevant warmups found, return a random one
-    const randomIndex = Math.floor(Math.random() * warmupLinks.length);
-    return {
-      warmups: [warmupLinks[randomIndex]],
-      source: 'random'
-    };
-  }
+  console.log(`  📊 Top scored warmups:`, sortedWarmups.slice(0, 5).map(w => ({
+    text: w.text.substring(0, 50) + '...',
+    score: w.relevanceScore
+  })));
+
+  // Return top 3 warmups (even if they only have base score)
+  // This means we'll almost always use existing warmups instead of creating new ones
+  const topWarmups = sortedWarmups.slice(0, 3);
+
+  // Only consider it "relevant" if the top score is above base score
+  const hasRelevantMatches = topWarmups[0].relevanceScore > 1;
 
   return {
-    warmups: relevantWarmups,
-    source: 'relevant'
+    warmups: topWarmups,
+    source: hasRelevantMatches ? 'relevant' : 'suggested'
   };
 }
 
@@ -346,7 +378,9 @@ export function formatWarmupsForPrompt(selectedWarmups) {
 
   formatted += '\n**INSTRUCTIONS**: ';
   if (selectedWarmups.source === 'relevant') {
-    formatted += 'These warm-up questions are relevant to the lesson topic. Choose the most appropriate one and adapt it if needed to fit the specific lesson goals. ';
+    formatted += 'These warm-up questions are highly relevant to the lesson topic. Choose the most appropriate one and adapt it if needed to fit the specific lesson goals. ';
+  } else if (selectedWarmups.source === 'suggested') {
+    formatted += 'These warm-up questions have been used successfully in our courses. Please choose one and adapt it to fit this lesson topic and goals. Only create a completely new warm-up if none of these can be reasonably adapted. ';
   } else {
     formatted += 'Consider whether any of these warm-up questions could be adapted for this lesson, or create a new one inspired by these examples. ';
   }

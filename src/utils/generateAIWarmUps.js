@@ -87,10 +87,26 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
 
       // For warm-ups, extract specific warm-up questions
       if (generationType === 'warmUp') {
+        console.log('🔍 Looking for warm-up questions in extracted data...');
+        console.log('Extracted data courses:', extractedData.map(d => d.course.name));
+
+        // Debug: check what's in the warmups
+        extractedData.forEach(({ course, resources }) => {
+          const warmupCount = resources.warmups?.links?.length || 0;
+          console.log(`  - ${course.name}: ${warmupCount} warmup links`);
+          if (warmupCount > 0) {
+            console.log(`    First warmup:`, resources.warmups.links[0]);
+          }
+        });
+
         const selectedWarmups = selectWarmUpFromResources(extractedData, userInput);
+        console.log('Selected warmups result:', selectedWarmups);
+
         if (selectedWarmups) {
           warmupQuestionsSection = formatWarmupsForPrompt(selectedWarmups);
           console.log(`✓ Found ${selectedWarmups.warmups.length} ${selectedWarmups.source} warm-up questions`);
+        } else {
+          console.log('⚠️ No warm-up questions were selected');
         }
       }
     }
