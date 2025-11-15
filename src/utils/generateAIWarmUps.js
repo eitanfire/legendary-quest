@@ -207,11 +207,13 @@ Instructions:
 - The question should relate to both the topic and the skills they'll use in today's lesson
 - Students should be able to respond with at least five sentences OR a sketchnote (a symbolic picture answer)
 ${warmupQuestionsSection ? '- IMPORTANT: Review the suggested warm-up questions above and choose the most appropriate one for this lesson. You may adapt it to better fit the grade level and criteria, but try to use or modify an existing question rather than creating a completely new one.' : ''}
-- Format your response in TWO parts:
-  1. First: The warm-up question itself (just the question, no labels)
-  2. Then: If any TeachLeague courses are relevant, add a blank line and mention them starting with "For deeper learning..." or "To explore this further..." or "Consider checking out..."
-- Use exact course names when mentioning them
-- Keep the warm-up question separate from course suggestions
+- Format your response as just the warm-up question itself (no additional sections or course recommendations)
+// COMMENTED OUT - Course recommendations at end of warm-ups
+// - Format your response in TWO parts:
+//   1. First: The warm-up question itself (just the question, no labels)
+//   2. Then: If any TeachLeague courses are relevant, add a blank line and mention them starting with "For deeper learning..." or "To explore this further..." or "Consider checking out..."
+// - Use exact course names when mentioning them
+// - Keep the warm-up question separate from course suggestions
 
 Warm-up question:`;
   } else if (generationType === 'lessonPlan') {
@@ -242,8 +244,9 @@ Instructions:
   - Format video references as: "View videos from the [Course Name YouTube Playlist](playlist_url)"
   - Suggest specific ways to use the videos (whole class viewing, flipped classroom, supplementary learning, etc.)
 
-- If any TeachLeague courses are HIGHLY relevant to specific activities or sections, mention them inline using exact course names
-- At the end, if there are generally relevant TeachLeague courses, list them under a "Related Courses" section with their YouTube playlist links
+// COMMENTED OUT - Course recommendations sections at end of lesson plans
+// - If any TeachLeague courses are HIGHLY relevant to specific activities or sections, mention them inline using exact course names
+// - At the end, if there are generally relevant TeachLeague courses, list them under a "Related Courses" section with their YouTube playlist links
 
 Format your response as a well-structured lesson plan with clear section headers using markdown (## for main sections, ### for subsections).
 
