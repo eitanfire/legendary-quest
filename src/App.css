@@ -1251,3 +1251,115 @@ margin-right: 5rem;
 .course-recommendations-section {
   color: rgba(0, 0, 0, 0.75);
 }
+
+/* Print styles for lesson plans */
+@media print {
+  /* Reset page margins */
+  @page {
+    margin: 1cm;
+  }
+
+  /* Simple approach: hide everything, then show only what we need */
+  * {
+    visibility: hidden;
+    position: static !important;
+  }
+
+  /* Show warm-up and lesson plan outputs and all their descendants */
+  .warm-up-output,
+  .warm-up-output *,
+  .lesson-plan-output,
+  .lesson-plan-output * {
+    visibility: visible;
+  }
+
+  /* Position outputs at top of page */
+  .warm-up-output,
+  .lesson-plan-output {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+  }
+
+  /* Stack lesson plan below warm-up */
+  .lesson-plan-output {
+    top: auto !important;
+    position: relative !important;
+  }
+
+  /* Hide buttons even within outputs */
+  .warm-up-output button,
+  .warm-up-output .btn,
+  .warm-up-output .no-print,
+  .lesson-plan-output button,
+  .lesson-plan-output .btn,
+  .lesson-plan-output .no-print,
+  button,
+  .btn,
+  .no-print {
+    visibility: hidden !important;
+    display: none !important;
+  }
+
+  /* Page break settings */
+  .warm-up-output {
+    page-break-after: avoid;
+  }
+
+  /* Clean up warm-up styling for print */
+  .warm-up-question-section {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 0 2em 0 !important;
+    page-break-inside: avoid;
+  }
+
+  .warm-up-text {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: black;
+  }
+
+  /* Clean up lesson plan styling for print */
+  .lesson-plan-section {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    page-break-before: auto;
+  }
+
+  .lesson-plan-content {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: black;
+  }
+
+  /* Ensure links are visible in print */
+  .lesson-plan-content a,
+  .warm-up-text a {
+    color: #0066cc;
+    text-decoration: underline;
+  }
+
+  /* Print headers with proper styling */
+  .warm-up-output h3,
+  .lesson-plan-output h3 {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    color: black;
+  }
+
+  /* Add page breaks for better formatting */
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  /* Prevent orphaned lines */
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+}
