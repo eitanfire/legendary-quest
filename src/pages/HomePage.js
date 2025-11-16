@@ -40,7 +40,7 @@ const HomePage = () => {
         </Row>
       )}
 
-      {/* Main Content: Warm-ups and Directory */}
+      {/* Main Content: Curriculum Generator and Directory/YouTube */}
       <Row>
         {/* Curriculum Generator - Full width when curriculum generated, half when not */}
         <Col xs="12" lg={curriculumGenerated ? "12" : "6"} className="mb-4">
@@ -58,8 +58,11 @@ const HomePage = () => {
             />
           </div>
         </Col>
-        <Row className="mb-5 mt-4 justify-content-center">
-          <Col md="8" lg="6" className="mb-3">
+
+        {/* Right column: YouTube Videos and Course Directory stacked */}
+        <Col xs="12" lg={curriculumGenerated ? "12" : "6"} className="mb-4">
+          {/* YouTube Videos Card */}
+          <div className="mb-4">
             <a
               href="https://www.youtube.com/@eitanfire9861/playlists"
               target="_blank"
@@ -104,10 +107,9 @@ const HomePage = () => {
                 </CardBody>
               </Card>
             </a>
-          </Col>
-        </Row>
-        {/* Course Directory - Full width when curriculum generated, half when not */}
-        <Col xs="12" lg={curriculumGenerated ? "12" : "6"} className="mb-4">
+          </div>
+
+          {/* Course Directory */}
           <div className="p-3 border rounded bg-light shadow-sm">
             <h3 className="text-center mb-4">
               <b>Course Directory</b>

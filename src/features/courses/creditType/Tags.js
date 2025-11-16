@@ -190,10 +190,10 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
         <p>Error: {errMsg}</p>
       ) : (
         <>
-          {/* Mobile view - show limited courses */}
+          {/* Mobile view */}
           <Row className="d-lg-none">
-            {coursesToShow.slice(0, 4).map((course, id) => (
-              <Col md="5" className="m-4" key={id}>
+            {coursesToShow.map((course, id) => (
+              <Col md="5" className="m-4" key={course.id || id}>
                 <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
                   {course}
                 </CourseCard>
@@ -201,11 +201,11 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
             ))}
           </Row>
 
-          {/* Desktop view - show courses to match AI form height */}
-          <div className="d-none d-lg-block courses-scroll-container">
+          {/* Desktop view */}
+          <div className="d-none d-lg-block">
             <Row>
               {coursesToShow.map((course, id) => (
-                <Col md="5" className="m-4" key={id}>
+                <Col md="5" className="m-4" key={course.id || id}>
                   <CourseCard course={course} onClick={() => onCourseClick && onCourseClick(course)}>
                     {course}
                   </CourseCard>
@@ -218,7 +218,7 @@ const CoursesList = ({ selectedTags, renderLoadMore, onCourseClick, isHomePage }
 
       {/* Show load more buttons only on home page */}
       {isHomePage && (
-        <div className="load-courses-buttons-home">
+        <div className="load-courses-buttons-home text-center">
           {hasMoreCourses && (
             <>
               <button className="btn btn-primary mt-4 me-2" onClick={handleLoadMore}>
