@@ -10,7 +10,9 @@ import ExternalRedirect from "./components/ExternalRedirect";
 import CourseDetailPage from "./pages/CourseDetailPage";
 import WarmUpPage from "./pages/WarmUpPage";
 import BottomText from "./components/BottomText";
-import Theme from "./components/ChangeTheme";
+import Header from "./components/Header";
+// Vaporwave theme commented out for now
+// import Theme from "./components/ChangeTheme";
 import "./App.css";
 
 // ARCHIVED CONTENT REFERENCE (commit: 21a9e1b):
@@ -59,7 +61,9 @@ function App() {
 
   return (
     <div className="App">
-      <Theme className="spikes" />
+      {/* Vaporwave theme toggle commented out for now */}
+      {/* <Theme className="spikes" /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* Redirect to external personal website */}

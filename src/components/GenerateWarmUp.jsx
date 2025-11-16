@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col, FormGroup, Label, Input } from "reactstrap";
 import { useSelector } from "react-redux";
 import { run } from "../utils/generateAIWarmUps";
 import { inspectCourseData } from "../utils/inspectFirestoreData";
+import { searchSchoolDistricts } from "../utils/ncesAPI";
 
 const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
   const [userInput, setUserInput] = useState("");
@@ -20,9 +21,16 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
   const [politicalLeaning, setPoliticalLeaning] = useState('centrist');
   const [alignmentStandards, setAlignmentStandards] = useState([]);
   const [schoolDistrict, setSchoolDistrict] = useState('');
+  const [selectedDistrictData, setSelectedDistrictData] = useState(null);
+  const [districtSearchResults, setDistrictSearchResults] = useState([]);
+  const [showDistrictDropdown, setShowDistrictDropdown] = useState(false);
+  const [loadingDistricts, setLoadingDistricts] = useState(false);
   const [classPeriodLength, setClassPeriodLength] = useState('');
   const [customPeriodLength, setCustomPeriodLength] = useState('');
   const [additionalCriteria, setAdditionalCriteria] = useState('');
+
+  const districtSearchTimeoutRef = useRef(null);
+  const districtDropdownRef = useRef(null);
 
   const coursesArray = useSelector((state) => state.courses.coursesArray);
 
@@ -71,6 +79,67 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
         : [...prev, standard]
     );
   };
+
+  // Handle school district search with debouncing
+  const handleDistrictSearch = async (value) => {
+    setSchoolDistrict(value);
+
+    // Clear previous timeout
+    if (districtSearchTimeoutRef.current) {
+      clearTimeout(districtSearchTimeoutRef.current);
+    }
+
+    // If search term is too short, hide dropdown
+    if (value.trim().length < 2) {
+      setShowDistrictDropdown(false);
+      setDistrictSearchResults([]);
+      return;
+    }
+
+    // Set loading state
+    setLoadingDistricts(true);
+    setShowDistrictDropdown(true);
+
+    // Debounce the API call (wait 300ms after user stops typing)
+    districtSearchTimeoutRef.current = setTimeout(async () => {
+      const results = await searchSchoolDistricts(value, 10);
+      setDistrictSearchResults(results);
+      setLoadingDistricts(false);
+    }, 300);
+  };
+
+  // Handle district selection from dropdown
+  const handleDistrictSelect = (district) => {
+    setSchoolDistrict(district.name);
+    setSelectedDistrictData(district);
+    setShowDistrictDropdown(false);
+    setDistrictSearchResults([]);
+
+    // Auto-suggest standards based on district's state
+    if (district.recommendedStandards && district.recommendedStandards.length > 0) {
+      // Add recommended standards that aren't already selected
+      setAlignmentStandards(prev => {
+        const newStandards = district.recommendedStandards.filter(
+          standard => !prev.includes(standard)
+        );
+        return [...prev, ...newStandards];
+      });
+    }
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (districtDropdownRef.current && !districtDropdownRef.current.contains(event.target)) {
+        setShowDistrictDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -216,8 +285,8 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
             </div>
           </div>
 
-          {/* Political Perspective - Toggle Section */}
-          <div className="mb-4 p-3 bg-light border rounded">
+          {/* Political Perspective - Toggle Section - COMMENTED OUT FOR POSSIBLE LATER USE */}
+          {/* <div className="mb-4 p-3 bg-light border rounded">
             <FormGroup check className="mb-2">
               <Label check className="d-flex align-items-center">
                 <Input
@@ -291,48 +360,147 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
                 </FormGroup>
               </div>
             )}
+          </div> */}
+
+          {/* School District */}
+          <div className="mb-4 p-3 bg-light border rounded">
+            <h5 className="mb-3">School District (Optional)</h5>
+            <small className="text-muted d-block mb-2">
+              Start typing to search for your school district
+            </small>
+            <div className="position-relative" ref={districtDropdownRef}>
+              <Input
+                type="text"
+                value={schoolDistrict}
+                onChange={(e) => handleDistrictSearch(e.target.value)}
+                onFocus={() => {
+                  if (schoolDistrict.trim().length >= 2 && districtSearchResults.length > 0) {
+                    setShowDistrictDropdown(true);
+                  }
+                }}
+                placeholder="e.g., Austin, Denver, New York"
+                className="mb-2"
+                autoComplete="off"
+              />
+              {showDistrictDropdown && (
+                <div
+                  className="position-absolute w-100 bg-white border rounded shadow-sm"
+                  style={{
+                    maxHeight: '300px',
+                    overflowY: 'auto',
+                    zIndex: 1000,
+                    top: '100%',
+                    marginTop: '-0.5rem'
+                  }}
+                >
+                  {loadingDistricts ? (
+                    <div className="p-3 text-center text-muted">
+                      <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                      Searching districts...
+                    </div>
+                  ) : districtSearchResults.length > 0 ? (
+                    <ul className="list-unstyled mb-0">
+                      {districtSearchResults.map((district, index) => (
+                        <li
+                          key={`${district.geoid}-${index}`}
+                          className="p-2 border-bottom cursor-pointer"
+                          style={{
+                            cursor: 'pointer',
+                            transition: 'background-color 0.2s'
+                          }}
+                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f8f9fa'}
+                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
+                          onClick={() => handleDistrictSelect(district)}
+                        >
+                          <div className="fw-bold">{district.name}</div>
+                          <small className="text-muted">{district.state}</small>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="p-3 text-center text-muted">
+                      No districts found. Try a different search term.
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+            <small className="text-muted">
+              Powered by NCES (National Center for Education Statistics) database
+            </small>
           </div>
 
           {/* Alignment Standards */}
           <div className="mb-4 p-3 bg-light border rounded">
             <h5 className="mb-3">Alignment Standards</h5>
-            <small className="text-muted d-block mb-2">
-              Select which educational standards to align with:
-            </small>
-            <div className="d-flex flex-wrap gap-2 mb-3">
-              {[
-                { value: "CCSS", label: "Common Core State Standards (CCSS)" },
-                {
-                  value: "TEKS",
-                  label: "Texas Essential Knowledge and Skills (TEKS)",
-                },
-                { value: "Colorado", label: "Colorado Academic Standards" },
-                {
-                  value: "NGSS",
-                  label: "Next Generation Science Standards (NGSS)",
-                },
-              ].map((standard) => (
-                <FormGroup check key={standard.value} className="mb-2">
-                  <Label check>
-                    <Input
-                      type="checkbox"
-                      checked={alignmentStandards.includes(standard.value)}
-                      onChange={() => handleStandardToggle(standard.value)}
-                      className="me-2"
-                    />
-                    {standard.label}
-                  </Label>
-                </FormGroup>
-              ))}
+
+            {/* Nationwide Standards Section */}
+            <div className="mb-4">
+              <h6 className="mb-2 text-primary">Nationwide Standards</h6>
+              <small className="text-muted d-block mb-2">
+                Available to all districts across the United States
+              </small>
+              <div className="d-flex flex-wrap gap-2">
+                {[
+                  { value: "CCSS", label: "Common Core State Standards (CCSS)" },
+                  { value: "NGSS", label: "Next Generation Science Standards (NGSS)" },
+                ].map((standard) => (
+                  <FormGroup check key={standard.value} className="mb-2">
+                    <Label check>
+                      <Input
+                        type="checkbox"
+                        checked={alignmentStandards.includes(standard.value)}
+                        onChange={() => handleStandardToggle(standard.value)}
+                        className="me-2"
+                      />
+                      {standard.label}
+                    </Label>
+                  </FormGroup>
+                ))}
+              </div>
             </div>
-            <FormGroup>
-              <Label for="otherStandards" className="fw-bold">
-                Other Standards:
-              </Label>
+
+            {/* State-Specific Standards Section */}
+            {selectedDistrictData && (
+              <div className="mb-4 p-3 bg-white border rounded">
+                <h6 className="mb-2 text-success">
+                  <span className="me-2">✓</span>
+                  {selectedDistrictData.state} State Standards
+                </h6>
+                <small className="text-muted d-block mb-2">
+                  Standards specific to {selectedDistrictData.state}
+                </small>
+                <div className="d-flex flex-wrap gap-2">
+                  {selectedDistrictData.stateStandards && selectedDistrictData.stateStandards.map((standard) => (
+                    <FormGroup check key={standard.value} className="mb-2">
+                      <Label check className="fw-bold">
+                        <Input
+                          type="checkbox"
+                          checked={alignmentStandards.includes(standard.value)}
+                          onChange={() => handleStandardToggle(standard.value)}
+                          className="me-2"
+                        />
+                        {standard.label}
+                        <span className="badge bg-success ms-2" style={{ fontSize: '0.7rem' }}>
+                          Recommended
+                        </span>
+                      </Label>
+                    </FormGroup>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Other Standards */}
+            <div>
+              <h6 className="mb-2">Other Standards</h6>
+              <small className="text-muted d-block mb-2">
+                International or alternative standards (e.g., IB, Cambridge, Australian Curriculum)
+              </small>
               <Input
                 type="text"
                 id="otherStandards"
-                placeholder="Any Standards Worldwide (e.g., IB, Cambridge, Australian Curriculum)"
+                placeholder="Enter custom standards..."
                 value={
                   alignmentStandards
                     .find((s) => s.startsWith("Other:"))
@@ -352,27 +520,7 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
                   });
                 }}
               />
-            </FormGroup>
-          </div>
-
-          {/* School District */}
-          <div className="mb-4 p-3 bg-light border rounded">
-            <h5 className="mb-3">School District (Optional)</h5>
-            <small className="text-muted d-block mb-2">
-              Enter your school district name or leave blank for general
-              curriculum
-            </small>
-            <Input
-              type="text"
-              value={schoolDistrict}
-              onChange={(e) => setSchoolDistrict(e.target.value)}
-              placeholder="e.g., Austin Independent School District"
-              className="mb-2"
-            />
-            <small className="text-muted">
-              Future: We'll integrate with NCES database for district-specific
-              standards and requirements
-            </small>
+            </div>
           </div>
 
           {/* Class Period Length */}

@@ -205,15 +205,11 @@ Topic and Skills: ${userInput}${warmupQuestionsSection}${extractedResourcesSecti
 Instructions:
 - Create an engaging warm-up question that activates students' background knowledge
 - The question should relate to both the topic and the skills they'll use in today's lesson
-- Students should be able to respond with at least five sentences OR a sketchnote (a symbolic picture answer)
+- Make it open-ended to encourage thoughtful responses
 ${warmupQuestionsSection ? '- IMPORTANT: Review the suggested warm-up questions above and choose the most appropriate one for this lesson. You may adapt it to better fit the grade level and criteria, but try to use or modify an existing question rather than creating a completely new one.' : ''}
-- Format your response as just the warm-up question itself (no additional sections or course recommendations)
-// COMMENTED OUT - Course recommendations at end of warm-ups
-// - Format your response in TWO parts:
-//   1. First: The warm-up question itself (just the question, no labels)
-//   2. Then: If any TeachLeague courses are relevant, add a blank line and mention them starting with "For deeper learning..." or "To explore this further..." or "Consider checking out..."
-// - Use exact course names when mentioning them
-// - Keep the warm-up question separate from course suggestions
+- Format your response as just the warm-up question itself
+- Do NOT include instructions about how many sentences to write
+- Do NOT mention "deeper learning" or course recommendations
 
 Warm-up question:`;
   } else if (generationType === 'lessonPlan') {
