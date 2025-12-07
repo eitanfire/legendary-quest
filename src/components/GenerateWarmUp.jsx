@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { run } from "../utils/generateAIWarmUps";
 import { inspectCourseData } from "../utils/inspectFirestoreData";
 import { searchSchoolDistricts } from "../utils/ncesAPI";
+import { getSessionId } from "../utils/sessionId";
 
 const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
   const [userInput, setUserInput] = useState("");
@@ -12,6 +13,11 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
   const [loading, setLoading] = useState(false);
   const [generateWarmUp, setGenerateWarmUp] = useState(true);
   const [generateLessonPlan, setGenerateLessonPlan] = useState(true);
+
+  // Analytics consent (Phase 2)
+  const [analyticsConsent, setAnalyticsConsent] = useState(
+    localStorage.getItem('teachleague_analytics_consent') === 'true'
+  );
 
   // AI Provider will use default from .env with automatic fallback
 
@@ -168,10 +174,16 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
       additional: additionalCriteria
     };
 
+    // Build metadata for logging (Phase 1 & 2)
+    const metadata = {
+      analyticsConsent,
+      sessionId: getSessionId(),
+    };
+
     try {
       // Generate warm-up if checked
       if (generateWarmUp) {
-        const warmUpResult = await run(userInput, coursesArray, 'warmUp', criteria, null);
+        const warmUpResult = await run(userInput, coursesArray, 'warmUp', criteria, null, metadata);
         if (warmUpResult !== undefined) {
           setWarmUpResponse(warmUpResult.content);
         }
@@ -179,7 +191,7 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
 
       // Generate lesson plan if checked
       if (generateLessonPlan) {
-        const lessonPlanResult = await run(userInput, coursesArray, 'lessonPlan', criteria, null);
+        const lessonPlanResult = await run(userInput, coursesArray, 'lessonPlan', criteria, null, metadata);
         if (lessonPlanResult !== undefined) {
           setLessonPlanResponse(lessonPlanResult.content);
         }
@@ -1044,6 +1056,25 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
 
           {/* Submit Button */}
           <form onSubmit={handleSubmit} className="mb-4">
+            {/* Analytics Consent */}
+            <div className="mb-3 text-center" style={{ fontSize: "0.9rem" }}>
+              <FormGroup check>
+                <Label check style={{ cursor: "pointer", color: "#666" }}>
+                  <Input
+                    type="checkbox"
+                    checked={analyticsConsent}
+                    onChange={(e) => {
+                      const consent = e.target.checked;
+                      setAnalyticsConsent(consent);
+                      localStorage.setItem('teachleague_analytics_consent', consent);
+                    }}
+                    style={{ cursor: "pointer" }}
+                  />
+                  {' '}Help improve TeachLeague by sharing anonymized usage data
+                </Label>
+              </FormGroup>
+            </div>
+
             <button
               type="submit"
               disabled={loading}

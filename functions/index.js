@@ -1,11 +1,27 @@
 const {onCall, HttpsError} = require('firebase-functions/v2/https');
 const {defineSecret} = require('firebase-functions/params');
+const {logger} = require('firebase-functions');
+const admin = require('firebase-admin');
 const OpenAI = require('openai');
 const {GoogleGenerativeAI} = require('@google/generative-ai');
+const crypto = require('crypto');
+
+// Initialize Firebase Admin
+admin.initializeApp();
+
+// Initialize Firestore
+const db = admin.firestore();
 
 // Define secrets - these are set via Firebase CLI: firebase functions:secrets:set
 const openaiKey = defineSecret('OPENAI_KEY');
 const geminiKey = defineSecret('GEMINI_KEY');
+
+/**
+ * Hash prompt for deduplication without storing exact text
+ */
+function hashPrompt(prompt) {
+  return crypto.createHash('sha256').update(prompt).digest('hex').substring(0, 16);
+}
 
 /**
  * Secure Cloud Function to generate curriculum content
@@ -30,9 +46,11 @@ exports.generateCurriculum = onCall(
     secrets: [openaiKey, geminiKey],
   },
   async (request) => {
+    const startTime = Date.now();
+
     try {
       // Get parameters from client
-      const {prompt, provider, systemPrompt, model} = request.data;
+      const {prompt, provider, systemPrompt, model, metadata} = request.data;
 
       // Validate input
       if (!prompt || typeof prompt !== 'string') {
@@ -42,6 +60,20 @@ exports.generateCurriculum = onCall(
       if (!provider || !['openai', 'gemini'].includes(provider)) {
         throw new HttpsError('invalid-argument', 'Provider must be either "openai" or "gemini"');
       }
+
+      // Build log entry (Phase 1: Cloud Logging)
+      const logEntry = {
+        timestamp: new Date().toISOString(),
+        topic: prompt.substring(0, 500), // Truncate for safety
+        topicHash: hashPrompt(prompt),
+        criteria: metadata?.criteria || {},
+        provider,
+        model: model || (provider === 'openai' ? 'gpt-4o-mini' : 'gemini-1.5-flash'),
+        userId: request.auth?.uid || null,
+        sessionId: metadata?.sessionId || 'unknown',
+        coursesUsed: metadata?.coursesUsed || [],
+        resourceCount: metadata?.resourceCount || 0,
+      };
 
       console.log(`Generating curriculum with ${provider} for user:`, request.auth?.uid || 'anonymous');
 
@@ -94,6 +126,29 @@ exports.generateCurriculum = onCall(
         }
       }
 
+      // Calculate generation time
+      const generationTime = (Date.now() - startTime) / 1000; // Convert to seconds
+
+      // Log success (Phase 1: Cloud Logging)
+      logEntry.success = true;
+      logEntry.tokensUsed = tokensUsed;
+      logEntry.generationTime = generationTime;
+
+      logger.info('Curriculum generated successfully', logEntry);
+
+      // Log to Firestore if user consented (Phase 2: Analytics)
+      if (metadata?.analyticsConsent === true) {
+        try {
+          await db.collection('promptLogs').add({
+            ...logEntry,
+            expireAt: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000), // 90 days TTL
+          });
+        } catch (firestoreError) {
+          // Don't fail request if Firestore logging fails
+          logger.error('Failed to log to Firestore', {error: firestoreError.message});
+        }
+      }
+
       return {
         content,
         provider,
@@ -102,6 +157,42 @@ exports.generateCurriculum = onCall(
       };
     } catch (error) {
       console.error('Error generating curriculum:', error);
+
+      // Calculate generation time even for errors
+      const generationTime = (Date.now() - startTime) / 1000;
+
+      // Determine error type
+      let errorType = 'unknown';
+      if (error.status === 429 || error.message?.includes('rate limit')) {
+        errorType = 'rate_limit';
+      } else if (error.message?.includes('quota')) {
+        errorType = 'quota_exceeded';
+      } else if (error.code === 'invalid-argument') {
+        errorType = 'validation_error';
+      }
+
+      // Log error (Phase 1: Cloud Logging)
+      const errorLogEntry = {
+        ...logEntry,
+        success: false,
+        errorType,
+        errorMessage: error.message?.substring(0, 200),
+        generationTime,
+      };
+
+      logger.error('Curriculum generation failed', errorLogEntry);
+
+      // Log to Firestore if user consented (Phase 2: Analytics)
+      if (metadata?.analyticsConsent === true) {
+        try {
+          await db.collection('promptLogs').add({
+            ...errorLogEntry,
+            expireAt: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000), // 90 days TTL
+          });
+        } catch (firestoreError) {
+          logger.error('Failed to log error to Firestore', {error: firestoreError.message});
+        }
+      }
 
       // Check for rate limit errors
       if (error.status === 429 || error.message?.includes('rate limit')) {

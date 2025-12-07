@@ -66,8 +66,11 @@ class AIProviderManager {
 
   /**
    * Generate content via Cloud Function with retry and fallback logic
+   * @param {string} prompt - The prompt to generate content for
+   * @param {string} preferredProvider - Preferred AI provider (openai or gemini)
+   * @param {object} metadata - Additional metadata for logging (optional)
    */
-  async generate(prompt, preferredProvider = null) {
+  async generate(prompt, preferredProvider = null, metadata = null) {
     const provider = preferredProvider || this.defaultProvider;
     let lastError = null;
     let retryDelay = INITIAL_RETRY_DELAY;
@@ -82,7 +85,8 @@ class AIProviderManager {
           provider,
           model: provider === AI_PROVIDERS.OPENAI
             ? (process.env.REACT_APP_OPENAI_MODEL || 'gpt-4o-mini')
-            : 'gemini-2.0-flash-exp'
+            : 'gemini-2.0-flash-exp',
+          metadata // Pass metadata to Cloud Function
         });
 
         console.log(`Generation successful with ${provider}`);
@@ -120,7 +124,8 @@ class AIProviderManager {
           provider: fallbackProvider,
           model: fallbackProvider === AI_PROVIDERS.OPENAI
             ? (process.env.REACT_APP_OPENAI_MODEL || 'gpt-4o-mini')
-            : 'gemini-2.0-flash-exp'
+            : 'gemini-2.0-flash-exp',
+          metadata // Pass metadata to Cloud Function
         });
 
         return {

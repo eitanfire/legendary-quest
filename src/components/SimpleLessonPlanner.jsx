@@ -3,6 +3,7 @@ import { Container, Button, Input, FormGroup, Label, Collapse } from "reactstrap
 import { useSelector } from "react-redux";
 import { run } from "../utils/generateAIWarmUps";
 import { searchSchoolDistricts } from "../utils/ncesAPI";
+import { getSessionId } from "../utils/sessionId";
 import LessonPlanDisplay from "./LessonPlanDisplay";
 
 const SimpleLessonPlanner = ({ onCourseClick, onCurriculumGenerated }) => {
@@ -13,6 +14,11 @@ const SimpleLessonPlanner = ({ onCourseClick, onCurriculumGenerated }) => {
   const [classPeriodLength, setClassPeriodLength] = useState("");
   const [additionalCriteria, setAdditionalCriteria] = useState("");
   const [udlStrategies, setUdlStrategies] = useState([]);
+
+  // Analytics consent (Phase 2)
+  const [analyticsConsent, setAnalyticsConsent] = useState(
+    localStorage.getItem('teachleague_analytics_consent') === 'true'
+  );
 
   // UI state
   const [showGrades, setShowGrades] = useState(false);
@@ -123,8 +129,14 @@ const SimpleLessonPlanner = ({ onCourseClick, onCurriculumGenerated }) => {
       udlStrategies: udlStrategies,
     };
 
+    // Build metadata for logging (Phase 1 & 2)
+    const metadata = {
+      analyticsConsent,
+      sessionId: getSessionId(),
+    };
+
     try {
-      const result = await run(topic, coursesArray, "lessonPlan", criteria, null);
+      const result = await run(topic, coursesArray, "lessonPlan", criteria, null, metadata);
       if (result !== undefined) {
         setLessonPlanResponse(result.content);
         setCompleted(true);
@@ -653,6 +665,25 @@ const SimpleLessonPlanner = ({ onCourseClick, onCurriculumGenerated }) => {
                 />
               </div>
             </Collapse>
+          </div>
+
+          {/* Analytics Consent Checkbox */}
+          <div className="mb-3 text-center" style={{ fontSize: "0.9rem" }}>
+            <FormGroup check>
+              <Label check style={{ cursor: "pointer", color: "#666" }}>
+                <Input
+                  type="checkbox"
+                  checked={analyticsConsent}
+                  onChange={(e) => {
+                    const consent = e.target.checked;
+                    setAnalyticsConsent(consent);
+                    localStorage.setItem('teachleague_analytics_consent', consent);
+                  }}
+                  style={{ cursor: "pointer" }}
+                />
+                {' '}Help improve TeachLeague by sharing anonymized usage data
+              </Label>
+            </FormGroup>
           </div>
 
           {/* Generate Button */}

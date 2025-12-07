@@ -49,8 +49,8 @@ function calculateRelevance(course, userInput) {
   return score;
 }
 
-export async function run(userInput, courses = [], generationType = 'lessonPlan', criteria = {}, preferredProvider = null) {
-  console.log('AI Generator called with:', { userInput, courseCount: courses?.length, generationType, criteria, preferredProvider });
+export async function run(userInput, courses = [], generationType = 'lessonPlan', criteria = {}, preferredProvider = null, metadata = null) {
+  console.log('AI Generator called with:', { userInput, courseCount: courses?.length, generationType, criteria, preferredProvider, metadata });
 
   // Create course list for the prompt - only include courses with name and description
   const validCourses = courses?.filter(c => c?.name && (c?.intro || c?.description)) || [];
@@ -72,6 +72,7 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
   const topCourses = rankedCourses.slice(0, 5); // Extract from top 5 most relevant courses
   let extractedResourcesSection = '';
   let warmupQuestionsSection = '';
+  let relevantResources = []; // Track for metadata
 
   try {
     console.log('Extracting detailed resources from top courses...');
@@ -79,7 +80,7 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
 
     if (extractedData && extractedData.length > 0) {
       // For lesson plans, extract general resources (increased to 25 for more options)
-      const relevantResources = selectRelevantResources(extractedData, userInput, 25);
+      relevantResources = selectRelevantResources(extractedData, userInput, 25);
       if (relevantResources.length > 0) {
         extractedResourcesSection = formatResourcesForPrompt(relevantResources);
         console.log(`✓ Found ${relevantResources.length} relevant resources from course docs and videos`);
@@ -290,7 +291,16 @@ Lesson Plan:`;
 
   try {
     const aiManager = getAIProviderManager();
-    const result = await aiManager.generate(prompt, preferredProvider);
+
+    // Enhance metadata with course information
+    const enhancedMetadata = {
+      ...metadata,
+      criteria,
+      coursesUsed: topCourses.slice(0, 5).map(c => c.name), // Top 5 course names
+      resourceCount: relevantResources?.length || 0,
+    };
+
+    const result = await aiManager.generate(prompt, preferredProvider, enhancedMetadata);
 
     console.log("AI generation result:", {
       provider: result.provider,
