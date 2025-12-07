@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Card, CardBody, CardTitle } from "reactstrap";
-import GenerateWarmUp from "../components/GenerateWarmUp";
+import SimpleLessonPlanner from "../components/SimpleLessonPlanner";
 import FeaturedCourseDisplay from "../features/courses/FeaturedCourseDisplay";
 import Tags from "../features/courses/creditType/Tags";
 
@@ -45,14 +45,7 @@ const HomePage = () => {
         {/* Curriculum Generator - Full width when curriculum generated, half when not */}
         <Col xs="12" lg={curriculumGenerated ? "12" : "6"} className="mb-4">
           <div className="p-3 border rounded bg-light shadow-sm">
-            <h3 className="text-center mb-4">
-              <b>Curriculum Generator</b>
-            </h3>
-            <p className="text-center text-muted mb-4">
-              Generate AI-powered warm-up questions and complete lesson plans
-              tailored to your needs
-            </p>
-            <GenerateWarmUp
+            <SimpleLessonPlanner
               onCourseClick={handleCourseClick}
               onCurriculumGenerated={handleCurriculumGenerated}
             />
@@ -95,14 +88,13 @@ const HomePage = () => {
                     <span className="me-3" style={{ fontSize: "3rem" }}>
                       🎬
                     </span>
-                    YouTube Videos
+                    Educational Videos
                   </CardTitle>
                   <p
                     className="text-white text-center"
                     style={{ fontSize: "var(--font-size-md)", opacity: 0.95 }}
                   >
-                    Watch educational content and teaching resources on my
-                    YouTube channel
+                    Help students visualize the material with engaging clips
                   </p>
                 </CardBody>
               </Card>

@@ -61,6 +61,14 @@ export async function extractCourseResources(course) {
     const totalExtracted = Object.values(counts).reduce((a, b) => a + b, 0);
     if (totalExtracted === 0) {
       console.warn(`  ⚠️ No resources extracted for ${course.name}. Response:`, data.resources);
+    } else {
+      // Debug: show sample curriculum links if they exist
+      if (data.resources.curriculum?.links && data.resources.curriculum.links.length > 0) {
+        console.log(`  📄 Sample curriculum links for ${course.name}:`);
+        data.resources.curriculum.links.slice(0, 3).forEach((link, i) => {
+          console.log(`    ${i + 1}. Text: "${link.text}", URL: "${link.url}"`);
+        });
+      }
     }
 
     return data.resources;
@@ -113,16 +121,38 @@ export function selectRelevantResources(extractedResources, lessonTopic, maxItem
     .split(/\s+/)
     .filter(word => word.length > 3); // Filter out short words
 
-  const allResources = [];
+  const allLinks = [];
+  const allVideos = [];
 
   extractedResources.forEach(({ course, resources }) => {
     // Add links from Google Docs
     ['description', 'warmups', 'extra', 'curriculum'].forEach(docType => {
+      // First, add the Google Doc URL itself if it exists
+      if (resources[docType]?.url && course[docType]) {
+        const docName = docType.charAt(0).toUpperCase() + docType.slice(1);
+        const docTitle = `${course.name} ${docName} Document`;
+        const relevanceScore = calculateLinkRelevance(
+          { text: docTitle, url: course[docType], type: 'google_doc' },
+          topicKeywords
+        );
+
+        allLinks.push({
+          type: 'link',
+          source: `${course.name} - ${docType}`,
+          courseName: course.name,
+          docType,
+          text: docTitle,
+          url: course[docType],
+          relevanceScore: relevanceScore + 10 // Bonus for the main document
+        });
+      }
+
+      // Then add links extracted FROM inside the Google Doc
       if (resources[docType]?.links) {
         resources[docType].links.forEach(link => {
           const relevanceScore = calculateLinkRelevance(link, topicKeywords);
           if (relevanceScore > 0) {
-            allResources.push({
+            allLinks.push({
               type: 'link',
               source: `${course.name} - ${docType}`,
               courseName: course.name,
@@ -141,7 +171,7 @@ export function selectRelevantResources(extractedResources, lessonTopic, maxItem
         resources[playlistType].videos.forEach(video => {
           const relevanceScore = calculateVideoRelevance(video, topicKeywords);
           if (relevanceScore > 0) {
-            allResources.push({
+            allVideos.push({
               type: 'video',
               source: `${course.name} - YouTube`,
               courseName: course.name,
@@ -155,14 +185,25 @@ export function selectRelevantResources(extractedResources, lessonTopic, maxItem
     });
   });
 
-  // Sort by relevance and return top items
-  const sortedResources = allResources
+  // Sort each type by relevance
+  const sortedLinks = allLinks.sort((a, b) => b.relevanceScore - a.relevanceScore);
+  const sortedVideos = allVideos.sort((a, b) => b.relevanceScore - a.relevanceScore);
+
+  // Ensure we get a balanced mix: at least 40% should be document links
+  const minLinks = Math.ceil(maxItems * 0.4); // At least 40% documents
+  const minVideos = Math.floor(maxItems * 0.3); // At least 30% videos
+
+  let selectedLinks = sortedLinks.slice(0, Math.max(minLinks, Math.floor(maxItems / 2)));
+  let selectedVideos = sortedVideos.slice(0, Math.max(minVideos, Math.floor(maxItems / 2)));
+
+  // Combine and trim to maxItems
+  const combined = [...selectedLinks, ...selectedVideos]
     .sort((a, b) => b.relevanceScore - a.relevanceScore)
     .slice(0, maxItems);
 
-  console.log(`Selected ${sortedResources.length} most relevant resources out of ${allResources.length} total`);
+  console.log(`Selected ${combined.length} resources: ${selectedLinks.length} docs, ${selectedVideos.length} videos (out of ${allLinks.length} total docs, ${allVideos.length} total videos)`);
 
-  return sortedResources;
+  return combined;
 }
 
 /**
@@ -174,13 +215,30 @@ function calculateLinkRelevance(link, topicKeywords) {
   const urlLower = link.url?.toLowerCase() || '';
 
   topicKeywords.forEach(keyword => {
-    if (textLower.includes(keyword)) score += 10;
+    // Exact keyword match in title (highest priority)
+    if (textLower.includes(keyword)) score += 15;
+
+    // Partial keyword match in title
+    const partialKeyword = keyword.substring(0, Math.min(keyword.length - 1, 5));
+    if (partialKeyword.length >= 4 && textLower.includes(partialKeyword) && !textLower.includes(keyword)) {
+      score += 8;
+    }
+
+    // Keyword in URL
     if (urlLower.includes(keyword)) score += 5;
   });
 
+  // Bonus for curriculum documents (most useful for lesson planning)
+  if (link.docType === 'curriculum') score += 12; // High priority for curriculum docs
+  if (link.docType === 'warmups') score += 8;
+  if (link.docType === 'extra') score += 6;
+
   // Bonus for certain link types
-  if (link.type === 'google_doc') score += 2;
-  if (link.type === 'youtube') score += 3;
+  if (link.type === 'google_doc') score += 8; // Prioritize Google Docs
+  if (link.type === 'youtube') score += 4;
+
+  // Base score to ensure we always have some resources
+  score += 5; // Higher base to compete with videos
 
   return score;
 }
@@ -194,9 +252,21 @@ function calculateVideoRelevance(video, topicKeywords) {
   const descLower = video.description?.toLowerCase() || '';
 
   topicKeywords.forEach(keyword => {
-    if (titleLower.includes(keyword)) score += 15;
-    if (descLower.includes(keyword)) score += 5;
+    // Exact keyword match in title (highest priority)
+    if (titleLower.includes(keyword)) score += 20;
+
+    // Partial keyword match in title
+    const partialKeyword = keyword.substring(0, Math.min(keyword.length - 1, 5));
+    if (partialKeyword.length >= 4 && titleLower.includes(partialKeyword) && !titleLower.includes(keyword)) {
+      score += 10;
+    }
+
+    // Keyword in description
+    if (descLower.includes(keyword)) score += 7;
   });
+
+  // Base score for all videos
+  score += 2;
 
   return score;
 }
@@ -209,8 +279,10 @@ export function formatResourcesForPrompt(resources) {
     return '';
   }
 
-  let formatted = '\n\n## RELEVANT RESOURCES FROM TEACHLEAGUE COURSES\n\n';
-  formatted += 'The following resources were extracted from our course library and are relevant to this lesson:\n\n';
+  let formatted = '\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+  formatted += '## 📚 SPECIFIC RESOURCES TO USE IN THIS LESSON\n';
+  formatted += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n';
+  formatted += '**INSTRUCTIONS**: Use these EXACT resources throughout your lesson plan. Copy the titles and URLs exactly as shown.\n\n';
 
   // Group by course
   const byCourse = {};
@@ -230,30 +302,37 @@ export function formatResourcesForPrompt(resources) {
 
   // Format by course
   Object.entries(byCourse).forEach(([courseName, { links, videos }]) => {
-    formatted += `### From "${courseName}" Course:\n\n`;
+    formatted += `### 📖 From "${courseName}" Course\n\n`;
 
     if (links.length > 0) {
-      formatted += '**Relevant Links:**\n';
-      links.forEach(link => {
-        formatted += `- [${link.text}](${link.url}) (from ${link.docType})\n`;
+      formatted += '**📄 Curriculum Documents & Links:**\n';
+      links.forEach((link, idx) => {
+        console.log(`📎 Including curriculum link - Text: "${link.text}", URL: "${link.url}", Type: ${link.type}`);
+        formatted += `${idx + 1}. [${link.text}](${link.url})\n`;
       });
       formatted += '\n';
     }
 
     if (videos.length > 0) {
-      formatted += '**Relevant Videos:**\n';
-      videos.forEach(video => {
-        formatted += `- [${video.title}](${video.url})\n`;
+      formatted += '**🎥 Video Resources:**\n';
+      videos.forEach((video, idx) => {
+        formatted += `${idx + 1}. [${video.title}](${video.url})\n`;
         if (video.description && video.description.length > 0 && video.description.length < 150) {
-          formatted += `  ${video.description}\n`;
+          formatted += `   _${video.description}_\n`;
         }
       });
       formatted += '\n';
     }
   });
 
-  formatted += '\n**IMPORTANT**: Please incorporate these specific resources into the lesson plan where relevant. ';
-  formatted += 'Mention specific videos or links that would enhance the lesson, rather than just linking to entire playlists or documents.\n';
+  formatted += '\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+  formatted += '**⚠️ CRITICAL INSTRUCTIONS**:\n';
+  formatted += '1. INTEGRATE these specific resources throughout your lesson plan\n';
+  formatted += '2. BUILD your lesson activities AROUND these resources\n';
+  formatted += '3. Use the EXACT titles and URLs shown above when referencing them\n';
+  formatted += '4. Only mention resources you ARE using - do NOT explain which resources you are NOT using\n';
+  formatted += '5. The lesson plan should be ready for teachers and students - no meta-commentary\n';
+  formatted += '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
 
   return formatted;
 }
@@ -364,7 +443,7 @@ export function formatWarmupsForPrompt(selectedWarmups) {
     return '';
   }
 
-  let formatted = '\n\n## SUGGESTED WARM-UP QUESTIONS FROM TEACHLEAGUE COURSES\n\n';
+  let formatted = '\n\n## SUGGESTED WARM-UP QUESTIONS FROM COURSE LIBRARY\n\n';
   formatted += 'The following warm-up questions have been used successfully in related courses:\n\n';
 
   selectedWarmups.warmups.forEach((warmup, index) => {

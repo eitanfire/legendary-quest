@@ -5,6 +5,7 @@ import { getClassCredit } from "./getClassCredit";
 import CourseCard from "../CourseCard";
 import LoadMoreCourses from "../LoadMoreCourses";
 import FeaturedCourseDisplay from "../FeaturedCourseDisplay";
+import "../../../Credit.css";
 
 const Tags = ({ featuredCourse, onCourseClick, isHomePage = false }) => {
   const [selectedTags, setSelectedTags] = useState([]);
@@ -62,14 +63,9 @@ const Tags = ({ featuredCourse, onCourseClick, isHomePage = false }) => {
           ) : (
             selectedTags.map((tag, index) => (
               <React.Fragment key={tag}>
-                <Badge
-                  color="primary"
-                  className="me-2 mb-1 d-inline-flex align-items-center"
-                  style={{
-                    fontSize: '0.9rem',
-                    padding: '0.4rem 0.6rem',
-                    cursor: 'pointer'
-                  }}
+                <span
+                  className={`credit-badge ${getClassCredit(tag)}`}
+                  style={{ cursor: 'pointer' }}
                 >
                   {tag}
                   <button
@@ -78,7 +74,7 @@ const Tags = ({ featuredCourse, onCourseClick, isHomePage = false }) => {
                     style={{ fontSize: '0.6rem' }}
                     aria-label={`Remove ${tag}`}
                   ></button>
-                </Badge>
+                </span>
                 {index < selectedTags.length - 1 && (
                   <span className="me-2 fw-bold text-primary">AND</span>
                 )}
@@ -108,12 +104,12 @@ const Tags = ({ featuredCourse, onCourseClick, isHomePage = false }) => {
         <Row className="g-2">
           {creditTags.map((creditTag) => {
             const isSelected = selectedTags.includes(creditTag);
+            const creditClass = getClassCredit(creditTag);
             return (
               <Col key={creditTag} xs="auto">
                 <button
-                  className={`btn ${isSelected ? 'btn-primary' : 'btn-outline-primary'}`}
+                  className={`credit-tag-btn ${creditClass} ${isSelected ? 'selected' : ''}`}
                   onClick={() => handleTagClick(creditTag)}
-                  style={{ minWidth: '120px' }}
                 >
                   {isSelected && <span className="me-2">✓</span>}
                   {creditTag}

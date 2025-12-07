@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Container, Row, Col, FormGroup, Label, Input } from "reactstrap";
+import { Container, Row, FormGroup, Label, Input, Collapse } from "reactstrap";
 import { useSelector } from "react-redux";
 import { run } from "../utils/generateAIWarmUps";
 import { inspectCourseData } from "../utils/inspectFirestoreData";
@@ -28,6 +28,14 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
   const [classPeriodLength, setClassPeriodLength] = useState('');
   const [customPeriodLength, setCustomPeriodLength] = useState('');
   const [additionalCriteria, setAdditionalCriteria] = useState('');
+
+  // Collapsible section states
+  const [showGrades, setShowGrades] = useState(false);
+  const [showDistrict, setShowDistrict] = useState(false);
+  const [showStandards, setShowStandards] = useState(false);
+  const [showPeriodLength, setShowPeriodLength] = useState(false);
+  const [showAdditional, setShowAdditional] = useState(false);
+  const [showGenOptions, setShowGenOptions] = useState(false);
 
   const districtSearchTimeoutRef = useRef(null);
   const districtDropdownRef = useRef(null);
@@ -197,93 +205,220 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
   };
 
     const handle2ndButtonClick = () => {
-      const exampleText = "Examine how do different economic and government systems affect how countries respond to challenges?";
+      const exampleText = "How do different economic and government systems affect how countries respond to challenges?";
       setUserInput(exampleText);
     };
 
      const handle3rdButtonClick = () => {
-       const exampleText = "Compare and contrast the causes and effects of WWI and WWII based on political, economic, and technological factors.";
+       const exampleText = "Examine factors that motivated the military and economic expansion from the American Revolution through Reconstruction.";
        setUserInput(exampleText);
      };
 
   return (
-    <Container>
+    <Container
+      className="curriculum-generator-container"
+      style={{ maxWidth: "900px" }}
+    >
       <Row>
-        <div className="ai-input-field">
-          {/* Topic Input - Moved to Top */}
+        <div className="ai-input-field-modern">
+          {/* Main Prompt Textarea - Large and Centered */}
           <div className="mb-4">
-            <h5 className="text-md-center mb-3">
-              What topic and skills will you be exploring in today's lesson?
-            </h5>
             <textarea
-              className="ai-textarea"
+              className="prompt-textarea-modern"
               value={userInput}
               onChange={handleInputChange}
-              placeholder="Type your input here"
-              rows="3"
+              placeholder="What topic and skills will you be exploring in today's lesson?"
+              rows="4"
+              style={{
+                width: "100%",
+                padding: "1rem",
+                fontSize: "1.1rem",
+                border: "1px solid #ddd",
+                borderRadius: "8px",
+                resize: "vertical",
+                fontFamily: "inherit",
+                transition: "border-color 0.2s, box-shadow 0.2s",
+              }}
+              onFocus={(e) => {
+                e.target.style.borderColor = "#00B894";
+                e.target.style.boxShadow = "0 0 0 3px rgba(0, 184, 148, 0.1)";
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = "#ddd";
+                e.target.style.boxShadow = "none";
+              }}
             />
           </div>
 
-
-          <Col className="">
+          {/* Example Prompt Chips */}
+          <div className="mb-4 d-flex flex-wrap gap-2 justify-content-center">
             <button
-              className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+              className="example-chip"
               onClick={handle1stButtonClick}
               disabled={loading}
+              style={{
+                padding: "0.5rem 1rem",
+                fontSize: "0.85rem",
+                border: "1px solid #ddd",
+                borderRadius: "20px",
+                background: "white",
+                cursor: "pointer",
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.borderColor = "#00B894";
+                e.target.style.color = "#00B894";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.borderColor = "#ddd";
+                e.target.style.color = "inherit";
+              }}
             >
-              Analyze primary sources to understand the Revolutionary War
+              Analyze primary sources to understand the Revolutionary War{" "}
             </button>
             <button
-              className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+              className="example-chip"
               onClick={handle2ndButtonClick}
               disabled={loading}
+              style={{
+                padding: "0.5rem 1rem",
+                fontSize: "0.85rem",
+                border: "1px solid #ddd",
+                borderRadius: "20px",
+                background: "white",
+                cursor: "pointer",
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.borderColor = "#00B894";
+                e.target.style.color = "#00B894";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.borderColor = "#ddd";
+                e.target.style.color = "inherit";
+              }}
             >
-              Examine how different economic and government systems affect how
+              How do different economic and government systems affect how
               countries respond to challenges?
             </button>
             <button
-              className="ai-prompt-boilerplate btn btn-outline-info btn-lg"
+              className="example-chip"
               onClick={handle3rdButtonClick}
               disabled={loading}
+              style={{
+                padding: "0.5rem 1rem",
+                fontSize: "0.85rem",
+                border: "1px solid #ddd",
+                borderRadius: "20px",
+                background: "white",
+                cursor: "pointer",
+                transition: "all 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.borderColor = "#00B894";
+                e.target.style.color = "#00B894";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.borderColor = "#ddd";
+                e.target.style.color = "inherit";
+              }}
             >
-              Compare and contrast the causes and effects of WWI and WWII based
-              on political, economic, and technological factors.
+              Examine factors that motivated the military and economic expansion
+              from the American Revolution through Reconstruction.
             </button>
-          </Col>
-          {/* Student Grade Level */}
-          <div className="mb-4 p-3 bg-light border rounded">
-            <h5 className="mb-3">Student Grade Level</h5>
-            <div className="d-flex flex-wrap gap-2">
-              {[
-                "K",
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
-                "8",
-                "9",
-                "10",
-                "11",
-                "12",
-                "College",
-              ].map((grade) => (
-                <FormGroup check inline key={grade} className="me-3">
-                  <Label check>
-                    <Input
-                      type="checkbox"
-                      checked={selectedGrades.includes(grade)}
-                      onChange={() => handleGradeToggle(grade)}
-                      className="me-1"
-                    />
-                    {grade}
-                  </Label>
-                </FormGroup>
-              ))}
-            </div>
           </div>
+
+          {/* Grade Level Section */}
+          <div className="mb-3">
+            <button
+              onClick={() => setShowGrades(!showGrades)}
+              className="toggle-section-btn"
+              style={{
+                padding: "0.6rem 1rem",
+                fontSize: "0.9rem",
+                border: "none",
+                background: "transparent",
+                color: showGrades ? "#00B894" : "#666",
+                cursor: "pointer",
+                fontWeight: showGrades ? "600" : "normal",
+                transition: "color 0.2s",
+              }}
+            >
+              <i
+                className={`fa ${showGrades ? "fa-minus" : "fa-plus"} me-2`}
+              ></i>
+              Grade level
+            </button>
+          </div>
+
+          {/* Student Grade Level - Collapsible */}
+          <Collapse isOpen={showGrades}>
+            <div
+              className="mb-4 p-4"
+              style={{
+                background: "white",
+                borderRadius: "8px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+              }}
+            >
+              <h6
+                className="mb-3"
+                style={{ color: "#00B894", fontWeight: "600" }}
+              >
+                Student Grade Level
+              </h6>
+              <div className="d-flex flex-wrap gap-2">
+                {[
+                  "K",
+                  "1",
+                  "2",
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "College",
+                ].map((grade) => (
+                  <FormGroup check inline key={grade} className="me-2">
+                    <Label
+                      check
+                      style={{
+                        padding: "0.4rem 0.8rem",
+                        border: selectedGrades.includes(grade)
+                          ? "2px solid #00B894"
+                          : "1px solid #ddd",
+                        borderRadius: "6px",
+                        cursor: "pointer",
+                        backgroundColor: selectedGrades.includes(grade)
+                          ? "rgba(0, 184, 148, 0.1)"
+                          : "white",
+                        fontWeight: selectedGrades.includes(grade)
+                          ? "600"
+                          : "normal",
+                        color: selectedGrades.includes(grade)
+                          ? "#00B894"
+                          : "inherit",
+                        transition: "all 0.2s",
+                      }}
+                    >
+                      <Input
+                        type="checkbox"
+                        checked={selectedGrades.includes(grade)}
+                        onChange={() => handleGradeToggle(grade)}
+                        style={{ display: "none" }}
+                      />
+                      {grade}
+                    </Label>
+                  </FormGroup>
+                ))}
+              </div>
+            </div>
+          </Collapse>
 
           {/* Political Perspective - Toggle Section - COMMENTED OUT FOR POSSIBLE LATER USE */}
           {/* <div className="mb-4 p-3 bg-light border rounded">
@@ -362,310 +497,600 @@ const GenerateWarmUp = ({ onCourseClick, onCurriculumGenerated }) => {
             )}
           </div> */}
 
-          {/* School District */}
-          <div className="mb-4 p-3 bg-light border rounded">
-            <h5 className="mb-3">School District (Optional)</h5>
-            <small className="text-muted d-block mb-2">
-              Start typing to search for your school district
-            </small>
-            <div className="position-relative" ref={districtDropdownRef}>
-              <Input
-                type="text"
-                value={schoolDistrict}
-                onChange={(e) => handleDistrictSearch(e.target.value)}
-                onFocus={() => {
-                  if (schoolDistrict.trim().length >= 2 && districtSearchResults.length > 0) {
-                    setShowDistrictDropdown(true);
-                  }
-                }}
-                placeholder="e.g., Austin, Denver, New York"
-                className="mb-2"
-                autoComplete="off"
-              />
-              {showDistrictDropdown && (
-                <div
-                  className="position-absolute w-100 bg-white border rounded shadow-sm"
-                  style={{
-                    maxHeight: '300px',
-                    overflowY: 'auto',
-                    zIndex: 1000,
-                    top: '100%',
-                    marginTop: '-0.5rem'
-                  }}
-                >
-                  {loadingDistricts ? (
-                    <div className="p-3 text-center text-muted">
-                      <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                      Searching districts...
-                    </div>
-                  ) : districtSearchResults.length > 0 ? (
-                    <ul className="list-unstyled mb-0">
-                      {districtSearchResults.map((district, index) => (
-                        <li
-                          key={`${district.geoid}-${index}`}
-                          className="p-2 border-bottom cursor-pointer"
-                          style={{
-                            cursor: 'pointer',
-                            transition: 'background-color 0.2s'
-                          }}
-                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#f8f9fa'}
-                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'white'}
-                          onClick={() => handleDistrictSelect(district)}
-                        >
-                          <div className="fw-bold">{district.name}</div>
-                          <small className="text-muted">{district.state}</small>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <div className="p-3 text-center text-muted">
-                      No districts found. Try a different search term.
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-            <small className="text-muted">
-              Powered by NCES (National Center for Education Statistics) database
-            </small>
+          {/* School District Section */}
+          <div className="mb-3">
+            <button
+              onClick={() => setShowDistrict(!showDistrict)}
+              className="toggle-section-btn"
+              style={{
+                padding: "0.6rem 1rem",
+                fontSize: "0.9rem",
+                border: "none",
+                background: "transparent",
+                color: showDistrict ? "#00B894" : "#666",
+                cursor: "pointer",
+                fontWeight: showDistrict ? "600" : "normal",
+                transition: "color 0.2s",
+              }}
+            >
+              <i
+                className={`fa ${showDistrict ? "fa-minus" : "fa-plus"} me-2`}
+              ></i>
+              School district
+            </button>
           </div>
 
-          {/* Alignment Standards */}
-          <div className="mb-4 p-3 bg-light border rounded">
-            <h5 className="mb-3">Alignment Standards</h5>
-
-            {/* Nationwide Standards Section */}
-            <div className="mb-4">
-              <h6 className="mb-2 text-primary">Nationwide Standards</h6>
+          {/* School District - Collapsible */}
+          <Collapse isOpen={showDistrict}>
+            <div
+              className="mb-4 p-4"
+              style={{
+                background: "white",
+                borderRadius: "8px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+              }}
+            >
+              <h6
+                className="mb-3"
+                style={{ color: "#00B894", fontWeight: "600" }}
+              >
+                School District
+              </h6>
               <small className="text-muted d-block mb-2">
-                Available to all districts across the United States
+                Start typing to search for your school district
               </small>
-              <div className="d-flex flex-wrap gap-2">
-                {[
-                  { value: "CCSS", label: "Common Core State Standards (CCSS)" },
-                  { value: "NGSS", label: "Next Generation Science Standards (NGSS)" },
-                ].map((standard) => (
-                  <FormGroup check key={standard.value} className="mb-2">
-                    <Label check>
-                      <Input
-                        type="checkbox"
-                        checked={alignmentStandards.includes(standard.value)}
-                        onChange={() => handleStandardToggle(standard.value)}
-                        className="me-2"
-                      />
-                      {standard.label}
-                    </Label>
-                  </FormGroup>
-                ))}
+              <div className="position-relative" ref={districtDropdownRef}>
+                <Input
+                  type="text"
+                  value={schoolDistrict}
+                  onChange={(e) => handleDistrictSearch(e.target.value)}
+                  onFocus={() => {
+                    if (
+                      schoolDistrict.trim().length >= 2 &&
+                      districtSearchResults.length > 0
+                    ) {
+                      setShowDistrictDropdown(true);
+                    }
+                  }}
+                  placeholder="e.g., Austin, Denver, New York"
+                  className="mb-2"
+                  autoComplete="off"
+                  style={{
+                    borderRadius: "6px",
+                    border: "1px solid #ddd",
+                  }}
+                />
+                {showDistrictDropdown && (
+                  <div
+                    className="position-absolute w-100 bg-white border rounded shadow-sm"
+                    style={{
+                      maxHeight: "300px",
+                      overflowY: "auto",
+                      zIndex: 1000,
+                      top: "100%",
+                      marginTop: "-0.5rem",
+                    }}
+                  >
+                    {loadingDistricts ? (
+                      <div className="p-3 text-center text-muted">
+                        <span
+                          className="spinner-border spinner-border-sm me-2"
+                          role="status"
+                          aria-hidden="true"
+                        ></span>
+                        Searching districts...
+                      </div>
+                    ) : districtSearchResults.length > 0 ? (
+                      <ul className="list-unstyled mb-0">
+                        {districtSearchResults.map((district, index) => (
+                          <li
+                            key={`${district.geoid}-${index}`}
+                            className="p-2 border-bottom cursor-pointer"
+                            style={{
+                              cursor: "pointer",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.backgroundColor =
+                                "#f8f9fa")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.backgroundColor = "white")
+                            }
+                            onClick={() => handleDistrictSelect(district)}
+                          >
+                            <div className="fw-bold">{district.name}</div>
+                            <small className="text-muted">
+                              {district.state}
+                            </small>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="p-3 text-center text-muted">
+                        No districts found. Try a different search term.
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
+              <small className="text-muted">
+                Powered by NCES (National Center for Education Statistics)
+                database
+              </small>
             </div>
+          </Collapse>
 
-            {/* State-Specific Standards Section */}
-            {selectedDistrictData && (
-              <div className="mb-4 p-3 bg-white border rounded">
-                <h6 className="mb-2 text-success">
-                  <span className="me-2">✓</span>
-                  {selectedDistrictData.state} State Standards
+          {/* Alignment Standards Section */}
+          <div className="mb-3">
+            <button
+              onClick={() => setShowStandards(!showStandards)}
+              className="toggle-section-btn"
+              style={{
+                padding: "0.6rem 1rem",
+                fontSize: "0.9rem",
+                border: "none",
+                background: "transparent",
+                color: showStandards ? "#00B894" : "#666",
+                cursor: "pointer",
+                fontWeight: showStandards ? "600" : "normal",
+                transition: "color 0.2s",
+              }}
+            >
+              <i
+                className={`fa ${showStandards ? "fa-minus" : "fa-plus"} me-2`}
+              ></i>
+              Standards
+            </button>
+          </div>
+
+          {/* Alignment Standards - Collapsible */}
+          <Collapse isOpen={showStandards}>
+            <div
+              className="mb-4 p-4"
+              style={{
+                background: "white",
+                borderRadius: "8px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+              }}
+            >
+              <h6
+                className="mb-3"
+                style={{ color: "#00B894", fontWeight: "600" }}
+              >
+                Alignment Standards
+              </h6>
+
+              {/* Nationwide Standards Section */}
+              <div className="mb-4">
+                <h6
+                  className="mb-2"
+                  style={{ fontSize: "0.9rem", fontWeight: "600" }}
+                >
+                  Nationwide Standards
                 </h6>
                 <small className="text-muted d-block mb-2">
-                  Standards specific to {selectedDistrictData.state}
+                  Available to all districts across the United States
                 </small>
                 <div className="d-flex flex-wrap gap-2">
-                  {selectedDistrictData.stateStandards && selectedDistrictData.stateStandards.map((standard) => (
+                  {[
+                    {
+                      value: "CCSS",
+                      label: "Common Core State Standards (CCSS)",
+                    },
+                    {
+                      value: "NGSS",
+                      label: "Next Generation Science Standards (NGSS)",
+                    },
+                  ].map((standard) => (
                     <FormGroup check key={standard.value} className="mb-2">
-                      <Label check className="fw-bold">
+                      <Label
+                        check
+                        style={{
+                          padding: "0.4rem 0.8rem",
+                          border: alignmentStandards.includes(standard.value)
+                            ? "2px solid #00B894"
+                            : "1px solid #ddd",
+                          borderRadius: "6px",
+                          cursor: "pointer",
+                          backgroundColor: alignmentStandards.includes(
+                            standard.value
+                          )
+                            ? "rgba(0, 184, 148, 0.1)"
+                            : "white",
+                          fontWeight: alignmentStandards.includes(
+                            standard.value
+                          )
+                            ? "600"
+                            : "normal",
+                          color: alignmentStandards.includes(standard.value)
+                            ? "#00B894"
+                            : "inherit",
+                          transition: "all 0.2s",
+                        }}
+                      >
                         <Input
                           type="checkbox"
                           checked={alignmentStandards.includes(standard.value)}
                           onChange={() => handleStandardToggle(standard.value)}
-                          className="me-2"
+                          style={{ display: "none" }}
                         />
                         {standard.label}
-                        <span className="badge bg-success ms-2" style={{ fontSize: '0.7rem' }}>
-                          Recommended
-                        </span>
                       </Label>
                     </FormGroup>
                   ))}
                 </div>
               </div>
-            )}
 
-            {/* Other Standards */}
-            <div>
-              <h6 className="mb-2">Other Standards</h6>
+              {/* State-Specific Standards Section */}
+              {selectedDistrictData && (
+                <div className="mb-4 p-3 bg-white border rounded">
+                  <h6 className="mb-2 text-success">
+                    <span className="me-2">✓</span>
+                    {selectedDistrictData.state} State Standards
+                  </h6>
+                  <small className="text-muted d-block mb-2">
+                    Standards specific to {selectedDistrictData.state}
+                  </small>
+                  <div className="d-flex flex-wrap gap-2">
+                    {selectedDistrictData.stateStandards &&
+                      selectedDistrictData.stateStandards.map((standard) => (
+                        <FormGroup check key={standard.value} className="mb-2">
+                          <Label check className="fw-bold">
+                            <Input
+                              type="checkbox"
+                              checked={alignmentStandards.includes(
+                                standard.value
+                              )}
+                              onChange={() =>
+                                handleStandardToggle(standard.value)
+                              }
+                              className="me-2"
+                            />
+                            {standard.label}
+                            <span
+                              className="badge bg-success ms-2"
+                              style={{ fontSize: "0.7rem" }}
+                            >
+                              Recommended
+                            </span>
+                          </Label>
+                        </FormGroup>
+                      ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Other Standards */}
+              <div>
+                <h6
+                  className="mb-2"
+                  style={{ fontSize: "0.9rem", fontWeight: "600" }}
+                >
+                  Other Standards
+                </h6>
+                <small className="text-muted d-block mb-2">
+                  International or alternative standards (e.g., IB, Cambridge,
+                  Australian Curriculum)
+                </small>
+                <Input
+                  type="text"
+                  id="otherStandards"
+                  placeholder="Enter custom standards..."
+                  value={
+                    alignmentStandards
+                      .find((s) => s.startsWith("Other:"))
+                      ?.substring(6) || ""
+                  }
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setAlignmentStandards((prev) => {
+                      // Remove any existing "Other:" entries
+                      const filtered = prev.filter(
+                        (s) => !s.startsWith("Other:")
+                      );
+                      // Add new value if not empty
+                      return value.trim()
+                        ? [...filtered, `Other:${value}`]
+                        : filtered;
+                    });
+                  }}
+                  style={{
+                    borderRadius: "6px",
+                    border: "1px solid #ddd",
+                  }}
+                />
+              </div>
+            </div>
+          </Collapse>
+
+          {/* Class Period Length Section */}
+          <div className="mb-3">
+            <button
+              onClick={() => setShowPeriodLength(!showPeriodLength)}
+              className="toggle-section-btn"
+              style={{
+                padding: "0.6rem 1rem",
+                fontSize: "0.9rem",
+                border: "none",
+                background: "transparent",
+                color: showPeriodLength ? "#00B894" : "#666",
+                cursor: "pointer",
+                fontWeight: showPeriodLength ? "600" : "normal",
+                transition: "color 0.2s",
+              }}
+            >
+              <i
+                className={`fa ${showPeriodLength ? "fa-minus" : "fa-plus"} me-2`}
+              ></i>
+              Class period length
+            </button>
+          </div>
+
+          {/* Class Period Length - Collapsible */}
+          <Collapse isOpen={showPeriodLength}>
+            <div
+              className="mb-4 p-4"
+              style={{
+                background: "white",
+                borderRadius: "8px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+              }}
+            >
+              <h6
+                className="mb-3"
+                style={{ color: "#00B894", fontWeight: "600" }}
+              >
+                Class Period Length
+              </h6>
               <small className="text-muted d-block mb-2">
-                International or alternative standards (e.g., IB, Cambridge, Australian Curriculum)
+                Select the duration of your class period to help tailor activity
+                timing
               </small>
               <Input
-                type="text"
-                id="otherStandards"
-                placeholder="Enter custom standards..."
-                value={
-                  alignmentStandards
-                    .find((s) => s.startsWith("Other:"))
-                    ?.substring(6) || ""
-                }
-                onChange={(e) => {
-                  const value = e.target.value;
-                  setAlignmentStandards((prev) => {
-                    // Remove any existing "Other:" entries
-                    const filtered = prev.filter(
-                      (s) => !s.startsWith("Other:")
-                    );
-                    // Add new value if not empty
-                    return value.trim()
-                      ? [...filtered, `Other:${value}`]
-                      : filtered;
-                  });
+                type="select"
+                value={classPeriodLength}
+                onChange={(e) => setClassPeriodLength(e.target.value)}
+                className="mb-2"
+                style={{
+                  borderRadius: "6px",
+                  border: "1px solid #ddd",
+                }}
+              >
+                <option value="">Select duration...</option>
+                <option value="30">30 minutes</option>
+                <option value="40">40 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="50">50 minutes</option>
+                <option value="55">55 minutes</option>
+                <option value="60">60 minutes</option>
+                <option value="75">75 minutes</option>
+                <option value="90">90 minutes (block schedule)</option>
+                <option value="custom">Custom duration</option>
+              </Input>
+              {classPeriodLength === "custom" && (
+                <div className="mt-3">
+                  <Label for="customDuration">
+                    Enter custom duration (in minutes):
+                  </Label>
+                  <Input
+                    type="number"
+                    id="customDuration"
+                    value={customPeriodLength}
+                    onChange={(e) => setCustomPeriodLength(e.target.value)}
+                    placeholder="e.g., 80"
+                    min="1"
+                    max="240"
+                    style={{
+                      borderRadius: "6px",
+                      border: "1px solid #ddd",
+                    }}
+                  />
+                </div>
+              )}
+            </div>
+          </Collapse>
+
+          {/* Additional Criteria Section */}
+          <div className="mb-3">
+            <button
+              onClick={() => setShowAdditional(!showAdditional)}
+              className="toggle-section-btn"
+              style={{
+                padding: "0.6rem 1rem",
+                fontSize: "0.9rem",
+                border: "none",
+                background: "transparent",
+                color: showAdditional ? "#00B894" : "#666",
+                cursor: "pointer",
+                fontWeight: showAdditional ? "600" : "normal",
+                transition: "color 0.2s",
+              }}
+            >
+              <i
+                className={`fa ${showAdditional ? "fa-minus" : "fa-plus"} me-2`}
+              ></i>
+              Additional criteria
+            </button>
+          </div>
+
+          {/* Additional Criteria - Collapsible */}
+          <Collapse isOpen={showAdditional}>
+            <div
+              className="mb-4 p-4"
+              style={{
+                background: "white",
+                borderRadius: "8px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+              }}
+            >
+              <h6
+                className="mb-3"
+                style={{ color: "#00B894", fontWeight: "600" }}
+              >
+                Additional Criteria
+              </h6>
+              <small className="text-muted d-block mb-2">
+                Any other specific requirements, accommodations, or preferences?
+              </small>
+              <Input
+                type="textarea"
+                value={additionalCriteria}
+                onChange={(e) => setAdditionalCriteria(e.target.value)}
+                placeholder="e.g., Include visual aids for ELL students, focus on hands-on activities, etc."
+                rows="3"
+                style={{
+                  borderRadius: "6px",
+                  border: "1px solid #ddd",
                 }}
               />
             </div>
-          </div>
+          </Collapse>
 
-          {/* Class Period Length */}
-          <div className="mb-4 p-3 bg-light border rounded">
-            <h5 className="mb-3">Class Period Length</h5>
-            <small className="text-muted d-block mb-2">
-              Select the duration of your class period to help tailor activity timing
-            </small>
-            <Input
-              type="select"
-              value={classPeriodLength}
-              onChange={(e) => setClassPeriodLength(e.target.value)}
-              className="mb-2"
-            >
-              <option value="">Select duration...</option>
-              <option value="30">30 minutes</option>
-              <option value="40">40 minutes</option>
-              <option value="45">45 minutes</option>
-              <option value="50">50 minutes</option>
-              <option value="55">55 minutes</option>
-              <option value="60">60 minutes</option>
-              <option value="75">75 minutes</option>
-              <option value="90">90 minutes (block schedule)</option>
-              <option value="custom">Custom duration</option>
-            </Input>
-            {classPeriodLength === 'custom' && (
-              <div className="mt-3">
-                <Label for="customDuration">Enter custom duration (in minutes):</Label>
-                <Input
-                  type="number"
-                  id="customDuration"
-                  value={customPeriodLength}
-                  onChange={(e) => setCustomPeriodLength(e.target.value)}
-                  placeholder="e.g., 80"
-                  min="1"
-                  max="240"
-                />
-              </div>
-            )}
-          </div>
-
-          {/* Additional Criteria */}
-          <div className="mb-4 p-3 bg-light border rounded">
-            <h5 className="mb-3">Additional Criteria</h5>
-            <small className="text-muted d-block mb-2">
-              Any other specific requirements, accommodations, or preferences?
-            </small>
-            <Input
-              type="textarea"
-              value={additionalCriteria}
-              onChange={(e) => setAdditionalCriteria(e.target.value)}
-              placeholder="e.g., Include visual aids for ELL students, focus on hands-on activities, etc."
-              rows="3"
-            />
-          </div>
-
-          {/* Generation Type Toggles */}
-          <div className="mb-4 p-3 bg-light border rounded">
-            <h5 className="mb-3">What would you like to generate?</h5>
-            <FormGroup check className="mb-2">
-              <Label check className="d-flex align-items-center">
-                <Input
-                  type="checkbox"
-                  checked={generateWarmUp}
-                  onChange={handleWarmUpToggle}
-                  className="me-2"
-                />
-                <span style={{ fontSize: "1.1rem" }}>
-                  Generate Warm-Up Question
-                </span>
-              </Label>
-            </FormGroup>
-            <FormGroup check className="mb-2">
-              <Label check className="d-flex align-items-center">
-                <Input
-                  type="checkbox"
-                  checked={generateLessonPlan}
-                  onChange={handleLessonPlanToggle}
-                  className="me-2"
-                />
-                <span style={{ fontSize: "1.1rem" }}>Generate Lesson Plan</span>
-              </Label>
-            </FormGroup>
-            <FormGroup check className="mb-2">
-              <Label
-                check
-                className="d-flex align-items-center"
-                style={{ opacity: 0.5, cursor: "not-allowed" }}
-              >
-                <Input type="checkbox" disabled className="me-2" />
-                <span style={{ fontSize: "1.1rem" }}>
-                  Generate Unit Plan{" "}
-                  <span className="badge bg-secondary ms-2">
-                    Coming Soon - Premium
-                  </span>
-                </span>
-              </Label>
-            </FormGroup>
-            <div className="mt-2 text-muted" style={{ fontSize: "0.9rem" }}>
-              {generateWarmUp &&
-                generateLessonPlan &&
-                "Will generate: Warm-Up Question + Full Lesson Plan"}
-              {generateWarmUp &&
-                !generateLessonPlan &&
-                "Will generate: Warm-Up Question only"}
-              {!generateWarmUp &&
-                generateLessonPlan &&
-                "Will generate: Full Lesson Plan only"}
-              {!generateWarmUp &&
-                !generateLessonPlan &&
-                "Please select at least one option"}
-            </div>
-          </div>
-
-          <form onSubmit={handleSubmit}>
+          {/* Generation Options Section */}
+          <div className="mb-3">
             <button
-              className="ai-submit-btn button-85"
+              onClick={() => setShowGenOptions(!showGenOptions)}
+              className="toggle-section-btn"
+              style={{
+                padding: "0.6rem 1rem",
+                fontSize: "0.9rem",
+                border: "none",
+                background: "transparent",
+                color: showGenOptions ? "#00B894" : "#666",
+                cursor: "pointer",
+                fontWeight: showGenOptions ? "600" : "normal",
+                transition: "color 0.2s",
+              }}
+            >
+              <i
+                className={`fa ${showGenOptions ? "fa-minus" : "fa-plus"} me-2`}
+              ></i>
+              Generation options
+            </button>
+          </div>
+
+          {/* Generation Type Toggles - Collapsible */}
+          <Collapse isOpen={showGenOptions}>
+            <div
+              className="mb-4 p-4"
+              style={{
+                background: "white",
+                borderRadius: "8px",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+              }}
+            >
+              <h6
+                className="mb-3"
+                style={{ color: "#00B894", fontWeight: "600" }}
+              >
+                What would you like to generate?
+              </h6>
+              <FormGroup check className="mb-2">
+                <Label check className="d-flex align-items-center">
+                  <Input
+                    type="checkbox"
+                    checked={generateWarmUp}
+                    onChange={handleWarmUpToggle}
+                    className="me-2"
+                  />
+                  <span style={{ fontSize: "1rem" }}>
+                    Generate Warm-Up Question
+                  </span>
+                </Label>
+              </FormGroup>
+              <FormGroup check className="mb-2">
+                <Label check className="d-flex align-items-center">
+                  <Input
+                    type="checkbox"
+                    checked={generateLessonPlan}
+                    onChange={handleLessonPlanToggle}
+                    className="me-2"
+                  />
+                  <span style={{ fontSize: "1rem" }}>Generate Lesson Plan</span>
+                </Label>
+              </FormGroup>
+              <FormGroup check className="mb-2">
+                <Label
+                  check
+                  className="d-flex align-items-center"
+                  style={{ opacity: 0.5, cursor: "not-allowed" }}
+                >
+                  <Input type="checkbox" disabled className="me-2" />
+                  <span style={{ fontSize: "1rem" }}>
+                    Generate Unit Plan{" "}
+                    <span className="badge bg-secondary ms-2">
+                      Coming Soon - Premium
+                    </span>
+                  </span>
+                </Label>
+              </FormGroup>
+              <div className="mt-2 text-muted" style={{ fontSize: "0.85rem" }}>
+                {generateWarmUp &&
+                  generateLessonPlan &&
+                  "Will generate: Warm-Up Question + Full Lesson Plan"}
+                {generateWarmUp &&
+                  !generateLessonPlan &&
+                  "Will generate: Warm-Up Question only"}
+                {!generateWarmUp &&
+                  generateLessonPlan &&
+                  "Will generate: Full Lesson Plan only"}
+                {!generateWarmUp &&
+                  !generateLessonPlan &&
+                  "Please select at least one option"}
+              </div>
+            </div>
+          </Collapse>
+
+          {/* Submit Button */}
+          <form onSubmit={handleSubmit} className="mb-4">
+            <button
               type="submit"
               disabled={loading}
+              style={{
+                width: "100%",
+                padding: "1rem 2rem",
+                fontSize: "1.1rem",
+                fontWeight: "600",
+                color: "white",
+                backgroundColor: "#00B894",
+                border: "none",
+                borderRadius: "8px",
+                cursor: loading ? "not-allowed" : "pointer",
+                transition: "all 0.2s",
+                boxShadow: "0 2px 8px rgba(0, 184, 148, 0.3)",
+              }}
+              onMouseEnter={(e) => {
+                if (!loading) {
+                  e.target.style.backgroundColor = "#00a082";
+                  e.target.style.transform = "translateY(-1px)";
+                  e.target.style.boxShadow =
+                    "0 4px 12px rgba(0, 184, 148, 0.4)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = "#00B894";
+                e.target.style.transform = "translateY(0)";
+                e.target.style.boxShadow = "0 2px 8px rgba(0, 184, 148, 0.3)";
+              }}
             >
-              {loading ? "Generating..." : "Generate Lesson Materials"}
+              {loading ? (
+                <>
+                  <span
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Generating...
+                </>
+              ) : (
+                <>
+                  <i className="fa fa-sparkles me-2"></i>
+                  Generate
+                </>
+              )}
             </button>
           </form>
-
-          {/* Debug: Test Featured Course Display */}
-          {coursesArray && coursesArray.length > 0 && (warmUpResponse || lessonPlanResponse) && onCourseClick && (
-            <div className="mt-3 mb-3 p-3 bg-info bg-opacity-10 border border-info rounded">
-              <div className="d-flex align-items-center justify-content-between">
-                <small className="text-muted">
-                  <strong>Test Featured Course:</strong> Click a course below to see it featured above
-                </small>
-              </div>
-              <div className="mt-2 d-flex flex-wrap gap-2">
-                {coursesArray.slice(0, 5).map((course, idx) => (
-                  <button
-                    key={idx}
-                    className="btn btn-sm btn-outline-info"
-                    onClick={() => onCourseClick(course)}
-                  >
-                    {course.icon} {course.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
 
           {warmUpResponse && (
             <WarmUpDisplay

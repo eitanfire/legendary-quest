@@ -541,8 +541,9 @@ section {
 .header-banner {
   position: relative;
   padding: 20px;
-  color: white; /* or whatever you need */
+  /* color: white; */
   z-index: 1;
+  margin-bottom: 5rem;
 }
 
 .header-banner::before {
@@ -552,9 +553,8 @@ section {
   background: url('./app/assets/img/map.jpg') no-repeat center;
   background-size: cover;
   background-position: 20% 48%;
-  filter: grayscale(.1) brightness(.9);
-
   z-index: -1; /* put image behind the text */
+  filter: grayscale(.5);
 }
 
 

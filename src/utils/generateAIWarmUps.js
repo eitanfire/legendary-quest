@@ -78,8 +78,8 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
     const extractedData = await extractResourcesForCourses(topCourses, userInput);
 
     if (extractedData && extractedData.length > 0) {
-      // For lesson plans, extract general resources
-      const relevantResources = selectRelevantResources(extractedData, userInput, 15);
+      // For lesson plans, extract general resources (increased to 25 for more options)
+      const relevantResources = selectRelevantResources(extractedData, userInput, 25);
       if (relevantResources.length > 0) {
         extractedResourcesSection = formatResourcesForPrompt(relevantResources);
         console.log(`✓ Found ${relevantResources.length} relevant resources from course docs and videos`);
@@ -160,7 +160,7 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
   }
 
   const coursesSection = courseList
-    ? `\n\nAvailable TeachLeague Courses with Video Resources:\n${courseList}\n\n**IMPORTANT**: Prioritize the HIGHLY RELEVANT courses listed above. Only include YouTube playlists from courses that are truly relevant to the lesson topic.`
+    ? `\n\nAvailable Courses with Video Resources:\n${courseList}\n\n**IMPORTANT**: Prioritize the HIGHLY RELEVANT courses listed above. Only include YouTube playlists from courses that are truly relevant to the lesson topic.`
     : '';
 
   console.log('Courses section length:', coursesSection.length);
@@ -213,38 +213,77 @@ ${warmupQuestionsSection ? '- IMPORTANT: Review the suggested warm-up questions 
 
 Warm-up question:`;
   } else if (generationType === 'lessonPlan') {
-    prompt = `Create a comprehensive lesson plan based on the following topic and skills.
+    prompt = `Create a comprehensive backward design lesson plan that integrates the specific resources provided below.
 
-Topic and Skills: ${userInput}${extractedResourcesSection}${coursesSection}${criteriaSection}
+Topic and Skills: ${userInput}${criteriaSection}${extractedResourcesSection}
 
-Instructions:
-- Create a detailed lesson plan outline with the following sections:
-  1. **Learning Objectives**: Clear, measurable objectives (2-4 objectives)
-  2. **Materials Needed**: List of materials and resources
-  3. **Introduction/Hook** (5-10 minutes): Engaging opening to capture student interest
-  4. **Direct Instruction** (15-20 minutes): Main teaching content
-  5. **Guided Practice** (15-20 minutes): Activities where students practice with support
-  6. **Independent Practice/Assessment**: How students will demonstrate understanding
-  7. **Closure** (5 minutes): Wrap-up and review
-  8. **Differentiation**: Strategies for diverse learners
+**YOUR PRIMARY TASK**: Build this lesson plan AROUND the specific resources listed above, using backward design principles (start with objectives and assessment, then plan instruction).
 
-- Throughout the lesson plan, include relevant educational resource links where appropriate:
-  - Use markdown link format: [Link Text](URL)
-  - Include links to educational sites like Khan Academy, PBS LearningMedia, National Geographic Education, Smithsonian Learning Lab, or other reputable educational resources
-  - **IMPORTANT**: When TeachLeague courses with YouTube playlists are relevant, include the YouTube playlist links in the appropriate lesson sections (e.g., "Watch videos from [YouTube Playlist](playlist_url)" or "Students can explore [course name YouTube playlist](url)")
-  - Only include links that are genuinely relevant and useful
-  - Make link text descriptive (e.g., "explore the Khan Academy module on fractions" rather than "click here")
+Create a lesson plan with the following structure:
 
-- **Video Integration**:
-  - If TeachLeague courses have YouTube playlists relevant to the lesson topic, reference them in appropriate sections (Introduction, Direct Instruction, or Independent Practice)
-  - Format video references as: "View videos from the [Course Name YouTube Playlist](playlist_url)"
-  - Suggest specific ways to use the videos (whole class viewing, flipped classroom, supplementary learning, etc.)
+## OBJECTIVE
+What should students be able to do by the end of this lesson? Write 1-2 clear, measurable objectives.
 
-// COMMENTED OUT - Course recommendations sections at end of lesson plans
-// - If any TeachLeague courses are HIGHLY relevant to specific activities or sections, mention them inline using exact course names
-// - At the end, if there are generally relevant TeachLeague courses, list them under a "Related Courses" section with their YouTube playlist links
+## KEY POINTS
+What knowledge and skills are embedded in the objective? List 3-5 key points students must understand.
 
-Format your response as a well-structured lesson plan with clear section headers using markdown (## for main sections, ### for subsections).
+## MATERIALS
+List all materials needed:
+- Specific curriculum documents from "Relevant Links" above (use exact titles and URLs)
+- Specific videos from "Relevant Videos" above (use exact titles and URLs)
+- Any additional materials needed
+
+## ASSESSMENT
+Describe what students will do to show they have mastered (or made progress toward) the objective.
+- Include an exemplary student response that illustrates the expected level of rigor
+- Reference specific resources from above if they're part of the assessment
+
+## 4. OPENING (5-10 minutes)
+- How will you communicate what is about to happen and its importance?
+- How will you connect to previous lessons?
+- How will you engage students and capture their interest?
+- **USE** a specific video or document from above to hook students: "Show [exact title](url)"
+
+## 3. INTRODUCTION OF NEW MATERIAL (15-20 minutes)
+- How will you explain/demonstrate all knowledge/skills required of the objective?
+- Which potential misunderstandings do you anticipate and how will you address them?
+- How will students interact with the material?
+- How/when will you check for understanding?
+- **INTEGRATE** AT LEAST 2-3 specific resources from above: "Students will watch [title](url)" or "Reference [document](url)"
+- Make these resources central to instruction, not supplemental
+
+## 2. GUIDED PRACTICE (15-20 minutes)
+- How will students practice with your support?
+- How will you ensure multiple practice opportunities, scaffolded from easy to hard?
+- How/when will you monitor performance and address misunderstandings?
+- **USE** specific documents and resources from above for practice activities
+- Include AT LEAST 2 direct links: "Students will analyze [resource](url)"
+
+## 1. INDEPENDENT PRACTICE (10-15 minutes)
+- How will students independently practice to solidify their understanding?
+- When and how would you intervene to support this practice?
+- How will you provide opportunities for remediation and extension?
+- Base this on resources provided above
+
+## LESSON ASSESSMENT
+How will students demonstrate mastery of the objective?
+- Link to specific assessment documents if available from resources above
+
+## 5. CLOSING (5 minutes)
+- How will students summarize and state the significance of what they learned?
+- Reference key resources used during the lesson
+
+**CRITICAL REQUIREMENTS**:
+- You MUST use AT LEAST 5-7 specific resource links from the "Relevant Links" and "Relevant Videos" sections above
+- Each link must use the EXACT title and URL provided in markdown format: [exact title](exact-url)
+- Integrate these throughout the lesson sections - NOT just listed in Materials
+- Make the lesson plan BUILD ON these resources, not just mention them
+- Only suggest external resources if the provided ones don't cover the topic
+- **IMPORTANT**: Do NOT explain which resources you're NOT using or why certain resources don't fit
+- Only mention resources that you ARE actively using in the lesson plan
+- The lesson plan should be ready for teachers to use - no meta-commentary${coursesSection ? '\n\n**Additional Context** (for general reference only - prioritize the specific resources above):\n' + coursesSection : ''}
+
+Format your response as a well-structured lesson plan with clear section headers using markdown (## for main sections).
 
 Lesson Plan:`;
   }

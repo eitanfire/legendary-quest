@@ -18,6 +18,7 @@ import "./App.css";
 // ARCHIVED CONTENT REFERENCE (commit: 21a9e1b):
 // - TheTeachersLounge component: src/pages/TheTeachersLounge.js
 // - RantPage component: src/pages/RantPage.js
+// Build: v2025.11.19.01
 // - TakesPage component: src/pages/TakesPage.js
 // - MovieDayPage component: src/pages/MovieDayPage.js
 // - fetchRants: src/features/rants/rantsSlice.js
@@ -26,6 +27,7 @@ import "./App.css";
 // To restore these features, check out commit 21a9e1b
 
 function App() {
+  const BUILD_VERSION = '2025.11.19.01'; // Force cache bust
   const dispatch = useDispatch();
   const { hash } = useLocation();
 

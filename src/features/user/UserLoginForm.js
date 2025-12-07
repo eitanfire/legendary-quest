@@ -10,7 +10,7 @@ import {
   Button,
 } from "reactstrap";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import defaultAvatar from "../../app/assets/img/Avatar.png"; // Import default avatar image
+import defaultAvatar from "../../app/assets/img/favicon.ico"; // Import default avatar image
 import { validateUserLoginForm } from "../../utils/validateUserLoginForm";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
