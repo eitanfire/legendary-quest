@@ -24,3 +24,6 @@ yarn-debug.log*
 yarn-error.log*
 credentials.json
 firebase.config.js
+
+# Spec-kit agent folder (may contain credentials)
+.claude/settings.local.json
