@@ -6,40 +6,27 @@ import {
   selectWarmUpFromResources,
   formatWarmupsForPrompt
 } from './courseResourceExtractor';
+import { extractKeywords, calculateWeightedRelevance } from './keywordExtractor';
 
 /**
  * Calculate relevance score for a course based on user input
+ * Uses advanced keyword extraction with proper noun detection and phrase matching
  */
-function calculateRelevance(course, userInput) {
-  const searchText = userInput.toLowerCase();
+function calculateRelevance(course, userInput, keywords) {
   const courseName = (course.name || '').toLowerCase();
   const courseIntro = (course.intro || '').toLowerCase();
   const courseDesc = typeof course.description === 'string' ? course.description.toLowerCase() : '';
 
   let score = 0;
 
-  // Extract key terms from user input (remove common words)
-  const commonWords = ['the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for', 'of', 'with', 'by', 'from', 'up', 'about', 'into', 'through', 'during', 'how', 'what', 'which', 'who', 'when', 'where', 'why'];
-  const keywords = searchText.split(/\s+/).filter(word =>
-    word.length > 2 && !commonWords.includes(word)
-  );
+  // Use weighted keyword matching for course name (highest priority)
+  score += calculateWeightedRelevance(keywords, courseName) * 2; // 2x multiplier for name matches
 
-  // Score based on keyword matches in course name (highest priority)
-  keywords.forEach(keyword => {
-    if (courseName.includes(keyword)) {
-      score += 10; // High score for name matches
-    }
-  });
+  // Use weighted keyword matching for intro
+  score += calculateWeightedRelevance(keywords, courseIntro);
 
-  // Score based on keyword matches in intro/description
-  keywords.forEach(keyword => {
-    if (courseIntro.includes(keyword)) {
-      score += 5; // Medium score for intro matches
-    }
-    if (courseDesc.includes(keyword)) {
-      score += 3; // Lower score for description matches
-    }
-  });
+  // Use weighted keyword matching for description
+  score += calculateWeightedRelevance(keywords, courseDesc) * 0.5; // 0.5x multiplier (lower priority)
 
   // Bonus for courses with YouTube playlists
   if (course.youtube || course.extrayoutube || course.extrayoutube1) {
@@ -52,19 +39,23 @@ function calculateRelevance(course, userInput) {
 export async function run(userInput, courses = [], generationType = 'lessonPlan', criteria = {}, preferredProvider = null, metadata = null) {
   console.log('AI Generator called with:', { userInput, courseCount: courses?.length, generationType, criteria, preferredProvider, metadata });
 
+  // Extract and weight keywords from user input (ONCE, used throughout)
+  const keywords = extractKeywords(userInput);
+  console.log('Extracted keywords:', keywords.map(k => `${k.text} (${k.weight}x, ${k.type})`));
+
   // Create course list for the prompt - only include courses with name and description
   const validCourses = courses?.filter(c => c?.name && (c?.intro || c?.description)) || [];
 
-  // Rank courses by relevance to user input
+  // Rank courses by relevance to user input using weighted keywords
   const rankedCourses = validCourses.map(course => ({
     ...course,
-    relevanceScore: calculateRelevance(course, userInput)
+    relevanceScore: calculateRelevance(course, userInput, keywords)
   }))
   .sort((a, b) => b.relevanceScore - a.relevanceScore);
 
-  // Split into highly relevant (score > 5) and somewhat relevant
-  const highlyRelevant = rankedCourses.filter(c => c.relevanceScore > 5).slice(0, 5);
-  const somewhatRelevant = rankedCourses.filter(c => c.relevanceScore > 0 && c.relevanceScore <= 5).slice(0, 5);
+  // Split into highly relevant (score > 10) and somewhat relevant (minimum threshold increased)
+  const highlyRelevant = rankedCourses.filter(c => c.relevanceScore > 10).slice(0, 5);
+  const somewhatRelevant = rankedCourses.filter(c => c.relevanceScore > 5 && c.relevanceScore <= 10).slice(0, 5);
 
   console.log('Course relevance scores:', rankedCourses.slice(0, 10).map(c => ({ name: c.name, score: c.relevanceScore })));
 
@@ -79,8 +70,8 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
     const extractedData = await extractResourcesForCourses(topCourses, userInput);
 
     if (extractedData && extractedData.length > 0) {
-      // For lesson plans, extract general resources (increased to 25 for more options)
-      relevantResources = selectRelevantResources(extractedData, userInput, 25);
+      // For lesson plans, extract general resources using weighted keywords (increased to 25 for more options)
+      relevantResources = selectRelevantResources(extractedData, userInput, 25, keywords);
       if (relevantResources.length > 0) {
         extractedResourcesSection = formatResourcesForPrompt(relevantResources);
         console.log(`✓ Found ${relevantResources.length} relevant resources from course docs and videos`);

@@ -113,13 +113,21 @@ export async function extractResourcesForCourses(courses, lessonTopic) {
 
 /**
  * Select most relevant resources based on lesson topic
- * Uses simple keyword matching - can be enhanced with AI later
+ * Uses weighted keyword matching with proper noun and phrase detection
  */
-export function selectRelevantResources(extractedResources, lessonTopic, maxItems = 10) {
-  const topicLower = lessonTopic.toLowerCase();
-  const topicKeywords = topicLower
-    .split(/\s+/)
-    .filter(word => word.length > 3); // Filter out short words
+export function selectRelevantResources(extractedResources, lessonTopic, maxItems = 10, keywords = null) {
+  // Use provided keywords or extract them (for backward compatibility)
+  let topicKeywords;
+  if (keywords) {
+    topicKeywords = keywords;
+  } else {
+    // Fallback to simple extraction if no keywords provided
+    const topicLower = lessonTopic.toLowerCase();
+    topicKeywords = topicLower
+      .split(/\s+/)
+      .filter(word => word.length > 3)
+      .map(word => ({ text: word, weight: 1.0, type: 'keyword' }));
+  }
 
   const allLinks = [];
   const allVideos = [];
@@ -151,7 +159,8 @@ export function selectRelevantResources(extractedResources, lessonTopic, maxItem
       if (resources[docType]?.links) {
         resources[docType].links.forEach(link => {
           const relevanceScore = calculateLinkRelevance(link, topicKeywords);
-          if (relevanceScore > 0) {
+          // Minimum threshold of 10 to filter out weak/generic matches
+          if (relevanceScore >= 10) {
             allLinks.push({
               type: 'link',
               source: `${course.name} - ${docType}`,
@@ -170,7 +179,8 @@ export function selectRelevantResources(extractedResources, lessonTopic, maxItem
       if (resources[playlistType]?.videos) {
         resources[playlistType].videos.forEach(video => {
           const relevanceScore = calculateVideoRelevance(video, topicKeywords);
-          if (relevanceScore > 0) {
+          // Minimum threshold of 15 for videos (higher than links due to higher base scores)
+          if (relevanceScore >= 15) {
             allVideos.push({
               type: 'video',
               source: `${course.name} - YouTube`,
@@ -207,7 +217,7 @@ export function selectRelevantResources(extractedResources, lessonTopic, maxItem
 }
 
 /**
- * Calculate relevance score for a link
+ * Calculate relevance score for a link using weighted keywords
  */
 function calculateLinkRelevance(link, topicKeywords) {
   let score = 0;
@@ -215,36 +225,45 @@ function calculateLinkRelevance(link, topicKeywords) {
   const urlLower = link.url?.toLowerCase() || '';
 
   topicKeywords.forEach(keyword => {
-    // Exact keyword match in title (highest priority)
-    if (textLower.includes(keyword)) score += 15;
+    const keywordText = keyword.text || keyword; // Support both weighted and simple keywords
+    const keywordWeight = keyword.weight || 1.0;
 
-    // Partial keyword match in title
-    const partialKeyword = keyword.substring(0, Math.min(keyword.length - 1, 5));
-    if (partialKeyword.length >= 4 && textLower.includes(partialKeyword) && !textLower.includes(keyword)) {
-      score += 8;
+    // Exact keyword match in title (weighted by keyword importance)
+    if (textLower.includes(keywordText)) {
+      score += 15 * keywordWeight;
     }
 
-    // Keyword in URL
-    if (urlLower.includes(keyword)) score += 5;
+    // Partial keyword match in title (only for longer keywords)
+    if (keywordText.length > 5) {
+      const partialKeyword = keywordText.substring(0, Math.min(keywordText.length - 1, 5));
+      if (partialKeyword.length >= 4 && textLower.includes(partialKeyword) && !textLower.includes(keywordText)) {
+        score += 8 * keywordWeight;
+      }
+    }
+
+    // Keyword in URL (lower priority, weighted)
+    if (urlLower.includes(keywordText)) {
+      score += 5 * keywordWeight;
+    }
   });
 
   // Bonus for curriculum documents (most useful for lesson planning)
-  if (link.docType === 'curriculum') score += 12; // High priority for curriculum docs
+  if (link.docType === 'curriculum') score += 12;
   if (link.docType === 'warmups') score += 8;
   if (link.docType === 'extra') score += 6;
 
   // Bonus for certain link types
-  if (link.type === 'google_doc') score += 8; // Prioritize Google Docs
+  if (link.type === 'google_doc') score += 8;
   if (link.type === 'youtube') score += 4;
 
-  // Base score to ensure we always have some resources
-  score += 5; // Higher base to compete with videos
+  // Base score to ensure we always have some resources (reduced to favor better matches)
+  score += 3;
 
   return score;
 }
 
 /**
- * Calculate relevance score for a video
+ * Calculate relevance score for a video using weighted keywords
  */
 function calculateVideoRelevance(video, topicKeywords) {
   let score = 0;
@@ -252,21 +271,30 @@ function calculateVideoRelevance(video, topicKeywords) {
   const descLower = video.description?.toLowerCase() || '';
 
   topicKeywords.forEach(keyword => {
-    // Exact keyword match in title (highest priority)
-    if (titleLower.includes(keyword)) score += 20;
+    const keywordText = keyword.text || keyword; // Support both weighted and simple keywords
+    const keywordWeight = keyword.weight || 1.0;
 
-    // Partial keyword match in title
-    const partialKeyword = keyword.substring(0, Math.min(keyword.length - 1, 5));
-    if (partialKeyword.length >= 4 && titleLower.includes(partialKeyword) && !titleLower.includes(keyword)) {
-      score += 10;
+    // Exact keyword match in title (highest priority, weighted)
+    if (titleLower.includes(keywordText)) {
+      score += 20 * keywordWeight;
     }
 
-    // Keyword in description
-    if (descLower.includes(keyword)) score += 7;
+    // Partial keyword match in title (only for longer keywords, weighted)
+    if (keywordText.length > 5) {
+      const partialKeyword = keywordText.substring(0, Math.min(keywordText.length - 1, 5));
+      if (partialKeyword.length >= 4 && titleLower.includes(partialKeyword) && !titleLower.includes(keywordText)) {
+        score += 10 * keywordWeight;
+      }
+    }
+
+    // Keyword in description (weighted)
+    if (descLower.includes(keywordText)) {
+      score += 7 * keywordWeight;
+    }
   });
 
-  // Base score for all videos
-  score += 2;
+  // Base score for all videos (reduced to favor better matches)
+  score += 1;
 
   return score;
 }
