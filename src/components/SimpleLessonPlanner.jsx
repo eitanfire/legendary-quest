@@ -5,6 +5,7 @@ import { run } from "../utils/generateAIWarmUps";
 import { searchSchoolDistricts } from "../utils/ncesAPI";
 import { getSessionId } from "../utils/sessionId";
 import LessonPlanDisplay from "./LessonPlanDisplay";
+import LessonPlanLoader from "./LessonPlanLoader";
 
 const SimpleLessonPlanner = ({ onCourseClick, onCurriculumGenerated }) => {
   const [topic, setTopic] = useState("");
@@ -183,17 +184,7 @@ const SimpleLessonPlanner = ({ onCourseClick, onCurriculumGenerated }) => {
   }
 
   if (loading) {
-    return (
-      <Container style={{ maxWidth: "900px" }}>
-        <div className="text-center py-5">
-          <div className="spinner-border text-primary mb-3" style={{ width: "3rem", height: "3rem" }} role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-          <h5 style={{ color: "#00B894" }}>Generating your lesson plan...</h5>
-          <p style={{ color: "#666" }}>This may take a moment.</p>
-        </div>
-      </Container>
-    );
+    return <LessonPlanLoader />;
   }
 
   return (

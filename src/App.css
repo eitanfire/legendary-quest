@@ -624,3 +624,179 @@ section {
     widows: 3;
   }
 }
+
+/* ==========================================
+   LESSON PLANNER UI ENHANCEMENTS
+   ========================================== */
+
+/* Main Lesson Planner Card */
+.lesson-planner-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-planner-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lesson-planner-card:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced Input Styles */
+.form-control:focus,
+.form-select:focus,
+textarea:focus,
+input[type="text"]:focus,
+input[type="textarea"]:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1) !important;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Button Enhancements */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 184, 148, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Resource Cards */
+.resource-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Smooth Collapse Animations */
+.collapse {
+  transition: height 0.35s ease;
+}
+
+/* Toggle Section Buttons */
+.toggle-section-btn {
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-section-btn:hover {
+  color: var(--color-primary) !important;
+  transform: translateX(4px);
+}
+
+.toggle-section-btn i {
+  transition: transform 0.2s ease;
+}
+
+/* Checkbox Label Enhancements */
+.form-check label {
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.form-check label:hover {
+  transform: translateY(-1px);
+}
+
+/* Smooth Page Transitions */
+.fade-in {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading State Improvements */
+.spinner-border {
+  animation: spinner-border 0.75s linear infinite;
+}
+
+/* Input Placeholder Enhancements */
+::placeholder {
+  color: #999;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Card Hover Effects */
+.card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus Visible for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Improve dropdown animations */
+.dropdown-menu {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

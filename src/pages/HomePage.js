@@ -25,9 +25,7 @@ const HomePage = () => {
   };
 
   return (
-    <Container fluid>
-      {/* Hero Cards Section */}
-
+    <Container fluid className="px-3 px-md-4">
       {/* Featured Course Display - Full Width */}
       {featuredCourse && (
         <Row className="mb-4">
@@ -40,85 +38,118 @@ const HomePage = () => {
         </Row>
       )}
 
-      {/* Main Content: Curriculum Generator and Directory/YouTube */}
-      <Row>
-        {/* Curriculum Generator - Full width when curriculum generated, half when not */}
-        <Col xs="12" lg={curriculumGenerated ? "12" : "6"} className="mb-4">
-          <div className="p-3 border rounded bg-light shadow-sm">
+      {/* Main Lesson Planner - Prominently Featured */}
+      <Row className="justify-content-center mb-5">
+        <Col xs="12" lg="10" xl="8">
+          <div
+            className="lesson-planner-card"
+            style={{
+              background: "white",
+              borderRadius: "16px",
+              boxShadow: "0 4px 20px rgba(0, 184, 148, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
+              padding: "2rem",
+              transition: "all 0.3s ease",
+            }}
+          >
             <SimpleLessonPlanner
               onCourseClick={handleCourseClick}
               onCurriculumGenerated={handleCurriculumGenerated}
             />
           </div>
         </Col>
+      </Row>
 
-        {/* Right column: YouTube Videos and Course Directory stacked */}
-        <Col xs="12" lg={curriculumGenerated ? "12" : "6"} className="mb-4">
+      {/* Resources Section - Below the planner */}
+      {!curriculumGenerated && (
+        <>
           {/* YouTube Videos Card */}
-          <div className="mb-4">
-            <a
-              href="https://www.youtube.com/@eitanfire9861/playlists"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              <Card
-                className="h-100 shadow-sm"
-                style={{ cursor: "pointer", transition: "transform 0.2s" }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.transform = "scale(1.02)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.transform = "scale(1)")
-                }
+          <Row className="justify-content-center mb-4">
+            <Col xs="12" lg="10" xl="8">
+              <a
+                href="https://www.youtube.com/@eitanfire9861/playlists"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
               >
-                <CardBody
-                  className="d-flex flex-column align-items-center justify-content-center p-5"
+                <Card
+                  className="shadow-sm resource-card"
                   style={{
-                    minHeight: "200px",
-                    background:
-                      "linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%)",
+                    cursor: "pointer",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    borderRadius: "12px",
+                    border: "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 184, 148, 0.15)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.1)";
                   }}
                 >
-                  <CardTitle
-                    tag="h2"
-                    className="text-white mb-3"
-                    style={{ fontWeight: "var(--font-weight-bold)" }}
+                  <CardBody
+                    className="d-flex flex-column align-items-center justify-content-center p-4"
+                    style={{
+                      minHeight: "200px",
+                      background:
+                        "linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%)",
+                      borderRadius: "12px",
+                    }}
                   >
-                    <span className="me-3" style={{ fontSize: "3rem" }}>
+                    <div className="mb-3" style={{ fontSize: "4rem" }}>
                       🎬
-                    </span>
-                    Educational Videos
-                  </CardTitle>
-                  <p
-                    className="text-white text-center"
-                    style={{ fontSize: "var(--font-size-md)", opacity: 0.95 }}
-                  >
-                    Help students visualize the material with engaging clips
-                  </p>
-                </CardBody>
-              </Card>
-            </a>
-          </div>
+                    </div>
+                    <CardTitle
+                      tag="h3"
+                      className="text-white mb-2"
+                      style={{ fontWeight: "600", fontSize: "1.5rem" }}
+                    >
+                      Educational Videos
+                    </CardTitle>
+                    <p
+                      className="text-white text-center mb-0"
+                      style={{ fontSize: "0.95rem", opacity: 0.95 }}
+                    >
+                      Help students visualize the material with engaging clips
+                    </p>
+                  </CardBody>
+                </Card>
+              </a>
+            </Col>
+          </Row>
 
           {/* Course Directory */}
-          <div className="p-3 border rounded bg-light shadow-sm">
-            <h3 className="text-center mb-4">
-              <b>Course Directory</b>
-            </h3>
-            <p className="text-center text-muted mb-4">
-              Browse our comprehensive collection of educational courses
-            </p>
+          <Row className="justify-content-center mb-4">
+            <Col xs="12" lg="10" xl="8">
+              <div
+                className="resource-card"
+                style={{
+                  background: "white",
+                  borderRadius: "12px",
+                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+                  padding: "1.5rem",
+                  transition: "all 0.3s ease",
+                }}
+              >
+                <h3 className="text-center mb-3" style={{ color: "var(--color-primary)", fontWeight: "600" }}>
+                  Course Directory
+                </h3>
+                <p className="text-center text-muted mb-4" style={{ fontSize: "0.9rem" }}>
+                  Browse our comprehensive collection of educational courses
+                </p>
 
-            {/* Course Tags and Filtering */}
-            <Tags
-              featuredCourse={featuredCourse}
-              onCourseClick={handleCourseClick}
-              isHomePage={true}
-            />
-          </div>
-        </Col>
-      </Row>
+                {/* Course Tags and Filtering */}
+                <Tags
+                  featuredCourse={featuredCourse}
+                  onCourseClick={handleCourseClick}
+                  isHomePage={true}
+                />
+              </div>
+            </Col>
+          </Row>
+        </>
+      )}
     </Container>
   );
 };
