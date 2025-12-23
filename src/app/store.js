@@ -16,3 +16,9 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([logger]),
 });
+
+// Expose store to window for debugging (development only)
+if (process.env.NODE_ENV === 'development') {
+  window.store = store;
+  console.log('🔧 Redux store exposed to window.store for debugging');
+}

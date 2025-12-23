@@ -1,5 +1,6 @@
 import { Navbar, NavbarBrand } from "reactstrap";
 import AvatarImg from "../app/assets/img/favicon.ico";
+import UserLoginForm from "../features/user/UserLoginForm";
 
 const Header = () => {
   return (
@@ -48,70 +49,12 @@ const Header = () => {
             </h1>
           </a>
 
-          {/* Avatar Link to Personal Website */}
-          <a
-            href="https://eitans.website"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="me-4"
-            style={{
-              position: "relative",
-              display: "inline-block",
-              transition: "transform 0.2s",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "scale(1.1)")
-            }
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            <svg
-              width="70"
-              height="70"
-              viewBox="0 0 70 70"
-              style={{ display: "block" }}
-            >
-              <defs>
-                {/* Circular path for text */}
-                <path
-                  id="circlePath"
-                  d="M 35,35 m -28,0 a 28,28 0 1,1 56,0 a 28,28 0 1,1 -56,0"
-                />
+          <div className="d-flex align-items-center gap-3">
+            {/* User Login */}
+            <UserLoginForm />
 
-                {/* Clip path for circular avatar */}
-                <clipPath id="avatarClip">
-                  <circle cx="35" cy="35" r="12.5" />
-                </clipPath>
-              </defs>
-
-              {/* Avatar image */}
-              <image
-                xlinkHref={AvatarImg}
-                x="22.5"
-                y="22.5"
-                width="25"
-                height="25"
-                clipPath="url(#avatarClip)"
-                style={{ cursor: "pointer" }}
-              />
-
-              {/* Curved text with stroke for better visibility */}
-              <text
-                fontSize="8"
-                fontWeight="700"
-                fill="white"
-                stroke="#00B894"
-                strokeWidth="0.5"
-                letterSpacing="1.2"
-                style={{
-                  filter: 'drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.8))'
-                }}
-              >
-                <textPath href="#circlePath" startOffset="23%">
-                  connect with me
-                </textPath>
-              </text>
-            </svg>
-          </a>
+            
+          </div>
         </div>
       </Navbar>
     </>

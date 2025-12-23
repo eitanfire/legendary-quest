@@ -13,15 +13,10 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.svg" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Teach League</title>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script>
-      // Wait for gapi to load before calling it
-      window.addEventListener('load', function() {
-        if (window.gapi && window.gapi.sharetoclassroom) {
-          gapi.sharetoclassroom.render("content", { size: "300", theme: "light" });
-        }
-      });
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Classroom Share button removed - will be implemented properly in React component when needed -->
     <script
       src="https://kit.fontawesome.com/bec01d8631.js"
       crossorigin="anonymous"
@@ -30,9 +25,5 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <g:sharetoclassroom size="32" url="http://google.com"></g:sharetoclassroom>
-    <!-- <script>
-      gapi.sharetoclassroom.go("content");
-    </script> -->
   </body>
 </html>

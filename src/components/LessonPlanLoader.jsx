@@ -207,7 +207,7 @@ const LessonPlanLoader = () => {
             fontStyle: "italic",
           }}
         >
-          This may take a moment. We're crafting a personalized lesson just for you.
+          This may take a moment. A personalized lesson is being created just for you.
         </p>
 
         {/* CSS Animations */}

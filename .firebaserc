@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "teach-league"
-  }
+  },
+  "targets": {
+    "teach-league": {
+      "hosting": {
+        "main": [
+          "teach-league"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

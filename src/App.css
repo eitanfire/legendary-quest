@@ -415,13 +415,16 @@ section {
    ========================================== */
 
 .site-footer {
-  background-color: var(--color-background-section);
+  /* background-color: var(--color-background-section); */
+    background-color: var(--color-primary-light);
+    /* opacity: .9; */
   padding: var(--space-lg) 0;
   margin-top: var(--space-xl);
   text-align: center;
   border-top: 1px solid var(--color-background-section);
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
+  /* color: var(--color-text-secondary); */
+  color: white;
+  font-size: var(--font-size-md);
 }
 
 /* ==========================================
@@ -799,4 +802,13 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.avatar-link {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.avatar-link:hover {
+  transform: scale(1.1);
 }

@@ -183,8 +183,60 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
     criteriaSection += `\n\nClass Period Length: ${duration} - Please adjust activity timings accordingly`;
   }
 
+  if (criteria.udlStrategies && criteria.udlStrategies.length > 0) {
+    // Format UDL strategies into readable categories
+    const udlLabels = {
+      // Multiple Means of Engagement
+      'udl-real-world': 'Real-world connections',
+      'udl-choice-autonomy': 'Student choice & autonomy',
+      'udl-low-stakes': 'Low-stakes practice',
+      'udl-community': 'Community building',
+      'udl-feedback': 'Individualized feedback',
+      'udl-group-individual': 'Varied group/individual work',
+      // Multiple Means of Representation
+      'udl-captions-transcripts': 'Captions & transcripts',
+      'udl-audio-descriptions': 'Audio descriptions',
+      'udl-alt-text': 'Alternative text for images',
+      'udl-clear-vocabulary': 'Clear vocabulary',
+      'udl-visual-aids': 'Visual aids & graphics',
+      'udl-highlight-concepts': 'Highlighted key concepts',
+      // Multiple Means of Action/Expression
+      'udl-varied-assessments': 'Varied assessment methods',
+      'udl-assignment-options': 'Multiple assignment options',
+      'udl-flexible-deadlines': 'Flexible deadlines',
+      'udl-communication-platforms': 'Multiple communication channels',
+      'udl-project-management': 'Project management support',
+      'udl-submission-formats': 'Varied submission formats'
+    };
+
+    const formattedStrategies = criteria.udlStrategies
+      .map(strategy => udlLabels[strategy] || strategy)
+      .join(', ');
+
+    criteriaSection += `\n\nUniversal Design for Learning (UDL) Strategies: Please incorporate these accessibility features: ${formattedStrategies}`;
+  }
+
   if (criteria.additional && criteria.additional.trim()) {
     criteriaSection += `\n\nAdditional Requirements: ${criteria.additional}`;
+  }
+
+  // Format Google Drive resources if provided
+  let driveResourcesSection = '';
+  if (criteria.driveFiles && criteria.driveFiles.length > 0) {
+    driveResourcesSection = '\n\n**YOUR PERSONAL TEACHING MATERIALS FROM GOOGLE DRIVE:**\n\n';
+    driveResourcesSection += 'The teacher has provided these materials from their Google Drive. PRIORITIZE these resources when designing the lesson:\n\n';
+
+    criteria.driveFiles.forEach((file, index) => {
+      driveResourcesSection += `${index + 1}. **${file.name}** (${file.fileType})\n`;
+      driveResourcesSection += `   - Link: ${file.link}\n`;
+      driveResourcesSection += `   - Last Modified: ${file.modifiedDate}\n`;
+      if (file.description) {
+        driveResourcesSection += `   - Description: ${file.description}\n`;
+      }
+      driveResourcesSection += '\n';
+    });
+
+    driveResourcesSection += '**IMPORTANT**: These are the teacher\'s own materials. Incorporate them into the lesson plan wherever relevant. Reference them by name in your lesson activities.\n';
   }
 
   let prompt;
@@ -192,7 +244,7 @@ export async function run(userInput, courses = [], generationType = 'lessonPlan'
   if (generationType === 'warmUp') {
     prompt = `Create a warm-up writing prompt based on the following topic and skills.
 
-Topic and Skills: ${userInput}${warmupQuestionsSection}${extractedResourcesSection}${coursesSection}${criteriaSection}
+Topic and Skills: ${userInput}${warmupQuestionsSection}${driveResourcesSection}${extractedResourcesSection}${coursesSection}${criteriaSection}
 
 Instructions:
 - Create an engaging warm-up question that activates students' background knowledge
@@ -207,7 +259,29 @@ Warm-up question:`;
   } else if (generationType === 'lessonPlan') {
     prompt = `Create a comprehensive backward design lesson plan that integrates the specific resources provided below.
 
-Topic and Skills: ${userInput}${criteriaSection}${extractedResourcesSection}
+Topic and Skills: ${userInput}${criteriaSection}${driveResourcesSection}${extractedResourcesSection}
+
+**AI LITERACY & QUALITY STANDARDS** (CRITICAL - Apply throughout the lesson):
+
+1. **Accuracy Filter**:
+   - Cite specific historical sources, primary documents, or scholarly consensus for all factual claims
+   - Flag any statements that require verification with "[Verify: source needed]"
+   - Distinguish between established historical facts and interpretive claims
+   - Include a brief "Historical Accuracy Notes" section highlighting key sources used
+
+2. **Bias & Perspective Filter**:
+   - In a dedicated "Perspectives Included" subsection, explicitly identify whose voices, experiences, and viewpoints are represented in this lesson
+   - In a "Missing Perspectives" subsection, note whose voices or experiences are absent or underrepresented
+   - Suggest at least 1-2 alternative viewpoints or counter-narratives that teachers could incorporate
+   - Ensure primary sources (if used) represent diverse perspectives when possible
+
+3. **Standards Alignment & Relevance Filter**:${criteria.standards && criteria.standards.length > 0 ? `
+   - Map each learning objective and major activity to SPECIFIC standard codes from: ${criteria.standards.join(', ')}
+   - Include standard codes in brackets after objectives, e.g., "Students will analyze... [CCSS.ELA-LITERACY.RH.9-10.2]"
+   - In the assessment section, explicitly state which standards are being assessed` : `
+   - Ensure all activities are developmentally appropriate for the target grade level(s)
+   - Connect learning objectives to recognizable academic standards where applicable`}${criteria.grades && criteria.grades.length > 0 ? `
+   - Verify that vocabulary, complexity, and cognitive demands match ${criteria.grades.join(', ')} developmental levels` : ''}
 
 **YOUR PRIMARY TASK**: Build this lesson plan AROUND the specific resources listed above, using backward design principles (start with objectives and assessment, then plan instruction).
 
@@ -219,11 +293,23 @@ What should students be able to do by the end of this lesson? Write 1-2 clear, m
 ## KEY POINTS
 What knowledge and skills are embedded in the objective? List 3-5 key points students must understand.
 
-## MATERIALS
-List all materials needed:
+## MATERIALS & RESOURCE ATTRIBUTION
+List all materials needed with clear attribution:
 - Specific curriculum documents from "Relevant Links" above (use exact titles and URLs)
 - Specific videos from "Relevant Videos" above (use exact titles and URLs)
 - Any additional materials needed
+
+**Resource Attribution Map** (show intellectual honesty):
+For each major resource used, indicate which lesson sections it influenced:
+- [Resource Title](URL) → Used in: [Opening, Introduction, Guided Practice, etc.]
+- Example: "Primary Source Collection on WWI" → Used in: Introduction (document analysis), Guided Practice (perspective comparison)
+
+## HISTORICAL ACCURACY & SOURCE ATTRIBUTION
+Briefly note the primary sources, scholarly works, or authoritative references that inform this lesson's content. Flag any claims that may require additional verification.
+
+## PERSPECTIVES ANALYSIS
+**Perspectives Included**: Whose voices, experiences, and viewpoints are represented in this lesson?
+**Missing Perspectives**: Whose voices or experiences are absent or underrepresented? What alternative viewpoints could be incorporated?
 
 ## ASSESSMENT
 Describe what students will do to show they have mastered (or made progress toward) the objective.
@@ -264,6 +350,13 @@ How will students demonstrate mastery of the objective?
 ## 5. CLOSING (5 minutes)
 - How will students summarize and state the significance of what they learned?
 - Reference key resources used during the lesson
+
+## STUDENT AI LITERACY GUIDE
+Provide guidance for students on responsible AI use in this lesson:
+- **Appropriate AI Uses**: Where can AI tools help students learn? (e.g., brainstorming, researching background context, generating practice questions)
+- **Where AI Should NOT Replace Thinking**: What parts of this lesson require authentic student analysis and should not be delegated to AI? (e.g., primary source interpretation, forming arguments, original synthesis)
+- **How to Cite AI-Assisted Work**: If students use AI tools for permitted tasks, how should they acknowledge it?
+- **Critical Evaluation**: What questions should students ask about AI-generated historical information? (e.g., "Does this cite sources?", "Whose perspective is missing?", "Is this factually accurate?")
 
 **CRITICAL REQUIREMENTS**:
 - You MUST use AT LEAST 5-7 specific resource links from the "Relevant Links" and "Relevant Videos" sections above

@@ -4,6 +4,7 @@ const {logger} = require('firebase-functions');
 const admin = require('firebase-admin');
 const OpenAI = require('openai');
 const {GoogleGenerativeAI} = require('@google/generative-ai');
+const {google} = require('googleapis');
 const crypto = require('crypto');
 
 // Initialize Firebase Admin
@@ -393,5 +394,224 @@ exports.healthCheck = onCall(
         gemini: !!geminiKey.value(),
       },
     };
+  }
+);
+
+/**
+ * Find or create the TeachLeague folder in user's Google Drive
+ */
+exports.setupDriveFolder = onCall(
+  {
+    cors: [
+      /firebase\.app$/,
+      /web\.app$/,
+      /teachleague\.com$/,
+      /localhost/,
+      "https://teach-league.web.app",
+      "https://teach-league.firebaseapp.com",
+      "https://teachleague.com",
+      "https://www.teachleague.com",
+      "http://localhost:3000",
+      "http://localhost:3001"
+    ],
+  },
+  async (request) => {
+    try {
+      // Require authentication
+      if (!request.auth) {
+        throw new HttpsError('unauthenticated', 'User must be authenticated');
+      }
+
+      const {accessToken, folderName = 'TeachLeague Lesson Materials'} = request.data;
+
+      if (!accessToken) {
+        throw new HttpsError('invalid-argument', 'Google access token is required');
+      }
+
+      logger.info('Setting up TeachLeague Drive folder', {
+        userId: request.auth.uid,
+        folderName,
+      });
+
+      // Initialize Google Drive API
+      const oauth2Client = new google.auth.OAuth2();
+      oauth2Client.setCredentials({access_token: accessToken});
+      const drive = google.drive({version: 'v3', auth: oauth2Client});
+
+      // Search for existing TeachLeague folder
+      const searchResponse = await drive.files.list({
+        q: `name='${folderName.replace(/'/g, "\\'")}' and mimeType='application/vnd.google-apps.folder' and trashed=false`,
+        fields: 'files(id, name, webViewLink)',
+        pageSize: 1,
+      });
+
+      let folder;
+      if (searchResponse.data.files && searchResponse.data.files.length > 0) {
+        // Folder already exists
+        folder = searchResponse.data.files[0];
+        logger.info('Found existing TeachLeague folder', {
+          userId: request.auth.uid,
+          folderId: folder.id,
+        });
+      } else {
+        // Create new folder
+        const createResponse = await drive.files.create({
+          requestBody: {
+            name: folderName,
+            mimeType: 'application/vnd.google-apps.folder',
+            description: 'Drop your lesson plans, worksheets, and teaching materials here. TeachLeague will search this folder when generating lesson plans.',
+          },
+          fields: 'id, name, webViewLink',
+        });
+
+        folder = createResponse.data;
+        logger.info('Created new TeachLeague folder', {
+          userId: request.auth.uid,
+          folderId: folder.id,
+        });
+      }
+
+      return {
+        folderId: folder.id,
+        folderName: folder.name,
+        folderLink: folder.webViewLink,
+        existed: searchResponse.data.files && searchResponse.data.files.length > 0,
+      };
+    } catch (error) {
+      logger.error('Error setting up Drive folder', {
+        error: error.message,
+        userId: request.auth?.uid,
+      });
+
+      if (error.code === 401 || error.message?.includes('invalid_grant')) {
+        throw new HttpsError('unauthenticated', 'Google access token expired. Please sign in again.');
+      }
+
+      if (error.code === 403) {
+        throw new HttpsError('permission-denied', 'Insufficient permissions to access Google Drive.');
+      }
+
+      throw new HttpsError('internal', `Failed to setup Drive folder: ${error.message}`);
+    }
+  }
+);
+
+/**
+ * Search user's Google Drive for educational resources
+ * Requires user to be authenticated with Google OAuth
+ */
+exports.searchGoogleDrive = onCall(
+  {
+    cors: [
+      /firebase\.app$/,
+      /web\.app$/,
+      /teachleague\.com$/,
+      /localhost/,
+      "https://teach-league.web.app",
+      "https://teach-league.firebaseapp.com",
+      "https://teachleague.com",
+      "https://www.teachleague.com",
+      "http://localhost:3000",
+      "http://localhost:3001"
+    ],
+  },
+  async (request) => {
+    try {
+      // Require authentication
+      if (!request.auth) {
+        throw new HttpsError('unauthenticated', 'User must be authenticated to search Google Drive');
+      }
+
+      // Get parameters
+      const {accessToken, query, fileTypes, maxResults = 20, folderId} = request.data;
+
+      if (!accessToken) {
+        throw new HttpsError('invalid-argument', 'Google access token is required');
+      }
+
+      if (!query || typeof query !== 'string') {
+        throw new HttpsError('invalid-argument', 'Search query is required');
+      }
+
+      logger.info('Searching Google Drive', {
+        userId: request.auth.uid,
+        query: query.substring(0, 50),
+        fileTypes,
+        maxResults,
+        folderId: folderId || 'entire drive',
+      });
+
+      // Initialize Google Drive API with user's OAuth token
+      const oauth2Client = new google.auth.OAuth2();
+      oauth2Client.setCredentials({access_token: accessToken});
+
+      const drive = google.drive({version: 'v3', auth: oauth2Client});
+
+      // Build search query
+      // Search in name, fullText, and limit to specific file types
+      const allowedTypes = fileTypes || [
+        'application/pdf',
+        'application/vnd.google-apps.document',
+        'application/vnd.google-apps.presentation',
+        'application/vnd.google-apps.spreadsheet',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+      ];
+
+      const mimeTypeQuery = allowedTypes.map(type => `mimeType='${type}'`).join(' or ');
+
+      // Build folder restriction if folderId provided
+      const folderQuery = folderId ? ` and '${folderId}' in parents` : '';
+
+      const driveQuery = `(${mimeTypeQuery}) and fullText contains '${query.replace(/'/g, "\\'")}' and trashed=false${folderQuery}`;
+
+      // Execute search
+      const response = await drive.files.list({
+        q: driveQuery,
+        pageSize: maxResults,
+        fields: 'files(id, name, mimeType, modifiedTime, webViewLink, iconLink, thumbnailLink, owners, description)',
+        orderBy: 'modifiedTime desc',
+      });
+
+      const files = response.data.files || [];
+
+      logger.info('Drive search completed', {
+        userId: request.auth.uid,
+        resultsCount: files.length,
+      });
+
+      // Return results
+      return {
+        files: files.map(file => ({
+          id: file.id,
+          name: file.name,
+          mimeType: file.mimeType,
+          modifiedTime: file.modifiedTime,
+          link: file.webViewLink,
+          iconLink: file.iconLink,
+          thumbnailLink: file.thumbnailLink,
+          owner: file.owners?.[0]?.displayName || 'Unknown',
+          description: file.description || '',
+        })),
+        query,
+        timestamp: new Date().toISOString(),
+      };
+    } catch (error) {
+      logger.error('Error searching Google Drive', {
+        error: error.message,
+        userId: request.auth?.uid,
+      });
+
+      // Handle specific errors
+      if (error.code === 401 || error.message?.includes('invalid_grant')) {
+        throw new HttpsError('unauthenticated', 'Google access token expired. Please sign in again.');
+      }
+
+      if (error.code === 403) {
+        throw new HttpsError('permission-denied', 'Insufficient permissions to access Google Drive.');
+      }
+
+      throw new HttpsError('internal', `Failed to search Google Drive: ${error.message}`);
+    }
   }
 );
