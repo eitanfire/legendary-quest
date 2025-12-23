@@ -12,7 +12,8 @@ import CourseDetailPage from "./pages/CourseDetailPage";
 import WarmUpPage from "./pages/WarmUpPage";
 import BottomText from "./components/BottomText";
 import Header from "./components/Header";
-import { getAuth, onAuthStateChanged, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
+import { onAuthStateChanged, getRedirectResult, GoogleAuthProvider } from "firebase/auth";
+import { auth } from "./app/firebase.config";
 // Vaporwave theme commented out for now
 // import Theme from "./components/ChangeTheme";
 import "./App.css";
@@ -48,7 +49,6 @@ function App() {
       if (redirectHandled.current) return;
       redirectHandled.current = true;
 
-      const auth = getAuth();
       try {
         console.log("🔍 Checking for Google redirect result...");
         const result = await getRedirectResult(auth);
@@ -104,7 +104,6 @@ function App() {
       return;
     }
 
-    const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("🔄 Auth state changed - user logged in:", user.email);

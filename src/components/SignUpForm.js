@@ -12,7 +12,8 @@ import {
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { validateSignUpForm } from "../utils/validateSignUpForm";
 import NotificationForm from "./NotificationForm";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../app/firebase.config";
 
 const SignUpForm = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -23,7 +24,6 @@ const SignUpForm = () => {
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    const auth = getAuth();
     console.log("Submitting form with values:", values);
     try {
       const userCredential = await createUserWithEmailAndPassword(

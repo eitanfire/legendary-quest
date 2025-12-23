@@ -13,10 +13,10 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import defaultAvatar from "../../app/assets/img/favicon.ico"; // Import default avatar image
 import { validateUserLoginForm } from "../../utils/validateUserLoginForm";
 import { Link } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+import { auth } from "../../app/firebase.config";
 
 const UserLoginForm = () => {
-  const auth = getAuth();
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [loginError, setLoginError] = useState(null); // State to store login error
   const currentUser = useSelector(selectCurrentUser);
