@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCourses } from "./features/courses/coursesSlice";
 import { fetchComments } from "./features/comments/commentsSlice";
@@ -34,6 +34,7 @@ function App() {
   const currentUser = useSelector(selectCurrentUser);
   const { hash } = useLocation();
   const redirectHandled = useRef(false);
+  const [isCheckingRedirect, setIsCheckingRedirect] = useState(true);
 
   useEffect(() => {
     dispatch(fetchCourses());
@@ -86,6 +87,9 @@ function App() {
         }
       } catch (error) {
         console.error("❌ Redirect result error:", error);
+      } finally {
+        // Signal that redirect check is complete
+        setIsCheckingRedirect(false);
       }
     };
 
@@ -94,6 +98,12 @@ function App() {
 
   // Listen for Firebase auth state changes and sync with Redux
   useEffect(() => {
+    // Don't process auth state changes while still checking for redirect result
+    if (isCheckingRedirect) {
+      console.log("⏳ Waiting for redirect check to complete...");
+      return;
+    }
+
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -136,7 +146,7 @@ function App() {
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, [dispatch]);
+  }, [dispatch, isCheckingRedirect]);
 
   useEffect(() => {
     if (hash) {
