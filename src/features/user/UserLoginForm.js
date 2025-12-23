@@ -26,7 +26,7 @@ const UserLoginForm = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
-        values.username,
+        values.email,
         values.password
       );
       const user = userCredential.user;
@@ -95,7 +95,7 @@ const UserLoginForm = () => {
         <ModalHeader toggle={() => setLoginModalOpen(false)}>Login</ModalHeader>
         <ModalBody>
           <Formik
-            initialValues={{ username: "", password: "" }}
+            initialValues={{ email: "", password: "" }}
             onSubmit={handleLogin}
             validate={validateUserLoginForm}
           >
@@ -105,15 +105,16 @@ const UserLoginForm = () => {
                   <p className="text-danger">{loginError}</p>
                 )}
                 <FormGroup>
-                  <Label htmlFor="username">
-                    Username
+                  <Label htmlFor="email">
+                    Email
                     <Field
-                      id="username"
-                      name="username"
-                      placeholder="Username"
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Email address"
                       className="form-control"
                     />
-                    <ErrorMessage name="username">
+                    <ErrorMessage name="email">
                       {(msg) => <p className="text-danger">{msg}</p>}
                     </ErrorMessage>
                   </Label>
